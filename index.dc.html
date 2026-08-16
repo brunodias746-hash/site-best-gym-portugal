@@ -94,7 +94,7 @@
       </div>
       <div style="position: absolute; inset: 0; opacity: {{ s1o }}; z-index: {{ s1z }}; pointer-events: {{ s1pe }}; clip-path: {{ s1clip }}; transition: clip-path 1s cubic-bezier(0.65,0,0.35,1), opacity 0.8s;">
         <div style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-performance" src="assets/img/hero-performance.jpg" shape="rect" placeholder="Foto principal — treino real na Best Gym" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-performance" src="assets/img/hero-main-v2.jpg" shape="rect" placeholder="Foto principal — treino real na Best Gym" hint-size="100%,100%"></x-import>
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
@@ -463,10 +463,10 @@ class Component extends DCLogic {
       slideStyles['s' + (i + 1) + 'clip'] = on || wasPrev ? 'inset(0 0 0 0)' : 'inset(0 0 0 100%)';
     });
     const pillarData = [
-      ['24 horas', 'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.', 'pillar-24h', 'Foto — treino noturno / acesso', 'assets/img/acesso-24h.jpg'],
-      ['Estrutura completa', 'Peso livre, cardio, cross training, burn zone e aulas — diferentes zonas para diferentes objetivos, com equipamento preparado.', 'pillar-estrutura', 'Foto — zonas de treino', 'assets/img/area-peso-livre.jpg'],
-      ['Comunidade', 'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', 'pillar-comunidade', 'Foto — comunidade em treino', 'assets/img/comunidade-grupo.jpg'],
-      ['Performance', 'Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.', 'pillar-performance', 'Foto — performance / força', 'assets/img/hero-performance.jpg'],
+      ['24 horas', 'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.', 'pillar-24h', 'Foto — treino noturno / acesso', 'assets/img/pillar-24h-v2.jpg'],
+      ['Estrutura completa', 'Peso livre, cardio, cross training, burn zone e aulas — diferentes zonas para diferentes objetivos, com equipamento preparado.', 'pillar-estrutura', 'Foto — zonas de treino', 'assets/img/pillar-estrutura-v2.jpg'],
+      ['Comunidade', 'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', 'pillar-comunidade', 'Foto — comunidade em treino', 'assets/img/pillar-comunidade-v2.jpg'],
+      ['Performance', 'Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.', 'pillar-performance', 'Foto — performance / força', 'assets/img/pillar-performance-v2.jpg'],
     ];
     const pillars = pillarData.map(([title, text, slotId, slotLabel, slotSrc], i) => {
       const on = i === this.state.pillar;
@@ -698,7 +698,7 @@ class Component extends DCLogic {
           name, desc, meta,
           w: (wide ? base + 40 : base) + 'px',
           slotId: 'area-' + slug,
-          slotSrc: 'assets/img/area-' + slug + '.jpg',
+          slotSrc: slug === 'posing-room' ? 'assets/img/area-posing-room-v2.jpg' : 'assets/img/area-' + slug + '.jpg',
           slotLabel: 'Foto área — ' + name,
           zoomDir: i % 2 ? 'alternate-reverse' : 'alternate',
           dup: i >= areaData.length ? 'true' : 'false',
