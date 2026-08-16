@@ -1,0 +1,95 @@
+/* ============================================================
+   BEST GYM! — COLOR TOKENS  (v2: white-dominant / red-strategic)
+   Positioning: modern Portuguese performance network.
+   Proportion target across a full experience:
+     55–65% white & off-white   ·   20–30% Best Gym red   ·   10–20% black & charcoal
+   White is the base. Red is impact & conversion. Black is contrast only.
+   ============================================================ */
+:root {
+
+  /* ---------- BRAND RED (primary) ---------- */
+  --best-red: #E11507;       /* primary brand red — CTAs, campaign, active states */
+  --red-strong: #C10D02;     /* hover / pressed on solid red */
+  --red-deep: #8E0900;       /* deepest red — shadows, overlays on red */
+  --red-tint: #FF3A2C;       /* highlight / focus glow accent */
+  --red-wash: #FCEAE8;       /* pale red surface — quiet campaign tint */
+  --red-line: #F4C4BF;       /* red-tinted hairline on light */
+
+  /* ---------- INK / BLACK (contrast only) ---------- */
+  --ink: #0E0F11;            /* primary text & true impact sections */
+  --ink-2: #1A1C1F;          /* charcoal — footer, dark cards */
+  --charcoal: #2A2D31;       /* raised dark surface */
+  --graphite: #3C4046;       /* dark hairline / muted dark */
+
+  /* ---------- WHITE / NEUTRALS (dominant base) ---------- */
+  --white: #FFFFFF;          /* the base of the whole system */
+  --off-white: #F6F5F3;      /* page background — warm paper white */
+  --paper: #FBFAF8;          /* card / raised light surface */
+  --mist: #ECEBE7;           /* section fill / muted panel */
+  --line: #E2E0DB;           /* hairline / divider on light */
+  --line-strong: #CFCCC5;    /* stronger border on light */
+
+  --slate: #6B6E73;          /* secondary text on light */
+  --slate-dim: #9A9C9F;      /* captions, metadata, disabled text */
+
+  /* ---------- SEMANTIC — SURFACES ---------- */
+  --bg-base: var(--off-white);      /* default page background (light) */
+  --bg-raised: var(--white);        /* cards, sheets */
+  --bg-muted: var(--mist);          /* quiet panels */
+  --bg-inverse: var(--ink);         /* impact / contrast sections */
+  --bg-inverse-2: var(--ink-2);     /* footer */
+  --bg-brand: var(--best-red);      /* campaign / conversion blocks */
+
+  /* ---------- SEMANTIC — TEXT ---------- */
+  --text-strong: var(--ink);        /* headlines / primary on light */
+  --text-body: #33363A;             /* body copy on light */
+  --text-muted: var(--slate);       /* secondary */
+  --text-faint: var(--slate-dim);   /* captions / disabled */
+  --text-on-dark: var(--white);     /* text on ink / photo */
+  --text-on-dark-muted: #B7B9BC;    /* secondary on dark */
+  --text-on-brand: var(--white);    /* text on red */
+
+  /* ---------- SEMANTIC — BORDERS ---------- */
+  --border-color: var(--line);
+  --border-strong: var(--line-strong);
+  --border-on-dark: rgba(255,255,255,0.14); /* @kind color */
+
+  /* ---------- SEMANTIC — ACCENT / INTERACTION ---------- */
+  --accent: var(--best-red);
+  --accent-hover: var(--red-strong);
+  --accent-press: var(--red-deep);
+  --on-accent: var(--white);
+  --focus-ring: rgba(225,21,7,0.45);   /* visible focus (a11y) */
+
+  /* ---------- STATE COLORS (functional only) ---------- */
+  --state-success: #1E9E5A;
+  --state-warning: #E8A100;
+  --state-error: var(--best-red);
+  --state-info: #2A6FDB;
+
+  /* ---------- INTERACTION STATE LAYERS ---------- */
+  --hover-on-light: rgba(14,15,17,0.04);
+  --active-on-light: rgba(14,15,17,0.08);
+  --hover-on-dark: rgba(255,255,255,0.08);
+  --disabled-surface: var(--mist);
+  --disabled-text: var(--slate-dim);
+
+  /* ---------- PHOTOGRAPHY OVERLAYS ---------- */
+  --overlay-read: linear-gradient(0deg, rgba(14,15,17,0.82) 0%, rgba(14,15,17,0.35) 48%, rgba(14,15,17,0) 100%); /* @kind color */
+  --overlay-ink: linear-gradient(0deg, rgba(14,15,17,0.62), rgba(14,15,17,0.62)); /* @kind color */
+  --overlay-red: linear-gradient(120deg, rgba(225,21,7,0.88) 0%, rgba(142,9,0,0.85) 100%); /* @kind color */
+  --overlay-duotone: linear-gradient(0deg, rgba(225,21,7,0.30), rgba(14,15,17,0.55)); /* @kind color */
+
+  /* ---------- CAMPAIGN COLOR MODES ---------- */
+  --mode-light-bg: var(--off-white);
+  --mode-light-fg: var(--ink);
+  --mode-red-bg: var(--best-red);
+  --mode-red-fg: var(--white);
+  --mode-dark-bg: var(--ink);
+  --mode-dark-fg: var(--white);
+
+  /* ---------- RESTRAINED GRADIENTS (used sparingly) ---------- */
+  --grad-red: linear-gradient(120deg, #E11507 0%, #C10D02 100%);       /* @kind color */
+  --grad-red-soft: linear-gradient(180deg, #FCEAE8 0%, #FBFAF8 100%);  /* @kind color */
+  --grad-ink: linear-gradient(160deg, #1A1C1F 0%, #0E0F11 100%);       /* @kind color */
+}

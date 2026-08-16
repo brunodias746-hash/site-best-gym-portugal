@@ -1,0 +1,57 @@
+/* ============================================================
+   BEST GYM! — TYPOGRAPHY TOKENS  (v2: editorial athletic)
+   Display = Staatliches (condensed athletic caps: headlines, offers, numbers)
+   Text/UI = Poppins       (modern readable geometric sans)
+   Rule: Staatliches for impact & short lines only — NEVER long paragraphs.
+   ============================================================ */
+:root {
+  /* ---------- families ---------- */
+  --font-display: 'Staatliches', 'Anton', Impact, 'Arial Narrow', sans-serif;
+  --font-text: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* legacy aliases (back-compat with older templates) */
+  --font-support: var(--font-display);
+  --font-body: var(--font-text);
+
+  /* ---------- weights (Poppins) ---------- */
+  --fw-regular: 400;    /* @kind font */
+  --fw-medium: 500;     /* @kind font */
+  --fw-semibold: 600;   /* @kind font */
+  --fw-bold: 700;       /* @kind font */
+  --fw-extrabold: 800;  /* @kind font */
+  --fw-black: 900;      /* @kind font */
+
+  /* ---------- editorial type scale ----------
+     Display uses Staatliches; H/body/UI use Poppins.               */
+  --fs-display-xl: clamp(72px, 12vw, 200px); /* @kind font */  /* cover / hero statements */
+  --fs-display-lg: clamp(56px, 8vw, 132px);  /* @kind font */  /* campaign offers */
+  --fs-h1: clamp(40px, 5.4vw, 84px);         /* @kind font */
+  --fs-h2: clamp(32px, 3.8vw, 56px);         /* @kind font */
+  --fs-h3: clamp(26px, 2.6vw, 38px);         /* @kind font */
+  --fs-h4: 24px;         /* @kind font */
+  --fs-stat: clamp(48px, 6vw, 96px);         /* @kind font */  /* big statistics */
+
+  --fs-body-lg: 19px;    /* @kind font */
+  --fs-body: 16px;       /* @kind font */
+  --fs-small: 14px;      /* @kind font */
+  --fs-caption: 13px;    /* @kind font */
+  --fs-meta: 12px;       /* @kind font */   /* metadata / legal */
+  --fs-nav: 15px;        /* @kind font */
+  --fs-button: 15px;     /* @kind font */
+  --fs-eyebrow: 13px;    /* @kind font */   /* uppercase kicker */
+  --fs-section-no: 15px; /* @kind font */   /* section numbering */
+
+  /* ---------- line heights ---------- */
+  --lh-display: 0.90;    /* @kind font */
+  --lh-tight: 1.02;      /* @kind font */
+  --lh-snug: 1.25;       /* @kind font */
+  --lh-normal: 1.6;      /* @kind font */   /* body copy */
+  --lh-relaxed: 1.75;    /* @kind font */
+
+  /* ---------- tracking ---------- */
+  --ls-display: 0.005em; /* @kind font */   /* Staatliches is already condensed */
+  --ls-heading: 0em;     /* @kind font */
+  --ls-body: 0.002em;    /* @kind font */
+  --ls-eyebrow: 0.22em;  /* @kind font */   /* wide-tracked kicker */
+  --ls-nav: 0.02em;      /* @kind font */
+  --ls-button: 0.06em;   /* @kind font */
+}

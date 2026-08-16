@@ -1,0 +1,50 @@
+/* ============================================================
+   BEST GYM! — SPACING & LAYOUT TOKENS
+   ============================================================ */
+:root {
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --space-10: 128px;
+  --space-11: 160px;
+  --space-12: 200px;
+
+  /* editorial layout grid (website / brand book) */
+  --container-max: 1280px;   /* content max width */
+  --container-wide: 1440px;  /* wide sections */
+  --gutter: 32px;            /* desktop column gutter */
+  --gutter-mobile: 20px;
+  --section-y: clamp(64px, 9vw, 140px);  /* @kind spacing */ /* vertical rhythm between sections */
+  --grid-cols: 12;           /* @kind other */ /* editorial grid columns */
+
+  /* responsive breakpoints (reference values) */
+  --bp-mobile-sm: 360px;
+  --bp-mobile: 390px;
+  --bp-mobile-lg: 430px;
+  --bp-tablet: 768px;
+  --bp-tablet-lg: 1024px;
+  --bp-desktop: 1280px;
+
+  /* touch targets (a11y) */
+  --touch-min: 44px;
+
+  /* social safe-area paddings */
+  --pad-feed: 80px;     /* 4:5 / 1:1 side safe margin */
+  --pad-story: 96px;    /* stories vertical safe inset */
+
+  /* container widths */
+  --w-feed: 1080px;
+  --h-feed-portrait: 1350px;
+  --h-feed-square: 1080px;
+  --w-story: 1080px;
+  --h-story: 1920px;
+  --w-banner: 1920px;
+  --h-banner: 1080px;
+}

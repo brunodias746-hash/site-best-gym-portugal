@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    [data-legal] h2 { font-family: var(--font-display); font-weight: 400; font-size: 28px; text-transform: uppercase; color: var(--ink); line-height: 1.05; margin: 20px 0 0; }
+    [data-legal] p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--text-body); }
+    @media (max-width: 900px) { [data-legal-grid] { grid-template-columns: 1fr !important; } [data-legal-nav] { position: static !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Cabeçalho legal" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px) clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px">Política de <span style="color: var(--best-red)">Cookies</span></x-import>
+      <span style="font-size: 14px; color: var(--text-faint);">Última atualização: modelo inicial · a confirmar antes da publicação</span>
+    </section>
+
+    <section data-legal-grid style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start;">
+      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;">Nesta página</span>
+        <a href="#oque" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">O que são</a>
+        <a href="#tipos" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Tipos utilizados</a>
+        <a href="#preferencias" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Gerir preferências</a>
+      </nav>
+      <div data-legal style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
+          <p style="font-size: 14px; color: var(--text-body);"><strong style="color: var(--ink);">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. A lista de cookies deve ser confirmada tecnicamente e revista juridicamente antes da publicação.</p>
+        </div>
+        <h2 id="oque">1. O que são cookies</h2>
+        <p>Cookies são pequenos ficheiros guardados no teu dispositivo que permitem o funcionamento do site e ajudam a melhorar a experiência de navegação.</p>
+        <h2 id="tipos">2. Tipos de cookies utilizados</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+          <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);">Essenciais</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: var(--text-muted);">Necessários ao funcionamento do site. Estão sempre ativos.</span>
+          </div>
+          <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);">Análise</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: var(--text-muted);">Ajudam a perceber como o site é utilizado, de forma agregada.</span>
+          </div>
+          <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);">Marketing</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: var(--text-muted);">Utilizados para comunicação e campanhas, apenas com consentimento.</span>
+          </div>
+        </div>
+        <h2 id="preferencias">3. Gerir as tuas preferências</h2>
+        <p>Podes ativar ou desativar as categorias não essenciais em baixo. Este painel é uma demonstração de interface — a ligação a um gestor de consentimento real será feita antes da publicação.</p>
+        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: clamp(20px, 3vw, 28px); display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-sm);">
+          <label style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+            <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 15px; color: var(--ink);">Essenciais</strong><span style="font-size: 13px; color: var(--text-faint);">Sempre ativos</span></span>
+            <input type="checkbox" checked disabled style="width: 18px; height: 18px; accent-color: var(--best-red);">
+          </label>
+          <div style="height: 1px; background: var(--line);"></div>
+          <label style="display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer;">
+            <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 15px; color: var(--ink);">Análise</strong><span style="font-size: 13px; color: var(--text-faint);">Estatísticas de utilização</span></span>
+            <input name="analise" type="checkbox" onChange="{{ toggleAnalise }}" style="width: 18px; height: 18px; accent-color: var(--best-red);">
+          </label>
+          <div style="height: 1px; background: var(--line);"></div>
+          <label style="display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer;">
+            <span style="display: flex; flex-direction: column; gap: 2px;"><strong style="font-size: 15px; color: var(--ink);">Marketing</strong><span style="font-size: 13px; color: var(--text-faint);">Comunicação e campanhas</span></span>
+            <input name="marketing" type="checkbox" onChange="{{ toggleMarketing }}" style="width: 18px; height: 18px; accent-color: var(--best-red);">
+          </label>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 4px;">
+            <button onClick="{{ savePrefs }}" style="cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 22px; border: none; border-radius: 8px; background: var(--best-red); color: var(--white);" style-hover="background: var(--red-strong);">Guardar preferências</button>
+            <span style="display: {{ savedDisplay }}; font-size: 13px; color: var(--success-fg); font-weight: 600;">Preferências guardadas ✓</span>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; display: flex; flex-wrap: wrap; gap: 16px;">
+          <a href="/privacidade" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Privacidade →</a>
+          <a href="/termos" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Termos e Condições →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { analise: false, marketing: false, saved: false };
+  renderVals() {
+    return {
+      savedDisplay: this.state.saved ? 'inline' : 'none',
+      toggleAnalise: (e) => this.setState({ analise: e.target.checked, saved: false }),
+      toggleMarketing: (e) => this.setState({ marketing: e.target.checked, saved: false }),
+      savePrefs: () => this.setState({ saved: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

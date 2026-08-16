@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero inscrição" style="max-width: 900px; margin: 0 auto; padding: clamp(48px, 7vw, 88px) clamp(20px, 4vw, 48px) clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px; text-align: center; align-items: center;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" align="center" hint-size="100%,120px">Começa <span style="color: var(--best-red)">hoje.</span></x-import>
+      <p style="margin: 0; max-width: 50ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Escolhe a tua unidade e consulta as condições disponíveis. A inscrição é concluída na plataforma oficial.</p>
+      <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; row-gap: 10px; gap: 0; margin-top: 10px;">
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{ step1Color }};"><span style="width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: {{ step1Bg }}; color: {{ step1Fg }}; font-family: var(--font-display); font-size: 14px;">1</span> Unidade</span>
+        <span style="width: 40px; height: 1.5px; background: var(--line-strong); margin: 0 10px;"></span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: {{ step2Color }};"><span style="width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: {{ step2Bg }}; color: {{ step2Fg }}; font-family: var(--font-display); font-size: 14px;">2</span> Condições</span>
+        <span style="width: 40px; height: 1.5px; background: var(--line-strong); margin: 0 10px;"></span>
+        <span style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-faint);"><span style="width: 26px; height: 26px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--mist); color: var(--text-faint); font-family: var(--font-display); font-size: 14px;">3</span> Plataforma</span>
+      </div>
+    </section>
+
+    <section data-screen-label="Escolha de unidade" style="max-width: 900px; margin: 0 auto; padding: clamp(16px, 2vw, 24px) clamp(20px, 4vw, 48px) clamp(56px, 8vw, 96px); display: flex; flex-direction: column; gap: 20px;">
+      <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <sc-for list="{{ unitOptions }}" as="u" hint-placeholder-count="2">
+          <button onClick="{{ u.select }}" style="cursor: pointer; text-align: left; background: var(--surface-1); border: 2px solid {{ u.border }}; border-radius: 14px; padding: 24px 26px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.25s, box-shadow 0.25s; box-shadow: {{ u.shadow }}; font-family: var(--font-text);">
+            <span style="display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; color: var(--ink); line-height: 1;">{{ u.city }}</span>
+              <span style="width: 20px; height: 20px; border-radius: 50%; border: 2px solid {{ u.border }}; display: inline-flex; align-items: center; justify-content: center;"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{ u.dot }};"></span></span>
+            </span>
+            <span style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">{{ u.address }}</span>
+            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--best-red);">24H · 7 dias · 365</span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 14px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--best-red);">Campanha do mês · Olá verão, olá descontos</span>
+        <span style="font-family: var(--font-display); font-size: clamp(28px, 3.6vw, 42px); text-transform: uppercase; color: var(--ink); line-height: 0.95;">3 meses de oferta + inscrição grátis</span>
+        <span style="font-size: 13.5px; color: var(--text-muted);">Não fiques de fora. Condições e termos apresentados na plataforma oficial de inscrição.</span>
+      </div>
+
+      <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 24px;">
+        <li style="display: flex; align-items: center; gap: 12px; font-size: 14.5px;"><span style="width: 18px; height: 2.5px; background: var(--best-red); flex: 0 0 auto;"></span>Acesso 24 horas, 365 dias</li>
+        <li style="display: flex; align-items: center; gap: 12px; font-size: 14.5px;"><span style="width: 18px; height: 2.5px; background: var(--best-red); flex: 0 0 auto;"></span>Estrutura completa de treino</li>
+        <li style="display: flex; align-items: center; gap: 12px; font-size: 14.5px;"><span style="width: 18px; height: 2.5px; background: var(--best-red); flex: 0 0 auto;"></span>Comunidade e acompanhamento</li>
+        <li style="display: flex; align-items: center; gap: 12px; font-size: 14.5px;"><span style="width: 18px; height: 2.5px; background: var(--best-red); flex: 0 0 auto;"></span>Sem burocracia — inscrição online</li>
+      </ul>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 8px;">
+        <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none; display: flex;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" block="{{ true }}" disabled="{{ ctaDisabled }}" hint-size="100%,56px">{{ ctaLabel }}</x-import>
+        </a>
+        <span style="font-size: 12.5px; color: var(--text-faint); text-align: center;">Vais continuar para a plataforma oficial de inscrição (subscribe.myf.pt), num separador externo e seguro.</span>
+      </div>
+
+      <div style="border-top: 1px solid var(--line); padding-top: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+        <span style="font-size: 14px; color: var(--text-muted);">Dúvidas antes de te inscreveres?</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px;">
+          <a href="/faq" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ver FAQ →</a>
+          <a href="/contactos" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Falar connosco →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { unit: null };
+  renderVals() {
+    const units = [
+      { city: 'Valongo', address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo' },
+      { city: 'Vila Nova de Famalicão', address: 'Av. Centenário da República, D68, Calendário · 4760-859 Famalicão' },
+    ];
+    const sel = this.state.unit;
+    const chosen = sel !== null;
+    return {
+      unitOptions: units.map((u, i) => ({
+        ...u,
+        select: () => this.setState({ unit: i }),
+        border: sel === i ? 'var(--best-red)' : 'var(--line)',
+        dot: sel === i ? 'var(--best-red)' : 'transparent',
+        shadow: sel === i ? 'var(--shadow-md)' : 'none',
+      })),
+      ctaDisabled: !chosen,
+      ctaLabel: chosen ? 'Continuar para a inscrição — ' + units[sel].city : 'Escolhe primeiro a tua unidade',
+      step1Color: 'var(--ink)', step1Bg: 'var(--best-red)', step1Fg: 'var(--white)',
+      step2Color: chosen ? 'var(--ink)' : 'var(--text-faint)',
+      step2Bg: chosen ? 'var(--best-red)' : 'var(--mist)',
+      step2Fg: chosen ? 'var(--white)' : 'var(--text-faint)',
+    };
+  }
+}
+</script>
+</body>
+</html>

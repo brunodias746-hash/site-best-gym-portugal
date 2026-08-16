@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white); min-height: 100vh; display: flex; flex-direction: column;">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px; flex: 1; display: flex; align-items: center;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="404" style="max-width: 900px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
+      <span style="font-family: var(--font-display); font-size: clamp(120px, 22vw, 260px); line-height: 0.85; color: var(--best-red); letter-spacing: 0.02em;">404</span>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" align="center" hint-size="100%,90px">Página não encontrada.</x-import>
+      <p style="margin: 0; max-width: 46ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: var(--text-muted);">Esta página não existe ou mudou de sítio. O treino, esse, continua no mesmo lugar — 24 horas por dia.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
+        <a href="/" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="200px,56px">Voltar ao início</x-import></a>
+        <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" size="lg" hint-size="200px,56px">Ver as unidades</x-import></a>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

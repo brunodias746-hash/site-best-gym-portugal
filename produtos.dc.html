@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="produtos" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero produtos" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) clamp(32px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px">Produtos <span style="color: var(--best-red)">Best Gym</span></x-import>
+      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Identidade, performance e comunidade dentro e fora do ginásio. Catálogo disponível nas unidades — pede informações à equipa.</p>
+    </section>
+
+    <section data-screen-label="Catálogo" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 120px); display: flex; flex-direction: column; gap: 28px;">
+      <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
+          <button role="tab" onClick="{{ f.select }}" style="flex: 0 0 auto; cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 20px; border-radius: 999px; border: 1.5px solid {{ f.border }}; background: {{ f.bg }}; color: {{ f.color }}; transition: all 0.25s;">{{ f.name }}</button>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px;">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="7">
+          <article style="display: {{ p.display }}; flex-direction: column; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
+            <div style="position: relative; aspect-ratio: 1;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" src="{{ p.slotSrc }}" shape="rect" placeholder="{{ p.slotLabel }}" hint-size="100%,100%"></x-import>
+            </div>
+            <div style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1;">
+              <span style="font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1;">{{ p.name }}</span>
+              <span style="font-size: 13.5px; line-height: 1.55; color: var(--text-muted);">{{ p.desc }}</span>
+              <a href="/contactos" style="margin-top: auto; padding-top: 10px; text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Consultar disponibilidade →</a>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 14px; padding: clamp(22px, 3vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <span style="font-size: 15px; color: var(--text-body); max-width: 62ch;"><strong style="color: var(--ink);">Disponível na unidade.</strong> Os produtos Best Gym são vendidos diretamente nas unidades de Valongo e Famalicão — fala com a equipa para conheceres cores, tamanhos e disponibilidade.</span>
+        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" hint-size="190px,48px">Pedir informações</x-import></a>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 0 };
+  renderVals() {
+    const filters = ['Todos', 'Hidratação', 'Acessórios', 'Lifestyle'];
+    const data = [
+      ['Garrafa Training', 'Hidratação', 'Garrafa térmica em inox para o dia inteiro.', 'cat-garrafa', 'assets/prod/garrafa.jpg'],
+      ['Shaker Best', 'Hidratação', 'Shaker resistente com marca Best Gym.', 'cat-shaker', 'assets/prod/shaker.jpg'],
+      ['Toalha Gym', 'Acessórios', 'Toalha de treino compacta e absorvente, em preto ou cinza.', 'cat-toalha', 'assets/prod/toalha.jpg'],
+      ['Saco Best', 'Acessórios', 'Saco de treino com espaço para tudo.', 'cat-saco', 'assets/prod/saco.jpg'],
+      ['Mochila Tactical', 'Acessórios', 'Mochila 45L com painel MOLLE e porta-chaves incluído.', 'cat-mochila', 'assets/prod/mochila.jpg'],
+      ['Cadeado Best', 'Acessórios', 'Cadeado de combinação para o cacifo.', 'cat-cadeado', 'assets/prod/cadeado.jpg'],
+      ['Porta-chaves 25 KG', 'Lifestyle', 'Porta-chaves em forma de disco 25 kg.', 'cat-chaveiro', 'assets/prod/porta-chaves.jpg'],
+    ];
+    const active = filters[this.state.filter];
+    return {
+      filters: filters.map((name, i) => ({
+        name,
+        select: () => this.setState({ filter: i }),
+        bg: i === this.state.filter ? 'var(--best-red)' : 'transparent',
+        color: i === this.state.filter ? 'var(--white)' : 'var(--ink)',
+        border: i === this.state.filter ? 'var(--best-red)' : 'var(--line-strong)',
+      })),
+      products: data.map(([name, cat, desc, slotId, slotSrc]) => ({
+        name, cat, desc, slotId, slotSrc,
+        slotLabel: 'Foto oficial — ' + name,
+        display: active === 'Todos' || active === cat ? 'flex' : 'none',
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

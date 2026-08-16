@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    @media (max-width: 1060px) { [data-bg-desknav] { display: none !important; } }
+    @media (min-width: 1061px) { [data-bg-mobilecta] { display: none !important; } [data-bg-menulabel] { display: inline !important; } }
+    @media (max-width: 640px) { [data-bg-striplong] { display: none !important; } [data-bg-stripshort] { display: inline !important; } [data-bg-hdrcta] { display: none !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text);">
+  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 900;">
+    <a href="/em-breve" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
+      <span data-bg-striplong>Nova unidade · São João da Madeira abre em breve</span>
+      <span data-bg-stripshort style="display: none;">São João da Madeira · em breve</span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;">Saber mais <span aria-hidden="true">→</span></span>
+    </a>
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: {{ barBorder }}; box-shadow: {{ barShadow }}; height: {{ barHeight }}; transition: height 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s;">
+      <a href="/" style="display: flex; align-items: center; flex: 0 0 auto;">
+        <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 34px; display: block;">
+      </a>
+      <nav data-bg-desknav aria-label="Navegação principal" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 30px);">
+        <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
+          <a href="{{ item.href }}" style="text-decoration: none; font-size: var(--fs-nav); letter-spacing: var(--ls-nav); font-weight: {{ item.weight }}; color: {{ item.color }}; padding: 6px 0; border-bottom: 2px solid {{ item.rule }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="display: flex; align-items: center; gap: 14px; flex: 0 0 auto;">
+        <button type="button" data-theme-toggle onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
+          <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
+          <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
+        </button>
+        <a data-bg-hdrcta href="/inscricao" style="text-decoration: none;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px">Inscreve-te</x-import>
+        </a>
+        <button onClick="{{ openMenu }}" aria-label="Abrir menu" style="display: flex; align-items: center; gap: 10px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; cursor: pointer; color: var(--ink); font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="border-color: var(--text-1);">
+          <span data-bg-menulabel style="display: none;">Menu</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="width: 18px; height: 2px; background: currentColor; display: block;"></span>
+            <span style="width: 18px; height: 2px; background: currentColor; display: block;"></span>
+            <span style="width: 12px; height: 2px; background: var(--best-red); display: block;"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div onClick="{{ closeMenu }}" style="position: fixed; inset: 0; z-index: 950; background: rgba(14,15,17,0.55); opacity: {{ ovOpacity }}; pointer-events: {{ ovPE }}; transition: opacity 0.4s cubic-bezier(0.22,0.61,0.36,1);"></div>
+  <aside aria-label="Menu" style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 960; width: min(420px, 92vw); background: var(--surface-1); transform: {{ drawerX }}; transition: transform 0.45s cubic-bezier(0.22,0.61,0.36,1); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; padding-bottom: env(safe-area-inset-bottom);">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-bottom: 1px solid var(--line);">
+      <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 28px;">
+      <button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background: transparent; border: none; cursor: pointer; font-size: 26px; line-height: 1; color: var(--ink); width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;" style-hover="color: var(--best-red);">×</button>
+    </div>
+    <div style="padding: 28px; display: flex; flex-direction: column; gap: 28px;">
+      <nav aria-label="Menu completo" style="display: flex; flex-direction: column; gap: 4px;">
+        <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
+          <a href="{{ item.href }}" onClick="{{ closeMenu }}" style="text-decoration: none; font-family: var(--font-display); font-size: clamp(28px, 8vw, 34px); text-transform: uppercase; line-height: 1.2; padding: 2px 0; color: {{ item.color }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 10px 16px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Aspeto</span>
+        <button type="button" data-theme-toggle data-wide onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
+          <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
+          <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
+          {{ themeAction }}
+        </button>
+      </div>
+      <a href="/inscricao" style="text-decoration: none;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" hint-size="100%,48px">Inscreve-te agora</x-import>
+      </a>
+      <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Campanha do mês</div>
+        <div style="margin-top: 8px; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">3 meses de oferta + inscrição grátis</div>
+        <a href="/campanha" style="display: inline-block; margin-top: 10px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; border-bottom: 1.5px solid var(--best-red);">Aderir agora →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Valongo</span>
+          <a href="tel:+351926447998" style="color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500;" style-hover="color: var(--best-red);">+351 926 447 998</a>
+          <a href="mailto:valongo@bestgym.pt" style="color: var(--text-muted); text-decoration: none; font-size: 13px;" style-hover="color: var(--best-red);">valongo@bestgym.pt</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Famalicão</span>
+          <a href="tel:+351925908404" style="color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 500;" style-hover="color: var(--best-red);">+351 925 908 404</a>
+          <a href="mailto:famalicao@bestgym.pt" style="color: var(--text-muted); text-decoration: none; font-size: 13px;" style-hover="color: var(--best-red);">famalicao@bestgym.pt</a>
+        </div>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+        <span style="font-family: var(--font-display); font-size: 18px; text-transform: uppercase; color: var(--ink);">Aberto <span style="color: var(--best-red);">24H</span> · 365 dias</span>
+        <a href="https://instagram.com" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;" style-hover="color: var(--best-red);">Instagram</a>
+      </div>
+    </div>
+  </aside>
+
+  <div data-bg-mobilecta style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 940; display: flex; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--surface-1-a); backdrop-filter: blur(10px); border-top: 1px solid var(--line);">
+    <a href="/inscricao" style="flex: 1; text-decoration: none; display: flex;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" size="sm" hint-size="100%,44px">Inscreve-te agora</x-import>
+    </a>
+    <a href="/contactos" style="flex: 0 0 auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1.5px solid var(--text-1); border-radius: 8px; color: var(--ink); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">Contactos</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:400},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;inicio&quot;,&quot;unidades&quot;,&quot;bbb&quot;,&quot;produtos&quot;,&quot;conteudos&quot;,&quot;sobre&quot;,&quot;contactos&quot;,&quot;&quot;],&quot;default&quot;:&quot;inicio&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navegação&quot;}}">
+class Component extends DCLogic {
+  state = { scrolled: false, open: false, hideStrip: false, theme: (window.BGTheme && window.BGTheme.get()) || 'dark' };
+  componentDidMount() {
+    this._onTheme = (e) => this.setState({ theme: (e.detail && e.detail.theme) || 'dark' });
+    window.addEventListener('bg-theme-change', this._onTheme);
+    this._lastY = 0;
+    this._onScroll = () => {
+      const y = window.scrollY;
+      const s = y > 24;
+      const down = y > this._lastY + 4 && y > 160;
+      const up = y < this._lastY - 4 || y < 160;
+      this._lastY = y;
+      const hideStrip = down ? true : (up ? false : this.state.hideStrip);
+      if (s !== this.state.scrolled || hideStrip !== this.state.hideStrip) this.setState({ scrolled: s, hideStrip });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onKeyDown = (e) => { if (e.key === 'Escape' && this.state.open) this._setOpen(false); };
+    window.addEventListener('keydown', this._onKeyDown);
+  }
+  _setOpen(open) {
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    this.setState({ open });
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this._onScroll);
+    window.removeEventListener('keydown', this._onKeyDown);
+    window.removeEventListener('bg-theme-change', this._onTheme);
+    document.documentElement.style.overflow = '';
+  }
+  renderVals() {
+    const active = this.props.active || '';
+    const items = [
+      ['inicio', 'Início', '/'],
+      ['unidades', 'Unidades', '/unidades'],
+      ['bbb', 'Built By Best', '/built-by-best'],
+      ['produtos', 'Produtos', '/produtos'],
+      ['conteudos', 'Conteúdos', '/conteudos'],
+      ['sobre', 'Sobre', '/sobre'],
+      ['contactos', 'Contactos', '/contactos'],
+    ].map(([id, label, href]) => ({
+      label, href,
+      color: id === active ? 'var(--best-red)' : 'var(--ink)',
+      weight: id === active ? 600 : 500,
+      rule: id === active ? 'var(--best-red)' : 'transparent',
+    }));
+    const dark = this.state.theme !== 'light';
+    return {
+      items,
+      themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',
+      themeAction: dark ? 'Claro' : 'Escuro',
+      toggleTheme: () => { if (window.BGTheme) this.setState({ theme: window.BGTheme.toggle() }); },
+      openMenu: () => this._setOpen(true),
+      closeMenu: () => this._setOpen(false),
+      barShadow: this.state.scrolled ? '0 6px 24px rgba(14,15,17,0.08)' : 'none',
+      barHeight: this.state.scrolled ? '64px' : '80px',
+      stripMax: this.state.hideStrip && !this.state.open ? '0px' : '60px',
+      stripPad: this.state.hideStrip && !this.state.open ? '0px 20px' : '9px 20px',
+      barBorder: this.state.scrolled ? '1px solid var(--line)' : '1px solid transparent',
+      drawerX: this.state.open ? 'translateX(0)' : 'translateX(105%)',
+      ovOpacity: this.state.open ? 1 : 0,
+      ovPE: this.state.open ? 'auto' : 'none',
+    };
+  }
+}
+</script>
+</body>
+</html>

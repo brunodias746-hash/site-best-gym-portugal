@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="unidades" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero unidades" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) clamp(36px, 5vw, 64px); display: flex; flex-direction: column; gap: 20px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px">Duas unidades. <span style="color: var(--best-red)">Uma terceira a caminho.</span></x-import>
+      <p style="margin: 0; max-width: 60ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Acesso 24 horas, estrutura completa e uma comunidade preparada para evoluir contigo. A rede Best Gym está construída para crescer — a tua unidade pode ser a próxima.</p>
+    </section>
+
+    <section data-screen-label="Cartões de unidade" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 8vw, 96px); display: flex; flex-direction: column; gap: 28px;">
+      <article data-two-col style="display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="position: relative; min-height: 340px;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="unidades-valongo" src="assets/img/unidade-valongo.jpg" shape="rect" placeholder="Foto Best Gym Valongo — interior" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--best-red);">Unidade 01</span>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 4vw, 56px); text-transform: uppercase; color: var(--ink); line-height: 0.95;">Valongo</h2>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.65;">Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.</p>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--text-muted);">
+            <span>Avenida 25 de Abril, 381 · 4440-502 Valongo</span>
+            <a href="tel:+351926447998" style="text-decoration: none; color: var(--ink); font-weight: 500;">+351 926 447 998</a>
+            <a href="mailto:valongo@bestgym.pt" style="text-decoration: none; color: var(--ink); font-weight: 500;">valongo@bestgym.pt</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Peso Livre</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Cardio</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Cross Training</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Aulas</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 10px;">
+            <a href="/unidade-valongo" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="190px,48px">Conhecer unidade</x-import></a>
+            <a href="https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ver localização →</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-two-col style="display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm);">
+        <div style="position: relative; min-height: 340px;">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="unidades-famalicao" src="assets/img/unidade-famalicao.jpg" shape="rect" placeholder="Foto Best Gym Famalicão — interior" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--best-red);">Unidade 02</span>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 4vw, 56px); text-transform: uppercase; color: var(--ink); line-height: 0.95;">Vila Nova de Famalicão</h2>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.65;">Um espaço completo para treinar com liberdade, intensidade e acompanhamento.</p>
+          <div style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--text-muted);">
+            <span>Avenida Centenário da República, D68, Calendário · 4760-859 Vila Nova de Famalicão</span>
+            <a href="tel:+351925908404" style="text-decoration: none; color: var(--ink); font-weight: 500;">+351 925 908 404</a>
+            <a href="mailto:famalicao@bestgym.pt" style="text-decoration: none; color: var(--ink); font-weight: 500;">famalicao@bestgym.pt</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Peso Livre</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Cardio</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Burn Zone</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--mist); color: var(--text-body); padding: 6px 12px; border-radius: 6px;">Aulas</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 10px;">
+            <a href="/unidade-famalicao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="190px,48px">Conhecer unidade</x-import></a>
+            <a href="https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ver localização →</a>
+          </div>
+        </div>
+      </article>
+
+      <article data-two-col style="display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--invert-1); color: var(--text-on-dark); border: var(--border-on-dark); border-radius: 18px; overflow: hidden;">
+        <div style="position: relative; min-height: 340px; display: flex; align-items: center; justify-content: center; background: var(--invert-2); overflow: hidden;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 0%, rgba(227,30,36,0.22), transparent 62%);"></div>
+          <div style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 32px;">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--best-red);">Brevemente</span>
+            <span style="font-family: var(--font-display); font-size: clamp(44px, 6vw, 72px); line-height: 0.9; text-transform: uppercase; color: var(--white);">São João<br>da Madeira</span>
+            <span style="font-size: 13px; letter-spacing: 0.06em; color: var(--text-on-dark-muted);">Obra a decorrer · abertura a anunciar</span>
+          </div>
+        </div>
+        <div style="padding: clamp(28px, 4vw, 48px); display: flex; flex-direction: column; gap: 16px;">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--best-red);">Unidade 03 · Em breve</span>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 4vw, 56px); text-transform: uppercase; color: var(--white); line-height: 0.95;">São João da Madeira</h2>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: var(--text-on-dark-muted);">A terceira casa Best Gym está a nascer. O mesmo acesso 24 horas, a mesma estrutura, a mesma comunidade — agora mais perto de quem treina em São João da Madeira.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--invert-3); color: var(--text-on-dark); padding: 6px 12px; border-radius: 6px;">Acesso 24H</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--invert-3); color: var(--text-on-dark); padding: 6px 12px; border-radius: 6px;">Peso Livre</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--invert-3); color: var(--text-on-dark); padding: 6px 12px; border-radius: 6px;">Cardio</span>
+            <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; background: var(--invert-3); color: var(--text-on-dark); padding: 6px 12px; border-radius: 6px;">Aulas</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: auto; padding-top: 10px;">
+            <a href="/em-breve" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="220px,48px">Quero ser avisado</x-import></a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section data-screen-label="Acesso 24h" style="background: var(--invert-1); color: var(--text-on-dark);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(28px, 4vw, 56px); align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" tone="light" hint-size="100%,150px">A tua evolução <span style="color: var(--best-red)">não tem horário.</span></x-import>
+          <p style="margin: 0; max-width: 52ch; font-size: 16px; line-height: 1.65; color: var(--text-on-dark-muted);">O acesso é feito de forma autónoma e segura, 24 horas por dia, 7 dias por semana, 365 dias por ano. Depois da inscrição, entras e treinas quando fizer sentido para ti.</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, auto); gap: clamp(20px, 3vw, 44px); justify-content: start;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Stat" value="24" label="Horas" tone="light" hint-size="110px,110px"></x-import>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Stat" value="7" label="Dias por semana" tone="light" hint-size="110px,110px"></x-import>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Stat" value="365" label="Dias por ano" tone="light" hint-size="110px,110px"></x-import>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="CTA final" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Escolhe a tua unidade e começa <span style="color: var(--best-red)">hoje.</span></x-import>
+      <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+        <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
+        <a href="/campanha" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" size="lg" hint-size="220px,56px">Ver campanha ativa</x-import></a>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

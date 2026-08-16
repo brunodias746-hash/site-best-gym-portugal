@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    [data-legal] h2 { font-family: var(--font-display); font-weight: 400; font-size: 28px; text-transform: uppercase; color: var(--ink); line-height: 1.05; margin: 20px 0 0; }
+    [data-legal] p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--text-body); }
+    [data-legal] ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 1.6; color: var(--text-body); }
+    @media (max-width: 900px) { [data-legal-grid] { grid-template-columns: 1fr !important; } [data-legal-nav] { position: static !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Cabeçalho legal" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px) clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px">Termos e <span style="color: var(--best-red)">Condições</span></x-import>
+      <span style="font-size: 14px; color: var(--text-faint);">Última atualização: modelo inicial · a confirmar antes da publicação</span>
+    </section>
+
+    <section data-legal-grid style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start;">
+      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;">Nesta página</span>
+        <a href="#objeto" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Objeto</a>
+        <a href="#inscricoes" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Inscrições</a>
+        <a href="#acesso" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Acesso 24h</a>
+        <a href="#campanhas" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Campanhas</a>
+        <a href="#responsabilidade" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Responsabilidade</a>
+      </nav>
+      <div data-legal style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
+          <p style="font-size: 14px; color: var(--text-body);"><strong style="color: var(--ink);">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.</p>
+        </div>
+        <h2 id="objeto">1. Objeto</h2>
+        <p>Os presentes termos regulam a utilização do site da Best Gym e o acesso aos serviços de inscrição, contacto e informação sobre as unidades e programas.</p>
+        <h2 id="inscricoes">2. Inscrições</h2>
+        <p>As inscrições são concluídas na plataforma oficial. As condições comerciais aplicáveis, incluindo mensalidades e campanhas, são apresentadas nesse processo e podem estar sujeitas a alterações.</p>
+        <h2 id="acesso">3. Acesso 24 horas</h2>
+        <p>O acesso às unidades é pessoal e intransmissível, disponível 24 horas por dia, 365 dias por ano. O utilizador compromete-se a respeitar as regras de utilização e segurança das instalações.</p>
+        <ul>
+          <li>O meio de acesso é individual e não deve ser partilhado.</li>
+          <li>O incumprimento das regras pode originar a suspensão do acesso.</li>
+        </ul>
+        <h2 id="campanhas">4. Campanhas e promoções</h2>
+        <p>As campanhas têm caráter temporário e regem-se por termos específicos apresentados na plataforma de inscrição. Nenhuma informação neste site constitui uma proposta contratual vinculativa de preço.</p>
+        <h2 id="responsabilidade">5. Limitação de responsabilidade</h2>
+        <p>A Best Gym procura manter a informação atualizada, mas não garante a ausência de erros ou interrupções. Para dúvidas contacta-nos através da página de <a href="/contactos">contactos</a>.</p>
+        <div style="border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; display: flex; flex-wrap: wrap; gap: 16px;">
+          <a href="/privacidade" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Privacidade →</a>
+          <a href="/cookies" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Cookies →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

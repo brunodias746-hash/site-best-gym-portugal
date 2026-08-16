@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: 1px solid var(--line);">
+    <a href="/" style="display: flex; align-items: center;"><img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 30px;"></a>
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <a href="/" style="text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Ver o site completo</a>
+      <button type="button" data-theme-toggle onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
+        <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
+        <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
+      </button>
+      <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px">Aderir agora</x-import></a>
+    </div>
+  </header>
+  <main style="padding-top: 72px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero campanha" style="position: relative; background: var(--invert-1); overflow: hidden;">
+      <div style="position: absolute; inset: 0; opacity: 0.4;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="campanha-hero" shape="rect" placeholder="Arte da campanha — treino de verão" hint-size="100%,100%"></x-import>
+      </div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(142,9,0,0.85) 0%, rgba(14,15,17,0.75) 70%); pointer-events: none;"></div>
+      <div style="position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; pointer-events: none;">
+        <h1 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 9vw, 132px); line-height: 0.9; text-transform: uppercase; color: var(--white); text-wrap: balance;">Olá verão,<br><span style="color: var(--red-tint);">olá descontos</span></h1>
+        <span style="font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); text-transform: uppercase; color: rgba(255,255,255,0.9); letter-spacing: 0.04em;">Não fiques de fora</span>
+        <div style="background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.35); border-radius: 14px; padding: 18px 30px; backdrop-filter: blur(6px);">
+          <span style="font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 42px); text-transform: uppercase; color: var(--white); line-height: 1;">3 meses de oferta + inscrição grátis</span>
+        </div>
+        <div style="pointer-events: auto; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 8px;">
+          <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="190px,56px">Aderir agora</x-import></a>
+          <a href="/inscricao" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 18px 32px; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 8px; color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;" style-hover="background: rgba(255,255,255,0.12);">Escolher unidade</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Benefícios" style="max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" align="center" hint-size="100%,60px">O que <span style="color: var(--best-red)">levas.</span></x-import>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
+          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">3</span>
+          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Meses de oferta</span>
+          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Condições apresentadas na plataforma oficial.</span>
+        </div>
+        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
+          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">0€</span>
+          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Inscrição grátis</span>
+          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Sem custo de inscrição durante a campanha.</span>
+        </div>
+        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
+          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">24H</span>
+          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Acesso total</span>
+          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Treina a qualquer hora, todos os dias do ano.</span>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Unidades campanha" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div style="max-width: 1100px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" align="center" hint-size="100%,60px">Escolhe a tua unidade</x-import>
+        <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <a href="/unidade-valongo" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: var(--best-red); box-shadow: var(--shadow-md);">
+            <span style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--ink);">Valongo</span>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Avenida 25 de Abril, 381 · 4440-502 Valongo</span>
+            <span style="color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Conhecer unidade →</span>
+          </a>
+          <a href="/unidade-famalicao" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: var(--best-red); box-shadow: var(--shadow-md);">
+            <span style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--ink);">Vila Nova de Famalicão</span>
+            <span style="font-size: 13.5px; color: var(--text-muted);">Av. Centenário da República, D68, Calendário</span>
+            <span style="color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Conhecer unidade →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="FAQ campanha" style="max-width: 800px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="70%,60px">Perguntas rápidas</x-import>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Accordion" items="{{ faqItems }}" hint-size="100%,220px"></x-import>
+      <span style="font-size: 12px; color: var(--text-faint); line-height: 1.6;">Campanha limitada no tempo. Termos e condições completos disponíveis na plataforma oficial de inscrição. Conteúdo comercial sujeito a confirmação — não são apresentados preços nesta página.</span>
+    </section>
+
+    <section data-screen-label="CTA final campanha" style="background: var(--grad-red);">
+      <div style="max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" align="center" hint-size="100%,160px">Não fiques de fora.</x-import>
+        <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="190px,56px">Aderir agora</x-import></a>
+        <span style="font-size: 12.5px; color: rgba(255,255,255,0.75);">Inscrição concluída na plataforma oficial subscribe.myf.pt</span>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: (window.BGTheme && window.BGTheme.get()) || 'dark' };
+  componentDidMount() {
+    this._onTheme = (e) => this.setState({ theme: (e.detail && e.detail.theme) || 'dark' });
+    window.addEventListener('bg-theme-change', this._onTheme);
+  }
+  componentWillUnmount() { window.removeEventListener('bg-theme-change', this._onTheme); }
+  renderVals() {
+    const dark = this.state.theme !== 'light';
+    return {
+      themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',
+      toggleTheme: () => { if (window.BGTheme) this.setState({ theme: window.BGTheme.toggle() }); },
+      faqItems: [
+        { q: 'Como adiro à campanha?', a: 'Clica em "Aderir agora" e conclui a inscrição na plataforma oficial. A campanha é aplicada durante o processo.' },
+        { q: 'Posso escolher qualquer unidade?', a: 'Sim, a campanha é válida nas unidades de Valongo e Vila Nova de Famalicão.' },
+        { q: 'Onde vejo os termos completos?', a: 'Os termos e condições completos da campanha são apresentados na plataforma oficial de inscrição.' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

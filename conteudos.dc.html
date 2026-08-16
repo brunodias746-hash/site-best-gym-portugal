@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="conteudos" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero conteúdos" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px) clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 18px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px">Conhecimento <span style="color: var(--best-red)">que rende.</span></x-import>
+      <p style="margin: 0; max-width: 58ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Treino, performance, recuperação e comunidade — conteúdo prático da equipa Best Gym.</p>
+    </section>
+
+    <section data-screen-label="Hub de conteúdos" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
+        <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+          <sc-for list="{{ filters }}" as="f" hint-placeholder-count="7">
+            <button role="tab" onClick="{{ f.select }}" style="flex: 0 0 auto; cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase; padding: 11px 18px; border-radius: 999px; border: 1.5px solid {{ f.border }}; background: {{ f.bg }}; color: {{ f.color }}; transition: all 0.25s;">{{ f.name }}</button>
+          </sc-for>
+        </div>
+        <input type="search" placeholder="Pesquisar conteúdos" aria-label="Pesquisar" onInput="{{ onSearch }}" style="font-family: var(--font-text); font-size: 16px; padding: 12px 16px; border: 1.5px solid var(--line-strong); border-radius: 999px; background: var(--surface-1); color: var(--ink); outline: none; min-width: 220px;">
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
+        <sc-for list="{{ articles }}" as="art" hint-placeholder-count="6">
+          <a href="conteudo-detalhe.dc.html" style="display: {{ art.display }}; flex-direction: column; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
+            <div onClick="{{ slotClick }}" style="position: relative; aspect-ratio: 16 / 9;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ art.slotId }}" src="{{ art.slotSrc }}" shape="rect" placeholder="{{ art.slotLabel }}" hint-size="100%,100%"></x-import>
+            </div>
+            <div style="padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">{{ art.cat }}</span>
+                <span style="font-size: 12px; color: var(--text-faint);">{{ art.date }}</span>
+              </div>
+              <span style="font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">{{ art.title }}</span>
+              <span style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">{{ art.excerpt }}</span>
+              <span style="margin-top: auto; padding-top: 8px; color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Ler artigo →</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <div style="display: {{ emptyDisplay }}; background: var(--surface-1); border: 1.5px dashed var(--line-strong); border-radius: 14px; padding: 40px; text-align: center; flex-direction: column; gap: 8px; align-items: center;">
+        <span style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; color: var(--ink);">Sem resultados</span>
+        <span style="font-size: 14px; color: var(--text-muted);">Experimenta outra pesquisa ou categoria.</span>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 0, query: '' };
+  renderVals() {
+    const filters = ['Todos', 'Treino', 'Performance', 'Recuperação', 'Comunidade', 'Eventos', 'Built By Best'];
+    const data = [
+      ['Treino', 'Como estruturar a tua semana de treino', 'Princípios simples para organizar sessões, recuperação e progressão.', '10 Jul 2026', 'hub-semana', 'assets/img/artigo-planeamento.jpg'],
+      ['Performance', 'Consistência: o multiplicador de resultados', 'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', '02 Jul 2026', 'hub-consistencia', 'assets/img/hero-performance.jpg'],
+      ['Recuperação', 'Dormir bem também é treinar', 'O papel do sono na recuperação e na performance diária.', '24 Jun 2026', 'hub-sono', 'assets/img/artigo-recuperacao.jpg'],
+      ['Comunidade', 'Treinar acompanhado muda tudo', 'O papel da comunidade na motivação e na evolução a longo prazo.', '15 Jun 2026', 'hub-comunidade', 'assets/img/comunidade-grupo.jpg'],
+      ['Eventos', 'O que aconteceu no último evento Best Gym', 'Resumo da atividade que juntou membros das duas unidades.', '05 Jun 2026', 'hub-evento', 'assets/img/comunidade-evento.jpg'],
+      ['Built By Best', 'Dentro do programa: como funciona um check-in', 'O acompanhamento mensal explicado passo a passo.', '28 Mai 2026', 'hub-checkin', 'assets/img/artigo-checkin.jpg'],
+    ];
+    const active = filters[this.state.filter];
+    const q = this.state.query.toLowerCase();
+    const articles = data.map(([cat, title, excerpt, date, slotId, slotSrc]) => {
+      const catOk = active === 'Todos' || cat === active;
+      const qOk = !q || (title + ' ' + excerpt + ' ' + cat).toLowerCase().includes(q);
+      return { cat, title, excerpt, date, slotId, slotSrc, slotLabel: 'Capa artigo — ' + title, display: catOk && qOk ? 'flex' : 'none' };
+    });
+    return {
+      filters: filters.map((name, i) => ({
+        name,
+        select: () => this.setState({ filter: i }),
+        bg: i === this.state.filter ? 'var(--best-red)' : 'transparent',
+        color: i === this.state.filter ? 'var(--white)' : 'var(--ink)',
+        border: i === this.state.filter ? 'var(--best-red)' : 'var(--line-strong)',
+      })),
+      articles,
+      onSearch: (e) => this.setState({ query: e.target.value }),
+      // impede a navegação do cartão-link quando se clica no slot de imagem (upload)
+      slotClick: (e) => { if (e.target && e.target.closest && e.target.closest('image-slot')) e.preventDefault(); },
+      emptyDisplay: articles.some(a => a.display === 'flex') ? 'none' : 'flex',
+    };
+  }
+}
+</script>
+</body>
+</html>

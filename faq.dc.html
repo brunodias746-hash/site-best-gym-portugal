@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero FAQ" style="max-width: 900px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px) clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px">Tens <span style="color: var(--best-red)">dúvidas?</span></x-import>
+      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Respostas rápidas sobre inscrição, horários, unidades, Built By Best e produtos. Não encontras o que procuras? <a href="/contactos">Fala connosco</a>.</p>
+    </section>
+
+    <section data-screen-label="Categorias FAQ" style="max-width: 900px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: flex; flex-direction: column; gap: 40px;">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="5">
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <span style="display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--ink);"><span style="width: 26px; height: 3px; background: var(--best-red);"></span>{{ g.name }}</span>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Accordion" items="{{ g.items }}" hint-size="100%,200px"></x-import>
+        </div>
+      </sc-for>
+      <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+        <span style="font-size: 15px; color: var(--text-body);">Ainda com dúvidas? A equipa responde-te rapidamente.</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="180px,48px">Fala connosco</x-import></a>
+          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px">Inscreve-te</x-import></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      groups: [
+        { name: 'Inscrição', items: [
+          { q: 'Como posso inscrever-me?', a: 'A inscrição é feita online, na plataforma oficial. Escolhe a unidade, consulta as condições e conclui o processo em poucos minutos.' },
+          { q: 'Posso escolher a unidade?', a: 'Sim. Durante a inscrição escolhes Valongo ou Vila Nova de Famalicão.' },
+          { q: 'Existe campanha ativa?', a: 'Sim — a campanha do mês oferece 3 meses de oferta + inscrição grátis. Consulta os termos na página da campanha.' },
+        ]},
+        { name: 'Horários', items: [
+          { q: 'O ginásio está aberto 24 horas?', a: 'Sim. As unidades Best Gym funcionam 24 horas por dia, 7 dias por semana, 365 dias por ano.' },
+          { q: 'Como funciona o acesso?', a: 'O acesso é autónomo e pessoal. Depois da inscrição recebes o teu meio de acesso e entras a qualquer hora.' },
+        ]},
+        { name: 'Unidades', items: [
+          { q: 'Que áreas de treino existem?', a: 'Peso livre, cardio, cross training, burn zone, posing room, aulas de grupo e personal training. As áreas podem variar por unidade.' },
+          { q: 'Existem duches?', a: 'Sim, ambas as unidades dispõem de balneários com duches.' },
+          { q: 'Como posso visitar a unidade?', a: 'Contacta a unidade por telefone ou email e agenda uma visita com a equipa.' },
+        ]},
+        { name: 'Built By Best', items: [
+          { q: 'O que inclui o programa?', a: 'Avaliação, planeamento adaptado, vídeos de execução, monitorização de progresso e ajustes regulares com contacto próximo.' },
+          { q: 'Como posso pedir informações?', a: 'Usa o formulário de contacto e escolhe o assunto "Built By Best" — a equipa responde-te com os próximos passos.' },
+        ]},
+        { name: 'Produtos', items: [
+          { q: 'Onde posso comprar?', a: 'Os produtos Best Gym estão disponíveis diretamente nas unidades de Valongo e Famalicão.' },
+          { q: 'Existe venda online?', a: 'De momento não. O catálogo online serve para consulta — a compra é feita na unidade.' },
+        ]},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

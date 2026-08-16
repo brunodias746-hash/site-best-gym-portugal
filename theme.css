@@ -1,0 +1,161 @@
+/* ============================================================
+   BEST GYM! — DARK / LIGHT THEME LAYER
+   Semantic theme tokens on top of the BEST GYM design system.
+   Components consume tokens only; never hardcode per-theme colour.
+
+   Roles:
+     --surface-0  page background
+     --surface-1  cards / raised panels / header bar
+     --surface-2  paper / quiet raised
+     --surface-3  muted panel / chips
+     --invert-1/2/3  impact ("dark") sections — dark in BOTH themes
+     --text-1     primary type (flips)  ·  --ink is aliased to it
+     --ink-fixed / --white-fixed  poles that never flip
+   ============================================================ */
+
+:root { color-scheme: light dark; }
+
+:root,
+html[data-theme] {
+  --ink-fixed: #0E0F11;
+  --white-fixed: #FFFFFF;
+}
+
+/* ---------------- LIGHT (editorial, white-dominant) ---------------- */
+html[data-theme="light"] {
+  --surface-0: #F6F5F3;
+  --surface-1: #FFFFFF;
+  --surface-2: #FBFAF8;
+  --surface-3: #ECEBE7;
+  --surface-1-a: rgba(255,255,255,0.94);
+
+  --invert-1: #0E0F11;
+  --invert-2: #1A1C1F;
+  --invert-3: #2A2D31;
+
+  --text-1: #0E0F11;
+
+  --success-wash: #E8F6EE;
+  --success-line: #BFE5CE;
+  --success-fg: #167140;
+}
+
+/* ---------------- DARK (cinematic, contrast-built) ---------------- */
+html[data-theme="dark"] {
+  --surface-0: #070707;
+  --surface-1: #131315;
+  --surface-2: #0F0F10;
+  --surface-3: #1A1A1C;
+  --surface-1-a: rgba(19,19,21,0.94);
+
+  /* impact sections stay dark — they read as elevated bands */
+  --invert-1: #17171A;
+  --invert-2: #101013;
+  --invert-3: #232328;
+
+  --text-1: #F7F7F2;
+
+  /* design-system token overrides (text + light-surface roles only) */
+  --ink: #F7F7F2;
+  --off-white: #070707;
+  --paper: #0F0F10;
+  --mist: #1A1A1C;
+
+  --text-strong: #FFFFFF;
+  --text-body: #DEDED8;
+  --text-muted: #A6A6A1;
+  --text-faint: #8A8A85;
+  --slate: #A6A6A1;
+  --slate-dim: #8A8A85;
+
+  --line: #2B2B2D;
+  --line-strong: #3A3A3E;
+
+  --bg-base: #070707;
+  --bg-raised: #131315;
+  --bg-muted: #1A1A1C;
+  --bg-inverse: #17171A;
+  --bg-inverse-2: #101013;
+  --mode-dark-bg: #17171A;
+  --mode-light-bg: #131315;
+  --mode-light-fg: #F7F7F2;
+
+  --red-wash: #26100D;
+  --red-line: #4A1A14;
+
+  --disabled-surface: #1A1A1C;
+  --disabled-text: #6C6C67;
+  --hover-on-light: rgba(255,255,255,0.06);
+  --active-on-light: rgba(255,255,255,0.10);
+
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 10px 28px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.4);
+  --shadow-lg: 0 20px 54px rgba(0,0,0,0.6), 0 6px 16px rgba(0,0,0,0.45);
+  --shadow-xl: 0 34px 86px rgba(0,0,0,0.65);
+
+  --focus-ring: rgba(255,86,74,0.6);
+  --grad-red-soft: linear-gradient(180deg, #26100D 0%, #0F0F10 100%);
+  --grad-ink: linear-gradient(160deg, #232328 0%, #101013 100%);
+
+  --success-wash: #0E2418;
+  --success-line: #1E4E33;
+  --success-fg: #6FD79B;
+}
+
+/* ---------------- design-system component patches (dark only) ----------------
+   The DS primitives are inline-styled; these rules re-point the few variants
+   whose colours assume a light page. Marked via data-ds-btn on the mount. */
+html[data-theme="dark"] button[data-ds-btn="on-dark"] {
+  color: var(--ink-fixed) !important;
+}
+html[data-theme="dark"] button[data-ds-btn="dark"] {
+  background: var(--invert-3) !important;
+  border-color: var(--invert-3) !important;
+  color: var(--white-fixed) !important;
+}
+html[data-theme="dark"] button[data-ds-btn="outline"]:hover {
+  background: rgba(255,255,255,0.10) !important;
+  color: var(--text-1) !important;
+}
+
+/* Photo slots keep a light backdrop in dark mode so the empty upload frame,
+   its dashed ring and caption stay visible (shadow DOM styles assume light). */
+html[data-theme="dark"] image-slot:not([data-filled]) { background: #E8E7E3; }
+
+/* ---------------- theme switcher ---------------- */
+[data-theme-toggle] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  padding: 0;
+  background: transparent;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--text-1);
+  cursor: pointer;
+  transition: border-color 160ms var(--ease-standard), background 160ms var(--ease-standard);
+}
+[data-theme-toggle]:hover { border-color: var(--text-1); background: var(--hover-on-light); }
+[data-theme-toggle]:focus-visible { outline: var(--focus-outline); outline-offset: var(--focus-offset); }
+[data-theme-toggle] svg { width: 19px; height: 19px; display: block; }
+[data-theme-toggle][data-wide] {
+  width: auto;
+  padding: 0 14px;
+  font-family: var(--font-text);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+[data-theme-icon] { display: inline-flex; align-items: center; justify-content: center; }
+html[data-theme="light"] [data-theme-icon="moon"] { display: none !important; }
+html[data-theme="dark"] [data-theme-icon="sun"] { display: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme-toggle] { transition: none; }
+}

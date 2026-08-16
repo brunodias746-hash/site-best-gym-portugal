@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="bbb" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero BBB" style="position: relative; background: var(--invert-1); overflow: hidden;">
+      <div style="position: absolute; inset: 0; opacity: 0.45;">
+        <video data-hero-video src="assets/video/built-by-best.mp4" autoPlay="{{ true }}" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="auto" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; display: block;"></video>
+      </div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.92) 0%, rgba(14,15,17,0.5) 65%, rgba(142,9,0,0.4) 100%); pointer-events: none;"></div>
+      <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: clamp(80px, 11vw, 160px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px; pointer-events: none;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-xl" tone="light" as="h1" hint-size="100%,200px">Built By <span style="color: var(--best-red)">Best</span></x-import>
+        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">Treino com direção. Acompanhamento com método. Evolução com resultados.</p>
+        <div style="pointer-events: auto;">
+          <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Quero saber mais</x-import></a>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="O que é" style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 48px);">
+      <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,160px">Não é apenas um <span style="color: var(--best-red)">plano de treino.</span></x-import>
+          <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Built By Best é um programa de acompanhamento criado para quem pretende treinar com mais clareza, consistência e controlo sobre a evolução.</p>
+        </div>
+        <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bbb-oque" src="assets/img/artigo-checkin.jpg" shape="rect" placeholder="Foto acompanhamento — trainer e membro" hint-size="100%,100%"></x-import>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Método" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px;">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Quatro fases, um objetivo</x-import>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+          <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+            <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 28px 26px; display: flex; flex-direction: column; gap: 14px;">
+              <span style="font-family: var(--font-display); font-size: 48px; line-height: 1; color: var(--best-red);">{{ s.no }}</span>
+              <span style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; color: var(--ink); line-height: 1;">{{ s.name }}</span>
+              <span style="font-size: 14.5px; line-height: 1.6; color: var(--text-muted);">{{ s.desc }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Benefícios" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+      <div data-two-col style="display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(28px, 5vw, 72px); align-items: center;">
+        <div style="position: relative; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bbb-beneficios" src="assets/img/editorial-membro.jpg" shape="rect" placeholder="Foto treino orientado" hint-size="100%,100%"></x-import>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 22px;">
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px">Tudo o que ganhas com <span style="color: var(--best-red)">método.</span></x-import>
+          <ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px;">
+            <sc-for list="{{ benefits }}" as="b" hint-placeholder-count="7">
+              <li style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text-body);"><span style="width: 18px; height: 2.5px; background: var(--best-red); flex: 0 0 auto;"></span>{{ b }}</li>
+            </sc-for>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Vídeos" style="background: var(--invert-1);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 32px;">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" tone="light" hint-size="100%,60px">Execução com direção</x-import>
+          </div>
+          <div role="tablist" aria-label="Filtros de vídeo" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{ videoFilters }}" as="f" hint-placeholder-count="4">
+              <button role="tab" onClick="{{ f.select }}" style="cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; padding: 10px 16px; border-radius: 999px; border: 1.5px solid {{ f.border }}; background: {{ f.bg }}; color: {{ f.color }}; transition: all 0.25s;">{{ f.name }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+          <sc-for list="{{ videos }}" as="v" hint-placeholder-count="3">
+            <div style="display: {{ v.display }}; flex-direction: column; background: var(--invert-3); border: 1px solid var(--border-on-dark); border-radius: 14px; overflow: hidden;">
+              <div style="position: relative; aspect-ratio: 16 / 9;">
+                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ v.slotId }}" src="{{ v.slotSrc }}" shape="rect" placeholder="{{ v.slotLabel }}" hint-size="100%,100%"></x-import>
+                <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+                  <span style="width: 54px; height: 54px; border-radius: 50%; background: rgba(225,21,7,0.92); display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 18px; padding-left: 4px;">▶</span>
+                </span>
+              </div>
+              <div style="padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">{{ v.cat }}</span>
+                <span style="font-family: var(--font-display); font-size: 21px; text-transform: uppercase; color: var(--white); line-height: 1.05;">{{ v.title }}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <span style="font-size: 12.5px; color: var(--text-on-dark-muted);">Conteúdos de exemplo — os vídeos oficiais Built By Best serão adicionados quando disponíveis.</span>
+      </div>
+    </section>
+
+    <section data-screen-label="Resultados" style="max-width: 900px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px; text-align: center; align-items: center;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" align="center" hint-size="100%,60px">Histórias reais, aprovadas primeiro</x-import>
+      <p style="margin: 0; max-width: 58ch; font-size: 16px; line-height: 1.65; color: var(--text-muted);">Os resultados do programa serão apresentados com histórias reais de membros, apenas depois de aprovadas. Não publicamos transformações inventadas nem promessas sem contexto.</p>
+    </section>
+
+    <section data-screen-label="CTA final" style="background: var(--grad-red);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" align="center" hint-size="100%,200px">Começa a construir a tua melhor versão.</x-import>
+        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="320px,56px">Falar com a equipa Built By Best</x-import></a>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 0 };
+  componentDidMount() {
+    // o vídeo da hero pode ficar em pausa se o autoplay for avaliado antes do metadata
+    this._kickVideo = () => {
+      const v = document.querySelector('video[data-hero-video]');
+      if (v && v.paused) { v.muted = true; v.play().catch(() => {}); }
+    };
+    this._kickVideo();
+    setTimeout(this._kickVideo, 300);
+    document.addEventListener('pointerdown', this._kickVideo, { once: true });
+  }
+  renderVals() {
+    const filters = ['Todos', 'Execução', 'Acompanhamento', 'Programa'];
+    const videoData = [
+      ['Execução', 'Padrões de agachamento', 'bbb-video-1', 'assets/img/area-peso-livre.jpg'],
+      ['Acompanhamento', 'Check-in mensal de progresso', 'bbb-video-2', 'assets/img/artigo-checkin.jpg'],
+      ['Programa', 'Como funciona o Built By Best', 'bbb-video-3', 'assets/img/built-by-best.jpg'],
+      ['Execução', 'Técnica de levantamento terra', 'bbb-video-4', 'assets/img/hero-noturno-24h.jpg'],
+      ['Acompanhamento', 'Ajustes de plano de treino', 'bbb-video-5', 'assets/img/artigo-planeamento.jpg'],
+      ['Programa', 'A avaliação inicial', 'bbb-video-6', 'assets/img/area-personal-training.jpg'],
+    ];
+    const active = filters[this.state.filter];
+    return {
+      steps: [
+        { no: '01', name: 'Avaliação', desc: 'Ponto de partida claro: objetivos, histórico e contexto.' },
+        { no: '02', name: 'Planeamento', desc: 'Um plano adaptado a ti, não um modelo genérico.' },
+        { no: '03', name: 'Execução', desc: 'Treino com direção e vídeos de apoio à execução.' },
+        { no: '04', name: 'Acompanhamento', desc: 'Monitorização, ajustes regulares e contacto próximo.' },
+      ],
+      benefits: ['Objetivos definidos', 'Treino adaptado', 'Vídeos de acompanhamento', 'Controlo de progresso', 'Ajustes regulares', 'Contacto próximo', 'Foco em performance'],
+      videoFilters: filters.map((name, i) => ({
+        name,
+        select: () => this.setState({ filter: i }),
+        bg: i === this.state.filter ? 'var(--best-red)' : 'transparent',
+        color: i === this.state.filter ? 'var(--white)' : 'var(--text-on-dark-muted)',
+        border: i === this.state.filter ? 'var(--best-red)' : 'var(--border-on-dark)',
+      })),
+      videos: videoData.map(([cat, title, slotId, slotSrc]) => ({
+        cat, title, slotId, slotSrc,
+        slotLabel: 'Miniatura vídeo — ' + title,
+        display: active === 'Todos' || active === cat ? 'flex' : 'none',
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

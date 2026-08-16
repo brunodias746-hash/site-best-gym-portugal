@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
+    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
+    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+  </style>
+</helmet>
+<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
+  <dc-import name="Header" active="unidades" hint-size="100%,116px"></dc-import>
+  <main style="padding-top: 115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <section data-screen-label="Hero em breve" style="position: relative; background: var(--invert-1); overflow: hidden;">
+      <div style="position: absolute; inset: 0; opacity: 0.38;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="embreve-hero" src="assets/img/hero-noturno-24h.jpg" shape="rect" placeholder="Foto — nova unidade São João da Madeira" hint-size="100%,100%"></x-import>
+      </div>
+      <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,15,17,0.9) 0%, rgba(14,15,17,0.55) 60%, rgba(142,9,0,0.45) 100%); pointer-events: none;"></div>
+      <div style="position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px; pointer-events: none;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-xl" tone="light" as="h1" hint-size="100%,220px">Best Gym <span style="color: var(--best-red)">São João da Madeira.</span></x-import>
+        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">A terceira unidade Best Gym está a nascer em São João da Madeira. Regista o teu interesse e sê dos primeiros a saber a data de abertura e as condições de inauguração.</p>
+      </div>
+    </section>
+
+    <section data-screen-label="Detalhes + interesse" style="max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px);">
+      <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 34px); display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Cidade</span>
+              <span style="font-family: var(--font-display); font-size: 40px; text-transform: uppercase; color: var(--ink); line-height: 1;">A anunciar</span>
+            </div>
+            <div style="height: 1px; background: var(--line);"></div>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Abertura prevista</span>
+              <span style="font-family: var(--font-display); font-size: 40px; text-transform: uppercase; color: var(--best-red); line-height: 1;">Brevemente</span>
+            </div>
+            <div style="height: 1px; background: var(--line);"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">O que será igual em todas as unidades</span>
+              <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Acesso 24 horas, 365 dias</li>
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Estrutura completa de treino</li>
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Comunidade e cultura Best Gym</li>
+              </ul>
+            </div>
+            <span style="font-size: 12px; color: var(--text-faint); line-height: 1.6;">Nota editável: cidade, morada e data de abertura serão atualizadas assim que confirmadas.</span>
+          </div>
+        </div>
+
+        <form onSubmit="{{ submitForm }}" noValidate style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; padding: clamp(26px, 4vw, 40px); display: flex; flex-direction: column; gap: 16px; box-shadow: var(--shadow-sm);">
+          <span style="font-family: var(--font-display); font-size: 30px; text-transform: uppercase; color: var(--ink); line-height: 1;">Regista o teu interesse</span>
+          <span style="font-size: 14px; color: var(--text-muted); line-height: 1.55;">Deixa o teu contacto e avisamos-te em primeira mão sobre a nova unidade.</span>
+          <div style="display: {{ successDisplay }}; background: var(--success-wash); border: 1px solid var(--success-line); border-radius: 10px; padding: 16px 18px; color: var(--success-fg); font-size: 14px; line-height: 1.5;">Interesse registado. Vamos manter-te a par das novidades desta unidade.</div>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink);">Nome *
+            <input name="nome" type="text" autoComplete="name" style="font-family: var(--font-text); font-size: 16px; padding: 13px 14px; border: 1.5px solid var(--line-strong); border-radius: 8px; background: var(--paper); color: var(--ink); outline: none;" style-focus="border-color: var(--best-red); box-shadow: 0 0 0 3px var(--focus-ring);">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink);">Email *
+            <input name="email" type="email" autoComplete="email" style="font-family: var(--font-text); font-size: 16px; padding: 13px 14px; border: 1.5px solid var(--line-strong); border-radius: 8px; background: var(--paper); color: var(--ink); outline: none;" style-focus="border-color: var(--best-red); box-shadow: 0 0 0 3px var(--focus-ring);">
+          </label>
+          <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink);">Cidade de interesse
+            <input name="cidade" type="text" style="font-family: var(--font-text); font-size: 16px; padding: 13px 14px; border: 1.5px solid var(--line-strong); border-radius: 8px; background: var(--paper); color: var(--ink); outline: none;" style-focus="border-color: var(--best-red); box-shadow: 0 0 0 3px var(--focus-ring);">
+          </label>
+          <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--text-muted); font-weight: 400;">
+            <input name="privacidade" type="checkbox" style="margin-top: 3px; width: 16px; height: 16px; accent-color: var(--best-red);">
+            <span>Aceito a <a href="/privacidade" style="color: var(--best-red);">Política de Privacidade</a>. *</span>
+          </label>
+          <div style="display: {{ errorDisplay }}; background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 10px; padding: 14px 16px; color: var(--red-strong); font-size: 13.5px; line-height: 1.5;">{{ errorMsg }}</div>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Button" type="submit" size="lg" block="{{ true }}" hint-size="100%,56px">Quero ser avisado</x-import>
+          <a href="https://instagram.com" target="_blank" rel="noopener" style="text-align: center; text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted);">Ou segue as novidades no Instagram →</a>
+        </form>
+      </div>
+    </section>
+
+    <section data-screen-label="Unidades atuais" style="background: var(--surface-1); border-top: 1px solid var(--line);">
+      <div style="max-width: 1100px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;">
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Já podes treinar connosco <span style="color: var(--best-red)">agora.</span></x-import>
+        <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Ver unidades ativas</x-import></a>
+      </div>
+    </section>
+  </main>
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { status: 'idle', errorMsg: '' };
+  renderVals() {
+    return {
+      successDisplay: this.state.status === 'success' ? 'block' : 'none',
+      errorDisplay: this.state.status === 'error' ? 'block' : 'none',
+      errorMsg: this.state.errorMsg,
+      submitForm: (e) => {
+        e.preventDefault();
+        const f = e.target;
+        const missing = [];
+        if (!f.nome.value.trim()) missing.push('nome');
+        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push('email válido');
+        if (!f.privacidade.checked) missing.push('aceitação da política de privacidade');
+        if (missing.length) {
+          this.setState({ status: 'error', errorMsg: 'Verifica os seguintes campos: ' + missing.join(', ') + '.' });
+          return;
+        }
+        this.setState({ status: 'success', errorMsg: '' });
+        f.reset();
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

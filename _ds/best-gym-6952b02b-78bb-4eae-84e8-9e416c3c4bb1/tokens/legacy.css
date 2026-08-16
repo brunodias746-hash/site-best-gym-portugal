@@ -1,0 +1,47 @@
+/* ============================================================
+   BEST GYM! — LEGACY TOKEN ALIASES (v1 → v2 bridge)
+   v1 was black-dominant. v2 is white-dominant. These aliases keep
+   pre-v2 templates (dark event/campaign posters) rendering without
+   breakage. New work should use the v2 semantic tokens directly.
+   ============================================================ */
+:root {
+  /* v1 blacks / surfaces */
+  --deep-black: #0E0F11;   /* @kind color */
+  --gym-black: #16181B;    /* @kind color */
+  --graphite-2: #2A2D31;   /* @kind color */
+  --hairline: rgba(255,255,255,0.12); /* @kind color */
+
+  /* v1 reds */
+  --hot-red: #E11507;      /* @kind color */
+
+  /* v1 grays */
+  --smoke: #B7B9BC;        /* @kind color */
+  --smoke-dim: #7C7E82;    /* @kind color */
+
+  /* v1 gradients (dark posters) */
+  --grad-poster: linear-gradient(180deg, #0E0F11 0%, #E11507 50%, #0E0F11 100%); /* @kind color */
+  --grad-red-fade: linear-gradient(180deg, rgba(225,21,7,0.9) 0%, rgba(14,15,17,0.96) 100%); /* @kind color */
+  --grad-readability: linear-gradient(0deg, rgba(14,15,17,0.92) 0%, rgba(14,15,17,0.55) 45%, rgba(14,15,17,0) 100%); /* @kind color */
+  --grad-red-glow: radial-gradient(60% 60% at 50% 50%, rgba(225,21,7,0.55) 0%, rgba(225,21,7,0) 70%); /* @kind color */
+  --grad-diagonal: linear-gradient(120deg, #E11507 0%, #8E0900 100%); /* @kind color */
+
+  /* v1 glows / borders */
+  --glow-red-sm: 0 0 18px rgba(225,21,7,0.5);  /* @kind shadow */
+  --glow-red-md: 0 0 36px rgba(225,21,7,0.55); /* @kind shadow */
+  --glow-red-lg: 0 0 80px rgba(225,21,7,0.45); /* @kind shadow */
+  --border-frame: 3px solid var(--white);      /* @kind other */
+
+  /* v1 type scale aliases */
+  --fs-hero: var(--fs-display-xl);   /* @kind font */
+  --fs-display: var(--fs-display-lg);/* @kind font */
+  --fs-title: 24px;                  /* @kind font */
+  --fs-lead: 20px;                   /* @kind font */
+  --fs-tag: 13px;                    /* @kind font */
+  --fw-body: 400;    /* @kind font */
+  --fw-semibold: 600;/* @kind font */
+  --fw-black: 800;   /* @kind font */
+  --ls-tag: 0.14em;  /* @kind font */
+
+  /* v1 motion */
+  --ease-snap: cubic-bezier(0.2, 0.9, 0.2, 1); /* @kind other */
+}

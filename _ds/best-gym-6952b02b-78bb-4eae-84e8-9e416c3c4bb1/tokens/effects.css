@@ -1,0 +1,69 @@
+/* ============================================================
+   BEST GYM! — EFFECTS  (v2: premium editorial)
+   Radii, borders, shadows, focus, motion. Restrained.
+   No grunge, no fake scratches, no smoke. Red is used as a precise
+   accent (thin rules, glow on conversion), never as heavy texture.
+   ============================================================ */
+:root {
+  /* ---------- corner radii (soft-premium, not pill-friendly) ---------- */
+  --radius-0: 0px;
+  --radius-sm: 4px;
+  --radius-md: 8px;      /* default card / input */
+  --radius-lg: 14px;     /* large cards, media */
+  --radius-xl: 22px;     /* feature panels */
+  --radius-pill: 999px;
+
+  /* ---------- borders ---------- */
+  --border-thin: 1px solid var(--line);
+  --border-strong: 1.5px solid var(--line-strong);
+  --border-ink: 1.5px solid var(--ink);
+  --border-red: 1.5px solid var(--best-red);
+  --rule-red: 3px solid var(--best-red);       /* editorial red rule / underline */
+  --border-on-dark: 1px solid rgba(255,255,255,0.14); /* @kind other */
+
+  /* ---------- shadows (soft, on light) ---------- */
+  --shadow-xs: 0 1px 2px rgba(14,15,17,0.06);
+  --shadow-sm: 0 2px 8px rgba(14,15,17,0.06), 0 1px 2px rgba(14,15,17,0.04);
+  --shadow-md: 0 8px 24px rgba(14,15,17,0.08), 0 2px 6px rgba(14,15,17,0.05);
+  --shadow-lg: 0 18px 48px rgba(14,15,17,0.12), 0 6px 16px rgba(14,15,17,0.06);
+  --shadow-xl: 0 32px 80px rgba(14,15,17,0.16);
+  --shadow-on-dark: 0 20px 60px rgba(0,0,0,0.55);
+
+  /* ---------- red glow (conversion accent, used sparingly) ---------- */
+  --glow-cta: 0 8px 22px rgba(225,21,7,0.28);
+  --glow-cta-hover: 0 12px 30px rgba(225,21,7,0.38);
+  --glow-red-soft: 0 0 0 4px rgba(225,21,7,0.12);
+
+  /* ---------- focus (accessibility, always visible) ---------- */
+  --focus-outline: 3px solid var(--focus-ring);
+  --focus-offset: 2px;
+
+  /* ---------- editorial signature angles ---------- */
+  --skew-band: -4deg;    /* @kind other */  /* subtle campaign band tilt */
+  --skew-tag: -3deg;     /* @kind other */
+
+  /* ---------- very subtle paper grain (optional, ~3%) ---------- */
+  --noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"); /* @kind other */
+
+  /* ---------- motion (controlled, premium, athletic) ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);   /* @kind other */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);       /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* @kind other */
+  --dur-fast: 160ms;    /* @kind other */  /* hover, taps */
+  --dur-base: 280ms;    /* @kind other */  /* cards, tabs */
+  --dur-slow: 520ms;    /* @kind other */  /* reveals, transitions */
+  --dur-reveal: 800ms;  /* @kind other */  /* scroll entrances */
+
+  /* image hover scale (controlled) */
+  --img-hover-scale: 1.04;  /* @kind other */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;   /* @kind other */
+    --dur-base: 0ms;   /* @kind other */
+    --dur-slow: 0ms;   /* @kind other */
+    --dur-reveal: 0ms; /* @kind other */
+    --img-hover-scale: 1; /* @kind other */
+  }
+}
