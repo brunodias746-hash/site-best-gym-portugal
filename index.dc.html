@@ -61,7 +61,7 @@
   <dc-import name="Header" active="inicio" hint-size="100%,116px"></dc-import>
 
   <main style="padding-top: 115px;">
-    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience-v3.js" hint-size="1px,1px"></x-import>
 
     <section data-screen-label="Hero" aria-label="Destaques" onMouseEnter="{{ pauseHero }}" onMouseLeave="{{ resumeHero }}" style="position: relative; height: min(calc(100svh - 116px), 900px); min-height: 620px; background: var(--invert-1); overflow: hidden;">
       <div style="position: absolute; inset: 0; opacity: {{ s3o }}; z-index: {{ s3z }}; pointer-events: {{ s3pe }}; clip-path: {{ s3clip }}; transition: clip-path 1s cubic-bezier(0.65,0,0.35,1), opacity 0.8s;">
