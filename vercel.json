@@ -2,31 +2,118 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/", "destination": "/index.dc.html" },
-    { "source": "/unidades", "destination": "/unidades.dc.html" },
-    { "source": "/unidade-valongo", "destination": "/unidade-valongo.dc.html" },
-    { "source": "/unidade-famalicao", "destination": "/unidade-famalicao.dc.html" },
-    { "source": "/built-by-best", "destination": "/built-by-best.dc.html" },
-    { "source": "/produtos", "destination": "/produtos.dc.html" },
-    { "source": "/conteudos", "destination": "/conteudos.dc.html" },
-    { "source": "/sobre", "destination": "/sobre.dc.html" },
-    { "source": "/contactos", "destination": "/contactos.dc.html" },
-    { "source": "/inscricao", "destination": "/inscricao.dc.html" },
-    { "source": "/campanha", "destination": "/campanha.dc.html" },
-    { "source": "/faq", "destination": "/faq.dc.html" },
-    { "source": "/em-breve", "destination": "/em-breve.dc.html" },
-    { "source": "/privacidade", "destination": "/privacidade.dc.html" },
-    { "source": "/termos", "destination": "/termos.dc.html" },
-    { "source": "/cookies", "destination": "/cookies.dc.html" }
+    {
+      "source": "/",
+      "destination": "/index.dc.html"
+    },
+    {
+      "source": "/unidades",
+      "destination": "/unidades.dc.html"
+    },
+    {
+      "source": "/unidade-valongo",
+      "destination": "/unidade-valongo.dc.html"
+    },
+    {
+      "source": "/unidade-famalicao",
+      "destination": "/unidade-famalicao.dc.html"
+    },
+    {
+      "source": "/built-by-best",
+      "destination": "/built-by-best.dc.html"
+    },
+    {
+      "source": "/produtos",
+      "destination": "/produtos.dc.html"
+    },
+    {
+      "source": "/conteudos",
+      "destination": "/conteudos.dc.html"
+    },
+    {
+      "source": "/conteudo-detalhe",
+      "destination": "/conteudo-detalhe.dc.html"
+    },
+    {
+      "source": "/sobre",
+      "destination": "/sobre.dc.html"
+    },
+    {
+      "source": "/contactos",
+      "destination": "/contactos.dc.html"
+    },
+    {
+      "source": "/inscricao",
+      "destination": "/inscricao.dc.html"
+    },
+    {
+      "source": "/campanha",
+      "destination": "/campanha.dc.html"
+    },
+    {
+      "source": "/faq",
+      "destination": "/faq.dc.html"
+    },
+    {
+      "source": "/em-breve",
+      "destination": "/em-breve.dc.html"
+    },
+    {
+      "source": "/privacidade",
+      "destination": "/privacidade.dc.html"
+    },
+    {
+      "source": "/termos",
+      "destination": "/termos.dc.html"
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cookies.dc.html"
+    }
   ],
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.unsplash.com; media-src 'self' blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://subscribe.myf.pt; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        }
+      ]
+    },
+    {
       "source": "/assets/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
     },
     {
       "source": "/_ds/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }

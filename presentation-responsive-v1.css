@@ -1,0 +1,287 @@
+/* ============================================================
+   BEST GYM — PRE-CLIENT PRESENTATION / RESPONSIVE HARDENING
+   Global, non-destructive layer. Keeps the mobile CTA visible.
+   ============================================================ */
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 120px;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+main, section, article, figure, form, nav, aside,
+main > *, section > *, article > * {
+  min-width: 0;
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+}
+img, video { height: auto; }
+
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+button, a, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button, [role="button"], a {
+  touch-action: manipulation;
+}
+
+:focus-visible {
+  outline: 2px solid var(--best-red, #E11507);
+  outline-offset: 3px;
+}
+
+/* Never allow long copy, addresses or emails to force horizontal overflow. */
+main p,
+main li,
+main blockquote,
+main figcaption,
+main h1,
+main h2,
+main h3,
+footer,
+aside[aria-label="Menu"] {
+  overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media (max-width: 1060px) {
+  [data-two-col] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  [data-sticky-col] {
+    position: static !important;
+    top: auto !important;
+  }
+
+  /* Touch presentation is deliberately simpler and safer. */
+  .reveal-section,
+  .reveal-section h2 {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [style*="animation: bgKen"],
+  [style*="animation: bgDrift"] {
+    animation: none !important;
+  }
+
+  section[data-screen-label="Áreas de treino"] article {
+    width: min(82vw, 340px) !important;
+  }
+
+  section[data-screen-label="Benefícios"] ul[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  html { scroll-padding-top: 108px; }
+
+  main h1 {
+    font-size: clamp(38px, 12vw, 60px) !important;
+    line-height: .94 !important;
+    text-wrap: balance;
+  }
+  main h2 {
+    font-size: clamp(30px, 9.5vw, 46px) !important;
+    line-height: .98 !important;
+    text-wrap: balance;
+  }
+  main h3 {
+    font-size: clamp(24px, 7.5vw, 36px) !important;
+  }
+
+  /* Full-width call-to-actions in hero/final conversion groups. */
+  section[data-screen-label^="Hero"] div[style*="flex-wrap: wrap"] > a,
+  section[data-screen-label*="CTA"] div[style*="flex-wrap: wrap"] > a {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  section[data-screen-label^="Hero"] div[style*="flex-wrap: wrap"] > a button,
+  section[data-screen-label*="CTA"] div[style*="flex-wrap: wrap"] > a button {
+    width: 100% !important;
+  }
+
+  /* Forms */
+  form {
+    max-width: 100% !important;
+  }
+  form [data-two-col] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  form label { min-width: 0; }
+
+  /* Content hub: search gets a clean full row. */
+  section[data-screen-label="Hub de conteúdos"] > div:first-child {
+    align-items: stretch !important;
+  }
+  section[data-screen-label="Hub de conteúdos"] input[type="search"] {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Home hero: avoid text/controls collision on shorter phones. */
+  section[data-screen-label="Hero"] {
+    height: calc(100svh - 115px) !important;
+    min-height: 540px !important;
+  }
+  section[data-screen-label="Hero"] > div:last-child {
+    bottom: 14px !important;
+  }
+  section[data-screen-label="Hero"] button[aria-label="Slide anterior"],
+  section[data-screen-label="Hero"] button[aria-label="Slide seguinte"] {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* Built By Best owl remains atmospheric instead of competing with copy. */
+  [data-owl-parallax] {
+    opacity: .13 !important;
+    width: 96vw !important;
+    right: -22vw !important;
+    top: 12% !important;
+  }
+
+  /* Mobile gallery remains compact and readable. */
+  section[data-screen-label="Comunidade"] [style*="grid-template-columns: 1fr 1fr"] {
+    gap: 10px !important;
+  }
+
+  /* Footer CTA */
+  footer > div > div:first-child > a {
+    width: 100% !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 640px) {
+  body { min-width: 0; }
+
+  /* Standard header drawer becomes a true mobile sheet. */
+  aside[aria-label="Menu"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  aside[aria-label="Menu"] > div:first-child {
+    padding: 16px 20px !important;
+  }
+  aside[aria-label="Menu"] > div:nth-child(2) {
+    padding: 22px 20px !important;
+    gap: 22px !important;
+  }
+  aside[aria-label="Menu"] > div:nth-child(2) > div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  [data-bg-mobilecta] {
+    gap: 8px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  [data-bg-mobilecta] > a:last-child {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    font-size: 11px !important;
+  }
+
+  /* Campaign has a separate fixed header — prevent horizontal overflow. */
+  body header[style*="position: fixed"] {
+    height: 68px !important;
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    gap: 10px !important;
+  }
+  body header[style*="position: fixed"] > div {
+    gap: 8px !important;
+  }
+  body header[style*="position: fixed"] > div > a:first-child {
+    display: none !important;
+  }
+  body header[style*="position: fixed"] img {
+    height: 27px !important;
+  }
+  body header[style*="position: fixed"] + main {
+    padding-top: 68px !important;
+  }
+
+  /* Inscription stepper: keep all three steps on screen. */
+  section[data-screen-label="Hero inscrição"] > div > span[style*="width: 40px"] {
+    width: 14px !important;
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+  }
+
+  /* Reduce giant visual gaps on long pages. */
+  main section:not([data-screen-label="Hero"]):not([data-screen-label^="Hero "]) {
+    scroll-margin-top: 110px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  main h1 { font-size: clamp(36px, 12vw, 52px) !important; }
+  main h2 { font-size: clamp(28px, 9vw, 40px) !important; }
+
+  section[data-screen-label="Hero"] {
+    min-height: 520px !important;
+  }
+
+  section[data-screen-label="Áreas de treino"] article {
+    width: min(86vw, 310px) !important;
+  }
+
+  section[data-screen-label="Comunidade"] [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  footer [style*="grid-template-columns: repeat(auto-fit"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+
+/* Motion/accessibility */
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+
+  .best-cursor-spotlight,
+  .best-global-spotlight,
+  .best-particle,
+  .best-ripple {
+    display: none !important;
+  }
+
+  .reveal-section,
+  .reveal-section h2 {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  [style*="animation:"] {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

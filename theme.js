@@ -1,15 +1,11 @@
 /* BEST GYM — theme controller (dark / light).
-   Priority: saved preference → OS preference → dark.
+   Presentation-safe version: saved preference → dark-first default.
    Applied on <html data-theme> before paint; persisted in localStorage. */
 (function () {
   var KEY = 'bestgym-theme';
   var META = { dark: '#070707', light: '#F6F5F3' };
 
   function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
-  function system() {
-    try { return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
-    catch (e) { return 'dark'; }
-  }
   function current() { return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'; }
 
   function syncLogos(theme) {
@@ -21,7 +17,7 @@
       var light = img.getAttribute('data-theme-logo-light');
       if (!light) { light = img.getAttribute('src'); img.setAttribute('data-theme-logo-light', light); }
       var want = t === 'dark' ? dark : light;
-      if (img.getAttribute('src') !== want) img.setAttribute('src', want);
+      if (want && img.getAttribute('src') !== want) img.setAttribute('src', want);
     }
   }
 
@@ -47,7 +43,8 @@
     return t;
   }
 
-  apply(stored() || system(), false);
+  // BEST GYM is dark-first: fresh visitors start in dark mode.
+  apply(stored() || 'dark', false);
 
   window.BGTheme = {
     get: current,
@@ -56,14 +53,6 @@
     label: function (t) { return (t || current()) === 'dark' ? 'Mudar para modo claro' : 'Mudar para modo escuro'; },
     sync: syncLogos
   };
-
-  /* follow the OS while the user has no explicit preference */
-  try {
-    var mq = window.matchMedia('(prefers-color-scheme: light)');
-    var onMQ = function () { if (!stored()) apply(system(), false); };
-    if (mq.addEventListener) mq.addEventListener('change', onMQ);
-    else if (mq.addListener) mq.addListener(onMQ);
-  } catch (e) {}
 
   /* components render after this script — keep logos in sync, cheaply */
   function watch() {
@@ -77,4 +66,23 @@
   }
   if (document.body) watch();
   else document.addEventListener('DOMContentLoaded', watch);
+
+  /* Global presentation layer. Versioned names avoid stale browser/CDN copies. */
+  function loadPresentationLayer() {
+    if (!document.querySelector('link[data-best-presentation-css]')) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/presentation-responsive-v1.css';
+      link.setAttribute('data-best-presentation-css', '1');
+      document.head.appendChild(link);
+    }
+    if (!document.querySelector('script[data-best-presentation-js]')) {
+      var s = document.createElement('script');
+      s.src = '/presentation-fixes-v1.js';
+      s.defer = true;
+      s.setAttribute('data-best-presentation-js', '1');
+      document.head.appendChild(s);
+    }
+  }
+  loadPresentationLayer();
 })();
