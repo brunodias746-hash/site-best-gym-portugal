@@ -192,6 +192,10 @@
     prev.addEventListener('click', function () { animateTo(current - 1); });
     next.addEventListener('click', function () { animateTo(current + 1); });
 
+    nav.addEventListener('pointerdown', function (e) {
+      e.stopPropagation();
+    });
+
     rail.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowLeft') {
         e.preventDefault();
@@ -203,6 +207,9 @@
     });
 
     rail.addEventListener('pointerdown', function (e) {
+      /* Navigation controls must behave like normal buttons.
+         Do not start/capture drag when clicking arrows or dots. */
+      if (e.target && e.target.closest && e.target.closest('.best-stack-v2-nav, button')) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       cancelAnimationFrame(raf);
       dragging = true;
