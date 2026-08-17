@@ -8,20 +8,20 @@
   };
 
   var META = {
-    '/': ['BEST GYM | Ginásios 24H em Portugal', 'Best Gym: treino 24 horas, performance e comunidade em Portugal.'],
-    '/unidades': ['Unidades | BEST GYM', 'Conhece as unidades Best Gym e a estrutura disponível para treinar 24 horas.'],
+    '/': ['BEST GYM | Ginásios 24H em Portugal', 'O BEST GYM: treino 24 horas, performance e comunidade em Portugal.'],
+    '/unidades': ['Unidades | BEST GYM', 'Conhece os ginásios do BEST GYM e a estrutura disponível para treinar 24 horas.'],
     '/unidade-valongo': ['BEST GYM Valongo | Ginásio 24H', 'Best Gym Valongo: acesso 24 horas e estrutura para diferentes objetivos de treino.'],
     '/unidade-famalicao': ['BEST GYM Famalicão | Ginásio 24H', 'Best Gym Vila Nova de Famalicão: acesso 24 horas e estrutura de treino.'],
-    '/built-by-best': ['Built By Best | BEST GYM', 'Programa de acompanhamento Best Gym orientado para consistência, método e evolução.'],
-    '/produtos': ['Produtos | BEST GYM', 'Consulta o catálogo de produtos Best Gym disponível nas unidades.'],
-    '/conteudos': ['Conteúdos | BEST GYM', 'Treino, performance, recuperação e comunidade na Best Gym.'],
-    '/conteudo-detalhe': ['Conteúdo | BEST GYM', 'Conteúdo Best Gym sobre treino, performance e comunidade.'],
-    '/sobre': ['Sobre | BEST GYM', 'Conhece a cultura, missão e visão da Best Gym.'],
-    '/contactos': ['Contactos | BEST GYM', 'Contacta a equipa Best Gym de Valongo ou Vila Nova de Famalicão.'],
-    '/inscricao': ['Inscrição | BEST GYM', 'Escolhe a tua unidade Best Gym e continua para a plataforma oficial de inscrição.'],
-    '/campanha': ['Campanha | BEST GYM', 'Consulta a campanha ativa Best Gym e as condições apresentadas na plataforma oficial.'],
-    '/faq': ['FAQ | BEST GYM', 'Respostas rápidas sobre a Best Gym, unidades, horários e inscrição.'],
-    '/em-breve': ['São João da Madeira | BEST GYM', 'Novidades sobre a próxima unidade Best Gym em São João da Madeira.']
+    '/built-by-best': ['Built By Best | BEST GYM', 'Programa de acompanhamento do BEST GYM orientado para consistência, método e evolução.'],
+    '/produtos': ['Produtos | BEST GYM', 'Consulta o catálogo de produtos do BEST GYM disponível nos ginásios.'],
+    '/conteudos': ['Conteúdos | BEST GYM', 'Treino, performance, recuperação e comunidade no BEST GYM.'],
+    '/conteudo-detalhe': ['Conteúdo | BEST GYM', 'Conteúdo do BEST GYM sobre treino, performance e comunidade.'],
+    '/sobre': ['Sobre | BEST GYM', 'Conhece a cultura, missão e visão do BEST GYM.'],
+    '/contactos': ['Contactos | BEST GYM', 'Contacta a equipa do BEST GYM de Valongo ou Vila Nova de Famalicão.'],
+    '/inscricao': ['Inscrição | BEST GYM', 'Escolhe o teu ginásio BEST GYM e continua para a plataforma oficial de inscrição.'],
+    '/campanha': ['Campanha | BEST GYM', 'Consulta a campanha ativa do BEST GYM e as condições apresentadas na plataforma oficial.'],
+    '/faq': ['FAQ | BEST GYM', 'Respostas rápidas sobre o BEST GYM, ginásios, horários e inscrição.'],
+    '/em-breve': ['São João da Madeira | BEST GYM', 'Novidades sobre o próximo ginásio BEST GYM em São João da Madeira.']
   };
 
   function setMeta() {
@@ -172,6 +172,130 @@
   }
 
 
+
+  function removeGroupClassPhotos(root) {
+    root = root || document;
+    if (!root.querySelectorAll) return;
+
+    var selectors = [
+      '[src*="area-aulas"]',
+      '[src*="comunidade-grupo"]',
+      '[src*="comunidade-evento"]'
+    ];
+
+    var replacements = {
+      'area-aulas': 'assets/img/area-peso-livre.jpg',
+      'comunidade-grupo': 'assets/img/editorial-membro.jpg',
+      'comunidade-evento': 'assets/img/hero-performance.jpg'
+    };
+
+    var nodes = root.querySelectorAll(selectors.join(','));
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      var src = el.getAttribute('src') || '';
+      var next = '';
+
+      for (var key in replacements) {
+        if (src.indexOf(key) !== -1) {
+          next = replacements[key];
+          break;
+        }
+      }
+
+      if (!next || src === next) continue;
+      el.setAttribute('src', next);
+      el.setAttribute('data-best-no-group-class-photo', '1');
+
+      /* image-slot may already have rendered a child image. */
+      var imgs = el.querySelectorAll ? el.querySelectorAll('img, source') : [];
+      for (var j = 0; j < imgs.length; j++) {
+        if (imgs[j].tagName === 'SOURCE') {
+          imgs[j].removeAttribute('srcset');
+        } else {
+          imgs[j].setAttribute('src', next);
+        }
+      }
+    }
+  }
+
+  function animateInstitutionalMascot(root) {
+    root = root || document;
+    if (!root.querySelector) return;
+
+    var stage = root.querySelector('[data-best-mascot-stage]');
+    if (!stage || stage._bestMascotArmed) return;
+
+    var mascot = stage.querySelector('[data-best-mascot]');
+    var aura = stage.querySelector('[data-best-mascot-aura]');
+    if (!mascot) return;
+
+    stage._bestMascotArmed = true;
+
+    var reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce) {
+      mascot.style.setProperty('transform', 'translate3d(-50%,0,0)', 'important');
+      return;
+    }
+
+    var targetX = 0, targetY = 0;
+    var x = 0, y = 0;
+    var raf = 0;
+    var start = performance.now();
+
+    function pointerMove(e) {
+      var r = stage.getBoundingClientRect();
+      if (!r.width || !r.height) return;
+      var nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      var ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      targetX = nx * 8;
+      targetY = ny * 5;
+    }
+
+    function pointerLeave() {
+      targetX = 0;
+      targetY = 0;
+    }
+
+    function frame(now) {
+      x += (targetX - x) * 0.055;
+      y += (targetY - y) * 0.055;
+
+      var t = (now - start) / 1000;
+      var breathe = Math.sin(t * 1.55);
+      var floatY = Math.sin(t * 1.02) * 4.2;
+      var scale = 1 + breathe * 0.009;
+
+      mascot.style.setProperty(
+        'transform',
+        'translate3d(calc(-50% + ' + x.toFixed(2) + 'px),' +
+          (y + floatY).toFixed(2) + 'px,0) scale(' + scale.toFixed(4) + ')',
+        'important'
+      );
+
+      if (aura) {
+        var auraScale = 1.01 + (breathe + 1) * 0.018;
+        var auraOpacity = 0.66 + (breathe + 1) * 0.07;
+        aura.style.setProperty('transform', 'scale(' + auraScale.toFixed(4) + ')', 'important');
+        aura.style.setProperty('opacity', auraOpacity.toFixed(3), 'important');
+      }
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    stage.addEventListener('pointermove', pointerMove, { passive: true });
+    stage.addEventListener('pointerleave', pointerLeave, { passive: true });
+    raf = requestAnimationFrame(frame);
+
+    window.addEventListener('pagehide', function () {
+      if (raf) cancelAnimationFrame(raf);
+      stage.removeEventListener('pointermove', pointerMove);
+      stage.removeEventListener('pointerleave', pointerLeave);
+    }, { once: true });
+  }
+
+
   function normalizeBrandLogos(root) {
     root = root || document;
     var logos = root.querySelectorAll ? root.querySelectorAll('img[data-theme-logo][alt="Best Gym"]') : [];
@@ -305,6 +429,8 @@
     fixComingSoon(root);
     fixCampaignHero(root);
     fixInstagram(root);
+    removeGroupClassPhotos(root);
+    animateInstitutionalMascot(root);
     normalizeBrandLogos(root);
     treatBuiltByBest(root);
     injectBlessCredit(root);

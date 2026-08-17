@@ -38,6 +38,20 @@
     @media (max-width: 640px) {
       [data-owl-parallax] { opacity: 0.2 !important; width: 104vw !important; right: -22vw !important; top: 12% !important; }
     }
+
+    /* Mascote institucional BEST GYM — busto centralizado + enquadramento premium */
+    [data-best-mascot-stage] { isolation: isolate; }
+    [data-best-mascot-aura] { transform-origin: center; will-change: transform, opacity; }
+    [data-best-mascot] { will-change: transform; transform-origin: 50% 30%; pointer-events: none; user-select: none; }
+    @media (max-width: 900px) {
+      [data-best-mascot-stage] { aspect-ratio: 4 / 3 !important; min-height: 320px; }
+      [data-best-mascot] { height: 176% !important; top: -9% !important; }
+    }
+    @media (max-width: 520px) {
+      [data-best-mascot-stage] { aspect-ratio: 1 / 1 !important; min-height: 290px; }
+      [data-best-mascot] { height: 190% !important; top: -8% !important; }
+    }
+
     @media (max-width: 640px) {
       [data-hero-h1] { font-size: clamp(34px, 12vw, 48px) !important; }
       [data-hero-h1-lg] { font-size: clamp(40px, 14vw, 56px) !important; }
@@ -161,9 +175,11 @@
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div style="position: relative; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); background: linear-gradient(145deg, #151619 0%, #080809 72%); border: 1px solid rgba(225,21,7,0.28);">
-            <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(circle at 68% 45%, rgba(225,21,7,0.28), transparent 46%);"></div>
-            <img src="assets/img/mascot-owl-body-v2.png" alt="Mascote oficial do BEST GYM" style="position: absolute; right: -8%; bottom: -2%; width: 116%; height: auto; max-height: 108%; object-fit: contain; object-position: right bottom; filter: drop-shadow(0 0 42px rgba(225,21,7,0.28));">
+          <div data-best-mascot-stage style="position: relative; aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.34), 0 0 0 1px rgba(225,21,7,0.12); background: radial-gradient(circle at 50% 38%, #241011 0%, #111214 48%, #070708 100%); border: 1px solid rgba(225,21,7,0.38);">
+            <div data-best-mascot-aura aria-hidden="true" style="position: absolute; inset: 6% 8%; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(225,21,7,0.34) 0%, rgba(225,21,7,0.13) 34%, transparent 68%); filter: blur(12px); opacity: 0.8;"></div>
+            <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent 34%, rgba(225,21,7,0.055) 100%);"></div>
+            <img data-best-mascot src="assets/img/mascot-owl-body-v2.png" alt="Mascote oficial do BEST GYM" style="position: absolute; left: 50%; top: -7%; height: 198%; width: auto; max-width: none; max-height: none; object-fit: contain; object-position: center top; transform: translate3d(-50%,0,0); filter: drop-shadow(0 12px 34px rgba(0,0,0,0.44)) drop-shadow(0 0 26px rgba(225,21,7,0.20));">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: linear-gradient(180deg, transparent, rgba(7,7,8,0.82)); pointer-events: none;"></div>
           </div>
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 34px; height: 3px; background: var(--best-red);"></span>
@@ -314,7 +330,7 @@
             <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-1" src="assets/img/editorial-membro.jpg" shape="rect" placeholder="Foto comunidade — treino individual" hint-size="100%,100%"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-2" src="assets/img/comunidade-evento.jpg" shape="rect" placeholder="Foto comunidade — evento" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-2" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto comunidade — treino de força" hint-size="100%,100%"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
             <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-3" src="assets/img/equipa.jpg" shape="rect" placeholder="Foto staff — equipa Best Gym" hint-size="100%,100%"></x-import>
@@ -726,7 +742,7 @@ class Component extends DCLogic {
       articles: [
         { cat: 'Treino', title: 'Como estruturar a tua semana de treino', excerpt: 'Princípios simples para organizar sessões, recuperação e progressão.', slotId: 'art-semana', slotLabel: 'Foto artigo — planeamento de treino', slotSrc: 'assets/img/artigo-planeamento.jpg' },
         { cat: 'Performance', title: 'Consistência: o multiplicador de resultados', excerpt: 'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', slotId: 'art-consistencia', slotLabel: 'Foto artigo — consistência', slotSrc: 'assets/img/hero-performance.jpg' },
-        { cat: 'Comunidade', title: 'Treinar acompanhado muda tudo', excerpt: 'O papel da comunidade na motivação e na evolução a longo prazo.', slotId: 'art-comunidade', slotLabel: 'Foto artigo — comunidade', slotSrc: 'assets/img/comunidade-evento.jpg' },
+        { cat: 'Comunidade', title: 'Treinar acompanhado muda tudo', excerpt: 'O papel da comunidade na motivação e na evolução a longo prazo.', slotId: 'art-comunidade', slotLabel: 'Foto artigo — comunidade', slotSrc: 'assets/img/hero-performance.jpg' },
       ],
     };
   }
