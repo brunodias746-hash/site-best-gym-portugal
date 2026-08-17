@@ -1,113 +1,114 @@
 /* ============================================================
-   BEST GYM — STACKED AREAS CAROUSEL V1
-   Isolated experiment. No React / no dependencies.
+   BEST GYM — STACKED AREAS CAROUSEL V2
+   Fix: keep cards inside original DC rail; no DOM reparenting.
    ============================================================ */
 
-section[data-screen-label="Áreas de treino"].best-stack-ready {
+section[data-screen-label="Áreas de treino"].best-stack-v2 {
   position: relative;
   overflow: hidden !important;
 }
 
-.best-stack-original-rail,
-.best-stack-original-controls {
+section[data-screen-label="Áreas de treino"].best-stack-v2 .best-stack-original-controls {
   display: none !important;
 }
 
-.best-stack-shell {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: clamp(24px, 3vw, 38px) clamp(16px, 3vw, 44px) clamp(58px, 7vw, 92px);
-  overflow: visible;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-.best-stack-stage {
-  position: relative;
-  width: 100%;
-  height: clamp(430px, 39vw, 570px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1100px;
+/* Original rail becomes the stage. */
+section[data-screen-label="Áreas de treino"].best-stack-v2
+[aria-label="Áreas de treino — carrossel"] {
+  position: relative !important;
+  overflow: hidden !important;
+  cursor: grab !important;
+  outline: none !important;
+  padding: clamp(20px, 2.5vw, 32px) 0 clamp(46px, 5vw, 68px) !important;
+  min-height: clamp(480px, 43vw, 610px);
   touch-action: pan-y;
-  cursor: grab;
-  outline: none;
-  isolation: isolate;
 }
 
-.best-stack-stage.is-dragging {
-  cursor: grabbing;
+section[data-screen-label="Áreas de treino"].best-stack-v2
+[aria-label="Áreas de treino — carrossel"].is-dragging {
+  cursor: grabbing !important;
 }
 
-.best-stack-stage::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 7%;
-  width: min(68vw, 900px);
-  height: 34%;
-  transform: translateX(-50%);
-  background: radial-gradient(ellipse at center, rgba(225,21,7,.12), transparent 68%);
-  filter: blur(28px);
-  pointer-events: none;
-  z-index: 0;
+/* The existing flex track is converted into a positioning stage.
+   Cards stay inside it so x-import/image-slot remains managed by DC. */
+section[data-screen-label="Áreas de treino"].best-stack-v2
+[aria-label="Áreas de treino — carrossel"] > div:first-child {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 1280px !important;
+  height: clamp(405px, 35vw, 500px) !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  transform: none !important;
+  will-change: auto !important;
+  perspective: 1200px;
 }
 
-.best-stack-card {
-  --stack-x: 0px;
-  --stack-y: 0px;
-  --stack-r: 0deg;
-  --stack-s: 1;
-  --stack-opacity: 1;
-  --stack-z: 100;
+/* Unique first-set cards. */
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card {
+  --x: 0px;
+  --y: 0px;
+  --r: 0deg;
+  --s: 1;
+  --o: 1;
+  --z: 100;
 
   position: absolute !important;
   left: 50% !important;
   top: 50% !important;
-  width: clamp(245px, 21vw, 326px) !important;
-  height: clamp(350px, 31vw, 470px) !important;
   flex: none !important;
-  display: block !important;
-  gap: 0 !important;
+  width: clamp(270px, 24vw, 355px) !important;
+  height: clamp(370px, 32vw, 470px) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
   overflow: hidden !important;
   border-radius: 20px !important;
-  border: 1px solid rgba(255,255,255,.14) !important;
   background: #0B0B0C !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
   box-shadow: 0 28px 72px rgba(0,0,0,.38) !important;
+
   transform:
-    translate3d(calc(-50% + var(--stack-x)), calc(-50% + var(--stack-y)), 0)
-    rotate(var(--stack-r))
-    scale(var(--stack-s)) !important;
-  transform-origin: 50% 78%;
-  opacity: var(--stack-opacity) !important;
-  z-index: var(--stack-z) !important;
+    translate3d(calc(-50% + var(--x)), calc(-50% + var(--y)), 0)
+    rotate(var(--r))
+    scale(var(--s)) !important;
+  transform-origin: 50% 82%;
+  opacity: var(--o) !important;
+  z-index: var(--z) !important;
+  filter: brightness(.62) saturate(.78);
   transition:
-    transform .48s cubic-bezier(.16,1,.3,1),
-    opacity .32s ease,
-    filter .38s ease,
-    box-shadow .38s ease !important;
+    transform .52s cubic-bezier(.16,1,.3,1),
+    opacity .3s ease,
+    filter .35s ease,
+    box-shadow .35s ease !important;
+  pointer-events: none !important;
   will-change: transform, opacity;
-  pointer-events: none;
 }
 
-.best-stack-stage.is-dragging .best-stack-card {
-  transition: opacity .18s linear, filter .18s linear !important;
+section[data-screen-label="Áreas de treino"].best-stack-v2
+[aria-label="Áreas de treino — carrossel"].is-dragging article.best-stack-card {
+  transition: opacity .15s linear, filter .15s linear !important;
 }
 
-.best-stack-card > div:first-child {
+/* Duplicate half of the legacy infinite loop is not needed in stacked mode. */
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-duplicate {
+  display: none !important;
+}
+
+/* Turn every card into full-image editorial card. */
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:first-child {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
   aspect-ratio: auto !important;
-  overflow: hidden !important;
   z-index: 0 !important;
+  overflow: hidden !important;
 }
 
-.best-stack-card > div:first-child > div {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:first-child > div {
   position: absolute !important;
   inset: 0 !important;
   width: 100% !important;
@@ -116,216 +117,238 @@ section[data-screen-label="Áreas de treino"].best-stack-ready {
   transform: none !important;
 }
 
-.best-stack-card image-slot,
-.best-stack-card x-import[component-from-global-scope="image-slot"],
-.best-stack-card img {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card image-slot,
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card x-import[component-from-global-scope="image-slot"],
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card img {
   width: 100% !important;
   height: 100% !important;
   max-width: none !important;
   object-fit: cover !important;
 }
 
-.best-stack-card::after {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(5,5,5,.02) 18%, rgba(5,5,5,.12) 42%, rgba(5,5,5,.88) 100%);
+    linear-gradient(180deg, rgba(4,4,5,.04) 10%, rgba(4,4,5,.08) 36%, rgba(4,4,5,.9) 100%);
   pointer-events: none;
 }
 
-.best-stack-card > div:nth-child(2) {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) {
   position: absolute !important;
   inset: 0 !important;
   z-index: 2 !important;
   padding: 22px !important;
+  background: transparent !important;
   display: flex !important;
   flex-direction: column !important;
   justify-content: flex-end !important;
   gap: 7px !important;
-  color: #fff !important;
-  background: transparent !important;
 }
 
-.best-stack-card > div:nth-child(2) > span:nth-child(1) {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(1) {
   position: absolute !important;
   top: 18px !important;
   right: 18px !important;
   display: inline-flex !important;
-  align-items: center !important;
-  min-height: 28px;
-  padding: 6px 10px !important;
+  padding: 7px 10px !important;
   border-radius: 999px !important;
   background: rgba(255,255,255,.94) !important;
-  color: #0A0A0B !important;
+  color: #09090A !important;
   font-family: var(--font-text) !important;
   font-size: 9px !important;
-  font-weight: 800 !important;
   line-height: 1 !important;
-  letter-spacing: .13em !important;
+  font-weight: 800 !important;
+  letter-spacing: .12em !important;
   text-transform: uppercase !important;
   backdrop-filter: blur(10px);
 }
 
-.best-stack-card > div:nth-child(2) > span:nth-child(2) {
-  font-family: var(--font-display) !important;
-  font-size: clamp(30px, 2.5vw, 40px) !important;
-  font-weight: 400 !important;
-  line-height: .94 !important;
-  letter-spacing: 0 !important;
-  text-transform: uppercase !important;
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(2) {
   color: #fff !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(31px, 2.6vw, 42px) !important;
+  line-height: .95 !important;
+  text-transform: uppercase !important;
   text-shadow: 0 3px 18px rgba(0,0,0,.45);
-  transform: translateY(7px);
-  opacity: .74;
-  transition: opacity .32s ease, transform .38s cubic-bezier(.16,1,.3,1);
+  opacity: .75;
+  transform: translateY(6px);
+  transition: opacity .3s ease, transform .38s cubic-bezier(.16,1,.3,1);
 }
 
-.best-stack-card > div:nth-child(2) > span:nth-child(3) {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(3) {
   display: block !important;
-  max-height: 0;
-  overflow: hidden;
-  color: rgba(255,255,255,.72) !important;
-  font-family: var(--font-text) !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  color: rgba(255,255,255,.74) !important;
   font-size: 12.5px !important;
-  line-height: 1.52 !important;
+  line-height: 1.5 !important;
   opacity: 0;
   transform: translateY(10px);
   transition:
-    max-height .38s cubic-bezier(.16,1,.3,1),
+    max-height .4s cubic-bezier(.16,1,.3,1),
     opacity .28s ease,
     transform .38s cubic-bezier(.16,1,.3,1);
 }
 
-.best-stack-card:not(.is-active) {
-  filter: brightness(.62) saturate(.76);
-}
-
-.best-stack-card.is-active {
-  border-color: rgba(225,21,7,.68) !important;
-  box-shadow:
-    0 34px 90px rgba(0,0,0,.5),
-    0 0 0 1px rgba(225,21,7,.22),
-    0 0 42px rgba(225,21,7,.13) !important;
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card.is-active {
   filter: brightness(1) saturate(1);
+  border-color: rgba(225,21,7,.75) !important;
+  box-shadow:
+    0 34px 90px rgba(0,0,0,.52),
+    0 0 0 1px rgba(225,21,7,.18),
+    0 0 48px rgba(225,21,7,.12) !important;
 }
 
-.best-stack-card.is-active > div:nth-child(2) > span:nth-child(2) {
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card.is-active > div:nth-child(2) > span:nth-child(2) {
   opacity: 1;
   transform: none;
 }
 
-.best-stack-card.is-active > div:nth-child(2) > span:nth-child(3) {
-  max-height: 74px;
+section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card.is-active > div:nth-child(2) > span:nth-child(3) {
+  max-height: 68px !important;
   opacity: 1;
   transform: none;
 }
 
-.best-stack-nav {
-  position: relative;
-  z-index: 120;
-  margin-top: -6px;
+/* New nav sits below the stage, never over the card. */
+.best-stack-v2-nav {
+  position: absolute;
+  z-index: 150;
+  left: 50%;
+  bottom: 13px;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
+  gap: 13px;
 }
 
-.best-stack-btn {
-  width: 46px;
-  height: 46px;
+.best-stack-v2-btn {
+  width: 44px;
+  height: 44px;
   padding: 0;
+  display: inline-grid;
+  place-items: center;
   border-radius: 50%;
   border: 1.5px solid var(--line-strong);
   background: var(--surface-1);
   color: var(--ink);
-  display: inline-grid;
-  place-items: center;
-  font-family: var(--font-text);
-  font-size: 18px;
+  font-size: 17px;
   cursor: pointer;
   transition: border-color .2s ease, color .2s ease, transform .2s ease;
 }
 
-.best-stack-btn:hover {
-  border-color: var(--best-red);
+.best-stack-v2-btn:hover {
   color: var(--best-red);
+  border-color: var(--best-red);
   transform: translateY(-2px);
 }
 
-.best-stack-dots {
+.best-stack-v2-dots {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 7px;
-  min-width: 92px;
+  min-width: 90px;
+  justify-content: center;
 }
 
-.best-stack-dot {
+.best-stack-v2-dot {
   width: 6px;
   height: 6px;
   padding: 0;
   border: 0;
   border-radius: 999px;
   background: var(--text-faint);
-  opacity: .38;
+  opacity: .4;
   cursor: pointer;
-  transition: width .28s cubic-bezier(.16,1,.3,1), background .2s ease, opacity .2s ease;
+  transition: width .28s cubic-bezier(.16,1,.3,1), opacity .2s ease, background .2s ease;
 }
 
-.best-stack-dot.is-active {
-  width: 23px;
+.best-stack-v2-dot.is-active {
+  width: 22px;
   background: var(--best-red);
   opacity: 1;
 }
 
+/* Subtle ambient pool, centered behind the stack. */
+section[data-screen-label="Áreas de treino"].best-stack-v2
+[aria-label="Áreas de treino — carrossel"]::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%,-50%);
+  width: min(72vw, 980px);
+  height: 62%;
+  background: radial-gradient(ellipse at center, rgba(225,21,7,.105), transparent 67%);
+  filter: blur(28px);
+  pointer-events: none;
+}
+
 @media (max-width: 1024px) {
-  .best-stack-stage {
-    height: clamp(420px, 56vw, 520px);
+  section[data-screen-label="Áreas de treino"].best-stack-v2
+  [aria-label="Áreas de treino — carrossel"] {
+    min-height: 535px;
   }
-  .best-stack-card {
-    width: clamp(235px, 30vw, 292px) !important;
-    height: clamp(345px, 43vw, 430px) !important;
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2
+  [aria-label="Áreas de treino — carrossel"] > div:first-child {
+    height: 430px !important;
+  }
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card {
+    width: clamp(250px, 31vw, 300px) !important;
+    height: clamp(360px, 44vw, 430px) !important;
   }
 }
 
 @media (max-width: 640px) {
-  .best-stack-shell {
-    padding: 18px 0 64px;
+  section[data-screen-label="Áreas de treino"].best-stack-v2
+  [aria-label="Áreas de treino — carrossel"] {
+    min-height: 470px;
+    padding-top: 14px !important;
+    padding-bottom: 64px !important;
   }
-  .best-stack-stage {
-    height: 410px;
-    overflow: visible;
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2
+  [aria-label="Áreas de treino — carrossel"] > div:first-child {
+    height: 390px !important;
   }
-  .best-stack-card {
-    width: min(68vw, 260px) !important;
-    height: min(96vw, 375px) !important;
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card {
+    width: min(68vw, 255px) !important;
+    height: min(98vw, 370px) !important;
     border-radius: 17px !important;
   }
-  .best-stack-card > div:nth-child(2) {
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) {
     padding: 18px !important;
   }
-  .best-stack-card > div:nth-child(2) > span:nth-child(1) {
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(1) {
     top: 14px !important;
     right: 14px !important;
-    min-height: 25px;
-    padding: 5px 8px !important;
     font-size: 8px !important;
   }
-  .best-stack-card > div:nth-child(2) > span:nth-child(2) {
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(2) {
     font-size: 31px !important;
   }
-  .best-stack-card > div:nth-child(2) > span:nth-child(3) {
+
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card > div:nth-child(2) > span:nth-child(3) {
     font-size: 11.5px !important;
   }
-  .best-stack-nav {
-    margin-top: 0;
+
+  .best-stack-v2-nav {
+    bottom: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .best-stack-card {
+  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card {
     transition: none !important;
   }
 }
