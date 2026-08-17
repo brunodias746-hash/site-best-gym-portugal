@@ -196,7 +196,29 @@
     if (section) section.classList.add('best-bbb-section');
 
     var content = owl.nextElementSibling;
-    if (content) content.classList.add('best-bbb-content');
+    if (!content) return;
+    content.classList.add('best-bbb-content');
+
+    /* Mobile mascot must live in normal document flow, not behind the copy. */
+    if (!content.querySelector('.best-bbb-mobile-stage')) {
+      var stage = document.createElement('div');
+      stage.className = 'best-bbb-mobile-stage';
+      stage.setAttribute('aria-hidden', 'true');
+
+      var mascot = document.createElement('img');
+      mascot.className = 'best-bbb-mobile-mascot';
+      mascot.src = owl.getAttribute('src') || 'assets/img/mascot-owl-body-v2.png';
+      mascot.alt = '';
+      mascot.loading = 'lazy';
+      mascot.decoding = 'async';
+
+      stage.appendChild(mascot);
+
+      /* The last content child is the CTA wrapper. Put the stage immediately before it. */
+      var cta = content.lastElementChild;
+      if (cta) content.insertBefore(stage, cta);
+      else content.appendChild(stage);
+    }
   }
 
   function injectBlessCredit(root) {
@@ -233,8 +255,19 @@
     logo.loading = 'lazy';
     logo.decoding = 'async';
 
+    var link = document.createElement('a');
+    link.href = 'https://www.instagram.com/bless.pt/';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', 'Bless no Instagram');
+    link.style.display = 'inline-flex';
+    link.style.alignItems = 'center';
+    link.style.textDecoration = 'none';
+
+    link.appendChild(logo);
+
     credit.appendChild(label);
-    credit.appendChild(logo);
+    credit.appendChild(link);
     legalRow.appendChild(credit);
   }
 
