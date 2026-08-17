@@ -171,6 +171,73 @@
     }
   }
 
+
+  function normalizeBrandLogos(root) {
+    root = root || document;
+    var logos = root.querySelectorAll ? root.querySelectorAll('img[data-theme-logo][alt="Best Gym"]') : [];
+    for (var i = 0; i < logos.length; i++) {
+      var img = logos[i];
+      if (img.closest && img.closest('aside[aria-label="Menu"]')) {
+        img.classList.add('best-logo-drawer');
+      } else {
+        img.classList.add('best-logo-header');
+      }
+    }
+  }
+
+  function treatBuiltByBest(root) {
+    root = root || document;
+    var owl = root.querySelector ? root.querySelector('[data-owl-parallax]') : null;
+    if (!owl) return;
+
+    owl.classList.add('best-bbb-owl');
+
+    var section = owl.closest ? owl.closest('section[data-screen-label="Built By Best"]') : null;
+    if (section) section.classList.add('best-bbb-section');
+
+    var content = owl.nextElementSibling;
+    if (content) content.classList.add('best-bbb-content');
+  }
+
+  function injectBlessCredit(root) {
+    root = root || document;
+    var footer = root.querySelector ? root.querySelector('footer') : null;
+    if (!footer || footer.querySelector('.bless-credit')) return;
+
+    var rows = footer.querySelectorAll('div');
+    var legalRow = null;
+
+    for (var i = rows.length - 1; i >= 0; i--) {
+      var text = (rows[i].textContent || '');
+      if (text.indexOf('Todos os direitos reservados') !== -1 &&
+          text.indexOf('Privacidade') !== -1) {
+        legalRow = rows[i];
+        break;
+      }
+    }
+
+    if (!legalRow) return;
+
+    var credit = document.createElement('div');
+    credit.className = 'bless-credit';
+    credit.setAttribute('aria-label', 'Design e desenvolvimento por Bless');
+
+    var label = document.createElement('span');
+    label.className = 'bless-credit__label';
+    label.textContent = 'Design & desenvolvimento';
+
+    var logo = document.createElement('img');
+    logo.className = 'bless-credit__logo';
+    logo.src = '/bless-white.png';
+    logo.alt = 'Bless — Creative Content Motion';
+    logo.loading = 'lazy';
+    logo.decoding = 'async';
+
+    credit.appendChild(label);
+    credit.appendChild(logo);
+    legalRow.appendChild(credit);
+  }
+
   function hardenLinks(root) {
     root = root || document;
     var links = root.querySelectorAll ? root.querySelectorAll('a[href]') : [];
@@ -205,6 +272,9 @@
     fixComingSoon(root);
     fixCampaignHero(root);
     fixInstagram(root);
+    normalizeBrandLogos(root);
+    treatBuiltByBest(root);
+    injectBlessCredit(root);
     hardenLinks(root);
     tuneMedia();
   }

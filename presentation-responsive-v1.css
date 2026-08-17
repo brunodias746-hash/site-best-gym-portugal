@@ -285,3 +285,133 @@ aside[aria-label="Menu"] {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* ============================================================
+   BEST GYM — BRAND POLISH PATCH
+   1) Logo visually stable across dark/light theme
+   2) BLESS footer credit
+   3) Built By Best mascot treatment on mobile
+   ============================================================ */
+
+/* Theme logo PNGs have different aspect ratios.
+   Lock visual WIDTH rather than HEIGHT so the brand does not jump on theme toggle. */
+.best-logo-header {
+  width: 118px !important;
+  height: auto !important;
+  max-height: 30px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  flex: 0 0 auto !important;
+}
+.best-logo-drawer {
+  width: 108px !important;
+  height: auto !important;
+  max-height: 27px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+}
+
+/* Discreet agency signature inside the existing legal footer row. */
+.bless-credit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  opacity: .78;
+  transition: opacity .25s ease;
+}
+.bless-credit:hover { opacity: 1; }
+.bless-credit__label {
+  font-size: 8.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted, rgba(255,255,255,.58));
+  white-space: nowrap;
+}
+.bless-credit__logo {
+  display: block;
+  width: 68px;
+  height: auto;
+  max-height: 32px;
+  object-fit: contain;
+}
+
+/* Built By Best:
+   on phones the owl becomes a lower-right brand element,
+   outside the reading column instead of sitting behind the copy. */
+@media (max-width: 768px) {
+  .best-bbb-section {
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  .best-bbb-content {
+    position: relative !important;
+    z-index: 3 !important;
+    padding-bottom: clamp(270px, 68vw, 365px) !important;
+  }
+
+  .best-bbb-owl {
+    top: auto !important;
+    left: auto !important;
+    right: clamp(-28px, -5vw, -10px) !important;
+    bottom: -18px !important;
+    width: min(68vw, 340px) !important;
+    max-width: 340px !important;
+    height: auto !important;
+    opacity: .48 !important;
+    transform: none !important;
+    transform-origin: bottom right !important;
+    object-fit: contain !important;
+    object-position: right bottom !important;
+    filter: drop-shadow(0 0 34px rgba(225,21,7,.24)) !important;
+    pointer-events: none !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .best-logo-header {
+    width: 106px !important;
+    max-height: 27px !important;
+  }
+  .best-logo-drawer {
+    width: 100px !important;
+    max-height: 25px !important;
+  }
+
+  .best-bbb-content {
+    padding-bottom: clamp(245px, 72vw, 310px) !important;
+  }
+  .best-bbb-owl {
+    width: min(72vw, 300px) !important;
+    right: -24px !important;
+    bottom: -14px !important;
+    opacity: .44 !important;
+  }
+
+  .bless-credit {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+    padding-top: 12px;
+  }
+  .bless-credit__logo {
+    width: 62px;
+  }
+}
+
+@media (max-width: 360px) {
+  .best-bbb-content {
+    padding-bottom: 230px !important;
+  }
+  .best-bbb-owl {
+    width: 260px !important;
+    right: -32px !important;
+    opacity: .40 !important;
+  }
+}
