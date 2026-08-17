@@ -415,3 +415,131 @@ aside[aria-label="Menu"] {
     opacity: .40 !important;
   }
 }
+
+
+/* ============================================================
+   BUILT BY BEST — MOBILE V2
+   Remove the desktop parallax owl from the text layer and place
+   a dedicated mascot stage in normal flow.
+   ============================================================ */
+
+.best-bbb-mobile-stage {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .best-bbb-section {
+    min-height: auto !important;
+    overflow: hidden !important;
+  }
+
+  /* No absolute mascot behind copy on phones. */
+  .best-bbb-owl {
+    display: none !important;
+  }
+
+  /* Remove the artificial clearance used by V1. */
+  .best-bbb-content {
+    padding-bottom: clamp(58px, 10vw, 82px) !important;
+  }
+
+  .best-bbb-mobile-stage {
+    display: flex !important;
+    position: relative;
+    width: 100%;
+    height: clamp(210px, 60vw, 310px);
+    margin: 8px 0 4px;
+    overflow: hidden;
+    align-items: flex-end;
+    justify-content: flex-end;
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 80% 54%, rgba(225,21,7,.20), transparent 42%),
+      linear-gradient(180deg, rgba(255,255,255,.015), rgba(225,21,7,.045));
+    border: 1px solid rgba(255,255,255,.06);
+  }
+
+  .best-bbb-mobile-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(26,28,31,.34) 0%, rgba(26,28,31,.05) 56%, rgba(225,21,7,.09) 100%);
+    pointer-events: none;
+  }
+
+  .best-bbb-mobile-mascot {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 108%;
+    width: auto;
+    max-width: 82%;
+    object-fit: contain;
+    object-position: right bottom;
+    transform: translate(5%, 8%);
+    opacity: .86;
+    filter: drop-shadow(0 0 36px rgba(225,21,7,.26));
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* CTA remains clear and separate beneath the mascot stage. */
+  .best-bbb-mobile-stage + div {
+    position: relative;
+    z-index: 4;
+    margin-top: 14px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .best-bbb-content {
+    padding-bottom: 54px !important;
+  }
+
+  .best-bbb-mobile-stage {
+    height: clamp(205px, 63vw, 270px);
+    margin-top: 4px;
+    border-radius: 14px;
+  }
+
+  .best-bbb-mobile-mascot {
+    height: 104%;
+    max-width: 88%;
+    transform: translate(7%, 7%);
+  }
+}
+
+@media (max-width: 360px) {
+  .best-bbb-mobile-stage {
+    height: 205px;
+  }
+
+  .best-bbb-mobile-mascot {
+    height: 100%;
+    max-width: 92%;
+  }
+}
+
+
+/* ============================================================
+   BUILT BY BEST — MOBILE FINAL
+   Mascot is desktop-only. On phone/tablet the section stays clean:
+   background photo + gradient + copy + CTA, with no owl layer.
+   ============================================================ */
+@media (max-width: 900px) {
+  section[data-screen-label="Built By Best"] [data-owl-parallax],
+  section[data-screen-label="Built By Best"] .best-bbb-owl,
+  section[data-screen-label="Built By Best"] .best-bbb-mobile-stage,
+  section[data-screen-label="Built By Best"] .best-bbb-mobile-mascot {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+  }
+
+  section[data-screen-label="Built By Best"] .best-bbb-content {
+    padding-bottom: clamp(54px, 9vw, 76px) !important;
+  }
+}
