@@ -108,6 +108,15 @@
       mcss.setAttribute('data-best-marquee-fix', '1');
       document.head.appendChild(mcss);
     }
+
+    /* Definitive JS marquee driver: bypasses CSS animation conflicts. */
+    if (!document.querySelector('script[data-best-marquee-js]')) {
+      var mjs = document.createElement('script');
+      mjs.src = '/marquee-motion-v2.js';
+      mjs.defer = true;
+      mjs.setAttribute('data-best-marquee-js', '1');
+      document.head.appendChild(mjs);
+    }
   }
   loadPresentationLayer();
 })();
