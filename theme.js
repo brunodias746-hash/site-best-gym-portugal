@@ -99,6 +99,15 @@
       gjs.setAttribute('data-best-stacked-gallery-js', '1');
       document.head.appendChild(gjs);
     }
+
+    /* Restore continuous marquee on touch-capable notebooks/mobile. */
+    if (!document.querySelector('link[data-best-marquee-fix]')) {
+      var mcss = document.createElement('link');
+      mcss.rel = 'stylesheet';
+      mcss.href = '/marquee-motion-v1.css';
+      mcss.setAttribute('data-best-marquee-fix', '1');
+      document.head.appendChild(mcss);
+    }
   }
   loadPresentationLayer();
 })();
