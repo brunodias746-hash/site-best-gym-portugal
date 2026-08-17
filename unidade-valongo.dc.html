@@ -30,7 +30,7 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero unidade" style="position: relative; height: min(72vh, 680px); min-height: 460px; background: var(--invert-1); overflow: hidden;">
       <div style="position: absolute; inset: 0;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-hero" src="assets/img/unidade-valongo.jpg" shape="rect" placeholder="Foto principal — Best Gym Valongo" hint-size="100%,100%"></x-import>
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-hero" src="valongo-oficial-v2.jpg" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: var(--overlay-read); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none;">
@@ -47,7 +47,7 @@
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start;">
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,160px">Performance no <span style="color: var(--best-red)">centro de Valongo.</span></x-import>
-          <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Uma unidade moderna, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.</p>
+          <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Um ginásio moderno, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.</p>
         </div>
         <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-sm);">
           <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Informação</span>
@@ -140,7 +140,6 @@ class Component extends DCLogic {
         { name: 'Cross Training', desc: 'Zona funcional para alta intensidade.' },
         { name: 'Burn Zone', desc: 'Circuitos de condicionamento metabólico.' },
         { name: 'Posing Room', desc: 'Sala de posing com espelhos e iluminação.' },
-        { name: 'Aulas', desc: 'Aulas de grupo com método e energia.' },
         { name: 'Personal Training', desc: 'Acompanhamento individual com planeamento.' },
       ],
       faqItems: [
