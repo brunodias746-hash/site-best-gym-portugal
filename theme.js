@@ -83,6 +83,22 @@
       s.setAttribute('data-best-presentation-js', '1');
       document.head.appendChild(s);
     }
+
+    /* Isolated experiment: stacked training-areas carousel. */
+    if (!document.querySelector('link[data-best-stacked-gallery-css]')) {
+      var gcss = document.createElement('link');
+      gcss.rel = 'stylesheet';
+      gcss.href = '/gallery-stacked-v1.css';
+      gcss.setAttribute('data-best-stacked-gallery-css', '1');
+      document.head.appendChild(gcss);
+    }
+    if (!document.querySelector('script[data-best-stacked-gallery-js]')) {
+      var gjs = document.createElement('script');
+      gjs.src = '/gallery-stacked-v1.js';
+      gjs.defer = true;
+      gjs.setAttribute('data-best-stacked-gallery-js', '1');
+      document.head.appendChild(gjs);
+    }
   }
   loadPresentationLayer();
 })();
