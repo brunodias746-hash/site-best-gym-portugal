@@ -212,7 +212,7 @@
           <div data-campaign-copy style="display:flex; flex-direction:column; gap: 18px;">
             <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha do mês</span>
             <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h2>
-            <p style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">A campanha ativa do BEST GYM já está pronta para converter no site: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <p style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">Este setembro, liga o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
                 <span style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">50%</span>
@@ -463,9 +463,9 @@
         </div>
         <div data-popup-copy style="padding: clamp(28px, 4vw, 40px); display:flex; flex-direction:column; gap:18px; position:relative;">
           <button type="button" data-popup-close aria-label="Fechar campanha" style="position:absolute; top:18px; right:18px; width:42px; height:42px; border-radius:50%; border:1px solid var(--line); background:var(--surface-1); color:var(--ink); font-size:22px; line-height:1; cursor:pointer;">×</button>
-          <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha em destaque</span>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha de setembro</span>
           <h3 style="margin:0; padding-right:48px; font-family:var(--font-display); font-size:clamp(42px, 5vw, 70px); line-height:0.92; text-transform:uppercase; color:var(--ink);">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h3>
-          <p style="margin:0; font-size:17px; line-height:1.75; color:var(--text-muted);">Aproveita a campanha do BEST GYM com uma proposta forte para conversão: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+          <p style="margin:0; font-size:17px; line-height:1.75; color:var(--text-muted);">Este setembro, aproveita 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px;">
             <div style="padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:var(--surface-1);">
               <strong style="display:block; font-family:var(--font-display); font-size:38px; font-weight:400; line-height:.9; color:var(--best-red);">50%</strong>
@@ -838,31 +838,44 @@ class Component extends DCLogic {
 
 <script>
 (function(){
-  const KEY = 'bestgym_campaign_popup_ferias_off_gym_on_2026';
-  const TTL = 12 * 60 * 60 * 1000;
+  const KEY = 'bestgym_campaign_popup_ferias_off_gym_on_2026_session';
   const popup = document.getElementById('campaign-popup');
   if (!popup) return;
+
   const closeBtn = popup.querySelector('[data-popup-close]');
+  const params = new URLSearchParams(window.location.search);
+  const forceOpen = params.get('popup') === '1';
+
   const open = () => {
     popup.classList.add('is-open');
     popup.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   };
+
   const close = () => {
     popup.classList.remove('is-open');
     popup.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    try { localStorage.setItem(KEY, String(Date.now())); } catch(e) {}
+    try { sessionStorage.setItem(KEY, '1'); } catch(e) {}
   };
-  closeBtn && closeBtn.addEventListener('click', close);
-  popup.addEventListener('click', function(e){ if (e.target === popup) close(); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && popup.classList.contains('is-open')) close(); });
+
+  if (closeBtn) closeBtn.addEventListener('click', close);
+  popup.addEventListener('click', function(e){
+    if (e.target === popup) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && popup.classList.contains('is-open')) close();
+  });
+
   let shouldOpen = true;
   try {
-    const seen = parseInt(localStorage.getItem(KEY) || '0', 10);
-    if (seen && (Date.now() - seen) < TTL) shouldOpen = false;
+    if (!forceOpen && sessionStorage.getItem(KEY) === '1') shouldOpen = false;
   } catch(e) {}
-  window.addEventListener('load', function(){ if (shouldOpen) setTimeout(open, 900); });
+
+  /* Wait until the homepage preloader/hero has settled before opening. */
+  window.addEventListener('load', function(){
+    if (shouldOpen) setTimeout(open, 1900);
+  });
 })();
 </script>
 
