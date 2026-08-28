@@ -58,7 +58,7 @@
 
         <form onSubmit="{{ submitForm }}" noValidate style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; padding: clamp(26px, 4vw, 44px); display: flex; flex-direction: column; gap: 18px; box-shadow: var(--shadow-sm);">
           <span style="font-family: var(--font-display); font-size: 30px; text-transform: uppercase; color: var(--ink);">Envia-nos uma mensagem</span>
-          <div style="display: {{ successDisplay }}; background: var(--success-wash); border: 1px solid var(--success-line); border-radius: 10px; padding: 16px 18px; color: var(--success-fg); font-size: 14px; line-height: 1.5;">Mensagem registada. A equipa do BEST GYM vai responder-te brevemente através do email indicado.</div>
+          <div style="display: {{ successDisplay }}; background: var(--success-wash); border: 1px solid var(--success-line); border-radius: 10px; padding: 16px 18px; color: var(--success-fg); font-size: 14px; line-height: 1.5;">O teu programa de email foi aberto com a mensagem preenchida. Confirma o envio para concluir o contacto.</div>
           <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
             <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink);">Nome *
               <input name="nome" type="text" autoComplete="name" style="font-family: var(--font-text); font-size: 16px; padding: 13px 14px; border: 1.5px solid var(--line-strong); border-radius: 8px; background: var(--paper); color: var(--ink); outline: none;" style-focus="border-color: var(--best-red); box-shadow: 0 0 0 3px var(--focus-ring);">
@@ -74,8 +74,7 @@
                 <option value="">Escolhe a unidade</option>
                 <option value="valongo">Valongo</option>
                 <option value="famalicao">Vila Nova de Famalicão</option>
-                <option value="geral">Questão geral</option>
-              </select>
+                              </select>
             </label>
           </div>
           <label style="display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--ink);">Assunto *
@@ -96,7 +95,7 @@
           </label>
           <div style="display: {{ errorDisplay }}; background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 10px; padding: 14px 16px; color: var(--red-strong); font-size: 13.5px; line-height: 1.5;">{{ errorMsg }}</div>
           <x-import component-from-global-scope="DesignSystem_6952b0.Button" type="submit" size="lg" block="{{ true }}" hint-size="100%,56px">Enviar mensagem</x-import>
-          <span style="font-size: 12px; color: var(--text-faint);">Nota de integração: este formulário está preparado para ligação a um endpoint real (email ou CRM) antes da publicação.</span>
+          <span style="font-size: 12px; color: var(--text-faint);">Destino do formulário: Valongo → valongo@bestgym.pt · Famalicão → famalicao@bestgym.pt.</span>
         </form>
       </div>
     </section>
@@ -126,8 +125,27 @@ class Component extends DCLogic {
           this.setState({ status: 'error', errorMsg: 'Verifica os seguintes campos: ' + missing.join(', ') + '.' });
           return;
         }
+        const recipient = f.unidade.value === 'famalicao'
+          ? 'famalicao@bestgym.pt'
+          : 'valongo@bestgym.pt';
+        const subjectLabel = f.assunto.options[f.assunto.selectedIndex].text;
+        const body = [
+          'Novo contacto através do site BEST GYM',
+          '',
+          'Nome: ' + f.nome.value.trim(),
+          'Email: ' + f.email.value.trim(),
+          'Telefone: ' + (f.telefone.value.trim() || 'Não indicado'),
+          'Ginásio: ' + f.unidade.options[f.unidade.selectedIndex].text,
+          'Assunto: ' + subjectLabel,
+          '',
+          'Mensagem:',
+          f.mensagem.value.trim()
+        ].join('\n');
+        const mailto = 'mailto:' + recipient +
+          '?subject=' + encodeURIComponent('[SITE BEST GYM] ' + subjectLabel + ' — ' + f.nome.value.trim()) +
+          '&body=' + encodeURIComponent(body);
         this.setState({ status: 'success', errorMsg: '' });
-        f.reset();
+        window.location.href = mailto;
       },
     };
   }

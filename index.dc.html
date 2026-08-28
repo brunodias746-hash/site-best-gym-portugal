@@ -175,11 +175,9 @@
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div data-best-mascot-stage style="position: relative; aspect-ratio: 1 / 1; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.34), 0 0 0 1px rgba(225,21,7,0.12); background: radial-gradient(circle at 50% 38%, #241011 0%, #111214 48%, #070708 100%); border: 1px solid rgba(225,21,7,0.38);">
-            <div data-best-mascot-aura aria-hidden="true" style="position: absolute; inset: 6% 8%; border-radius: 50%; background: radial-gradient(circle at 50% 45%, rgba(225,21,7,0.34) 0%, rgba(225,21,7,0.13) 34%, transparent 68%); filter: blur(12px); opacity: 0.8;"></div>
-            <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent 34%, rgba(225,21,7,0.055) 100%);"></div>
-            <img data-best-mascot src="assets/img/mascot-owl-body-v2.png" alt="Mascote oficial do BEST GYM" style="position: absolute; left: 50%; top: -7%; height: 198%; width: auto; max-width: none; max-height: none; object-fit: contain; object-position: center top; transform: translate3d(-50%,0,0); filter: drop-shadow(0 12px 34px rgba(0,0,0,0.44)) drop-shadow(0 0 26px rgba(225,21,7,0.20));">
-            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 22%; background: linear-gradient(180deg, transparent, rgba(7,7,8,0.82)); pointer-events: none;"></div>
+          <div style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.34), 0 0 0 1px rgba(225,21,7,0.12); border: 1px solid rgba(225,21,7,0.32); background: var(--invert-3);">
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-promotores-performance" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — homem e mulher, treino de performance" hint-size="100%,100%"></x-import>
+            <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.08) 48%,rgba(7,7,8,0.34));pointer-events:none;"></div>
           </div>
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 34px; height: 3px; background: var(--best-red);"></span>
@@ -333,7 +331,7 @@
             <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-2" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto comunidade — treino de força" hint-size="100%,100%"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-3" src="assets/img/equipa.jpg" shape="rect" placeholder="Foto staff — equipa Best Gym" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-3" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — treino acompanhado" hint-size="100%,100%"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; background: var(--best-red); display: flex; align-items: center; justify-content: center;">
             <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none; color: var(--white); font-family: var(--font-display); font-size: 22px; text-transform: uppercase; text-align: center; padding: 12px;">Segue-nos no Instagram →</a>
@@ -480,8 +478,8 @@ class Component extends DCLogic {
     });
     const pillarData = [
       ['24 horas', 'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.', 'pillar-24h', 'Foto — treino noturno / acesso', 'assets/img/pillar-24h-v2.jpg'],
-      ['Estrutura completa', 'Peso livre, cardio, cross training e burn zone — zonas preparadas para treino de força, intensidade e evolução.', 'pillar-estrutura', 'Foto — zonas de treino', 'pillar-estrutura-final.jpg'],
-      ['Comunidade', 'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', 'pillar-comunidade', 'Foto — comunidade em treino', 'assets/img/pillar-comunidade-v2.jpg'],
+      ['Estrutura completa', 'Peso livre, cardio, cross training e treino funcional — zonas preparadas para treino de força, intensidade e evolução.', 'pillar-estrutura', 'Foto — zonas de treino', 'pillar-estrutura-final.jpg'],
+      ['Comunidade', 'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', 'pillar-comunidade', 'Foto — comunidade e performance', 'assets/img/editorial-membro.jpg'],
       ['Performance', 'Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.', 'pillar-performance', 'Foto — performance / força', 'pillar-performance-final.jpg'],
     ];
     const pillars = pillarData.map(([title, text, slotId, slotLabel, slotSrc], i) => {
@@ -503,14 +501,14 @@ class Component extends DCLogic {
       };
     });
     const unitData = [
-      { city: 'Valongo', blurb: 'Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: 'Foto unidade Valongo', slotSrc: 'valongo-oficial-v2.jpg' },
+      { city: 'Valongo', blurb: 'Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: 'Foto unidade Valongo', slotSrc: 'valongo-drone-v3.jpg' },
       { city: 'Vila Nova de Famalicão', blurb: 'Um espaço completo para treinar com liberdade, intensidade e acompanhamento.', address: 'Av. Centenário da República, D68, Calendário · 4760-859 V. N. Famalicão', href: '/unidade-famalicao', map: 'https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao', slotId: 'home-unit-famalicao', slotLabel: 'Foto unidade Famalicão', slotSrc: 'assets/img/unidade-famalicao.jpg' },
     ];
     const areaData = [
       ['Peso Livre', 'Racks, barras e halteres para treino de força com liberdade total.', 'peso-livre', 'Força · Carga livre', '340px'],
       ['Cardio', 'Passadeiras, bicicletas, remos e elípticas para capacidade aeróbica.', 'cardio', 'Resistência', '300px'],
       ['Cross Training', 'Espaço funcional para alta intensidade e trabalho de corpo inteiro.', 'cross-training', 'Funcional', '340px'],
-      ['Burn Zone', 'Circuitos orientados para condicionamento metabólico.', 'burn-zone', 'Metabólico', '300px'],
+      ['Treino Funcional', 'Circuitos orientados para condicionamento, intensidade e trabalho de corpo inteiro.', 'burn-zone', 'Funcional', '300px'],
       ['Posing Room', 'Sala dedicada a posing e preparação de palco.', 'posing-room', 'Preparação', '300px'],
       ['Personal Training', 'Acompanhamento individual com planeamento contínuo.', 'personal-training', 'Individual', '300px'],
     ];

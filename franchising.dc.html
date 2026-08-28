@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<link rel="stylesheet" href="theme.css">
+<script src="theme.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/effects.css">
+  <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
+  <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
+  <style>
+    body { margin:0; background:var(--off-white); }
+    html, body { overflow-x:clip; }
+    a { color:var(--best-red); }
+    @media(max-width:900px){
+      [data-two-col]{grid-template-columns:1fr !important;}
+      [data-franchise-hero]{min-height:640px !important;}
+    }
+  </style>
+</helmet>
+
+<div style="font-family:var(--font-text);color:var(--text-body);background:var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+
+  <main style="padding-top:115px;">
+    <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
+
+    <section data-franchise-hero data-screen-label="Hero Franchising" style="position:relative;min-height:720px;background:var(--invert-1);overflow:hidden;">
+      <div style="position:absolute;inset:0;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="franchising-hero" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="BEST GYM — performance e expansão" hint-size="100%,100%"></x-import>
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,9,10,.94) 0%,rgba(8,9,10,.72) 48%,rgba(8,9,10,.22) 100%);"></div>
+      <div style="position:relative;z-index:2;max-width:1280px;margin:0 auto;min-height:720px;padding:clamp(72px,10vw,130px) clamp(20px,4vw,48px);display:flex;flex-direction:column;justify-content:center;gap:22px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red-tint);">Expansão · BEST GYM</span>
+        <h1 style="margin:0;max-width:900px;font-family:var(--font-display);font-size:clamp(58px,8vw,118px);font-weight:400;line-height:.9;text-transform:uppercase;color:#fff;">Leva o BEST GYM<br><span style="color:var(--best-red);">à tua cidade.</span></h1>
+        <p style="margin:0;max-width:58ch;font-size:var(--fs-body-lg);line-height:var(--lh-normal);color:rgba(255,255,255,.86);">Faz parte da expansão de uma marca de ginásios 24H focada em performance, proximidade e experiência de treino.</p>
+        <a href="#candidatura" style="text-decoration:none;align-self:flex-start;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="260px,56px">Quero saber mais</x-import></a>
+      </div>
+    </section>
+
+    <section data-screen-label="Franchising visão" style="max-width:1280px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,4vw,48px);">
+      <div data-two-col style="display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,6vw,86px);align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--best-red);">Franchising</span>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,150px">Crescer com <span style="color:var(--best-red)">identidade.</span></x-import>
+        </div>
+        <p style="margin:0;font-size:var(--fs-body-lg);line-height:1.7;color:var(--text-muted);">O BEST GYM está em expansão. Procuramos parceiros interessados em desenvolver novos ginásios com a identidade da marca, mantendo o foco em acesso 24 horas, estrutura de treino e uma experiência consistente para os membros.</p>
+      </div>
+    </section>
+
+    <section style="background:var(--surface-1);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+      <div style="max-width:1280px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(20px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        <article style="padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--paper);"><span style="font-family:var(--font-display);font-size:42px;color:var(--best-red);">01</span><h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;color:var(--ink);">Modelo 24H</h2><p style="color:var(--text-muted);line-height:1.6;">Uma proposta de ginásio desenhada para liberdade de horário e utilização autónoma.</p></article>
+        <article style="padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--paper);"><span style="font-family:var(--font-display);font-size:42px;color:var(--best-red);">02</span><h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;color:var(--ink);">Marca forte</h2><p style="color:var(--text-muted);line-height:1.6;">Identidade visual, posicionamento de performance e comunicação consistente.</p></article>
+        <article style="padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--paper);"><span style="font-family:var(--font-display);font-size:42px;color:var(--best-red);">03</span><h2 style="font-family:var(--font-display);font-weight:400;text-transform:uppercase;color:var(--ink);">Expansão</h2><p style="color:var(--text-muted);line-height:1.6;">Candidaturas avaliadas de acordo com localização, projeto e capacidade de investimento.</p></article>
+      </div>
+    </section>
+
+    <section id="candidatura" data-screen-label="Formulário franchising" style="max-width:1180px;margin:0 auto;padding:clamp(64px,9vw,112px) clamp(20px,4vw,48px);">
+      <div data-two-col style="display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:18px;position:sticky;top:150px;">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--best-red);">Candidatura</span>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,140px">Vamos falar de <span style="color:var(--best-red)">Franchising.</span></x-import>
+          <p style="margin:0;color:var(--text-muted);line-height:1.7;">Preenche os dados para a equipa avaliar o teu interesse. O contacto é dirigido para <a href="mailto:franchising@bestgym.pt" style="font-weight:700;text-decoration:none;">franchising@bestgym.pt</a>.</p>
+        </div>
+
+        <form onSubmit="{{ submitForm }}" noValidate style="background:var(--surface-1);border:1px solid var(--line);border-radius:18px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-sm);">
+          <div style="display:{{ successDisplay }};background:var(--success-wash);border:1px solid var(--success-line);border-radius:10px;padding:16px 18px;color:var(--success-fg);font-size:14px;line-height:1.5;">O teu programa de email foi aberto com a candidatura preenchida. Confirma o envio para concluir.</div>
+          <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Nome *<input name="nome" type="text" autocomplete="name" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Email *<input name="email" type="email" autocomplete="email" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Telemóvel *<input name="telefone" type="tel" autocomplete="tel" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">NIF *<input name="nif" type="text" inputmode="numeric" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Capital disponível *<input name="capital" type="text" placeholder="Ex.: 150.000€" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Local pretendido *<input name="local" type="text" placeholder="Cidade / concelho" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Tipo de projeto *
+            <select name="tipo" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);">
+              <option value="">Seleciona uma opção</option>
+              <option value="novo">Novo ginásio</option>
+              <option value="remodelacao">Remodelação de ginásio existente</option>
+            </select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Mensagem
+            <textarea name="mensagem" rows="5" placeholder="Conta-nos um pouco mais sobre o projeto." style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);resize:vertical;"></textarea>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--text-muted);font-weight:400;">
+            <input name="privacidade" type="checkbox" style="margin-top:3px;width:16px;height:16px;accent-color:var(--best-red);">
+            <span>Li e aceito a <a href="/privacidade">Política de Privacidade</a>. *</span>
+          </label>
+          <div style="display:{{ errorDisplay }};background:var(--red-wash);border:1px solid var(--red-line);border-radius:10px;padding:14px 16px;color:var(--red-strong);font-size:13.5px;line-height:1.5;">{{ errorMsg }}</div>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Button" type="submit" size="lg" block="{{ true }}" hint-size="100%,56px">Enviar candidatura</x-import>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+</div>
+</x-dc>
+
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { status:'idle', errorMsg:'' };
+  renderVals() {
+    return {
+      successDisplay: this.state.status === 'success' ? 'block' : 'none',
+      errorDisplay: this.state.status === 'error' ? 'block' : 'none',
+      errorMsg: this.state.errorMsg,
+      submitForm: (e) => {
+        e.preventDefault();
+        const f = e.target;
+        const missing = [];
+        if (!f.nome.value.trim()) missing.push('nome');
+        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push('email válido');
+        if (!f.telefone.value.trim()) missing.push('telemóvel');
+        if (!f.nif.value.trim()) missing.push('NIF');
+        if (!f.capital.value.trim()) missing.push('capital disponível');
+        if (!f.local.value.trim()) missing.push('local pretendido');
+        if (!f.tipo.value) missing.push('tipo de projeto');
+        if (!f.privacidade.checked) missing.push('aceitação da política de privacidade');
+        if (missing.length) {
+          this.setState({status:'error', errorMsg:'Verifica os seguintes campos: ' + missing.join(', ') + '.'});
+          return;
+        }
+        const body = [
+          'Nova candidatura de Franchising — BEST GYM',
+          '',
+          'Nome: ' + f.nome.value.trim(),
+          'Email: ' + f.email.value.trim(),
+          'Telemóvel: ' + f.telefone.value.trim(),
+          'NIF: ' + f.nif.value.trim(),
+          'Capital disponível: ' + f.capital.value.trim(),
+          'Local pretendido: ' + f.local.value.trim(),
+          'Tipo de projeto: ' + f.tipo.options[f.tipo.selectedIndex].text,
+          '',
+          'Mensagem:',
+          f.mensagem.value.trim() || 'Não indicada'
+        ].join('\n');
+        const mailto = 'mailto:franchising@bestgym.pt' +
+          '?subject=' + encodeURIComponent('[FRANCHISING BEST GYM] ' + f.nome.value.trim() + ' — ' + f.local.value.trim()) +
+          '&body=' + encodeURIComponent(body);
+        this.setState({status:'success', errorMsg:''});
+        window.location.href = mailto;
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

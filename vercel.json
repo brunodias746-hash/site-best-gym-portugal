@@ -23,6 +23,10 @@
       "destination": "/built-by-best.dc.html"
     },
     {
+      "source": "/franchising",
+      "destination": "/franchising.dc.html"
+    },
+    {
       "source": "/produtos",
       "destination": "/produtos.dc.html"
     },
@@ -69,6 +73,13 @@
     {
       "source": "/cookies",
       "destination": "/cookies.dc.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/registration",
+      "destination": "/franchising",
+      "permanent": true
     }
   ],
   "headers": [

@@ -13,6 +13,7 @@
     '/unidade-valongo': ['BEST GYM Valongo | Ginásio 24H', 'Best Gym Valongo: acesso 24 horas e estrutura para diferentes objetivos de treino.'],
     '/unidade-famalicao': ['BEST GYM Famalicão | Ginásio 24H', 'Best Gym Vila Nova de Famalicão: acesso 24 horas e estrutura de treino.'],
     '/built-by-best': ['Built By Best | BEST GYM', 'Programa de acompanhamento do BEST GYM orientado para consistência, método e evolução.'],
+    '/franchising': ['Franchising | BEST GYM', 'Conhece a oportunidade de Franchising do BEST GYM e envia a tua candidatura.'],
     '/produtos': ['Produtos | BEST GYM', 'Consulta o catálogo de produtos do BEST GYM disponível nos ginásios.'],
     '/conteudos': ['Conteúdos | BEST GYM', 'Treino, performance, recuperação e comunidade no BEST GYM.'],
     '/conteudo-detalhe': ['Conteúdo | BEST GYM', 'Conteúdo do BEST GYM sobre treino, performance e comunidade.'],
@@ -180,13 +181,17 @@
     var selectors = [
       '[src*="area-aulas"]',
       '[src*="comunidade-grupo"]',
-      '[src*="comunidade-evento"]'
+      '[src*="comunidade-evento"]',
+      '[src*="artigo-checkin"]',
+      '[src*="equipa.jpg"]'
     ];
 
     var replacements = {
-      'area-aulas': 'assets/img/area-peso-livre.jpg',
+      'area-aulas': 'assets/img/area-personal-training.jpg',
       'comunidade-grupo': 'assets/img/editorial-membro.jpg',
-      'comunidade-evento': 'assets/img/hero-performance.jpg'
+      'comunidade-evento': 'assets/img/area-personal-training.jpg',
+      'artigo-checkin': 'assets/img/area-personal-training.jpg',
+      'equipa.jpg': 'assets/img/editorial-membro.jpg'
     };
 
     var nodes = root.querySelectorAll(selectors.join(','));
@@ -293,6 +298,50 @@
       stage.removeEventListener('pointermove', pointerMove);
       stage.removeEventListener('pointerleave', pointerLeave);
     }, { once: true });
+  }
+
+
+
+  function injectFranchisingNav(root) {
+    root = root || document;
+    if (!root.querySelectorAll) return;
+
+    function addTo(nav, drawer) {
+      if (!nav || nav.querySelector('a[href="/franchising"]')) return;
+
+      var links = nav.querySelectorAll('a[href]');
+      var model = null;
+      var before = null;
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('href') === '/contactos') model = links[i];
+        if (links[i].getAttribute('href') === '/sobre') before = links[i];
+      }
+      if (!model && links.length) model = links[links.length - 1];
+      if (!model) return;
+
+      var a = model.cloneNode(true);
+      a.setAttribute('href', '/franchising');
+      a.textContent = 'Franchising';
+
+      if (location.pathname.replace(/\/+$/, '') === '/franchising') {
+        a.style.color = 'var(--best-red)';
+        if (!drawer) {
+          a.style.borderBottomColor = 'var(--best-red)';
+          a.style.fontWeight = '600';
+        }
+      } else {
+        a.style.color = 'var(--ink)';
+        if (!drawer) a.style.borderBottomColor = 'transparent';
+      }
+
+      if (before && before.parentNode === nav) nav.insertBefore(a, before);
+      else nav.appendChild(a);
+
+      if (!drawer) nav.style.gap = 'clamp(12px, 1.45vw, 22px)';
+    }
+
+    addTo(root.querySelector('nav[data-bg-desknav]'), false);
+    addTo(root.querySelector('aside[aria-label="Menu"] nav[aria-label="Menu completo"]'), true);
   }
 
 
@@ -429,6 +478,7 @@
     fixComingSoon(root);
     fixCampaignHero(root);
     fixInstagram(root);
+    injectFranchisingNav(root);
     removeGroupClassPhotos(root);
     animateInstitutionalMascot(root);
     normalizeBrandLogos(root);

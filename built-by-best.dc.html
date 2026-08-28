@@ -49,7 +49,7 @@
           <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Built By Best é um programa de acompanhamento criado para quem pretende treinar com mais clareza, consistência e controlo sobre a evolução.</p>
         </div>
         <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg);">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bbb-oque" src="assets/img/artigo-checkin.jpg" shape="rect" placeholder="Foto acompanhamento — trainer e membro" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="bbb-oque" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — acompanhamento e performance" hint-size="100%,100%"></x-import>
         </div>
       </div>
     </section>
@@ -151,10 +151,10 @@ class Component extends DCLogic {
     const filters = ['Todos', 'Execução', 'Acompanhamento', 'Programa'];
     const videoData = [
       ['Execução', 'Padrões de agachamento', 'bbb-video-1', 'assets/img/area-peso-livre.jpg'],
-      ['Acompanhamento', 'Check-in mensal de progresso', 'bbb-video-2', 'assets/img/artigo-checkin.jpg'],
+      ['Acompanhamento', 'Check-in mensal de progresso', 'bbb-video-2', 'assets/img/editorial-membro.jpg'],
       ['Programa', 'Como funciona o Built By Best', 'bbb-video-3', 'pillar-performance-final.jpg'],
       ['Execução', 'Técnica de levantamento terra', 'bbb-video-4', 'assets/img/hero-noturno-24h.jpg'],
-      ['Acompanhamento', 'Ajustes de plano de treino', 'bbb-video-5', 'assets/img/artigo-planeamento.jpg'],
+      ['Acompanhamento', 'Ajustes de plano de treino', 'bbb-video-5', 'assets/img/area-personal-training.jpg'],
       ['Programa', 'A avaliação inicial', 'bbb-video-6', 'assets/img/area-personal-training.jpg'],
     ];
     const active = filters[this.state.filter];
