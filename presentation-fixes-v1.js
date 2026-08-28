@@ -345,6 +345,46 @@
   }
 
 
+
+  function syncMonthlyCampaignCopy(root) {
+    root = root || document;
+    if (!root.querySelectorAll) return;
+
+    var nodes = root.querySelectorAll('span, p, div, h1, h2, h3, strong, a');
+
+    function normalized(value) {
+      return (value || '').replace(/\s+/g, ' ').trim().toLowerCase();
+    }
+
+    for (var i = 0; i < nodes.length; i++) {
+      var el = nodes[i];
+      if (el.children.length) continue;
+
+      var raw = (el.textContent || '').trim();
+      var text = normalized(raw);
+
+      if (text === '3 meses de oferta + inscrição grátis') {
+        el.textContent = '50% DE DESCONTO POR MÊS ATÉ 2027 + INSCRIÇÃO GRÁTIS';
+        /* Prevent the longer current offer from overflowing narrow campaign cards. */
+        el.style.fontSize = 'clamp(18px, 2.2vw, 30px)';
+        el.style.lineHeight = '1.02';
+      }
+
+      if (text === 'campanha do mês · olá verão, olá descontos' ||
+          text === 'campanha do mês · ola verão, ola descontos' ||
+          text === 'campanha do mês · ola verao, ola descontos') {
+        el.textContent = 'CAMPANHA DO MÊS · FÉRIAS OFF. GYM ON.';
+      }
+
+      if (text === 'olá verão, olá descontos' ||
+          text === 'ola verão, ola descontos' ||
+          text === 'ola verao, ola descontos') {
+        el.textContent = 'FÉRIAS OFF. GYM ON.';
+      }
+    }
+  }
+
+
   function normalizeBrandLogos(root) {
     root = root || document;
     var logos = root.querySelectorAll ? root.querySelectorAll('img[data-theme-logo][alt="Best Gym"]') : [];
@@ -477,6 +517,7 @@
     cleanupVisibleDraftCopy(root);
     fixComingSoon(root);
     fixCampaignHero(root);
+    syncMonthlyCampaignCopy(root);
     fixInstagram(root);
     injectFranchisingNav(root);
     removeGroupClassPhotos(root);

@@ -87,7 +87,7 @@
               '<strong style="display:block;font-family:var(--font-display,sans-serif);font-size:34px;' +
               'font-weight:400;line-height:.9;">2027</strong>' +
               '<span style="display:block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.1em;' +
-              'text-transform:uppercase;color:var(--text-muted,#666);">Até 2027</span>' +
+              'text-transform:uppercase;color:var(--text-muted,#666);">Condição válida</span>' +
             '</div>' +
             '<div style="padding:15px;border:1px solid var(--line,#ddd);border-radius:12px;">' +
               '<strong style="display:block;font-family:var(--font-display,sans-serif);font-size:25px;' +
