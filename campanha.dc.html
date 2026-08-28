@@ -19,120 +19,98 @@
   <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
   <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
   <style>
-    body { margin: 0; background: var(--off-white); } html, body { overflow-x: clip; }
-    a { color: var(--best-red); } a:hover { color: var(--red-strong); }
-    @media (max-width: 900px) { [data-two-col] { grid-template-columns: 1fr !important; } }
+    body { margin:0; background:var(--off-white); }
+    html, body { overflow-x:clip; }
+    a { color:var(--best-red); }
+    @media (max-width: 980px) {
+      [data-campaign-page-grid], [data-campaign-hero-grid], [data-steps-grid] { grid-template-columns:1fr !important; }
+    }
+    @media (max-width: 640px) {
+      [data-campaign-cta-row] { flex-direction:column !important; align-items:stretch !important; }
+    }
   </style>
 </helmet>
-<div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
-  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 72px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: 1px solid var(--line);">
-    <a href="/" style="display: flex; align-items: center;"><img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 30px;"></a>
-    <div style="display: flex; align-items: center; gap: 16px;">
-      <a href="/" style="text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Ver o site completo</a>
-      <button type="button" data-theme-toggle onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
-        <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
-        <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
-      </button>
-      <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px">Aderir agora</x-import></a>
-    </div>
-  </header>
-  <main style="padding-top: 72px;">
+<div style="font-family:var(--font-text);color:var(--text-body);background:var(--off-white);">
+  <dc-import name="Header" active="" hint-size="100%,116px"></dc-import>
+  <main style="padding-top:115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
-    <section data-screen-label="Hero campanha" style="position: relative; background: var(--invert-1); overflow: hidden;">
-      <div style="position: absolute; inset: 0; opacity: 0.4;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="campanha-hero" shape="rect" placeholder="Arte da campanha — treino de verão" hint-size="100%,100%"></x-import>
-      </div>
-      <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(142,9,0,0.85) 0%, rgba(14,15,17,0.75) 70%); pointer-events: none;"></div>
-      <div style="position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; pointer-events: none;">
-        <h1 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 9vw, 132px); line-height: 0.9; text-transform: uppercase; color: var(--white); text-wrap: balance;">Olá verão,<br><span style="color: var(--red-tint);">olá descontos</span></h1>
-        <span style="font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); text-transform: uppercase; color: rgba(255,255,255,0.9); letter-spacing: 0.04em;">Não fiques de fora</span>
-        <div style="background: rgba(255,255,255,0.1); border: 1.5px solid rgba(255,255,255,0.35); border-radius: 14px; padding: 18px 30px; backdrop-filter: blur(6px);">
-          <span style="font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 42px); text-transform: uppercase; color: var(--white); line-height: 1;">3 meses de oferta + inscrição grátis</span>
-        </div>
-        <div style="pointer-events: auto; display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 8px;">
-          <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="190px,56px">Aderir agora</x-import></a>
-          <a href="/inscricao" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 18px 32px; border: 1.5px solid rgba(255,255,255,0.6); border-radius: 8px; color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase;" style-hover="background: rgba(255,255,255,0.12);">Escolher unidade</a>
-        </div>
-      </div>
-    </section>
-
-    <section data-screen-label="Benefícios" style="max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" align="center" hint-size="100%,60px">O que <span style="color: var(--best-red)">levas.</span></x-import>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
-        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
-          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">3</span>
-          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Meses de oferta</span>
-          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Condições apresentadas na plataforma oficial.</span>
-        </div>
-        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
-          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">0€</span>
-          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Inscrição grátis</span>
-          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Sem custo de inscrição durante a campanha.</span>
-        </div>
-        <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 10px; text-align: center; align-items: center;">
-          <span style="font-family: var(--font-display); font-size: 44px; color: var(--best-red); line-height: 1;">24H</span>
-          <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink);">Acesso total</span>
-          <span style="font-size: 13.5px; color: var(--text-muted); line-height: 1.55;">Treina a qualquer hora, todos os dias do ano.</span>
+    <section style="position:relative; background:var(--invert-1); overflow:hidden;">
+      <div style="position:absolute; inset:0; background:radial-gradient(circle at 72% 20%, rgba(225,21,7,.22), transparent 34%), linear-gradient(135deg, #0b0b0d 0%, #171519 100%);"></div>
+      <div style="position:relative; z-index:2; max-width:1280px; margin:0 auto; padding:clamp(64px, 9vw, 108px) clamp(20px, 4vw, 48px);">
+        <div data-campaign-hero-grid style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(24px, 4vw, 56px); align-items:center;">
+          <div style="display:flex; flex-direction:column; gap:18px;">
+            <span style="font-size:12px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--red-tint);">Campanha do mês · BEST GYM</span>
+            <h1 style="margin:0; font-family:var(--font-display); font-size:clamp(52px, 7vw, 110px); font-weight:400; line-height:.9; text-transform:uppercase; color:#fff;">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h1>
+            <p style="margin:0; max-width:54ch; font-size:18px; line-height:1.75; color:rgba(255,255,255,.84);">Uma oferta criada para acelerar a conversão da campanha atual do BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:8px;">
+              <a href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px">Aderir à campanha</x-import></a>
+              <a href="/contactos" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid rgba(255,255,255,.35); border-radius:10px; color:#fff; font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase;">Falar com a equipa</a>
+            </div>
+          </div>
+          <div style="display:flex; justify-content:center;">
+            <div style="width:min(100%, 540px); background:#fff; border-radius:24px; padding:18px; box-shadow:0 34px 110px rgba(0,0,0,.4);">
+              <img src="campanha-ferias-off-gym-on-2026.png" alt="Férias Off. Gym On. — 50% de desconto" style="display:block; width:100%; height:auto; border-radius:16px;">
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section data-screen-label="Unidades campanha" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
-      <div style="max-width: 1100px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" align="center" hint-size="100%,60px">Escolhe a tua unidade</x-import>
-        <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <a href="/unidade-valongo" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: var(--best-red); box-shadow: var(--shadow-md);">
-            <span style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--ink);">Valongo</span>
-            <span style="font-size: 13.5px; color: var(--text-muted);">Avenida 25 de Abril, 381 · 4440-502 Valongo</span>
-            <span style="color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Conhecer unidade →</span>
-          </a>
-          <a href="/unidade-famalicao" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; gap: 8px; transition: border-color 0.25s, box-shadow 0.25s;" style-hover="border-color: var(--best-red); box-shadow: var(--shadow-md);">
-            <span style="font-family: var(--font-display); font-size: 28px; text-transform: uppercase; color: var(--ink);">Vila Nova de Famalicão</span>
-            <span style="font-size: 13.5px; color: var(--text-muted);">Av. Centenário da República, D68, Calendário</span>
-            <span style="color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Conhecer unidade →</span>
-          </a>
+    <section style="max-width:1280px; margin:0 auto; padding:clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+      <div data-campaign-page-grid style="display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px, 4vw, 56px); align-items:start;">
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">O que está em destaque</span>
+          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(40px, 5vw, 70px); font-weight:400; line-height:.92; text-transform:uppercase; color:var(--ink);">Uma campanha forte para <span style="color:var(--best-red);">converter agora.</span></h2>
+          <p style="margin:0; max-width:56ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Esta página funciona como destino direto da oferta. Pode receber tráfego do popup, da home, de anúncios e das redes sociais, concentrando a mensagem da campanha num só lugar e facilitando a inscrição.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px;">
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--best-red);">50%</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Desconto por mês</span></article>
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--ink);">2027</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Válido até 2027</span></article>
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong style="display:block; font-family:var(--font-display); font-size:30px; font-weight:400; line-height:.95; color:var(--ink);">Inscrição grátis</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Oferta de entrada</span></article>
+          </div>
+        </div>
+        <aside style="padding:26px; border:1px solid var(--line); border-radius:18px; background:var(--paper); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:18px;">
+          <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Como usar no site</span>
+          <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:14px; color:var(--text-muted); line-height:1.7; font-size:15.5px;">
+            <li>Popup inicial para captar atenção imediata.</li>
+            <li>Destaque permanente na home para reforço da oferta.</li>
+            <li>Página dedicada para concentrar campanha, CTA e tráfego.</li>
+            <li>Ligação direta para inscrição e contacto da equipa.</li>
+          </ul>
+          <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:12px; padding-top:6px;">
+            <a href="/unidades" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:10px; border:1.5px solid var(--line-strong); color:var(--ink); font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Ver unidades</a>
+            <a href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Quero aderir</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section style="background:var(--surface-1); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div style="max-width:1280px; margin:0 auto; padding:clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display:flex; flex-direction:column; gap:28px;">
+        <div style="display:flex; flex-direction:column; gap:12px; max-width:760px;">
+          <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Fluxo de conversão</span>
+          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(38px, 4.5vw, 64px); font-weight:400; line-height:.94; text-transform:uppercase; color:var(--ink);">Da campanha até à <span style="color:var(--best-red);">inscrição.</span></h2>
+        </div>
+        <div data-steps-grid style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+          <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">01</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Vê a oferta</h3><p style="margin:0; color:var(--text-muted); line-height:1.7;">O utilizador encontra a campanha através do popup, da home ou de uma partilha direta.</p></article>
+          <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">02</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Entende o benefício</h3><p style="margin:0; color:var(--text-muted); line-height:1.7;">A página esclarece rapidamente a proposta: desconto, inscrição grátis e urgência de vagas.</p></article>
+          <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">03</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Age</h3><p style="margin:0; color:var(--text-muted); line-height:1.7;">Com um clique, segue para a inscrição ou entra em contacto com a equipa do BEST GYM.</p></article>
         </div>
       </div>
     </section>
 
-    <section data-screen-label="FAQ campanha" style="max-width: 800px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="70%,60px">Perguntas rápidas</x-import>
-      <x-import component-from-global-scope="DesignSystem_6952b0.Accordion" items="{{ faqItems }}" hint-size="100%,220px"></x-import>
-      <span style="font-size: 12px; color: var(--text-faint); line-height: 1.6;">Campanha limitada no tempo. Termos e condições completos disponíveis na plataforma oficial de inscrição. Conteúdo comercial sujeito a confirmação — não são apresentados preços nesta página.</span>
-    </section>
-
-    <section data-screen-label="CTA final campanha" style="background: var(--grad-red);">
-      <div style="max-width: 1100px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" align="center" hint-size="100%,160px">Não fiques de fora.</x-import>
-        <a href="https://subscribe.myf.pt/signup/bestgym" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="190px,56px">Aderir agora</x-import></a>
-        <span style="font-size: 12.5px; color: rgba(255,255,255,0.75);">Inscrição concluída na plataforma oficial subscribe.myf.pt</span>
+    <section style="max-width:1280px; margin:0 auto; padding:clamp(64px, 9vw, 116px) clamp(20px, 4vw, 48px); display:flex; flex-direction:column; gap:22px; align-items:center; text-align:center;">
+      <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Oferta ativa</span>
+      <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(48px, 6vw, 86px); font-weight:400; line-height:.9; text-transform:uppercase; color:var(--ink);">Pronto para <span style="color:var(--best-red);">aproveitar?</span></h2>
+      <p style="margin:0; max-width:50ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Inscreve-te no BEST GYM e ativa já a campanha Férias Off. Gym On. com 50% de desconto por mês até 2027.</p>
+      <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding-top:8px;">
+        <a href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px">Quero aproveitar</x-import></a>
+        <a href="/contactos" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--line-strong); border-radius:10px; color:var(--ink); font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase;">Falar com a equipa</a>
       </div>
+      <p style="margin:6px 0 0; font-size:12.5px; line-height:1.7; color:var(--text-faint);">Campanha sujeita à disponibilidade de vagas e às condições aplicáveis pelo BEST GYM.</p>
     </section>
   </main>
   <dc-import name="Footer" hint-size="100%,620px"></dc-import>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { theme: (window.BGTheme && window.BGTheme.get()) || 'dark' };
-  componentDidMount() {
-    this._onTheme = (e) => this.setState({ theme: (e.detail && e.detail.theme) || 'dark' });
-    window.addEventListener('bg-theme-change', this._onTheme);
-  }
-  componentWillUnmount() { window.removeEventListener('bg-theme-change', this._onTheme); }
-  renderVals() {
-    const dark = this.state.theme !== 'light';
-    return {
-      themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',
-      toggleTheme: () => { if (window.BGTheme) this.setState({ theme: window.BGTheme.toggle() }); },
-      faqItems: [
-        { q: 'Como adiro à campanha?', a: 'Clica em "Aderir agora" e conclui a inscrição na plataforma oficial. A campanha é aplicada durante o processo.' },
-        { q: 'Posso escolher qualquer unidade?', a: 'Sim, a campanha é válida nas unidades de Valongo e Vila Nova de Famalicão.' },
-        { q: 'Onde vejo os termos completos?', a: 'Os termos e condições completos da campanha são apresentados na plataforma oficial de inscrição.' },
-      ],
-    };
-  }
-}
-</script>
 </body>
 </html>

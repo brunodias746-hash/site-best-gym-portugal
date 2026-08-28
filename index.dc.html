@@ -59,6 +59,25 @@
       [data-bbb-h2] { font-size: clamp(44px, 14vw, 56px) !important; }
       [data-stat-row] { flex-wrap: wrap !important; }
     }
+
+    /* Campanha do mês */
+    [data-campaign-grid], [data-popup-grid], [data-campaign-cta-row] { box-sizing: border-box; }
+    [data-campaign-poster] img { display:block; width:100%; height:auto; }
+    [data-campaign-popup].is-open { opacity: 1 !important; visibility: visible !important; }
+    [data-campaign-popup].is-open [data-popup-card] { transform: translateY(0) scale(1) !important; opacity: 1 !important; }
+    @media (max-width: 980px) {
+      [data-campaign-grid] { grid-template-columns: 1fr !important; }
+      [data-popup-grid] { grid-template-columns: 1fr !important; }
+      [data-popup-copy] { padding: 24px !important; }
+    }
+    @media (max-width: 640px) {
+      [data-campaign-copy] h2 { font-size: clamp(40px, 14vw, 56px) !important; }
+      [data-campaign-copy] p { font-size: 16px !important; }
+      [data-campaign-cta-row] { flex-direction: column !important; align-items: stretch !important; }
+      [data-campaign-popup] { padding: 16px !important; }
+      [data-popup-copy] h3 { font-size: clamp(34px, 12vw, 48px) !important; }
+    }
+
   </style>
 </helmet>
 <div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
@@ -182,6 +201,41 @@
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 34px; height: 3px; background: var(--best-red);"></span>
             <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);">Força · Performance · BEST GYM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-screen-label="Campanha do mês" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
+        <div data-campaign-grid style="display:grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(24px, 4vw, 56px); align-items: center;">
+          <div data-campaign-copy style="display:flex; flex-direction:column; gap: 18px;">
+            <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha do mês</span>
+            <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h2>
+            <p style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">A campanha ativa do BEST GYM já está pronta para converter no site: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
+              <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
+                <span style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">50%</span>
+                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Desconto mensal</span>
+              </div>
+              <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
+                <span style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--ink);">2027</span>
+                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Até quando</span>
+              </div>
+              <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
+                <span style="display:block; font-family:var(--font-display); font-size:34px; line-height:0.9; color:var(--ink);">Grátis</span>
+                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Inscrição</span>
+              </div>
+            </div>
+            <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:6px;">
+              <a href="/campanha" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="250px,56px">Ver oferta completa</x-import></a>
+              <a href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--line-strong); border-radius:10px; color:var(--ink); font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase;">Inscreve-te agora</a>
+            </div>
+          </div>
+          <div data-campaign-poster style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(135deg, rgba(225,21,7,0.1), rgba(255,255,255,0.65)); border:1px solid rgba(225,21,7,0.18); box-shadow:0 32px 90px rgba(0,0,0,0.12); padding:clamp(14px, 2vw, 22px);">
+            <div style="border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 48px rgba(0,0,0,0.12);">
+              <img src="campanha-ferias-off-gym-on-2026.png" alt="Campanha do mês BEST GYM — Férias Off. Gym On.">
+            </div>
           </div>
         </div>
       </div>
@@ -400,6 +454,41 @@
   </main>
 
   <dc-import name="Footer" hint-size="100%,620px"></dc-import>
+
+  <div id="campaign-popup" data-campaign-popup aria-hidden="true" style="position:fixed; inset:0; z-index:2500; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(6,7,9,0.7); backdrop-filter:blur(10px); opacity:0; visibility:hidden; transition:opacity .32s ease, visibility .32s ease;">
+    <div data-popup-card style="width:min(1080px, 100%); max-height:min(92vh, 940px); overflow:auto; background:var(--paper); border-radius:26px; border:1px solid rgba(225,21,7,0.14); box-shadow:0 40px 120px rgba(0,0,0,0.35); transform:translateY(18px) scale(.98); opacity:0; transition:transform .36s cubic-bezier(.2,.8,.2,1), opacity .36s ease;">
+      <div data-popup-grid style="display:grid; grid-template-columns: 0.94fr 1.06fr; align-items:stretch;">
+        <div style="background:linear-gradient(160deg, #110f10 0%, #1b1618 100%); display:flex; align-items:center; justify-content:center; padding:clamp(18px, 3vw, 28px);">
+          <img src="campanha-ferias-off-gym-on-2026.png" alt="Campanha do mês BEST GYM" style="display:block; width:100%; max-width:440px; height:auto; border-radius:16px; box-shadow:0 24px 60px rgba(0,0,0,0.35); background:#fff;">
+        </div>
+        <div data-popup-copy style="padding: clamp(28px, 4vw, 40px); display:flex; flex-direction:column; gap:18px; position:relative;">
+          <button type="button" data-popup-close aria-label="Fechar campanha" style="position:absolute; top:18px; right:18px; width:42px; height:42px; border-radius:50%; border:1px solid var(--line); background:var(--surface-1); color:var(--ink); font-size:22px; line-height:1; cursor:pointer;">×</button>
+          <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha em destaque</span>
+          <h3 style="margin:0; padding-right:48px; font-family:var(--font-display); font-size:clamp(42px, 5vw, 70px); line-height:0.92; text-transform:uppercase; color:var(--ink);">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h3>
+          <p style="margin:0; font-size:17px; line-height:1.75; color:var(--text-muted);">Aproveita a campanha do BEST GYM com uma proposta forte para conversão: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px;">
+            <div style="padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:var(--surface-1);">
+              <strong style="display:block; font-family:var(--font-display); font-size:38px; font-weight:400; line-height:.9; color:var(--best-red);">50%</strong>
+              <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Desconto</span>
+            </div>
+            <div style="padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:var(--surface-1);">
+              <strong style="display:block; font-family:var(--font-display); font-size:38px; font-weight:400; line-height:.9; color:var(--ink);">2027</strong>
+              <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Até 2027</span>
+            </div>
+            <div style="padding:16px 18px; border:1px solid var(--line); border-radius:14px; background:var(--surface-1);">
+              <strong style="display:block; font-family:var(--font-display); font-size:28px; font-weight:400; line-height:.95; color:var(--ink);">Inscrição grátis</strong>
+              <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Vagas limitadas</span>
+            </div>
+          </div>
+          <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:8px;">
+            <a href="/campanha" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="230px,56px">Ver campanha</x-import></a>
+            <a href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 26px; border-radius:10px; border:1.5px solid var(--line-strong); color:var(--ink); font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase;">Inscreve-te</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;areasCardWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:440,&quot;min&quot;:240,&quot;max&quot;:440,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;},&quot;areasImageRatio&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;16 / 9&quot;,&quot;options&quot;:[&quot;4 / 3&quot;,&quot;1 / 1&quot;,&quot;16 / 9&quot;,&quot;3 / 4&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;},&quot;areasShowDesc&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;}}">
@@ -746,5 +835,36 @@ class Component extends DCLogic {
   }
 }
 </script>
+
+<script>
+(function(){
+  const KEY = 'bestgym_campaign_popup_ferias_off_gym_on_2026';
+  const TTL = 12 * 60 * 60 * 1000;
+  const popup = document.getElementById('campaign-popup');
+  if (!popup) return;
+  const closeBtn = popup.querySelector('[data-popup-close]');
+  const open = () => {
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const close = () => {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    try { localStorage.setItem(KEY, String(Date.now())); } catch(e) {}
+  };
+  closeBtn && closeBtn.addEventListener('click', close);
+  popup.addEventListener('click', function(e){ if (e.target === popup) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && popup.classList.contains('is-open')) close(); });
+  let shouldOpen = true;
+  try {
+    const seen = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (seen && (Date.now() - seen) < TTL) shouldOpen = false;
+  } catch(e) {}
+  window.addEventListener('load', function(){ if (shouldOpen) setTimeout(open, 900); });
+})();
+</script>
+
 </body>
 </html>
