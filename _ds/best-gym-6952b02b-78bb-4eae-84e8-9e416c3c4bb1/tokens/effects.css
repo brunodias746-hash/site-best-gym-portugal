@@ -57,13 +57,3 @@
   /* image hover scale (controlled) */
   --img-hover-scale: 1.04;  /* @kind other */
 }
-
-@media (prefers-reduced-motion: reduce) {
-  :root {
-    --dur-fast: 0ms;   /* @kind other */
-    --dur-base: 0ms;   /* @kind other */
-    --dur-slow: 0ms;   /* @kind other */
-    --dur-reveal: 0ms; /* @kind other */
-    --img-hover-scale: 1; /* @kind other */
-  }
-}

@@ -1,17 +1,15 @@
 /* BEST GYM — marquee motion hotfix */
 
-/* Fine pointer / normal desktop */
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+/* The site owns marquee motion in every system motion state. */
+@media (hover: hover) and (pointer: fine) {
   section[data-screen-label="Marquee"] > div[style*="animation: bgMarquee"] {
     animation: bgMarquee 26s linear infinite !important;
     animation-play-state: running !important;
   }
 }
-
 /* Touchscreen notebooks, tablets and phones:
    overrides the global coarse-pointer motion reduction only for this ticker. */
-@media (hover: none) and (prefers-reduced-motion: no-preference),
-       (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+@media (hover: none), (pointer: coarse) {
   section[data-screen-label="Marquee"] > div[style*="animation: bgMarquee"] {
     animation-name: bgMarquee !important;
     animation-duration: 26s !important;
@@ -21,10 +19,3 @@
   }
 }
 
-/* Accessibility: explicitly respect Reduced Motion. */
-@media (prefers-reduced-motion: reduce) {
-  section[data-screen-label="Marquee"] > div[style*="animation: bgMarquee"] {
-    animation: none !important;
-    transform: translateX(0) !important;
-  }
-}

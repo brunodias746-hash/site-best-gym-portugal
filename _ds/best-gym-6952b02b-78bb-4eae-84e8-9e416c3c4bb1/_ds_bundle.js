@@ -1043,7 +1043,7 @@ try { (() => {
     entries.forEach(function (e) {
       if (e.isIntersecting && !counted) {
         counted = true;
-        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var reduce = !!(window.BGMotion && !window.BGMotion.enabled);
         if (reduce) {
           c1.textContent = '365';
           return;

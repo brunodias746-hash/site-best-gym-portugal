@@ -34,6 +34,12 @@
       return;
     }
 
+    if (document.hidden) {
+      lastTime = 0;
+      raf = requestAnimationFrame(frame);
+      return;
+    }
+
     if (!lastTime) lastTime = now;
     var dt = Math.min(64, Math.max(0, now - lastTime));
     lastTime = now;

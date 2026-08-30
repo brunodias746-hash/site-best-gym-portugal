@@ -2,6 +2,18 @@
    Presentation-safe version: saved preference → dark-first default.
    Applied on <html data-theme> before paint; persisted in localStorage. */
 (function () {
+  /* The approved BEST GYM motion language is controlled by the site, not by
+     the operating-system reduced-motion preference. Keep this policy global
+     so every presentation module makes the same decision. */
+  var systemReducedMotion = !!(window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  document.documentElement.setAttribute('data-best-motion', 'full');
+  window.BGMotion = Object.freeze({
+    enabled: true,
+    force: true,
+    systemReduced: systemReducedMotion
+  });
+
   var KEY = 'bestgym-theme';
   var META = { dark: '#070707', light: '#F6F5F3' };
 

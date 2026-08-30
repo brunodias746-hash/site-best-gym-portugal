@@ -28,7 +28,7 @@ Tokens: `--font-display` (Staatliches) · `--font-text` (Poppins). Legacy `--fon
 Primary red `--best-red #E11507` (hover `--red-strong #C10D02`, pressed `--red-deep #8E0900`, tint `--red-wash #FCEAE8`). Base `--off-white #F6F5F3` / `--paper #FBFAF8` / `--white`. Contrast `--ink #0E0F11` / `--charcoal #1A1C1F`. Text `--text-strong` / `--text-body` / `--text-muted`. Semantic surface/text/border/state tokens + colour modes (light / red / dark) and photo overlays in `tokens/colors.css`.
 
 ## Type, spacing, effects
-Editorial scale: `--fs-display-xl/-lg`, `--fs-h1..h4`, `--fs-stat`, body/nav/button/eyebrow. 12-col grid, 1280px container, 4px spacing base. Soft premium shadows (`--shadow-sm/md/lg/xl`), red conversion glow (`--glow-cta`), always-visible focus ring (`--focus-outline`). Restrained motion, honours `prefers-reduced-motion`. No grunge, smoke or fake texture.
+Editorial scale: `--fs-display-xl/-lg`, `--fs-h1..h4`, `--fs-stat`, body/nav/button/eyebrow. 12-col grid, 1280px container, 4px spacing base. Soft premium shadows (`--shadow-sm/md/lg/xl`), red conversion glow (`--glow-cta`), always-visible focus ring (`--focus-outline`). Restrained motion follows the site-wide `window.BGMotion` policy and remains active across system motion preferences. No grunge, smoke or fake texture.
 
 ## Iconography
 One linear style — consistent stroke, athletic, precise. Red on light; white/red on dark. Never mix styles. (Lucide is a suitable CDN source at 1.8px+ stroke.)

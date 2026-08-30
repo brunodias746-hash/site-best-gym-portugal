@@ -262,31 +262,6 @@ aside[aria-label="Menu"] {
   }
 }
 
-/* Motion/accessibility */
-@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto !important; }
-
-  .best-cursor-spotlight,
-  .best-global-spotlight,
-  .best-particle,
-  .best-ripple {
-    display: none !important;
-  }
-
-  .reveal-section,
-  .reveal-section h2 {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  [style*="animation:"] {
-    animation-duration: .001ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-
-
 /* ============================================================
    BEST GYM — BRAND POLISH PATCH
    1) Logo visually stable across dark/light theme

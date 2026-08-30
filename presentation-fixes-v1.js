@@ -236,14 +236,6 @@
 
     stage._bestMascotArmed = true;
 
-    var reduce = window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (reduce) {
-      mascot.style.setProperty('transform', 'translate3d(-50%,0,0)', 'important');
-      return;
-    }
-
     var targetX = 0, targetY = 0;
     var x = 0, y = 0;
     var raf = 0;
@@ -264,6 +256,10 @@
     }
 
     function frame(now) {
+      if (document.hidden) {
+        raf = requestAnimationFrame(frame);
+        return;
+      }
       x += (targetX - x) * 0.055;
       y += (targetY - y) * 0.055;
 

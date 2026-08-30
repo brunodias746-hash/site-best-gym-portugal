@@ -117,6 +117,9 @@
     var lastT = 0;
     var velocity = 0;
     var startProgress = 0;
+    var autoplay = 0;
+    var hovering = false;
+    var focused = false;
 
     function nearestRaw(index, around) {
       var total = cards.length;
@@ -209,7 +212,9 @@
     rail.addEventListener('pointerdown', function (e) {
       /* Navigation controls must behave like normal buttons.
          Do not start/capture drag when clicking arrows or dots. */
-      if (e.target && e.target.closest && e.target.closest('.best-stack-v2-nav, button')) return;
+      if (e.target && e.target.closest && e.target.closest(
+        '.best-stack-v2-nav, a, button, input, select, textarea, image-slot, x-import, [contenteditable="true"]'
+      )) return;
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       cancelAnimationFrame(raf);
       dragging = true;
@@ -264,6 +269,15 @@
       if (track.style.transform !== 'none') track.style.transform = 'none';
     });
     observer.observe(track, { attributes: true, attributeFilter: ['style'] });
+
+    rail.addEventListener('pointerenter', function () { hovering = true; }, { passive: true });
+    rail.addEventListener('pointerleave', function () { hovering = false; }, { passive: true });
+    rail.addEventListener('focusin', function () { focused = true; });
+    rail.addEventListener('focusout', function () { focused = false; });
+
+    autoplay = window.setInterval(function () {
+      if (!dragging && !hovering && !focused && !document.hidden) animateTo(current + 1);
+    }, 5200);
 
     render(0);
     return true;

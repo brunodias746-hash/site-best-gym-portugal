@@ -7,7 +7,6 @@ section[data-screen-label="Áreas de treino"].best-stack-v2 {
   position: relative;
   overflow: hidden !important;
 }
-
 section[data-screen-label="Áreas de treino"].best-stack-v2 .best-stack-original-controls {
   display: none !important;
 }
@@ -347,8 +346,3 @@ section[data-screen-label="Áreas de treino"].best-stack-v2
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-card {
-    transition: none !important;
-  }
-}
