@@ -208,5 +208,6 @@
       ]
     }
   ],
-  "buildCommand": "node scripts/generate-localized-pages.mjs"
+  "buildCommand": "node scripts/generate-localized-pages.mjs",
+  "outputDirectory": "public"
 }

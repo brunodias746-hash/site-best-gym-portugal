@@ -1,10 +1,22 @@
 import '../site-config.js';
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
+import { copyFile, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const { origin, pages } = globalThis.BGSiteConfig;
-const outputRoot = path.resolve('localized-pages');
-await rm(outputRoot, { recursive: true, force: true });
+const publicRoot = path.resolve('public');
+const outputRoot = path.join(publicRoot, 'localized-pages');
+await rm(publicRoot, { recursive: true, force: true });
+await mkdir(publicRoot, { recursive: true });
+
+for (const directory of ['_ds', 'assets']) {
+  await cp(directory, path.join(publicRoot, directory), { recursive: true });
+}
+const rootEntries = await readdir('.', { withFileTypes: true });
+for (const entry of rootEntries) {
+  if (entry.isFile() && !['.gitignore', 'AGENTS.md', 'vercel.json'].includes(entry.name)) {
+    await copyFile(entry.name, path.join(publicRoot, entry.name));
+  }
+}
 
 const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const head = (ptPath, page, english) => {
@@ -40,4 +52,5 @@ for (const [ptPath, page] of Object.entries(pages)) {
 }
 
 await import('./generate-sitemap.mjs');
+await copyFile('sitemap.xml', path.join(publicRoot, 'sitemap.xml'));
 console.log(`Generated ${Object.keys(pages).length * 2} localized HTML documents.`);
