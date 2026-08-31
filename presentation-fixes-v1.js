@@ -22,7 +22,10 @@
     '/inscricao': ['Inscrição | BEST GYM', 'Escolhe o teu ginásio BEST GYM e continua para a plataforma oficial de inscrição.'],
     '/campanha': ['Campanha | BEST GYM', 'Consulta a campanha ativa do BEST GYM e as condições apresentadas na plataforma oficial.'],
     '/faq': ['FAQ | BEST GYM', 'Respostas rápidas sobre o BEST GYM, ginásios, horários e inscrição.'],
-    '/em-breve': ['São João da Madeira | BEST GYM', 'Novidades sobre o próximo ginásio BEST GYM em São João da Madeira.']
+    '/em-breve': ['São João da Madeira | BEST GYM', 'Novidades sobre o próximo ginásio BEST GYM em São João da Madeira.'],
+    '/privacidade': ['Política de Privacidade | BEST GYM', 'Consulta a informação de privacidade do BEST GYM.'],
+    '/termos': ['Termos e Condições | BEST GYM', 'Consulta os termos e condições do site do BEST GYM.'],
+    '/cookies': ['Política de Cookies | BEST GYM', 'Consulta como são utilizados cookies no site do BEST GYM.']
   };
 
   function setMeta() {

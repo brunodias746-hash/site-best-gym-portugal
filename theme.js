@@ -2,6 +2,10 @@
    Presentation-safe version: saved preference → dark-first default.
    Applied on <html data-theme> before paint; persisted in localStorage. */
 (function () {
+  document.documentElement.lang = 'pt-PT';
+  var viewport = document.querySelector('meta[name="viewport"]');
+  if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
+
   /* The approved BEST GYM motion language is controlled by the site, not by
      the operating-system reduced-motion preference. Keep this policy global
      so every presentation module makes the same decision. */
@@ -81,6 +85,20 @@
 
   /* Global presentation layer. Versioned names avoid stale browser/CDN copies. */
   function loadPresentationLayer() {
+    if (!document.querySelector('link[data-best-mobile-experience]')) {
+      var mobile = document.createElement('link');
+      mobile.rel = 'stylesheet';
+      mobile.href = '/mobile-experience.css';
+      mobile.setAttribute('data-best-mobile-experience', '1');
+      document.head.appendChild(mobile);
+    }
+    if (!document.querySelector('script[data-best-locale]')) {
+      var locale = document.createElement('script');
+      locale.src = '/locale.js';
+      locale.defer = true;
+      locale.setAttribute('data-best-locale', '1');
+      document.head.appendChild(locale);
+    }
     if (!document.querySelector('link[data-best-presentation-css]')) {
       var link = document.createElement('link');
       link.rel = 'stylesheet';

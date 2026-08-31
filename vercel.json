@@ -2,6 +2,25 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/en", "destination": "/index.dc.html" },
+    { "source": "/en/", "destination": "/index.dc.html" },
+    { "source": "/en/campaign", "destination": "/campanha.dc.html" },
+    { "source": "/en/gyms", "destination": "/unidades.dc.html" },
+    { "source": "/en/gyms/valongo", "destination": "/unidade-valongo.dc.html" },
+    { "source": "/en/gyms/famalicao", "destination": "/unidade-famalicao.dc.html" },
+    { "source": "/en/built-by-best", "destination": "/built-by-best.dc.html" },
+    { "source": "/en/franchising", "destination": "/franchising.dc.html" },
+    { "source": "/en/products", "destination": "/produtos.dc.html" },
+    { "source": "/en/content", "destination": "/conteudos.dc.html" },
+    { "source": "/en/content/article", "destination": "/conteudo-detalhe.dc.html" },
+    { "source": "/en/about", "destination": "/sobre.dc.html" },
+    { "source": "/en/contacts", "destination": "/contactos.dc.html" },
+    { "source": "/en/join", "destination": "/inscricao.dc.html" },
+    { "source": "/en/faq", "destination": "/faq.dc.html" },
+    { "source": "/en/coming-soon", "destination": "/em-breve.dc.html" },
+    { "source": "/en/privacy", "destination": "/privacidade.dc.html" },
+    { "source": "/en/terms", "destination": "/termos.dc.html" },
+    { "source": "/en/cookies", "destination": "/cookies.dc.html" },
     {
       "source": "/",
       "destination": "/index.dc.html"
@@ -76,6 +95,7 @@
     }
   ],
   "redirects": [
+    { "source": "/en/registration", "destination": "/en/franchising", "permanent": true },
     {
       "source": "/registration",
       "destination": "/franchising",

@@ -1,0 +1,89 @@
+/* BEST GYM — mobile-first interaction, rhythm and multilingual layer. */
+:root {
+  --bg-mobile-gutter: clamp(18px, 5vw, 24px);
+  --bg-tap: 44px;
+  --bg-mobile-cta-height: calc(64px + env(safe-area-inset-bottom));
+}
+
+::selection { background: var(--best-red); color: #fff; }
+html { scroll-behavior: smooth; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+.bg-language-switcher {
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 44px; padding: 0 8px; color: var(--text-muted); font: 700 11px/1 var(--font-text);
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.bg-language-switcher a {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 30px; min-height: 44px;
+  color: inherit; text-decoration: none; border-radius: 6px;
+}
+.bg-language-switcher a[aria-current="page"] { color: var(--best-red); }
+.bg-language-switcher a:active { background: var(--hover-on-light); }
+.bg-language-switcher--drawer {
+  width: 100%; justify-content: space-between; padding: 8px 12px 8px 16px;
+  border: 1px solid var(--line); border-radius: 12px;
+}
+.bg-language-switcher--drawer > span { color: var(--text-faint); }
+.bg-language-switcher--drawer > div { display: flex; align-items: center; gap: 7px; }
+
+@media (pointer: coarse) {
+  button, [role="button"], input:not([type="hidden"]), select { min-height: var(--bg-tap); }
+  main a[href], footer a[href], aside a[href] { min-height: var(--bg-tap); display: inline-flex; align-items: center; }
+  a:active, button:active { opacity: .76; }
+}
+
+@media (max-width: 1060px) {
+  body { padding-bottom: var(--bg-mobile-cta-height); }
+  main { min-height: 60dvh; }
+  main section:not([data-screen-label="Hero"]):not([data-screen-label^="Hero "]) > div {
+    max-width: 100%;
+  }
+  aside[aria-label="Menu"], aside[aria-label="Full menu"] {
+    padding-top: env(safe-area-inset-top);
+    max-height: 100dvh;
+  }
+  [data-bg-mobilecta] { min-height: var(--bg-mobile-cta-height); }
+}
+
+@media (max-width: 768px) {
+  main p, main li { font-size: max(16px, 1rem); line-height: 1.65; }
+  main section:not([data-screen-label="Hero"]):not([data-screen-label^="Hero "]) {
+    min-height: 0 !important;
+  }
+  main section:not([data-screen-label="Hero"]):not([data-screen-label^="Hero "]) > div {
+    padding-left: var(--bg-mobile-gutter) !important;
+    padding-right: var(--bg-mobile-gutter) !important;
+  }
+  main h1 { max-width: 12ch; }
+  main h2 { max-width: 16ch; }
+  main h1, main h2, main h3 { hyphens: none; overflow-wrap: normal; word-break: normal; }
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    min-height: 50px; padding: 13px 14px !important; font-size: 16px !important; border-radius: 9px !important;
+  }
+  textarea { min-height: 132px; resize: vertical; }
+  form { scroll-margin-bottom: calc(120px + env(safe-area-inset-bottom)); }
+  label { line-height: 1.45; }
+
+  #bestgym-campaign-popup-v2 {
+    padding: max(10px, env(safe-area-inset-top)) 10px max(10px, env(safe-area-inset-bottom)) !important;
+  }
+  #bestgym-campaign-popup-v2 [data-popup-grid] {
+    max-height: calc(100dvh - max(20px, env(safe-area-inset-top) + env(safe-area-inset-bottom))) !important;
+    overflow-y: auto !important; overscroll-behavior: contain;
+  }
+  #bestgym-campaign-popup-v2 [data-popup-grid] > div:first-child { display: none !important; }
+}
+
+@media (max-width: 430px) {
+  .bg-language-switcher:not(.bg-language-switcher--drawer) { padding-inline: 2px; gap: 2px; }
+  .bg-language-switcher:not(.bg-language-switcher--drawer) a { min-width: 27px; }
+  [data-bg-mobilecta] > a { min-height: 46px; }
+  aside[aria-label="Menu"] nav a { padding-block: 5px !important; }
+  footer > div { padding-left: var(--bg-mobile-gutter) !important; padding-right: var(--bg-mobile-gutter) !important; }
+}
+
+@media (orientation: landscape) and (max-height: 560px) and (max-width: 950px) {
+  section[data-screen-label="Hero"] { min-height: 480px !important; height: auto !important; }
+  aside[aria-label="Menu"], aside[aria-label="Full menu"] { width: min(520px, 72vw) !important; }
+}

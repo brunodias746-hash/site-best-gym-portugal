@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
@@ -48,7 +49,7 @@
         <a data-bg-hdrcta href="/inscricao" style="text-decoration: none;">
           <x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px">Inscreve-te</x-import>
         </a>
-        <button onClick="{{ openMenu }}" aria-label="Abrir menu" style="display: flex; align-items: center; gap: 10px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; cursor: pointer; color: var(--ink); font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="border-color: var(--text-1);">
+        <button data-bg-menu-trigger onClick="{{ openMenu }}" aria-label="Abrir menu" aria-controls="bestgym-main-menu" aria-expanded="{{ menuExpanded }}" style="display: flex; align-items: center; gap: 10px; min-width: 44px; min-height: 44px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; cursor: pointer; color: var(--ink); font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="border-color: var(--text-1);">
           <span data-bg-menulabel style="display: none;">Menu</span>
           <span style="display: flex; flex-direction: column; gap: 4px;">
             <span style="width: 18px; height: 2px; background: currentColor; display: block;"></span>
@@ -61,7 +62,7 @@
   </div>
 
   <div onClick="{{ closeMenu }}" style="position: fixed; inset: 0; z-index: 950; background: rgba(14,15,17,0.55); opacity: {{ ovOpacity }}; pointer-events: {{ ovPE }}; transition: opacity 0.4s cubic-bezier(0.22,0.61,0.36,1);"></div>
-  <aside aria-label="Menu" style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 960; width: min(420px, 92vw); background: var(--surface-1); transform: {{ drawerX }}; transition: transform 0.45s cubic-bezier(0.22,0.61,0.36,1); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; padding-bottom: env(safe-area-inset-bottom);">
+  <aside id="bestgym-main-menu" aria-label="Menu" aria-hidden="{{ menuHidden }}" inert style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 960; width: min(420px, 92vw); background: var(--surface-1); transform: {{ drawerX }}; transition: transform 0.45s cubic-bezier(0.22,0.61,0.36,1); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; padding-bottom: env(safe-area-inset-bottom);">
     <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-bottom: 1px solid var(--line);">
       <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 28px;">
       <button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background: transparent; border: none; cursor: pointer; font-size: 26px; line-height: 1; color: var(--ink); width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;" style-hover="color: var(--best-red);">×</button>
@@ -85,7 +86,7 @@
       </a>
       <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
         <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Campanha do mês</div>
-        <div style="margin-top: 8px; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">3 meses de oferta + inscrição grátis</div>
+        <div style="margin-top: 8px; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">50% de desconto por mês até 2027 + inscrição grátis</div>
         <a href="/campanha" style="display: inline-block; margin-top: 10px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; border-bottom: 1.5px solid var(--best-red);">Aderir agora →</a>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
@@ -134,10 +135,26 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this._onScroll, { passive: true });
     this._onKeyDown = (e) => { if (e.key === 'Escape' && this.state.open) this._setOpen(false); };
     window.addEventListener('keydown', this._onKeyDown);
+    requestAnimationFrame(() => { const d = document.getElementById('bestgym-main-menu'); if (d) d.inert = true; });
+  }
+  componentDidUpdate() {
+    const drawer = document.getElementById('bestgym-main-menu');
+    if (drawer) drawer.inert = !this.state.open;
   }
   _setOpen(open) {
+    const drawer = document.getElementById('bestgym-main-menu');
+    const trigger = document.querySelector('[data-bg-menu-trigger]');
+    if (open) this._menuReturnFocus = document.activeElement || trigger;
     document.documentElement.style.overflow = open ? 'hidden' : '';
     this.setState({ open });
+    requestAnimationFrame(() => {
+      if (open && drawer) {
+        const close = drawer.querySelector('button[aria-label="Fechar menu"]');
+        if (close) close.focus({ preventScroll: true });
+      } else if (!open && this._menuReturnFocus && this._menuReturnFocus.focus) {
+        this._menuReturnFocus.focus({ preventScroll: true });
+      }
+    });
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this._onScroll);
@@ -147,16 +164,19 @@ class Component extends DCLogic {
   }
   renderVals() {
     const active = this.props.active || '';
+    const english = location.pathname === '/en' || location.pathname.indexOf('/en/') === 0;
+    const englishRoutes = { '/': '/en/', '/unidades': '/en/gyms', '/built-by-best': '/en/built-by-best', '/produtos': '/en/products', '/conteudos': '/en/content', '/franchising': '/en/franchising', '/sobre': '/en/about', '/contactos': '/en/contacts' };
     const items = [
       ['inicio', 'Início', '/'],
       ['unidades', 'Unidades', '/unidades'],
       ['bbb', 'Built By Best', '/built-by-best'],
       ['produtos', 'Produtos', '/produtos'],
       ['conteudos', 'Conteúdos', '/conteudos'],
+      ['franchising', 'Franchising', '/franchising'],
       ['sobre', 'Sobre', '/sobre'],
       ['contactos', 'Contactos', '/contactos'],
     ].map(([id, label, href]) => ({
-      label, href,
+      label, href: english ? (englishRoutes[href] || href) : href,
       color: id === active ? 'var(--best-red)' : 'var(--ink)',
       weight: id === active ? 600 : 500,
       rule: id === active ? 'var(--best-red)' : 'transparent',
@@ -164,6 +184,8 @@ class Component extends DCLogic {
     const dark = this.state.theme !== 'light';
     return {
       items,
+      menuExpanded: this.state.open ? 'true' : 'false',
+      menuHidden: this.state.open ? 'false' : 'true',
       themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',
       themeAction: dark ? 'Claro' : 'Escuro',
       toggleTheme: () => { if (window.BGTheme) this.setState({ theme: window.BGTheme.toggle() }); },

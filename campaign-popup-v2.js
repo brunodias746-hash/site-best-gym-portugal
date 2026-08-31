@@ -37,12 +37,14 @@
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', 'Campanha Férias Off. Gym On.');
+    var returnFocus = document.activeElement;
     overlay.style.cssText =
       'position:fixed;inset:0;z-index:3500;display:flex;align-items:center;justify-content:center;' +
       'padding:clamp(14px,3vw,28px);background:rgba(5,6,8,.74);backdrop-filter:blur(10px);' +
       'opacity:0;visibility:hidden;transition:opacity .32s ease,visibility .32s ease;';
 
     var card = document.createElement('div');
+    card.setAttribute('tabindex', '-1');
     card.style.cssText =
       'position:relative;width:min(1040px,100%);max-height:92vh;overflow:auto;' +
       'background:var(--paper,#fff);color:var(--ink,#111);border-radius:24px;' +
@@ -134,6 +136,10 @@
       overlay.style.opacity = '1';
       card.style.opacity = '1';
       card.style.transform = 'translateY(0) scale(1)';
+      window.setTimeout(function () {
+        var focusTarget = card.querySelector('[data-campaign-close]');
+        if (focusTarget) focusTarget.focus({ preventScroll: true });
+      }, 80);
       /* IMPORTANT: no body/html overflow lock. */
     }
 
@@ -143,6 +149,8 @@
       card.style.opacity = '0';
       card.style.transform = 'translateY(16px) scale(.99)';
       try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+      document.removeEventListener('keydown', onKey);
+      if (returnFocus && returnFocus.focus) returnFocus.focus({ preventScroll: true });
       window.setTimeout(function () {
         if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
         if (responsive.parentNode) responsive.parentNode.removeChild(responsive);
@@ -156,12 +164,19 @@
       if (event.target === overlay) close();
     });
 
-    document.addEventListener('keydown', function onKey(event) {
+    function onKey(event) {
       if (event.key === 'Escape') {
-        document.removeEventListener('keydown', onKey);
         close();
       }
-    });
+      if (event.key === 'Tab') {
+        var focusable = card.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])');
+        if (!focusable.length) return;
+        var first = focusable[0], last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    }
+    document.addEventListener('keydown', onKey);
 
     /* Let the DC hero/preloader settle before displaying the independent popup. */
     window.setTimeout(show, 2200);

@@ -888,8 +888,8 @@ try { (() => {
   var camps = {
     verao: {
       eye: 'Campanha de verão',
-      title: 'Olá verão,<br/>olá descontos.',
-      desc: 'Não fiques de fora. 3 meses de oferta + inscrição grátis.',
+      title: 'Férias Off.<br/>Gym On.',
+      desc: '50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.',
       img: 'https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=800&q=80',
       bg: 'var(--best-red)',
       fg: '#fff'
@@ -931,7 +931,7 @@ try { (() => {
       addr: 'Avenida 25 de Abril, 381<br/>4440-502 Valongo',
       contact: 'valongo@bestgym.pt · +351 926 447 998',
       img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80',
-      areas: ['Musculação', 'Cardio', 'Cross Training', 'Burn Zone']
+      areas: ['Musculação', 'Cardio', 'Cross Training', 'Treino Funcional']
     },
     famalicao: {
       city: 'Best Gym Famalicão',
@@ -985,7 +985,7 @@ try { (() => {
   /* ---------- social feed (9 varied tiles) ---------- */
   var feed = [{
     m: 'red',
-    t: 'Olá verão,<br/>olá descontos.',
+    t: 'Férias Off.<br/>Gym On.',
     k: 'Campanha'
   }, {
     m: 'photo',
