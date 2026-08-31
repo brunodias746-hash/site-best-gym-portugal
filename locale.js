@@ -2,49 +2,21 @@
 (function () {
   'use strict';
 
-  var BASE = 'https://site-best-gym-portugal.vercel.app';
-  var ROUTES = {
-    '/': '/en/', '/campanha': '/en/campaign', '/unidades': '/en/gyms',
-    '/unidade-valongo': '/en/gyms/valongo', '/unidade-famalicao': '/en/gyms/famalicao',
-    '/built-by-best': '/en/built-by-best', '/franchising': '/en/franchising',
-    '/produtos': '/en/products', '/conteudos': '/en/content',
-    '/conteudo-detalhe': '/en/content/article', '/sobre': '/en/about',
-    '/contactos': '/en/contacts', '/inscricao': '/en/join', '/faq': '/en/faq',
-    '/em-breve': '/en/coming-soon', '/privacidade': '/en/privacy',
-    '/termos': '/en/terms', '/cookies': '/en/cookies'
-  };
+  var config = window.BGSiteConfig;
+  if (!config) return;
+  var ROUTES = {};
+  Object.keys(config.pages).forEach(function (pt) { ROUTES[pt] = config.pages[pt].en; });
   var REVERSE = {};
   Object.keys(ROUTES).forEach(function (pt) { REVERSE[ROUTES[pt]] = pt; });
   REVERSE['/en'] = '/';
 
-  var path = location.pathname.replace(/\/$/, '') || '/';
-  if (location.pathname === '/en/') path = '/en/';
-  var english = path === '/en' || path === '/en/' || path.indexOf('/en/') === 0;
-  var ptPath = english ? (REVERSE[path] || '/') : path;
-  var enPath = ROUTES[ptPath] || '/en/';
+  var detected = window.BGPageLocale || {};
+  var path = location.pathname.replace(/\/+$/, '') || '/';
+  var english = typeof detected.english === 'boolean' ? detected.english : path === '/en' || path.indexOf('/en/') === 0;
+  var ptPath = detected.ptPath || (english ? (REVERSE[path] || '/') : path);
+  var enPath = detected.enPath || ROUTES[ptPath] || '/en/';
   document.documentElement.lang = english ? 'en' : 'pt-PT';
   document.documentElement.setAttribute('data-locale', english ? 'en' : 'pt');
-
-  var SEO = {
-    '/': ['BEST GYM | 24-hour gyms in Portugal', 'Train 24 hours a day with premium facilities, freedom and support at BEST GYM.'],
-    '/campanha': ['Campaign | BEST GYM', 'Discover the current BEST GYM campaign and choose your gym.'],
-    '/unidades': ['Gyms | BEST GYM', 'Explore BEST GYM locations in Valongo and Vila Nova de Famalicão, with São João da Madeira coming soon.'],
-    '/unidade-valongo': ['BEST GYM Valongo | 24-hour gym', 'Train 24 hours a day at BEST GYM Valongo.'],
-    '/unidade-famalicao': ['BEST GYM Famalicão | 24-hour gym', 'Train 24 hours a day at BEST GYM Vila Nova de Famalicão.'],
-    '/built-by-best': ['Built By Best | BEST GYM', 'Structured coaching, planning and monitoring to train with direction.'],
-    '/franchising': ['Franchising | BEST GYM', 'Discover the opportunity to grow with the BEST GYM network in Portugal.'],
-    '/produtos': ['Products | BEST GYM', 'Explore the BEST GYM product collection available at our gyms.'],
-    '/conteudos': ['Content | BEST GYM', 'Training, performance and recovery content from BEST GYM.'],
-    '/conteudo-detalhe': ['Article | BEST GYM', 'Training and performance insights from BEST GYM.'],
-    '/sobre': ['About | BEST GYM', 'Discover the culture, ambition and 24-hour model behind BEST GYM.'],
-    '/contactos': ['Contacts | BEST GYM', 'Contact the BEST GYM team in Valongo or Vila Nova de Famalicão.'],
-    '/inscricao': ['Join | BEST GYM', 'Choose your BEST GYM location and continue to the official registration platform.'],
-    '/faq': ['FAQ | BEST GYM', 'Answers about BEST GYM locations, access, registration and support.'],
-    '/em-breve': ['São João da Madeira | BEST GYM', 'Follow the arrival of BEST GYM in São João da Madeira.'],
-    '/privacidade': ['Privacy Policy | BEST GYM', 'Read the BEST GYM privacy information.'],
-    '/termos': ['Terms and Conditions | BEST GYM', 'Read the BEST GYM website terms and conditions.'],
-    '/cookies': ['Cookie Policy | BEST GYM', 'Learn how cookies are used on the BEST GYM website.']
-  };
 
   var T = {
     'Início': 'Home', 'Unidades': 'Gyms', 'Produtos': 'Products', 'Conteúdos': 'Content',
@@ -249,23 +221,71 @@
     'A inscrição é feita online na plataforma oficial — escolhe a unidade de Valongo durante o processo.': 'Registration is completed online on the official platform — choose the Valongo gym during the process.',
     'A inscrição é feita online na plataforma oficial — escolhe a unidade de Famalicão durante o processo.': 'Registration is completed online on the official platform — choose the Famalicão gym during the process.'
   });
-
-  function setMeta() {
-    var data = SEO[ptPath] || SEO['/'];
-    var title = english ? data[0] : document.title;
-    if (english) document.title = title;
-    var desc = document.querySelector('meta[name="description"]');
-    if (!desc) { desc = document.createElement('meta'); desc.name = 'description'; document.head.appendChild(desc); }
-    if (english) desc.content = data[1];
-    var canonical = document.querySelector('link[rel="canonical"]') || document.createElement('link');
-    canonical.rel = 'canonical'; canonical.href = BASE + (english ? enPath : ptPath); document.head.appendChild(canonical);
-    document.querySelectorAll('link[hreflang]').forEach(function (el) { el.remove(); });
-    [['pt-PT', ptPath], ['en', enPath], ['x-default', ptPath]].forEach(function (item) {
-      var link = document.createElement('link'); link.rel = 'alternate'; link.hreflang = item[0]; link.href = BASE + item[1]; document.head.appendChild(link);
-    });
-    var og = document.querySelector('meta[property="og:locale"]') || document.createElement('meta');
-    og.setAttribute('property', 'og:locale'); og.content = english ? 'en_GB' : 'pt_PT'; document.head.appendChild(og);
-  }
+  Object.assign(T, {
+    'Aberto 24 horas': 'Open 24 hours', '24 horas': '24 hours', 'Horas': 'Hours',
+    'Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·': 'Performance · 24 hours · Community · Progress · BEST GYM · Performance · 24 hours · Community · Progress · BEST GYM ·',
+    'Como estruturar a tua semana de treino': 'How to structure your training week',
+    'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.': 'Why showing up consistently matters more than a perfect plan.',
+    'O papel da comunidade na motivação e na evolução a longo prazo.': 'How community supports motivation and long-term progress.',
+    'e vagas limitadas.': 'and limited availability.', 'Ver campanha': 'View campaign',
+    'Campanha do mês · BEST GYM': 'Current campaign · BEST GYM',
+    'Este setembro, ativa o modo treino no BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'This September, switch training mode on at BEST GYM: 50% off each month until 2027, free registration and limited availability.',
+    'Aderir à campanha': 'Claim the offer', 'Inscrição grátis': 'Free registration', 'A tua oferta': 'Your offer',
+    'durante a campanha.': 'during the campaign.', 'Vagas limitadas': 'Limited availability', 'Ativa a campanha': 'Activate the offer',
+    'Confirma a campanha Férias Off. Gym On. e os teus dados de adesão.': 'Confirm the FÉRIAS OFF. GYM ON. offer and your registration details.',
+    'Começa a treinar': 'Start training',
+    'Finaliza a adesão e começa a treinar no teu horário — o BEST GYM está aberto 24H.': 'Complete your registration and train on your schedule — BEST GYM is open 24 hours a day.',
+    'Inscreve-te no BEST GYM e aproveita a campanha Férias Off. Gym On.: 50% de desconto por mês até 2027 e inscrição grátis.': 'Join BEST GYM with the FÉRIAS OFF. GYM ON. offer: 50% off each month until 2027 and free registration.',
+    'Campanha sujeita à disponibilidade de vagas e às condições aplicáveis pelo BEST GYM.': 'Offer subject to availability and the applicable BEST GYM terms.',
+    'Acesso 24 horas, estrutura completa e uma comunidade preparada para evoluir contigo. O BEST GYM está preparado para crescer — São João da Madeira é o próximo passo.': '24-hour access, complete facilities and a community built around progress. BEST GYM continues to grow — São João da Madeira is the next step.',
+    'Ginásio 01': 'Gym 01', 'Ginásio 02': 'Gym 02', 'Conhecer ginásio': 'Explore gym', 'Unidade 03 · Em breve': 'Gym 03 · Coming soon',
+    'O terceiro ginásio do BEST GYM está a nascer. O mesmo acesso 24 horas, a mesma estrutura, a mesma comunidade — agora mais perto de quem treina em São João da Madeira.': 'The third BEST GYM location is taking shape. The same 24-hour access, facilities and community — now closer to people training in São João da Madeira.',
+    'O acesso é feito de forma autónoma e segura, 24 horas por dia, 7 dias por semana, 365 dias por ano. Depois da inscrição, entras e treinas quando fizer sentido para ti.': 'Access is independent and secure, 24 hours a day, 7 days a week, 365 days a year. Once registered, train whenever it suits you.',
+    'Escolhe a tua unidade e começa': 'Choose your gym and start', 'Ver campanha ativa': 'View current campaign',
+    'Um ginásio moderno, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.': 'A modern gym with dedicated training areas, equipment for different goals and an active community. Independent 24-hour access lets you train whenever it suits you.',
+    'Uma unidade moderna, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.': 'A modern gym with dedicated training areas, equipment for different goals and an active community. Independent 24-hour access lets you train whenever it suits you.',
+    '24 horas · 7 dias por semana · 365 dias por ano': '24 hours · 7 days a week · 365 days a year', 'Áreas de treino': 'Training areas',
+    'Racks, barras e halteres para treino de força.': 'Racks, barbells and dumbbells for strength training.', 'Recebe o teu acesso pessoal de entrada autónoma.': 'Receive your personal access credential.',
+    'O ginásio está mesmo aberto 24 horas?': 'Is the gym really open 24 hours a day?', 'Sim. O acesso é autónomo e funciona 24 horas por dia, 7 dias por semana, 365 dias por ano.': 'Yes. Independent access is available 24 hours a day, 7 days a week, 365 days a year.',
+    'Fala connosco por telefone ou email e agenda uma visita com a equipa da unidade.': 'Contact us by phone or email to arrange a visit with the gym team.', 'Sim, a unidade dispõe de balneários com duches.': 'Yes. The gym has changing rooms with showers.',
+    'Como me inscrevo nesta unidade?': 'How do I join this gym?', 'Começa a treinar em Valongo': 'Start training in Valongo', 'Começa a treinar em Famalicão': 'Start training in Famalicão',
+    'Quero saber mais': 'Find out more', 'Conhecer o franchising': 'Explore franchising', 'Não é apenas um': 'More than a', 'plano de treino.': 'training plan.',
+    'Built By Best é um programa de acompanhamento criado para quem pretende treinar com mais clareza, consistência e controlo sobre a evolução.': 'Built By Best is a coaching programme for people who want greater clarity, consistency and control over their progress.',
+    'Um plano adaptado a ti, não um modelo genérico.': 'A plan built around you, not a generic template.', 'Treino com direção e vídeos de apoio à execução.': 'Structured training with technique videos.',
+    'Treino adaptado': 'Tailored training', 'Ajustes de plano de treino': 'Training plan adjustments', 'Conteúdos demonstrativos do programa Built By Best.': 'Sample content from the Built By Best programme.',
+    'Os resultados do programa serão apresentados com histórias reais de membros, apenas depois de aprovadas. Não publicamos transformações inventadas nem promessas sem contexto.': 'Programme results will be shared through real member stories only after approval. We do not publish fabricated transformations or unsupported promises.',
+    'Falar com a equipa Built By Best': 'Talk to the Built By Best team',
+    'à tua cidade.': 'to your city.', 'Faz parte da expansão de uma marca de ginásios 24H focada em performance, proximidade e experiência de treino.': 'Join the expansion of a 24-hour gym brand focused on performance, local connection and a consistent training experience.',
+    'O BEST GYM está em expansão. Procuramos parceiros interessados em desenvolver novos ginásios com a identidade da marca, mantendo o foco em acesso 24 horas, estrutura de treino e uma experiência consistente para os membros.': 'BEST GYM is expanding. We are looking for partners to develop new gyms under the brand, with 24-hour access, strong training facilities and a consistent member experience.',
+    'Uma proposta de ginásio desenhada para liberdade de horário e utilização autónoma.': 'A gym model designed around flexible hours and independent access.',
+    'Preenche os dados para a equipa avaliar o teu interesse. O contacto é dirigido para': 'Complete the form so our team can review your enquiry. Your message will be sent to', 'Novo ginásio': 'New gym', 'Remodelação de ginásio existente': 'Refurbishment of an existing gym',
+    'Identidade, performance e comunidade dentro e fora do ginásio. Catálogo disponível nas unidades — pede informações à equipa.': 'Identity, performance and community inside and outside the gym. The collection is available at our locations — ask the team for details.',
+    'Toalha de treino compacta e absorvente, em preto ou cinza.': 'Compact, absorbent training towel in black or grey.', 'Saco de treino com espaço para tudo.': 'Training bag with room for all your essentials.',
+    'Disponível na unidade.': 'Available at the gym.', 'Os produtos do BEST GYM são vendidos diretamente nas unidades de Valongo e Famalicão — fala com a equipa para conheceres cores, tamanhos e disponibilidade.': 'BEST GYM products are sold directly at the Valongo and Famalicão gyms — ask the team about colours, sizes and availability.',
+    'Treino, performance, recuperação e comunidade — conteúdo prático da equipa do BEST GYM.': 'Practical training, performance, recovery and community guidance from the BEST GYM team.',
+    'Campanha atual · Férias Off. Gym On.': 'Current campaign · FÉRIAS OFF. GYM ON.', 'Acesso 24 horas, 365 dias': '24-hour access, 365 days a year',
+    'Vais continuar para a plataforma oficial de inscrição (subscribe.myf.pt), num separador externo e seguro.': 'You will continue to the official registration platform (subscribe.myf.pt) in a secure new tab.',
+    'Existe campanha ativa?': 'Is there a current campaign?',
+    'Peso livre, cardio, cross training, treino funcional, posing room e personal training. Existem também aulas de grupo em horários definidos, mas o foco principal é o treino de musculação e performance. As áreas podem variar por ginásio.': 'Free weights, cardio, cross training, functional training, a posing room and personal training. Scheduled group classes are also available, while the main focus remains strength and performance training. Facilities may vary by location.',
+    'Usa o formulário de contacto e escolhe o assunto "Built By Best" — a equipa responde-te com os próximos passos.': 'Use the contact form and select “Built By Best” — our team will reply with the next steps.',
+    'O terceiro ginásio do BEST GYM está a nascer em São João da Madeira. Regista o teu interesse e sê dos primeiros a saber a data de abertura e as condições de inauguração.': 'The third BEST GYM location is taking shape in São João da Madeira. Register your interest to be among the first to hear the opening date and launch details.',
+    'Regista o teu interesse': 'Register your interest', 'Deixa o teu contacto e avisamos-te em primeira mão sobre a nova unidade.': 'Leave your details and we will keep you updated on the new gym.',
+    'Dados recolhidos': 'Data collected', '3. Acesso 24 horas': '3. 24-hour access'
+  });
+  Object.assign(T, {
+    'O teu programa de email foi aberto com a mensagem preenchida. Confirma o envio para concluir o contacto.': 'Your email app has opened with the message filled in. Send it to complete your enquiry.',
+    'O teu programa de email foi aberto com a candidatura preenchida. Confirma o envio para concluir.': 'Your email app has opened with the application filled in. Send it to complete your enquiry.',
+    'Interesse registado. Vamos manter-te a par das novidades desta unidade.': 'Interest registered. We will keep you updated on this gym.',
+    'Fechar campanha': 'Close campaign', 'Campanha Férias Off. Gym On.': 'FÉRIAS OFF. GYM ON. campaign'
+  });
+  Object.assign(T, {
+    'Nome *': 'Name *', 'Assunto *': 'Subject *', 'Mensagem *': 'Message *',
+    'Telemóvel *': 'Phone *', 'Capital disponível *': 'Available capital *', 'Local pretendido *': 'Preferred location *',
+    'Tipo de projeto *': 'Project type *', 'Seleciona uma opção': 'Choose an option', 'Cidade de interesse': 'City of interest',
+    'Aceito a Política de Privacidade. *': 'I accept the Privacy Policy. *', 'Aceito a': 'I accept the',
+    'QUERO SER AVISADO': 'KEEP ME UPDATED', 'Quero ser avisado': 'Keep me updated',
+    'Ou segue as novidades no Instagram →': 'Or follow the latest news on Instagram →'
+  });
 
   function translateText(value) {
     var lead = value.match(/^\s*/)[0], tail = value.match(/\s*$/)[0], core = value.trim();
@@ -274,17 +294,20 @@
     if (direct) return lead + direct + tail;
     var numbered = core.match(/^(\d+\.\s*)(.+)$/);
     if (numbered && T[numbered[2]]) return lead + numbered[1] + T[numbered[2]] + tail;
-    var translated = core;
-    Object.keys(T).sort(function (a, b) { return b.length - a.length; }).forEach(function (source) {
-      if (source.length >= 8 && translated.indexOf(source) !== -1) translated = translated.split(source).join(T[source]);
-    });
-    return translated === core ? value : lead + translated + tail;
+    return value;
   }
 
   function localizeLinks(root) {
-    root.querySelectorAll('a[href^="/"]:not([data-bg-language-link])').forEach(function (a) {
-      var href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
-      if (english && ROUTES[href] && a.getAttribute('href') !== ROUTES[href]) a.setAttribute('href', ROUTES[href]);
+    var anchors = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('a[href^="/"]:not([data-bg-language-link])') : []);
+    if (root.matches && root.matches('a[href^="/"]:not([data-bg-language-link])')) anchors.unshift(root);
+    anchors.forEach(function (a) {
+      var raw = a.getAttribute('href') || '';
+      var url = new URL(raw, location.origin);
+      var href = url.pathname.replace(/\/+$/, '') || '/';
+      if (english && ROUTES[href]) {
+        var localized = ROUTES[href] + url.search + url.hash;
+        if (raw !== localized) a.setAttribute('href', localized);
+      }
     });
   }
 
@@ -297,7 +320,9 @@
       nodes.push(node);
     }
     nodes.forEach(function (n) { var next = translateText(n.nodeValue); if (next !== n.nodeValue) n.nodeValue = next; });
-    root.querySelectorAll('[aria-label],[title],[placeholder],img[alt]').forEach(function (el) {
+    var attributed = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('[aria-label],[title],[placeholder],img[alt]') : []);
+    if (root.matches && root.matches('[aria-label],[title],[placeholder],img[alt]')) attributed.unshift(root);
+    attributed.forEach(function (el) {
       ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (attr) {
         if (el.hasAttribute(attr)) el.setAttribute(attr, translateText(el.getAttribute(attr)));
       });
@@ -324,19 +349,28 @@
     }
   }
 
-  function run() { translate(document.body); addSwitchers(); }
+  function run(root) { if (root) translate(root); addSwitchers(); document.documentElement.setAttribute('data-locale-ready', 'true'); }
   document.addEventListener('click', function (event) {
     var link = event.target.closest && event.target.closest('[data-bg-language-switcher] a[lang]');
     if (link) localStorage.setItem('bestgym-language', link.getAttribute('lang') === 'en' ? 'en' : 'pt-PT');
   });
-  setMeta();
-  if (document.body) run(); else document.addEventListener('DOMContentLoaded', run, { once: true });
-  [400, 1200, 2600].forEach(function (delay) { setTimeout(run, delay); });
+  if (document.body) run(document.body); else document.addEventListener('DOMContentLoaded', function () { run(document.body); }, { once: true });
   var queued = false;
-  new MutationObserver(function () {
+  var pending = [];
+  new MutationObserver(function (records) {
+    records.forEach(function (record) {
+      if (record.type === 'childList') record.addedNodes.forEach(function (node) { if (node.nodeType === 1) pending.push(node); else if (node.nodeType === 3 && node.parentElement) pending.push(node.parentElement); });
+      else if (record.type === 'characterData' && record.target.parentElement) pending.push(record.target.parentElement);
+      else if (record.target && record.target.nodeType === 1) pending.push(record.target);
+    });
     if (queued) return; queued = true;
-    requestAnimationFrame(function () { queued = false; run(); });
-  }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+    requestAnimationFrame(function () {
+      queued = false;
+      var roots = pending.splice(0, pending.length);
+      roots.forEach(function (root, index) { if (roots.indexOf(root) === index) translate(root); });
+      addSwitchers();
+    });
+  }).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
 
-  window.BGLocale = { language: english ? 'en' : 'pt-PT', ptPath: ptPath, enPath: enPath, routes: ROUTES };
+  window.BGLocale = Object.freeze({ language: english ? 'en' : 'pt-PT', isEnglish: english, ptPath: ptPath, enPath: enPath, routes: ROUTES, translate: translateText });
 })();

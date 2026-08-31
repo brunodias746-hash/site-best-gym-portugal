@@ -2,100 +2,161 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/en", "destination": "/index.dc.html" },
-    { "source": "/en/", "destination": "/index.dc.html" },
-    { "source": "/en/campaign", "destination": "/campanha.dc.html" },
-    { "source": "/en/gyms", "destination": "/unidades.dc.html" },
-    { "source": "/en/gyms/valongo", "destination": "/unidade-valongo.dc.html" },
-    { "source": "/en/gyms/famalicao", "destination": "/unidade-famalicao.dc.html" },
-    { "source": "/en/built-by-best", "destination": "/built-by-best.dc.html" },
-    { "source": "/en/franchising", "destination": "/franchising.dc.html" },
-    { "source": "/en/products", "destination": "/produtos.dc.html" },
-    { "source": "/en/content", "destination": "/conteudos.dc.html" },
-    { "source": "/en/content/article", "destination": "/conteudo-detalhe.dc.html" },
-    { "source": "/en/about", "destination": "/sobre.dc.html" },
-    { "source": "/en/contacts", "destination": "/contactos.dc.html" },
-    { "source": "/en/join", "destination": "/inscricao.dc.html" },
-    { "source": "/en/faq", "destination": "/faq.dc.html" },
-    { "source": "/en/coming-soon", "destination": "/em-breve.dc.html" },
-    { "source": "/en/privacy", "destination": "/privacidade.dc.html" },
-    { "source": "/en/terms", "destination": "/termos.dc.html" },
-    { "source": "/en/cookies", "destination": "/cookies.dc.html" },
+    {
+      "source": "/en",
+      "destination": "/localized-pages/en/index.html"
+    },
+    {
+      "source": "/en/",
+      "destination": "/localized-pages/en/index.html"
+    },
+    {
+      "source": "/en/campaign",
+      "destination": "/localized-pages/en/campanha.html"
+    },
+    {
+      "source": "/en/gyms",
+      "destination": "/localized-pages/en/unidades.html"
+    },
+    {
+      "source": "/en/gyms/valongo",
+      "destination": "/localized-pages/en/unidade-valongo.html"
+    },
+    {
+      "source": "/en/gyms/famalicao",
+      "destination": "/localized-pages/en/unidade-famalicao.html"
+    },
+    {
+      "source": "/en/built-by-best",
+      "destination": "/localized-pages/en/built-by-best.html"
+    },
+    {
+      "source": "/en/franchising",
+      "destination": "/localized-pages/en/franchising.html"
+    },
+    {
+      "source": "/en/products",
+      "destination": "/localized-pages/en/produtos.html"
+    },
+    {
+      "source": "/en/content",
+      "destination": "/localized-pages/en/conteudos.html"
+    },
+    {
+      "source": "/en/content/article",
+      "destination": "/localized-pages/en/conteudo-detalhe.html"
+    },
+    {
+      "source": "/en/about",
+      "destination": "/localized-pages/en/sobre.html"
+    },
+    {
+      "source": "/en/contacts",
+      "destination": "/localized-pages/en/contactos.html"
+    },
+    {
+      "source": "/en/join",
+      "destination": "/localized-pages/en/inscricao.html"
+    },
+    {
+      "source": "/en/faq",
+      "destination": "/localized-pages/en/faq.html"
+    },
+    {
+      "source": "/en/coming-soon",
+      "destination": "/localized-pages/en/em-breve.html"
+    },
+    {
+      "source": "/en/privacy",
+      "destination": "/localized-pages/en/privacidade.html"
+    },
+    {
+      "source": "/en/terms",
+      "destination": "/localized-pages/en/termos.html"
+    },
+    {
+      "source": "/en/cookies",
+      "destination": "/localized-pages/en/cookies.html"
+    },
     {
       "source": "/",
-      "destination": "/index.dc.html"
+      "destination": "/localized-pages/pt/index.html"
     },
     {
       "source": "/unidades",
-      "destination": "/unidades.dc.html"
+      "destination": "/localized-pages/pt/unidades.html"
     },
     {
       "source": "/unidade-valongo",
-      "destination": "/unidade-valongo.dc.html"
+      "destination": "/localized-pages/pt/unidade-valongo.html"
     },
     {
       "source": "/unidade-famalicao",
-      "destination": "/unidade-famalicao.dc.html"
+      "destination": "/localized-pages/pt/unidade-famalicao.html"
     },
     {
       "source": "/built-by-best",
-      "destination": "/built-by-best.dc.html"
+      "destination": "/localized-pages/pt/built-by-best.html"
     },
     {
       "source": "/franchising",
-      "destination": "/franchising.dc.html"
+      "destination": "/localized-pages/pt/franchising.html"
     },
     {
       "source": "/produtos",
-      "destination": "/produtos.dc.html"
+      "destination": "/localized-pages/pt/produtos.html"
     },
     {
       "source": "/conteudos",
-      "destination": "/conteudos.dc.html"
+      "destination": "/localized-pages/pt/conteudos.html"
     },
     {
       "source": "/conteudo-detalhe",
-      "destination": "/conteudo-detalhe.dc.html"
+      "destination": "/localized-pages/pt/conteudo-detalhe.html"
     },
     {
       "source": "/sobre",
-      "destination": "/sobre.dc.html"
+      "destination": "/localized-pages/pt/sobre.html"
     },
     {
       "source": "/contactos",
-      "destination": "/contactos.dc.html"
+      "destination": "/localized-pages/pt/contactos.html"
     },
     {
       "source": "/inscricao",
-      "destination": "/inscricao.dc.html"
+      "destination": "/localized-pages/pt/inscricao.html"
     },
     {
       "source": "/campanha",
-      "destination": "/campanha.dc.html"
+      "destination": "/localized-pages/pt/campanha.html"
     },
     {
       "source": "/faq",
-      "destination": "/faq.dc.html"
+      "destination": "/localized-pages/pt/faq.html"
     },
     {
       "source": "/em-breve",
-      "destination": "/em-breve.dc.html"
+      "destination": "/localized-pages/pt/em-breve.html"
     },
     {
       "source": "/privacidade",
-      "destination": "/privacidade.dc.html"
+      "destination": "/localized-pages/pt/privacidade.html"
     },
     {
       "source": "/termos",
-      "destination": "/termos.dc.html"
+      "destination": "/localized-pages/pt/termos.html"
     },
     {
       "source": "/cookies",
-      "destination": "/cookies.dc.html"
+      "destination": "/localized-pages/pt/cookies.html"
     }
   ],
   "redirects": [
-    { "source": "/en/registration", "destination": "/en/franchising", "permanent": true },
+    {
+      "source": "/en/registration",
+      "destination": "/en/franchising",
+      "permanent": true
+    },
     {
       "source": "/registration",
       "destination": "/franchising",
@@ -146,5 +207,6 @@
         }
       ]
     }
-  ]
+  ],
+  "buildCommand": "node scripts/generate-localized-pages.mjs"
 }

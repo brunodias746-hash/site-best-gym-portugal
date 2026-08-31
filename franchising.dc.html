@@ -3,6 +3,8 @@
 <head>
 <base href="/">
 <meta charset="utf-8">
+<script src="/site-config.js"></script>
+<script src="/seo-head.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
 <link rel="stylesheet" href="theme.css">
@@ -45,7 +47,7 @@
         <span style="font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red-tint);">Expansão · BEST GYM</span>
         <h1 style="margin:0;max-width:900px;font-family:var(--font-display);font-size:clamp(58px,8vw,118px);font-weight:400;line-height:.9;text-transform:uppercase;color:#fff;">Leva o BEST GYM<br><span style="color:var(--best-red);">à tua cidade.</span></h1>
         <p style="margin:0;max-width:58ch;font-size:var(--fs-body-lg);line-height:var(--lh-normal);color:rgba(255,255,255,.86);">Faz parte da expansão de uma marca de ginásios 24H focada em performance, proximidade e experiência de treino.</p>
-        <a href="#candidatura" style="text-decoration:none;align-self:flex-start;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="260px,56px">Quero saber mais</x-import></a>
+        <a href="#candidatura" style="text-decoration:none;align-self:flex-start;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="260px,56px">Conhecer o franchising</x-import></a>
       </div>
     </section>
 
@@ -121,17 +123,18 @@ class Component extends DCLogic {
       submitForm: (e) => {
         e.preventDefault();
         const f = e.target;
+        const en = !!(window.BGLocale && window.BGLocale.isEnglish);
         const missing = [];
-        if (!f.nome.value.trim()) missing.push('nome');
-        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push('email válido');
-        if (!f.telefone.value.trim()) missing.push('telemóvel');
+        if (!f.nome.value.trim()) missing.push(en ? 'name' : 'nome');
+        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push(en ? 'valid email' : 'email válido');
+        if (!f.telefone.value.trim()) missing.push(en ? 'phone' : 'telemóvel');
         if (!f.nif.value.trim()) missing.push('NIF');
-        if (!f.capital.value.trim()) missing.push('capital disponível');
-        if (!f.local.value.trim()) missing.push('local pretendido');
-        if (!f.tipo.value) missing.push('tipo de projeto');
-        if (!f.privacidade.checked) missing.push('aceitação da política de privacidade');
+        if (!f.capital.value.trim()) missing.push(en ? 'available capital' : 'capital disponível');
+        if (!f.local.value.trim()) missing.push(en ? 'preferred location' : 'local pretendido');
+        if (!f.tipo.value) missing.push(en ? 'project type' : 'tipo de projeto');
+        if (!f.privacidade.checked) missing.push(en ? 'privacy policy acceptance' : 'aceitação da política de privacidade');
         if (missing.length) {
-          this.setState({status:'error', errorMsg:'Verifica os seguintes campos: ' + missing.join(', ') + '.'});
+          this.setState({status:'error', errorMsg:(en ? 'Check the following fields: ' : 'Verifica os seguintes campos: ') + missing.join(', ') + '.'});
           return;
         }
         const body = [

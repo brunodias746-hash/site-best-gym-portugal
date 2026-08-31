@@ -3,6 +3,8 @@
 <head>
 <base href="/">
 <meta charset="utf-8">
+<script src="/site-config.js"></script>
+<script src="/seo-head.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark light">
 <link rel="stylesheet" href="theme.css">
@@ -115,15 +117,16 @@ class Component extends DCLogic {
       submitForm: (e) => {
         e.preventDefault();
         const f = e.target;
+        const en = !!(window.BGLocale && window.BGLocale.isEnglish);
         const missing = [];
-        if (!f.nome.value.trim()) missing.push('nome');
-        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push('email válido');
-        if (!f.unidade.value) missing.push('unidade');
-        if (!f.assunto.value) missing.push('assunto');
-        if (!f.mensagem.value.trim()) missing.push('mensagem');
-        if (!f.privacidade.checked) missing.push('aceitação da política de privacidade');
+        if (!f.nome.value.trim()) missing.push(en ? 'name' : 'nome');
+        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push(en ? 'valid email' : 'email válido');
+        if (!f.unidade.value) missing.push(en ? 'gym' : 'unidade');
+        if (!f.assunto.value) missing.push(en ? 'subject' : 'assunto');
+        if (!f.mensagem.value.trim()) missing.push(en ? 'message' : 'mensagem');
+        if (!f.privacidade.checked) missing.push(en ? 'privacy policy acceptance' : 'aceitação da política de privacidade');
         if (missing.length) {
-          this.setState({ status: 'error', errorMsg: 'Verifica os seguintes campos: ' + missing.join(', ') + '.' });
+          this.setState({ status: 'error', errorMsg: (en ? 'Check the following fields: ' : 'Verifica os seguintes campos: ') + missing.join(', ') + '.' });
           return;
         }
         const recipient = f.unidade.value === 'famalicao'

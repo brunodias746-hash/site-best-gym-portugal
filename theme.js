@@ -2,7 +2,6 @@
    Presentation-safe version: saved preference → dark-first default.
    Applied on <html data-theme> before paint; persisted in localStorage. */
 (function () {
-  document.documentElement.lang = 'pt-PT';
   var viewport = document.querySelector('meta[name="viewport"]');
   if (viewport) viewport.setAttribute('content', 'width=device-width, initial-scale=1, viewport-fit=cover');
 

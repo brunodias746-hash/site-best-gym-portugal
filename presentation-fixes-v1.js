@@ -7,30 +7,10 @@
     famalicao: 'https://www.instagram.com/bestgymfamalicao/'
   };
 
-  var META = {
-    '/': ['BEST GYM | Ginásios 24H em Portugal', 'O BEST GYM: treino 24 horas, performance e comunidade em Portugal.'],
-    '/unidades': ['Unidades | BEST GYM', 'Conhece os ginásios do BEST GYM e a estrutura disponível para treinar 24 horas.'],
-    '/unidade-valongo': ['BEST GYM Valongo | Ginásio 24H', 'Best Gym Valongo: acesso 24 horas e estrutura para diferentes objetivos de treino.'],
-    '/unidade-famalicao': ['BEST GYM Famalicão | Ginásio 24H', 'Best Gym Vila Nova de Famalicão: acesso 24 horas e estrutura de treino.'],
-    '/built-by-best': ['Built By Best | BEST GYM', 'Programa de acompanhamento do BEST GYM orientado para consistência, método e evolução.'],
-    '/franchising': ['Franchising | BEST GYM', 'Conhece a oportunidade de Franchising do BEST GYM e envia a tua candidatura.'],
-    '/produtos': ['Produtos | BEST GYM', 'Consulta o catálogo de produtos do BEST GYM disponível nos ginásios.'],
-    '/conteudos': ['Conteúdos | BEST GYM', 'Treino, performance, recuperação e comunidade no BEST GYM.'],
-    '/conteudo-detalhe': ['Conteúdo | BEST GYM', 'Conteúdo do BEST GYM sobre treino, performance e comunidade.'],
-    '/sobre': ['Sobre | BEST GYM', 'Conhece a cultura, missão e visão do BEST GYM.'],
-    '/contactos': ['Contactos | BEST GYM', 'Contacta a equipa do BEST GYM de Valongo ou Vila Nova de Famalicão.'],
-    '/inscricao': ['Inscrição | BEST GYM', 'Escolhe o teu ginásio BEST GYM e continua para a plataforma oficial de inscrição.'],
-    '/campanha': ['Campanha | BEST GYM', 'Consulta a campanha ativa do BEST GYM e as condições apresentadas na plataforma oficial.'],
-    '/faq': ['FAQ | BEST GYM', 'Respostas rápidas sobre o BEST GYM, ginásios, horários e inscrição.'],
-    '/em-breve': ['São João da Madeira | BEST GYM', 'Novidades sobre o próximo ginásio BEST GYM em São João da Madeira.'],
-    '/privacidade': ['Política de Privacidade | BEST GYM', 'Consulta a informação de privacidade do BEST GYM.'],
-    '/termos': ['Termos e Condições | BEST GYM', 'Consulta os termos e condições do site do BEST GYM.'],
-    '/cookies': ['Política de Cookies | BEST GYM', 'Consulta como são utilizados cookies no site do BEST GYM.']
-  };
-
   function setMeta() {
     var path = location.pathname.replace(/\/+$/, '') || '/';
-    var item = META[path];
+    var page = window.BGSiteConfig && window.BGSiteConfig.pages[path];
+    var item = page && page.pt;
     if (!item) return;
     document.title = item[0];
     var meta = document.querySelector('meta[name="description"]');
@@ -306,23 +286,27 @@
     if (!root.querySelectorAll) return;
 
     function addTo(nav, drawer) {
-      if (!nav || nav.querySelector('a[href="/franchising"]')) return;
+      var english = !!(window.BGPageLocale && window.BGPageLocale.english);
+      var franchisingHref = english ? '/en/franchising' : '/franchising';
+      var contactsHref = english ? '/en/contacts' : '/contactos';
+      var aboutHref = english ? '/en/about' : '/sobre';
+      if (!nav || nav.querySelector('a[href="' + franchisingHref + '"]')) return;
 
       var links = nav.querySelectorAll('a[href]');
       var model = null;
       var before = null;
       for (var i = 0; i < links.length; i++) {
-        if (links[i].getAttribute('href') === '/contactos') model = links[i];
-        if (links[i].getAttribute('href') === '/sobre') before = links[i];
+        if (links[i].getAttribute('href') === contactsHref) model = links[i];
+        if (links[i].getAttribute('href') === aboutHref) before = links[i];
       }
       if (!model && links.length) model = links[links.length - 1];
       if (!model) return;
 
       var a = model.cloneNode(true);
-      a.setAttribute('href', '/franchising');
+      a.setAttribute('href', franchisingHref);
       a.textContent = 'Franchising';
 
-      if (location.pathname.replace(/\/+$/, '') === '/franchising') {
+      if (location.pathname.replace(/\/+$/, '') === franchisingHref) {
         a.style.color = 'var(--best-red)';
         if (!drawer) {
           a.style.borderBottomColor = 'var(--best-red)';
