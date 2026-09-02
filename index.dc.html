@@ -115,8 +115,11 @@
         </div>
       </div>
       <div data-hero-slide style="position: absolute; inset: 0; opacity: {{ s2o }}; visibility: {{ s2v }}; z-index: {{ s2z }}; pointer-events: {{ s2pe }}; transform: {{ s2t }}; transition: opacity 0.42s ease-out, transform 0.52s cubic-bezier(0.22,0.61,0.36,1);">
-        <div data-hero-video-wrap style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
-          <video ref="{{ videoRef }}" data-hero-video src="assets/video/hero-24h.mp4" poster="assets/img/acesso-24h.jpg" loop="{{ true }}" muted="{{ true }}" playsInline="{{ true }}" preload="metadata" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.52) saturate(0.9);"></video>
+        <div data-hero-media style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
+          <picture style="position: absolute; inset: 0; display: block;">
+            <source media="(max-width: 768px)" srcset="assets/img/hero-24h-mobile.jpg">
+            <img data-hero-24h src="assets/img/hero-24h-desktop.png" alt="" loading="lazy" decoding="async" width="2048" height="1152" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; display: block; filter: brightness(0.52) saturate(0.9);">
+          </picture>
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
@@ -129,8 +132,8 @@
         </div>
       </div>
       <div data-hero-slide style="position: absolute; inset: 0; opacity: {{ s1o }}; visibility: {{ s1v }}; z-index: {{ s1z }}; pointer-events: {{ s1pe }}; transform: {{ s1t }}; transition: opacity 0.42s ease-out, transform 0.52s cubic-bezier(0.22,0.61,0.36,1);">
-        <div style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-performance" src="assets/img/hero-main-v2.jpg" shape="rect" placeholder="Foto principal — treino real no BEST GYM" hint-size="100%,100%"></x-import>
+        <div data-hero-media style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
+          <img data-hero-primary src="assets/img/hero-main-v2.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
@@ -466,17 +469,6 @@ class Component extends DCLogic {
   state = { slide: 0, prev: -1, pillar: 0, unit: 0, quote: 0, kinetic: 0, loaded: false, paused: false, typed: (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 21 : 0 };
   componentDidMount() {
     this._mobileHero = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
-    // Reproduz o vídeo apenas quando o respetivo slide está realmente ativo.
-    this._syncHeroVideo = () => {
-      const v = document.querySelector('video[data-hero-video]');
-      if (!v) return;
-      v.muted = true;
-      if (this.state.slide === 1 && !document.hidden && this._heroVisible !== false) {
-        if (v.paused) v.play().catch(() => {});
-      } else if (!v.paused) {
-        v.pause();
-      }
-    };
     const reduced = false;
     this._reduced = reduced;
     this._startTypo();
@@ -489,7 +481,6 @@ class Component extends DCLogic {
         this._heroIO = new IntersectionObserver((entries) => {
           this._heroVisible = entries[0].isIntersecting;
           document.documentElement.classList.toggle('bg-hero-visible', this._heroVisible);
-          this._syncHeroVideo();
         }, { threshold: 0.12 });
         this._heroIO.observe(hero);
       }
@@ -509,7 +500,6 @@ class Component extends DCLogic {
   componentDidUpdate(prevProps, prevState) {
     if (prevState && prevState.slide !== this.state.slide) {
       this._startTypo();
-      this._syncHeroVideo();
     }
   }
   _startTypo() {
@@ -622,11 +612,6 @@ class Component extends DCLogic {
       prevSlide: () => this.setState(st => ({ prev: st.slide, slide: (st.slide + 2) % 3, paused: true })),
       pauseHero: () => this.setState({ paused: true }),
       resumeHero: () => this.setState({ paused: false }),
-      videoRef: (el) => {
-        if (!el) return;
-        el.muted = true; el.setAttribute('muted', ''); el.loop = true;
-        if (this._syncHeroVideo) this._syncHeroVideo();
-      },
       owlRef: (el) => {
         if (!el || el._parallaxArmed) return;
         el._parallaxArmed = true;

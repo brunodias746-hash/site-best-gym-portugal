@@ -55,8 +55,9 @@ body { padding-bottom: env(safe-area-inset-bottom); }
     clip-path: none !important;
     will-change: opacity, transform;
   }
-  section[data-screen-label="Hero"] [data-hero-video-wrap] { animation: none !important; }
-  section[data-screen-label="Hero"] video[data-hero-video] { object-position: 60% center !important; }
+  section[data-screen-label="Hero"] [data-hero-media] { animation: none !important; }
+  section[data-screen-label="Hero"] [data-hero-primary] { object-position: 58% center !important; }
+  section[data-screen-label="Hero"] [data-hero-24h] { object-position: 54% center !important; }
   section[data-screen-label="Hero"] [data-hero-h1],
   section[data-screen-label="Hero"] [data-hero-h1-lg] {
     max-width: 10.5ch !important;

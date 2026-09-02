@@ -22,6 +22,23 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
 .reveal-section h2 { opacity: 0; transform-origin: top center; transform: perspective(500px) rotateX(-28deg) translateY(28px); transition: transform 800ms 80ms cubic-bezier(0.22,0.61,0.36,1), opacity 650ms 80ms; }
 .reveal-section.revealed h2 { opacity: 1; transform: perspective(500px) rotateX(0deg) translateY(0); }
 
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
+  .reveal-section {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 520ms cubic-bezier(0.16,1,0.3,1), transform 580ms cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal-section.revealed { opacity: 1; transform: translate3d(0, 0, 0); }
+  .reveal-section h2 {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .best-fx-card { transform-style: flat; will-change: auto; }
+  .best-fx-card.best-transform-safe,
+  .best-fx-card:hover { transform: none; }
+}
+
 .back-top { position: fixed; z-index: 80; right: 26px; bottom: 26px; width: 62px; height: 62px; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #fff; background: #181818; border: 1px solid #444; border-radius: 50%; opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity 300ms, visibility 300ms, transform 300ms; cursor: pointer; font-family: inherit; }
 .back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .back-top span { font-size: 20px; line-height: 1; }
@@ -217,7 +234,6 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
   .back-top { right: 18px; bottom: 80px; width: 50px; height: 50px; }
 }
 @media (hover: none), (pointer: coarse) {
-  .best-cursor-spotlight { opacity: 0.72; }
   .best-fx-card::before { opacity: 0.28; }
 }
 `;
@@ -234,7 +250,7 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
       st.textContent = CSS;
       document.head.appendChild(st);
       this.style.display = 'contents';
-      this.innerHTML = '<canvas class="best-cursor-spotlight" aria-hidden="true"></canvas>' +
+      this.innerHTML = (FINE_POINTER ? '<canvas class="best-cursor-spotlight" aria-hidden="true"></canvas>' : '') +
         '<div class="scroll-progress" aria-hidden="true"></div>' +
         '<button class="back-top" aria-label="Voltar ao topo"><span>\u2191</span><small>Topo</small></button>';
       const cursorSpotCanvas = this.querySelector('.best-cursor-spotlight');
@@ -245,23 +261,18 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
       /* ---------- BEST cursor spotlight: adapted from the supplied React canvas component ---------- */
       this._cursorSpotRAF = 0;
       this._cursorSpotMove = null;
-      this._cursorSpotDown = null;
-      this._cursorSpotUp = null;
       this._cursorSpotLeave = null;
       this._cursorSpotResize = null;
-      this._cursorSpotReturnTimer = 0;
       if (cursorSpotCanvas) {
         const ctx = cursorSpotCanvas.getContext('2d', { alpha: true });
         if (ctx) {
           const dpr = Math.min(window.devicePixelRatio || 1, 2);
-          const radius = FINE_POINTER ? 240 : 210;
-          const brightness = FINE_POINTER ? 0.11 : 0.075;
-          const smoothing = FINE_POINTER ? 0.16 : 0.075;
+          const radius = 240;
+          const brightness = 0.11;
+          const smoothing = 0.16;
           let targetX = window.innerWidth * 0.5, targetY = window.innerHeight * 0.42;
           let currentX = targetX, currentY = targetY;
-          let visible = !FINE_POINTER;
-          let touching = false;
-          const ambientStart = performance.now();
+          let visible = false;
 
           this._cursorSpotResize = () => {
             const w = window.innerWidth;
@@ -274,7 +285,6 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
           };
 
           this._cursorSpotMove = (e) => {
-            if (!FINE_POINTER && !touching && e.pointerType !== 'touch') return;
             targetX = e.clientX;
             targetY = e.clientY;
             if (!visible) {
@@ -284,41 +294,16 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
             }
           };
 
-          this._cursorSpotDown = (e) => {
-            if (FINE_POINTER || e.pointerType === 'mouse') return;
-            touching = true;
-            window.clearTimeout(this._cursorSpotReturnTimer);
-            this._cursorSpotMove(e);
-          };
-
-          this._cursorSpotUp = () => {
-            if (FINE_POINTER) return;
-            touching = false;
-            window.clearTimeout(this._cursorSpotReturnTimer);
-            this._cursorSpotReturnTimer = window.setTimeout(() => {
-              targetX = window.innerWidth * 0.5;
-              targetY = window.innerHeight * 0.42;
-            }, 650);
-          };
-
           this._cursorSpotLeave = () => {
-            if (FINE_POINTER) {
-              visible = false;
-              targetX = -1000;
-              targetY = -1000;
-            }
+            visible = false;
+            targetX = -1000;
+            targetY = -1000;
           };
 
           const drawCursorSpotlight = () => {
             const w = window.innerWidth;
             const h = window.innerHeight;
             ctx.clearRect(0, 0, w, h);
-
-            if (!FINE_POINTER && !touching) {
-              const t = (performance.now() - ambientStart) / 1000;
-              targetX = w * (0.5 + Math.sin(t * 0.24) * 0.16);
-              targetY = h * (0.42 + Math.cos(t * 0.19) * 0.12);
-            }
 
             if (visible && !document.hidden) {
               currentX += (targetX - currentX) * smoothing;
@@ -343,9 +328,6 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
           this._cursorSpotResize();
           window.addEventListener('resize', this._cursorSpotResize, { passive: true });
           window.addEventListener('pointermove', this._cursorSpotMove, { passive: true });
-          window.addEventListener('pointerdown', this._cursorSpotDown, { passive: true });
-          window.addEventListener('pointerup', this._cursorSpotUp, { passive: true });
-          window.addEventListener('pointercancel', this._cursorSpotUp, { passive: true });
           document.addEventListener('mouseleave', this._cursorSpotLeave, { passive: true });
           this._cursorSpotRAF = requestAnimationFrame(drawCursorSpotlight);
         }
@@ -568,12 +550,6 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
       if (this._cursorSpotRAF) cancelAnimationFrame(this._cursorSpotRAF);
       if (this._cursorSpotResize) window.removeEventListener('resize', this._cursorSpotResize);
       if (this._cursorSpotMove) window.removeEventListener('pointermove', this._cursorSpotMove);
-      if (this._cursorSpotDown) window.removeEventListener('pointerdown', this._cursorSpotDown);
-      if (this._cursorSpotUp) {
-        window.removeEventListener('pointerup', this._cursorSpotUp);
-        window.removeEventListener('pointercancel', this._cursorSpotUp);
-      }
-      window.clearTimeout(this._cursorSpotReturnTimer);
       if (this._cursorSpotLeave) document.removeEventListener('mouseleave', this._cursorSpotLeave);
       if (this._fxSpot && this._fxSpot.parentNode) this._fxSpot.parentNode.removeChild(this._fxSpot);
     }
