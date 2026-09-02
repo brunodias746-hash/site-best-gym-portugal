@@ -400,17 +400,17 @@
       </div>
     </section>
 
-    <section data-screen-label="Produtos" style="background: var(--mist); border-top: 1px solid var(--line);">
-      <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px;">
-        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
+    <section data-screen-label="Produtos" data-home-products style="background: var(--mist); border-top: 1px solid var(--line);">
+      <div data-home-products-inner style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px;">
+        <div data-home-products-heading style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
           <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">Leva o BEST GYM <span style="color: var(--best-red);">contigo.</span></h2>
           <a href="/produtos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px">Ver produtos</x-import></a>
         </div>
-        <div style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-width: none;">
+        <div data-home-products-rail style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-width: none;">
           <sc-for list="{{ products }}" as="p" hint-placeholder-count="7">
-            <a href="/produtos" style="flex: 0 0 240px; scroll-snap-align: start; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
-              <div onClick="{{ slotClick }}" style="aspect-ratio: 1; position: relative;">
-                <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ p.slotId }}" src="{{ p.slotSrc }}" shape="rect" placeholder="{{ p.slotLabel }}" hint-size="100%,100%"></x-import>
+            <a data-home-product-card href="/produtos" style="flex: 0 0 240px; scroll-snap-align: start; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; align-items: stretch; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
+              <div data-home-product-media style="width: 100%; aspect-ratio: 1; position: relative; overflow: hidden; background: var(--paper);">
+                <img src="{{ p.slotSrc }}" alt="{{ p.slotLabel }}" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: contain;">
               </div>
               <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 4px;">
                 <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">{{ p.cat }}</span>

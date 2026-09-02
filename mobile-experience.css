@@ -95,6 +95,35 @@ body { padding-bottom: env(safe-area-inset-bottom); }
     overflow-y: auto !important; overscroll-behavior: contain;
   }
   #bestgym-campaign-popup-v2 [data-popup-grid] > div:first-child { display: none !important; }
+
+  [data-home-products-inner] { gap: 28px !important; }
+  [data-home-products-heading] { gap: 14px !important; }
+  [data-home-products-rail] {
+    width: calc(100% + var(--bg-mobile-gutter)) !important;
+    margin-right: calc(var(--bg-mobile-gutter) * -1);
+    gap: 14px !important;
+    padding-right: var(--bg-mobile-gutter);
+    padding-bottom: 12px !important;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x pan-y;
+    scroll-padding-inline: 0 var(--bg-mobile-gutter);
+  }
+  [data-home-product-card] {
+    flex: 0 0 min(82vw, 340px) !important;
+    width: min(82vw, 340px) !important;
+    min-height: 0 !important;
+    align-items: stretch !important;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+  [data-home-product-media] {
+    width: 100% !important;
+    min-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    flex: 0 0 auto;
+  }
+  [data-home-product-media] img { object-fit: contain !important; }
 }
 
 @media (max-width: 430px) {

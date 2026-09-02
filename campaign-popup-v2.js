@@ -40,17 +40,18 @@
     var returnFocus = document.activeElement;
     overlay.style.cssText =
       'position:fixed;inset:0;z-index:3500;display:flex;align-items:center;justify-content:center;' +
-      'padding:clamp(14px,3vw,28px);background:rgba(5,6,8,.74);backdrop-filter:blur(10px);' +
-      'opacity:0;visibility:hidden;transition:opacity .32s ease,visibility .32s ease;';
+      'min-height:100dvh;box-sizing:border-box;padding:clamp(14px,3vw,28px);' +
+      'background:rgba(5,6,8,.74);backdrop-filter:blur(10px);' +
+      'opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease;';
 
     var card = document.createElement('div');
     card.setAttribute('tabindex', '-1');
     card.style.cssText =
-      'position:relative;width:min(1040px,100%);max-height:92vh;overflow:auto;' +
+      'position:relative;width:min(1040px,100%);max-height:calc(100dvh - clamp(28px,6vw,56px));overflow:auto;' +
       'background:var(--paper,#fff);color:var(--ink,#111);border-radius:24px;' +
       'border:1px solid rgba(225,21,7,.22);box-shadow:0 40px 120px rgba(0,0,0,.42);' +
-      'transform:translateY(20px) scale(.985);opacity:0;' +
-      'transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .32s ease;';
+      'transform:translateY(24px) scale(.965);opacity:0;' +
+      'transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .34s ease;';
 
     card.innerHTML =
       '<button type="button" data-campaign-close aria-label="Fechar campanha" ' +
@@ -124,7 +125,13 @@
         '#bestgym-campaign-popup-v2 [data-popup-grid]>div:first-child img{max-width:310px!important;}' +
       '}' +
       '@media(max-width:520px){' +
-        '#bestgym-campaign-popup-v2{padding:10px!important;align-items:flex-end!important;}' +
+        '#bestgym-campaign-popup-v2{' +
+          'height:100dvh!important;min-height:100dvh!important;align-items:center!important;justify-content:center!important;' +
+          'padding:max(16px,env(safe-area-inset-top)) 10px max(34px,calc(env(safe-area-inset-bottom) + 18px))!important;' +
+        '}' +
+        '#bestgym-campaign-popup-v2>div{' +
+          'width:100%!important;max-height:100%!important;overscroll-behavior:contain;' +
+        '}' +
         '#bestgym-campaign-popup-v2 [data-popup-copy] h2{font-size:42px!important;}' +
         '#bestgym-campaign-popup-v2 [data-popup-copy]>div:nth-of-type(1){grid-template-columns:repeat(3,1fr)!important;}' +
       '}';
@@ -147,7 +154,7 @@
       overlay.style.opacity = '0';
       overlay.style.visibility = 'hidden';
       card.style.opacity = '0';
-      card.style.transform = 'translateY(16px) scale(.99)';
+      card.style.transform = 'translateY(14px) scale(.98)';
       try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
       document.removeEventListener('keydown', onKey);
       if (returnFocus && returnFocus.focus) returnFocus.focus({ preventScroll: true });
@@ -179,6 +186,6 @@
     document.addEventListener('keydown', onKey);
 
     /* Let the DC hero/preloader settle before displaying the independent popup. */
-    window.setTimeout(show, 2200);
+    window.setTimeout(show, 1800);
   });
 })();
