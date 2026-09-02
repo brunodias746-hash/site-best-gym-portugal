@@ -26,22 +26,22 @@
   </style>
 </helmet>
 <div style="font-family: var(--font-text);">
-  <div style="position: fixed; top: 0; left: 0; right: 0; z-index: 900;">
-    <a href="/em-breve" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
+  <div data-bg-header style="position: fixed; top: 0; left: 0; right: 0; z-index: 900;">
+    <a data-bg-announcement href="/em-breve" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
       <span data-bg-striplong>Nova unidade · São João da Madeira abre em breve</span>
       <span data-bg-stripshort style="display: none;">São João da Madeira · em breve</span>
       <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;">Ver campanha <span aria-hidden="true">→</span></span>
     </a>
-    <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: {{ barBorder }}; box-shadow: {{ barShadow }}; height: {{ barHeight }}; transition: height 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s;">
+    <div data-bg-headerbar style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: {{ barBorder }}; box-shadow: {{ barShadow }}; height: {{ barHeight }}; transition: height 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s;">
       <a href="/" style="display: flex; align-items: center; flex: 0 0 auto;">
-        <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 34px; display: block;">
+        <img data-bg-headerlogo src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 34px; display: block;">
       </a>
       <nav data-bg-desknav aria-label="Navegação principal" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 30px);">
         <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
           <a href="{{ item.href }}" style="text-decoration: none; font-size: var(--fs-nav); letter-spacing: var(--ls-nav); font-weight: {{ item.weight }}; color: {{ item.color }}; padding: 6px 0; border-bottom: 2px solid {{ item.rule }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
         </sc-for>
       </nav>
-      <div style="display: flex; align-items: center; gap: 14px; flex: 0 0 auto;">
+      <div data-bg-headeractions style="display: flex; align-items: center; gap: 14px; flex: 0 0 auto;">
         <button type="button" data-theme-toggle onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
           <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
           <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>

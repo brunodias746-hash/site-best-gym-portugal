@@ -139,6 +139,7 @@
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
           <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);">Ginásios 24H · Portugal</span>
           <h1 data-hero-h1 aria-label="Não vendemos musculação. Vendemos performance." style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 96px); line-height: 0.94; text-transform: uppercase; color: var(--white);"><span aria-hidden="true">Não vendemos musculação.<br>{{ typo0 }}</span></h1>
+          <p data-mobile-hero-proof>Ginásios 24H em Valongo e Vila Nova de Famalicão. São João da Madeira em breve.</p>
           <div data-hero-kinetic aria-hidden="true" style="display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75);">
             <span style="width: 26px; height: 2px; background: var(--best-red);"></span>
             <span style="height: 20px; overflow: hidden; display: inline-flex; flex-direction: column;">
@@ -176,12 +177,24 @@
       </div>
     </section>
 
+    <section data-screen-label="Prova rápida" data-mobile-proof data-no-reveal aria-label="BEST GYM em números">
+      <div><strong>24H</strong><span>Todos os dias</span></div>
+      <div><strong>2</strong><span>Unidades abertas</span></div>
+      <div><strong>3.ª</strong><span>Unidade a chegar</span></div>
+      <p>FORÇA · CARDIO · FUNCIONAL</p>
+    </section>
+
     <section data-screen-label="Manifesto" data-no-reveal style="position: relative;">
       <span aria-hidden="true" style="position: absolute; top: 40px; right: clamp(8px, 3vw, 60px); font-family: var(--font-display); font-size: clamp(160px, 24vw, 380px); line-height: 0.8; color: transparent; -webkit-text-stroke: 1.5px rgba(225,21,7,0.14); pointer-events: none; user-select: none;">24</span>
       <div data-two-col style="max-width: 1280px; margin: 0 auto; padding: clamp(72px, 10vw, 150px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 72px); align-items: start; position: relative;">
         <div data-sticky-col style="position: sticky; top: 140px; display: flex; flex-direction: column; gap: 24px;">
           <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5.6vw, 84px); line-height: 0.94; text-transform: uppercase; color: var(--ink);">Performance<br><span style="color: var(--best-red);">todos os dias.</span></h2>
           <p style="margin: 0; max-width: 54ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">O BEST GYM foi criado para quem leva a evolução a sério. Liberdade para treinar 24 horas, equipamento preparado para diferentes objetivos e uma comunidade que transforma consistência em resultados.</p>
+          <div data-mobile-why>
+            <div><strong>Treina quando quiseres</strong><span>24H, todos os dias.</span></div>
+            <div><strong>Estrutura para evoluir</strong><span>Peso livre, cardio, cross training e treino funcional.</span></div>
+            <div><strong>Treino com direção</strong><span>Built By Best para acompanhamento com método.</span></div>
+          </div>
           <div data-stat-row style="display: flex; align-items: stretch; gap: 0; border-top: 2px solid var(--text-1); border-bottom: 2px solid var(--text-1); margin-top: 8px;">
             <div style="flex: 1; padding: 22px 8px; display: flex; flex-direction: column; gap: 4px;">
               <span style="font-family: var(--font-display); font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--best-red);"><span data-countup="24">0</span></span>
@@ -287,7 +300,7 @@
         <div data-sticky-col style="position: sticky; top: 140px; display: flex; flex-direction: column; gap: 24px;">
           <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5vw, 72px); line-height: 0.94; text-transform: uppercase; color: var(--ink);">Dois ginásios abertos.<br><span style="color: var(--best-red);">Um terceiro a caminho.</span></h2>
           <p style="margin: 0; max-width: 44ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Escolhe o ginásio mais próximo e conhece a estrutura preparada para a tua evolução.</p>
-          <div style="display: flex; flex-direction: column; gap: 2px;">
+          <div data-unit-tabs style="display: flex; flex-direction: column; gap: 2px;">
             <sc-for list="{{ unitTabs }}" as="u" hint-placeholder-count="2">
               <button onClick="{{ u.select }}" data-cursor="Explorar" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; background: transparent; border: none; border-left: 3px solid {{ u.rule }}; cursor: pointer; padding: 16px 18px; text-align: left; transition: border-color 0.3s;">
                 <span style="font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 34px); text-transform: uppercase; line-height: 1; color: {{ u.color }}; transition: color 0.3s;">{{ u.city }}</span>
@@ -295,11 +308,11 @@
               </button>
             </sc-for>
           </div>
-          <span style="font-size: 13px; color: var(--text-faint); max-width: 40ch;">O BEST GYM continua a crescer — <a href="/em-breve">São João da Madeira está a caminho</a>.</span>
+          <span data-unit-coming style="font-size: 13px; color: var(--text-faint); max-width: 40ch;">O BEST GYM continua a crescer — <a href="/em-breve">EM BREVE · São João da Madeira</a>.</span>
         </div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div data-unit-list style="display: flex; flex-direction: column; gap: 20px;">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="1">
-            <article style="display: {{ u.display }}; flex-direction: column; gap: 0; background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md);">
+            <article data-unit-card style="display: {{ u.display }}; flex-direction: column; gap: 0; background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md);">
               <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden;">
                 <div style="position: absolute; inset: 0; clip-path: {{ u.mediaClip }}; transition: clip-path 0.8s cubic-bezier(0.65,0,0.35,1);">
                   <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ u.slotId }}" src="{{ u.slotSrc }}" shape="rect" placeholder="{{ u.slotLabel }}" hint-size="100%,100%"></x-import>
@@ -313,7 +326,7 @@
                   <span>Aberto 24H · 7 dias · 365 dias</span>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
-                  <a href="{{ u.href }}" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" size="sm" hint-size="180px,40px">Conhecer unidade</x-import></a>
+                  <a href="{{ u.href }}" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" size="sm" hint-size="180px,40px">Conhecer esta unidade</x-import></a>
                   <a href="{{ u.map }}" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ver localização →</a>
                 </div>
               </div>
@@ -360,10 +373,12 @@
         <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red-tint);">Programa de performance</span>
         <h2 data-bbb-h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 7vw, 110px); line-height: 0.9; text-transform: uppercase; color: var(--white);">Built By<br><span style="color: var(--best-red);">Best</span></h2>
         <p style="margin: 0; max-width: 42ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);">Um programa de acompanhamento para quem quer transformar objetivos em evolução mensurável. Planeamento, execução, acompanhamento e ajustes consistentes.</p>
-        <div style="display: flex; flex-direction: column; max-width: 640px;">
-          <div style="display: flex; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border-on-dark);"><span style="font-family: var(--font-display); font-size: 18px; color: var(--best-red);">01</span><span style="font-size: 15px; color: rgba(255,255,255,0.9);">Avaliação e planeamento adaptado</span></div>
-          <div style="display: flex; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border-on-dark);"><span style="font-family: var(--font-display); font-size: 18px; color: var(--best-red);">02</span><span style="font-size: 15px; color: rgba(255,255,255,0.9);">Execução com vídeos de apoio</span></div>
-          <div style="display: flex; align-items: center; gap: 16px; padding: 14px 0; border-top: 1px solid var(--border-on-dark); border-bottom: 1px solid var(--border-on-dark);"><span style="font-family: var(--font-display); font-size: 18px; color: var(--best-red);">03</span><span style="font-size: 15px; color: rgba(255,255,255,0.9);">Monitorização e ajustes regulares</span></div>
+        <div data-bbb-steps style="display: flex; flex-direction: column; max-width: 640px;">
+          <div><span>01</span><span>Avaliação</span></div>
+          <div><span>02</span><span>Planeamento</span></div>
+          <div><span>03</span><span>Execução</span></div>
+          <div><span>04</span><span>Acompanhamento</span></div>
+          <div><span>05</span><span>Evolução</span></div>
         </div>
         <div style="margin-top: 8px;">
           <a href="/built-by-best" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="230px,56px">Conhecer o programa</x-import></a>
@@ -374,14 +389,10 @@
     <section data-screen-label="Comunidade" style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px;">
       <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 0.95; text-transform: uppercase; color: var(--ink);">Mais fortes <span style="color: var(--best-red);">juntos.</span></h2>
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: stretch;">
-        <div style="position: relative; min-height: 340px;">
-          <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="3">
-            <figure onClick="{{ q.next }}" data-cursor="Seguinte" style="margin: 0; position: absolute; inset: 0; background: var(--surface-1); border: 1px solid var(--line); border-left: 4px solid var(--best-red); border-radius: 16px; padding: clamp(26px, 3.4vw, 40px); display: flex; flex-direction: column; gap: 18px; justify-content: center; cursor: pointer; box-shadow: var(--shadow-md); transform: {{ q.transform }}; opacity: {{ q.opacity }}; z-index: {{ q.z }}; transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.55s, z-index 0s;">
-              <span style="font-family: var(--font-display); font-size: 60px; line-height: 0.5; color: var(--best-red);">“</span>
-              <blockquote style="margin: 0; font-size: clamp(18px, 1.9vw, 23px); line-height: 1.5; color: var(--ink); font-weight: 500;">{{ q.text }}</blockquote>
-              <figcaption style="font-size: 13px; color: var(--text-faint); display: flex; align-items: center; justify-content: space-between; gap: 12px;"><span>{{ q.who }}</span><span style="font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;">{{ q.count }}</span></figcaption>
-            </figure>
-          </sc-for>
+        <div data-community-proof>
+          <span>Comunidade BEST GYM</span>
+          <h3>Uma comunidade que treina a sério.</h3>
+          <p>Do treino individual ao acompanhamento com método, o ambiente do BEST GYM foi pensado para manter foco, consistência e proximidade.</p>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
@@ -450,7 +461,7 @@
       </div>
       <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: clamp(88px, 13vw, 190px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px;">
         <h2 data-cta-h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 8vw, 128px); line-height: 0.9; text-transform: uppercase; color: var(--white);">Pronto para<br><span style="color: var(--best-red);">começar?</span></h2>
-        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);">Escolhe a unidade, consulta a campanha ativa e começa a treinar com liberdade.</p>
+        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);">Escolhe a unidade mais próxima, treina 24H no teu horário e começa no BEST GYM.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
           <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
           <a href="/contactos" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 18px 36px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 8px; color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.25s;" style-hover="background: rgba(255,255,255,0.1);">Falar com a equipa</a>
@@ -466,7 +477,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;areasCardWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:440,&quot;min&quot;:240,&quot;max&quot;:440,&quot;step&quot;:10,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;},&quot;areasImageRatio&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;16 / 9&quot;,&quot;options&quot;:[&quot;4 / 3&quot;,&quot;1 / 1&quot;,&quot;16 / 9&quot;,&quot;3 / 4&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;},&quot;areasShowDesc&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Áreas de treino&quot;}}">
 class Component extends DCLogic {
-  state = { slide: 0, prev: -1, pillar: 0, unit: 0, quote: 0, kinetic: 0, loaded: false, paused: false, typed: (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 21 : 0 };
+  state = { slide: 0, prev: -1, pillar: 0, unit: 0, kinetic: 0, loaded: false, paused: false, typed: (window.matchMedia && window.matchMedia('(max-width: 768px)').matches) ? 21 : 0 };
   componentDidMount() {
     this._mobileHero = !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
     const reduced = false;
@@ -578,12 +589,6 @@ class Component extends DCLogic {
       ['Posing Room', 'Sala dedicada a posing e preparação de palco.', 'posing-room', 'Preparação', '300px'],
       ['Personal Training', 'Acompanhamento individual com planeamento contínuo.', 'personal-training', 'Individual', '300px'],
     ];
-    const quoteData = [
-      ['Encontrei um espaço onde consigo treinar no meu ritmo e manter consistência.', 'Testemunho de membro · identificação em aprovação'],
-      ['Treinar às 6 da manhã ou à meia-noite — a liberdade de horário mudou a minha rotina.', 'Testemunho de membro · identificação em aprovação'],
-      ['O acompanhamento do Built By Best deu-me direção. Os resultados apareceram.', 'Testemunho de membro · identificação em aprovação'],
-    ];
-    const q = this.state.quote;
     const typoConf = [
       { text: 'Vendemos performance.', ranges: [
         { start: 0, end: 9, style: { color: 'var(--best-red)' } },
@@ -776,17 +781,6 @@ class Component extends DCLogic {
           slotLabel: 'Foto área — ' + name,
           zoomDir: i % 2 ? 'alternate-reverse' : 'alternate',
           dup: i >= areaData.length ? 'true' : 'false',
-        };
-      }),
-      quotes: quoteData.map(([text, who], i) => {
-        const pos = (i - q + 3) % 3;
-        return {
-          text, who,
-          count: (i + 1) + ' / 3',
-          next: () => this.setState(st => ({ quote: (st.quote + 1) % 3 })),
-          transform: pos === 0 ? 'translate(0,0) rotate(0deg)' : (pos === 1 ? 'translate(14px, 14px) rotate(1.2deg)' : 'translate(28px, 28px) rotate(-1deg)'),
-          opacity: pos === 0 ? 1 : (pos === 1 ? 0.85 : 0.6),
-          z: 3 - pos,
         };
       }),
       products: [
