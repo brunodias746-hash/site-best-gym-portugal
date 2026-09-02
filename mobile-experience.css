@@ -22,7 +22,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bg-language-switcher a:active { background: var(--hover-on-light); }
 .bg-language-switcher--drawer {
   width: 100%; justify-content: space-between; padding: 8px 12px 8px 16px;
-  border: 1px solid var(--line); border-radius: 12px;
+  box-sizing: border-box; border: 1px solid var(--line); border-radius: 12px;
 }
 .bg-language-switcher--drawer > span { color: var(--text-faint); }
 .bg-language-switcher--drawer > div { display: flex; align-items: center; gap: 7px; }
@@ -47,6 +47,27 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 }
 
 @media (max-width: 768px) {
+  section[data-screen-label="Hero"] {
+    height: min(680px, calc(100svh - 116px)) !important;
+    min-height: 560px !important;
+  }
+  section[data-screen-label="Hero"] [data-hero-slide] {
+    clip-path: none !important;
+    will-change: opacity, transform;
+  }
+  section[data-screen-label="Hero"] [data-hero-video-wrap] { animation: none !important; }
+  section[data-screen-label="Hero"] video[data-hero-video] { object-position: 60% center !important; }
+  section[data-screen-label="Hero"] [data-hero-h1],
+  section[data-screen-label="Hero"] [data-hero-h1-lg] {
+    max-width: 10.5ch !important;
+    text-wrap: balance;
+  }
+  html.bg-hero-visible [data-bg-mobilecta] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(100%) !important;
+  }
   main p, main li { font-size: max(16px, 1rem); line-height: 1.65; }
   main section:not([data-screen-label="Hero"]):not([data-screen-label^="Hero "]) {
     min-height: 0 !important;
@@ -80,6 +101,10 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .bg-language-switcher:not(.bg-language-switcher--drawer) a { min-width: 27px; }
   [data-bg-mobilecta] > a { min-height: 46px; }
   aside[aria-label="Menu"] nav a { padding-block: 5px !important; }
+  aside[aria-label="Menu"] { width: 100vw !important; }
+  aside[aria-label="Menu"] > div:nth-child(2) { padding: 22px 20px !important; }
+  aside[aria-label="Menu"] > div:nth-child(2) > div { min-width: 0; }
+  aside[aria-label="Menu"] > div:nth-child(2) > div:nth-last-child(2) { overflow-wrap: anywhere; }
   footer > div { padding-left: var(--bg-mobile-gutter) !important; padding-right: var(--bg-mobile-gutter) !important; }
 }
 
