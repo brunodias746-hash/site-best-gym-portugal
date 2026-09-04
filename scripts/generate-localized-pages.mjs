@@ -52,7 +52,7 @@ for (const [ptPath, page] of Object.entries(pages)) {
 }
 
 await import('./generate-sitemap.mjs');
-await copyFile(path.join(outputRoot, 'pt', 'index.html'), path.join(publicRoot, 'index.html'));
+await copyFile('offline.html', path.join(publicRoot, 'index.html'));
 await copyFile('sitemap.xml', path.join(publicRoot, 'sitemap.xml'));
 await copyFile(path.join('assets', 'logo-red.png'), path.join(publicRoot, 'favicon.ico'));
 await writeFile(path.join(publicRoot, '.image-slots.state.json'), '{}\n', 'utf8');
