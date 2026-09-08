@@ -3,14 +3,6 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/offline.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/offline.html"
-    },
-    {
       "source": "/en",
       "destination": "/localized-pages/en/index.html"
     },
@@ -88,7 +80,7 @@
     },
     {
       "source": "/",
-      "destination": "/offline.html"
+      "destination": "/localized-pages/pt/index.html"
     },
     {
       "source": "/unidades",
