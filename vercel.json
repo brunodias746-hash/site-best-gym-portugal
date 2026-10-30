@@ -3,6 +3,38 @@
   "trailingSlash": false,
   "rewrites": [
     {
+      "source": "/personal-trainers/candidatura",
+      "destination": "/localized-pages/pt/personal-trainers-candidatura.html"
+    },
+    {
+      "source": "/en/personal-trainers/apply",
+      "destination": "/localized-pages/en/personal-trainers-candidatura.html"
+    },
+    {
+      "source": "/built-by-best/candidatura",
+      "destination": "/localized-pages/pt/built-by-best-candidatura.html"
+    },
+    {
+      "source": "/en/built-by-best/apply",
+      "destination": "/localized-pages/en/built-by-best-candidatura.html"
+    },
+    {
+      "source": "/lista-vip-sao-joao-da-madeira",
+      "destination": "/localized-pages/pt/lista-vip-sao-joao-da-madeira.html"
+    },
+    {
+      "source": "/en/gyms/sao-joao-da-madeira/vip",
+      "destination": "/localized-pages/en/lista-vip-sao-joao-da-madeira.html"
+    },
+    {
+      "source": "/unidade-sao-joao-da-madeira",
+      "destination": "/localized-pages/pt/unidade-sao-joao-da-madeira.html"
+    },
+    {
+      "source": "/en/gyms/sao-joao-da-madeira",
+      "destination": "/localized-pages/en/unidade-sao-joao-da-madeira.html"
+    },
+    {
       "source": "/en",
       "destination": "/localized-pages/en/index.html"
     },
@@ -169,7 +201,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.unsplash.com; media-src 'self' blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://subscribe.myf.pt; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.unsplash.com; media-src 'self' blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://subscribe.mvf.pt; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
         },
         {
           "key": "X-Content-Type-Options",

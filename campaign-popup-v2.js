@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  var KEY = 'bestgym_campaign_popup_ferias_off_gym_on_2026_session';
+  var KEY = 'bestgym_campaign_' + window.BGSiteConfig.campaign.id + '_session';
 
   function ready(fn) {
     if (document.readyState === 'loading') {
@@ -63,37 +63,37 @@
 
         '<div style="background:linear-gradient(155deg,#0d0e10,#21181a);display:flex;align-items:center;' +
         'justify-content:center;padding:clamp(18px,3vw,30px);">' +
-          '<img src="/campanha-ferias-off-gym-on-2026.png" alt="Campanha Férias Off. Gym On. BEST GYM" ' +
+          '<img data-campaign-artwork src="/campanha-ferias-off-gym-on-2026.png" alt="Campanha Férias Off. Gym On. BEST GYM" ' +
           'style="display:block;width:100%;max-width:440px;height:auto;border-radius:14px;' +
           'box-shadow:0 24px 65px rgba(0,0,0,.38);background:#fff;">' +
         '</div>' +
 
         '<div data-popup-copy style="padding:clamp(30px,4vw,46px);display:flex;flex-direction:column;' +
         'justify-content:center;gap:18px;">' +
-          '<span style="font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;' +
-          'color:var(--best-red,#E11507);">Campanha de setembro</span>' +
+          '<span data-campaign-field="label" style="font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;' +
+          'color:var(--best-red,#E11507);">Campanha atual</span>' +
           '<h2 style="margin:0;padding-right:36px;font-family:var(--font-display,sans-serif);font-weight:400;' +
           'font-size:clamp(44px,5.3vw,72px);line-height:.9;text-transform:uppercase;color:var(--ink,#111);">' +
-          'Férias Off.<br><span style="color:var(--best-red,#E11507);">Gym On.</span></h2>' +
-          '<p style="margin:0;font-size:16.5px;line-height:1.7;color:var(--text-muted,#666);">' +
-          'Este setembro, aproveita <strong>50% de desconto por mês até 2027</strong>, ' +
+          '<span data-campaign-field="line1">Férias Off.</span><br><span data-campaign-field="line2" style="color:var(--best-red,#E11507);">Gym On.</span></h2>' +
+          '<p data-campaign-field="summary" style="margin:0;font-size:16.5px;line-height:1.7;color:var(--text-muted,#666);">' +
+          'aproveita <strong>50% de desconto por mês até 2027</strong>, ' +
           '<strong>inscrição grátis</strong> e vagas limitadas.</p>' +
 
           '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">' +
             '<div style="padding:15px;border:1px solid var(--line,#ddd);border-radius:12px;">' +
-              '<strong style="display:block;font-family:var(--font-display,sans-serif);font-size:34px;' +
+              '<strong data-campaign-field="discount" style="display:block;font-family:var(--font-display,sans-serif);font-size:34px;' +
               'font-weight:400;line-height:.9;color:var(--best-red,#E11507);">50%</strong>' +
               '<span style="display:block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.1em;' +
               'text-transform:uppercase;color:var(--text-muted,#666);">Desconto</span>' +
             '</div>' +
             '<div style="padding:15px;border:1px solid var(--line,#ddd);border-radius:12px;">' +
-              '<strong style="display:block;font-family:var(--font-display,sans-serif);font-size:34px;' +
+              '<strong data-campaign-field="year" style="display:block;font-family:var(--font-display,sans-serif);font-size:34px;' +
               'font-weight:400;line-height:.9;">2027</strong>' +
               '<span style="display:block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.1em;' +
               'text-transform:uppercase;color:var(--text-muted,#666);">Condição válida</span>' +
             '</div>' +
             '<div style="padding:15px;border:1px solid var(--line,#ddd);border-radius:12px;">' +
-              '<strong style="display:block;font-family:var(--font-display,sans-serif);font-size:25px;' +
+              '<strong data-campaign-field="registration" style="display:block;font-family:var(--font-display,sans-serif);font-size:25px;' +
               'font-weight:400;line-height:.95;">Grátis</strong>' +
               '<span style="display:block;margin-top:8px;font-size:10px;font-weight:800;letter-spacing:.1em;' +
               'text-transform:uppercase;color:var(--text-muted,#666);">Inscrição</span>' +
@@ -101,11 +101,11 @@
           '</div>' +
 
           '<div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:4px;">' +
-            '<a href="/campanha" style="display:inline-flex;align-items:center;justify-content:center;' +
+            '<a data-campaign-cta="secondary" data-campaign-field="secondaryLabel" href="/campanha" style="display:inline-flex;align-items:center;justify-content:center;' +
             'min-height:52px;padding:0 24px;border-radius:9px;background:var(--best-red,#E11507);color:#fff;' +
             'font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;">' +
             'Ver campanha</a>' +
-            '<a href="/inscricao" style="display:inline-flex;align-items:center;justify-content:center;' +
+            '<a data-campaign-cta="primary" data-campaign-field="primaryLabel" href="/inscricao" style="display:inline-flex;align-items:center;justify-content:center;' +
             'min-height:52px;padding:0 24px;border-radius:9px;border:1.5px solid var(--line-strong,#222);' +
             'color:var(--ink,#111);font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;' +
             'text-decoration:none;">Inscreve-te</a>' +
@@ -115,6 +115,7 @@
 
     overlay.appendChild(card);
     document.body.appendChild(overlay);
+    if (window.BGCampaign) window.BGCampaign.apply(overlay);
 
     var responsive = document.createElement('style');
     responsive.textContent =

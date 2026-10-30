@@ -24,5 +24,39 @@
     '/cookies': { en: '/en/cookies', pt: ['Política de Cookies | BEST GYM', 'Consulta como são utilizados cookies no site do BEST GYM.'], english: ['Cookie Policy | BEST GYM', 'Learn how cookies are used on the BEST GYM website.'] }
   };
 
-  root.BGSiteConfig = Object.freeze({ origin: origin, pages: pages });
+  pages['/unidade-sao-joao-da-madeira'] = { en: '/en/gyms/sao-joao-da-madeira', pt: ['BEST GYM São João da Madeira | Em breve', 'Cerca de 2.000 m², mais de 100 máquinas e treino 24H. Conhece a próxima unidade e entra na lista VIP.'], english: ['BEST GYM São João da Madeira | Coming soon', 'Around 2,000 m², over 100 machines and 24-hour training. Explore the upcoming gym and join the VIP list.'] };
+  pages['/lista-vip-sao-joao-da-madeira'] = { en: '/en/gyms/sao-joao-da-madeira/vip', pt: ['Lista VIP São João da Madeira | BEST GYM', 'Recebe as novidades da nova unidade BEST GYM de São João da Madeira e acede a condições exclusivas de pré-venda.'], english: ['São João da Madeira VIP List | BEST GYM', 'Get news about the upcoming BEST GYM São João da Madeira location and access exclusive pre-sale offers.'] };
+  pages['/built-by-best/candidatura'] = { source: 'built-by-best-candidatura', en: '/en/built-by-best/apply', pt: ['Candidatura Built By Best | BEST GYM', 'Apresenta o teu perfil e os teus objetivos ao programa Built By Best. Treino com direção e acompanhamento com método.'], english: ['Built By Best Application | BEST GYM', 'Share your profile and goals with the Built By Best programme. Training with direction and coaching with a method.'] };
+  pages['/personal-trainers/candidatura'] = { source: 'personal-trainers-candidatura', en: '/en/personal-trainers/apply', pt: ['Candidatura Personal Trainers | BEST GYM', 'Trabalha como Personal Trainer no BEST GYM de Famalicão e Valongo. Apresenta o teu perfil profissional.'], english: ['Personal Trainer Application | BEST GYM', 'Work as a Personal Trainer at BEST GYM Famalicão and Valongo. Tell us about your professional profile.'] };
+
+  /* Monthly updates: change this object and artwork, then rebuild. */
+  var campaign = {
+    id: 'ferias-off-gym-on-2026',
+    artwork: '/campanha-ferias-off-gym-on-2026.png',
+    pt: {
+      label: 'Campanha atual', line1: 'Férias Off.', line2: 'Gym On.', headline: 'Férias Off. Gym On.',
+      offer: '50% de desconto por mês até 2027 + inscrição grátis',
+      summary: 'Ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.',
+      supporting: 'Escolhe o teu ginásio, faz a inscrição e aproveita a campanha enquanto houver vagas disponíveis.',
+      discount: '50%', year: '2027', registration: 'Grátis', freeRegistration: 'Inscrição grátis',
+      conditionOffer: '50% de desconto por mês até 2027.', conditionRegistration: 'Inscrição grátis durante a campanha.',
+      conditionAvailability: 'Vagas limitadas nos ginásios aderentes.',
+      terms: 'Campanha sujeita à disponibilidade de vagas e às condições aplicáveis pelo BEST GYM.',
+      primaryLabel: 'Inscreve-te', primaryHref: '/inscricao', secondaryLabel: 'Ver campanha', secondaryHref: '/campanha',
+      activate: 'Confirma a campanha e os teus dados de adesão.'
+    },
+    en: {
+      label: 'Current campaign', line1: 'Férias Off.', line2: 'Gym On.', headline: 'Férias Off. Gym On.',
+      offer: '50% off each month until 2027 + free registration',
+      summary: 'Switch training mode on: 50% off each month until 2027, free registration and limited availability.',
+      supporting: 'Choose your gym, register and enjoy the campaign while places remain.',
+      discount: '50%', year: '2027', registration: 'Free', freeRegistration: 'Free registration',
+      conditionOffer: '50% off each month until 2027.', conditionRegistration: 'Free registration during the campaign.',
+      conditionAvailability: 'Limited availability at participating gyms.',
+      terms: 'Offer subject to availability and the applicable BEST GYM terms.',
+      primaryLabel: 'Join now', primaryHref: '/en/join', secondaryLabel: 'View campaign', secondaryHref: '/en/campaign',
+      activate: 'Confirm the campaign and your registration details.'
+    }
+  };
+  root.BGSiteConfig = Object.freeze({ origin: origin, pages: pages, campaign: campaign, registrationUrl: 'https://subscribe.mvf.pt/signup/bestgym' });
 })(typeof globalThis !== 'undefined' ? globalThis : window);

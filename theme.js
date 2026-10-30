@@ -84,6 +84,16 @@
 
   /* Global presentation layer. Versioned names avoid stale browser/CDN copies. */
   function loadPresentationLayer() {
+    if (!document.querySelector('link[data-best-forms-css]')) {
+      var formsCss = document.createElement('link');
+      formsCss.rel = 'stylesheet'; formsCss.href = '/best-forms.css';
+      formsCss.setAttribute('data-best-forms-css', '1'); document.head.appendChild(formsCss);
+    }
+    ['/lead-config.js', '/best-forms.js', '/campaign-content.js'].forEach(function (src) {
+      if (document.querySelector('script[data-best-module="' + src + '"]')) return;
+      var module = document.createElement('script'); module.src = src; module.async = false;
+      module.setAttribute('data-best-module', src); document.head.appendChild(module);
+    });
     if (!document.querySelector('link[data-best-mobile-experience]')) {
       var mobile = document.createElement('link');
       mobile.rel = 'stylesheet';

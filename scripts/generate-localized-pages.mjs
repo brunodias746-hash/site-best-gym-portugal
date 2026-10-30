@@ -13,7 +13,8 @@ for (const directory of ['_ds', 'assets']) {
 }
 const rootEntries = await readdir('.', { withFileTypes: true });
 for (const entry of rootEntries) {
-  if (entry.isFile() && !['.gitignore', 'AGENTS.md', 'vercel.json'].includes(entry.name)) {
+  if (entry.isFile() && !entry.name.startsWith('.') &&
+      (/\.(?:html|css|js|png|jpg|jpeg|webp|svg|ico|mp4)$/i.test(entry.name) || ['robots.txt', 'sitemap.xml'].includes(entry.name))) {
     await copyFile(entry.name, path.join(publicRoot, entry.name));
   }
 }
@@ -38,16 +39,26 @@ const head = (ptPath, page, english) => {
 };
 
 for (const [ptPath, page] of Object.entries(pages)) {
-  const basename = ptPath === '/' ? 'index' : ptPath.slice(1);
+  const basename = page.source || (ptPath === '/' ? 'index' : ptPath.slice(1));
   const source = await readFile(`${basename}.dc.html`, 'utf8');
   for (const english of [false, true]) {
     const locale = english ? 'en' : 'pt';
-    const localized = source
+    let localized = source
       .replace('<html>', `<html lang="${english ? 'en' : 'pt-PT'}" data-locale="${locale}">`)
       .replace('<meta charset="utf-8">', `<meta charset="utf-8">\n${head(ptPath, page, english)}`);
+    if (english) {
+      localized = localized.replace(/(<([a-z][\w-]*)\b[^>]*\bdata-en="([^"]*)"[^>]*>)([\s\S]*?)(<\/\2>)/gi,
+        (_, open, tag, translation, original, close) => open + translation.replaceAll('&quot;', '"') + close);
+      localized = localized.replace(/alt="[^"]*" data-en-alt="([^"]*)"/g, 'alt="$1" data-en-alt="$1"');
+    }
     const folder = path.join(outputRoot, locale);
     await mkdir(folder, { recursive: true });
     await writeFile(path.join(folder, `${basename}.html`), localized, 'utf8');
+    // Directory index files also work on ordinary static hosts without Vercel rewrites.
+    const route = english ? page.en : ptPath;
+    const portableFolder = path.join(publicRoot, route.replace(/^\/+|\/+$/g, ''));
+    await mkdir(portableFolder, { recursive: true });
+    await writeFile(path.join(portableFolder, 'index.html'), localized, 'utf8');
   }
 }
 

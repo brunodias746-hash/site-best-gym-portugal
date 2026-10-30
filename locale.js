@@ -36,7 +36,7 @@
     'Fala connosco': 'Contact us', 'Falar connosco →': 'Contact us →',
     'Ver localização →': 'View location →', 'Abrir no mapa →': 'Open map →',
     'Ver todas as perguntas →': 'View all questions →', 'Ver FAQ →': 'View FAQ →',
-    'Campanha do mês': 'Current campaign', 'Campanha de setembro': 'September campaign',
+    'Campanha do mês': 'Current campaign', 'Campanha atual': 'Current campaign',
     '50% de desconto por mês até 2027 + inscrição grátis': '50% off each month until 2027 + free registration',
     '50% de desconto por mês até 2027': '50% off each month until 2027',
     'inscrição grátis': 'free registration', 'vagas limitadas': 'limited availability',
@@ -65,8 +65,8 @@
     'Aulas': 'Classes', 'Acompanhamento': 'Coaching', 'Comunidade': 'Community',
     'Consistência': 'Consistency', 'Liberdade': 'Freedom', 'Método': 'Method',
     'FÉRIAS OFF. GYM ON.': 'HOLIDAY MODE OFF. GYM MODE ON.',
-    'Este setembro, ativa o modo treino no BEST GYM.': 'This September, switch training mode on at BEST GYM.',
-    'Este setembro, aproveita 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'This September, get 50% off each month until 2027, free registration and limited availability.',
+    'ativa o modo treino no BEST GYM.': 'switch training mode on at BEST GYM.',
+    'aproveita 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'get 50% off each month until 2027, free registration and limited availability.',
     'DO PRIMEIRO PASSO AO GYM ON.': 'FROM THE FIRST STEP TO GYM MODE ON.',
     'ESCOLHE O GINÁSIO': 'CHOOSE YOUR GYM', 'ATIVA A CAMPANHA': 'ACTIVATE THE CAMPAIGN',
     'COMEÇA A TREINAR': 'START TRAINING', 'PRONTO PARA APROVEITAR?': 'READY TO GET STARTED?',
@@ -122,7 +122,7 @@
     'Evolução': 'Progress', 'Encontrar uma unidade': 'Find a gym', 'todos os dias.': 'every day.',
     'O BEST GYM foi criado para quem leva a evolução a sério. Liberdade para treinar 24 horas, equipamento preparado para diferentes objetivos e uma comunidade que transforma consistência em resultados.': 'BEST GYM was created for people who take progress seriously: 24-hour training, equipment for different goals and a community that turns consistency into results.',
     'Horas por dia': 'Hours a day', 'Dias por ano': 'Days a year',
-    'Este setembro, ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'This September, switch training mode on: 50% off each month until 2027, free registration and limited availability.',
+    'ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'switch training mode on: 50% off each month until 2027, free registration and limited availability.',
     'O essencial para': 'Everything you need to',
     'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.': 'Train on your schedule, every day of the year. Access is independent, personal and secure — your progress does not wait for anyone.',
     'Peso livre, cardio, cross training e treino funcional — zonas preparadas para treino de força, intensidade e evolução.': 'Free weights, cardio, cross training and functional training — areas designed for strength, intensity and progress.',
@@ -239,7 +239,7 @@
     'O papel da comunidade na motivação e na evolução a longo prazo.': 'How community supports motivation and long-term progress.',
     'e vagas limitadas.': 'and limited availability.', 'Ver campanha': 'View campaign',
     'Campanha do mês · BEST GYM': 'Current campaign · BEST GYM',
-    'Este setembro, ativa o modo treino no BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'This September, switch training mode on at BEST GYM: 50% off each month until 2027, free registration and limited availability.',
+    'ativa o modo treino no BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'switch training mode on at BEST GYM: 50% off each month until 2027, free registration and limited availability.',
     'Aderir à campanha': 'Claim the offer', 'Inscrição grátis': 'Free registration', 'A tua oferta': 'Your offer',
     'durante a campanha.': 'during the campaign.', 'Vagas limitadas': 'Limited availability', 'Ativa a campanha': 'Activate the offer',
     'Confirma a campanha Férias Off. Gym On. e os teus dados de adesão.': 'Confirm the FÉRIAS OFF. GYM ON. offer and your registration details.',
@@ -274,7 +274,7 @@
     'Disponível na unidade.': 'Available at the gym.', 'Os produtos do BEST GYM são vendidos diretamente nas unidades de Valongo e Famalicão — fala com a equipa para conheceres cores, tamanhos e disponibilidade.': 'BEST GYM products are sold directly at the Valongo and Famalicão gyms — ask the team about colours, sizes and availability.',
     'Treino, performance, recuperação e comunidade — conteúdo prático da equipa do BEST GYM.': 'Practical training, performance, recovery and community guidance from the BEST GYM team.',
     'Campanha atual · Férias Off. Gym On.': 'Current campaign · FÉRIAS OFF. GYM ON.', 'Acesso 24 horas, 365 dias': '24-hour access, 365 days a year',
-    'Vais continuar para a plataforma oficial de inscrição (subscribe.myf.pt), num separador externo e seguro.': 'You will continue to the official registration platform (subscribe.myf.pt) in a secure new tab.',
+    'Vais continuar para a plataforma oficial de inscrição (subscribe.mvf.pt), num separador externo e seguro.': 'You will continue to the official registration platform (subscribe.mvf.pt) in a secure new tab.',
     'Existe campanha ativa?': 'Is there a current campaign?',
     'Peso livre, cardio, cross training, treino funcional, posing room e personal training. Existem também aulas de grupo em horários definidos, mas o foco principal é o treino de musculação e performance. As áreas podem variar por ginásio.': 'Free weights, cardio, cross training, functional training, a posing room and personal training. Scheduled group classes are also available, while the main focus remains strength and performance training. Facilities may vary by location.',
     'Usa o formulário de contacto e escolhe o assunto "Built By Best" — a equipa responde-te com os próximos passos.': 'Use the contact form and select “Built By Best” — our team will reply with the next steps.',
@@ -296,6 +296,17 @@
     'QUERO SER AVISADO': 'KEEP ME UPDATED', 'Quero ser avisado': 'Keep me updated',
     'Ou segue as novidades no Instagram →': 'Or follow the latest news on Instagram →'
   });
+
+  Object.assign(T, {
+  "Campanha atual": "Current campaign",
+  "A lista VIP já está aberta.": "The VIP list is open.",
+  "Recebe as novidades de São João da Madeira em primeira mão e acede a condições exclusivas de pré-venda.": "Get São João da Madeira news first and access exclusive pre-sale offers.",
+  "Conhecer a nova unidade": "Explore the new gym",
+  "Entrar na lista VIP": "Join the VIP list",
+  "Cerca de 2.000 m² de área de treino, mais de 100 máquinas e zonas de musculação e cardio. O teu novo espaço de treino está a chegar.": "Around 2,000 m² of training space, over 100 machines and strength and cardio areas. Your new training space is coming.",
+  "Produtos disponíveis nas receções dos ginásios BEST GYM.": "Products available at BEST GYM gym receptions.",
+  "Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.": "Identity, performance and community inside and outside the gym. Products available at BEST GYM gym receptions."
+});
 
   function translateText(value) {
     var lead = value.match(/^\s*/)[0], tail = value.match(/\s*$/)[0], core = value.trim();
@@ -323,6 +334,11 @@
 
   function translate(root) {
     if (!english || !root) return;
+    var explicit = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('[data-en]') : []);
+    if (root.matches && root.matches('[data-en]')) explicit.unshift(root);
+    explicit.forEach(function (el) { var value = el.getAttribute('data-en'); if (el.textContent !== value) el.textContent = value; });
+    var images = root.querySelectorAll ? root.querySelectorAll('[data-en-alt]') : [];
+    Array.prototype.forEach.call(images, function (el) { el.setAttribute('alt', el.getAttribute('data-en-alt')); });
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     var nodes = [], node;
     while ((node = walker.nextNode())) {

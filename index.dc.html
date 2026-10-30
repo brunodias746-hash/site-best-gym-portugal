@@ -133,7 +133,7 @@
       </div>
       <div data-hero-slide style="position: absolute; inset: 0; opacity: {{ s1o }}; visibility: {{ s1v }}; z-index: {{ s1z }}; pointer-events: {{ s1pe }}; transform: {{ s1t }}; transition: opacity 0.42s ease-out, transform 0.52s cubic-bezier(0.22,0.61,0.36,1);">
         <div data-hero-media style="position: absolute; inset: 0; animation: bgDrift 12s linear infinite alternate;">
-          <img data-hero-primary src="assets/img/hero-main-v2.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+          <img data-hero-primary src="assets/img/area-personal-training.jpg" alt="" loading="eager" fetchpriority="high" decoding="async" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% center; display: block;">
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
@@ -229,31 +229,30 @@
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
         <div data-campaign-grid style="display:grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(24px, 4vw, 56px); align-items: center;">
           <div data-campaign-copy style="display:flex; flex-direction:column; gap: 18px;">
-            <span style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha do mês</span>
-            <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);">Férias Off.<br><span style="color:var(--best-red);">Gym On.</span></h2>
-            <p style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">Este setembro, ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha do mês</span>
+            <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);"><span data-campaign-field="line1">Férias Off.</span><br><span data-campaign-field="line2" style="color:var(--best-red);">Gym On.</span></h2>
+            <p data-campaign-field="summary" style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
-                <span style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">50%</span>
+                <span data-campaign-field="discount" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">50%</span>
                 <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Desconto mensal</span>
               </div>
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
-                <span style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--ink);">2027</span>
+                <span data-campaign-field="year" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--ink);">2027</span>
                 <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Condição válida</span>
               </div>
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
-                <span style="display:block; font-family:var(--font-display); font-size:34px; line-height:0.9; color:var(--ink);">Grátis</span>
+                <span data-campaign-field="registration" style="display:block; font-family:var(--font-display); font-size:34px; line-height:0.9; color:var(--ink);">Grátis</span>
                 <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Inscrição</span>
               </div>
             </div>
             <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:6px;">
-              <a href="/campanha" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="250px,56px">Ver oferta completa</x-import></a>
-              <a href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--line-strong); border-radius:10px; color:var(--ink); font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase;">Inscreve-te agora</a>
+              <a data-campaign-cta="primary" data-campaign-field="primaryLabel" href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--best-red); border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase;">Inscreve-te</a>
             </div>
           </div>
           <div data-campaign-poster style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(135deg, rgba(225,21,7,0.1), rgba(255,255,255,0.65)); border:1px solid rgba(225,21,7,0.18); box-shadow:0 32px 90px rgba(0,0,0,0.12); padding:clamp(14px, 2vw, 22px);">
             <div style="border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 48px rgba(0,0,0,0.12);">
-              <img src="campanha-ferias-off-gym-on-2026.png" alt="Campanha do mês BEST GYM — Férias Off. Gym On.">
+              <img data-campaign-artwork src="campanha-ferias-off-gym-on-2026.png" alt="Campanha do mês BEST GYM — Férias Off. Gym On.">
             </div>
           </div>
         </div>
@@ -308,7 +307,7 @@
               </button>
             </sc-for>
           </div>
-          <span data-unit-coming style="font-size: 13px; color: var(--text-faint); max-width: 40ch;">O BEST GYM continua a crescer — <a href="/em-breve">EM BREVE · São João da Madeira</a>.</span>
+          <span data-unit-coming style="font-size: 13px; color: var(--text-faint); max-width: 40ch;">O BEST GYM continua a crescer — <a href="/unidade-sao-joao-da-madeira">EM BREVE · São João da Madeira</a>.</span>
         </div>
         <div data-unit-list style="display: flex; flex-direction: column; gap: 20px;">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="1">
@@ -332,6 +331,7 @@
               </div>
             </article>
           </sc-for>
+<article class="bg-unit-announcement"><span data-en="São João da Madeira · Coming soon" class="bg-eyebrow">São João da Madeira · Em breve</span><p data-en="Around 2,000 m² of training space. Over 100 machines. Strength and cardio, 24 hours a day, 7 days a week." >Cerca de 2.000 m² de área de treino. Mais de 100 máquinas. Musculação e cardio, 24 horas por dia, 7 dias por semana.</p><div style="display:flex;flex-wrap:wrap;gap:12px;"><a data-en="Explore the new gym" href="/unidade-sao-joao-da-madeira" class="bg-button bg-button--outline">Conhecer a nova unidade</a><a data-en="Join the VIP list" href="/lista-vip-sao-joao-da-madeira" class="bg-button">Entrar na lista VIP</a></div></article>
         </div>
       </div>
     </section>
@@ -365,7 +365,7 @@
     </section>
 
     <section data-screen-label="Built By Best" data-no-reveal style="position: relative; background: var(--invert-3); overflow: hidden; min-height: min(880px, 92vh);">
-      <div style="position: absolute; inset: 0; opacity: 0.3; filter: grayscale(1) contrast(1.08);">
+      <div style="position: absolute; inset: 0; opacity: 0.3; filter: contrast(1.04);">
         <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-bbb-bg" src="pillar-performance-final.jpg" shape="rect" placeholder="Built By Best — força, musculação e performance" hint-size="100%,100%"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,28,31,0.95) 0%, rgba(26,28,31,0.6) 55%, rgba(142,9,0,0.35) 100%); pointer-events: none;"></div>
@@ -417,6 +417,7 @@
           <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">Leva o BEST GYM <span style="color: var(--best-red);">contigo.</span></h2>
           <a href="/produtos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px">Ver produtos</x-import></a>
         </div>
+        <p data-en="Products available at BEST GYM gym receptions." style="margin:0;color:var(--text-muted);">Produtos disponíveis nas receções dos ginásios BEST GYM.</p>
         <div data-home-products-rail style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-width: none;">
           <sc-for list="{{ products }}" as="p" hint-placeholder-count="7">
             <a data-home-product-card href="/produtos" style="flex: 0 0 240px; scroll-snap-align: start; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; align-items: stretch; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">

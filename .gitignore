@@ -1,2 +1,7 @@
 localized-pages/
 public/
+.codex-work/
+.env
+.env.*
+.vercel/
+node_modules/

@@ -32,7 +32,7 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero produtos" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) clamp(32px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;">
       <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px">Produtos <span style="color: var(--best-red)">Best Gym</span></x-import>
-      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Identidade, performance e comunidade dentro e fora do ginásio. Catálogo disponível nas unidades — pede informações à equipa.</p>
+      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.</p>
     </section>
 
     <section data-screen-label="Catálogo" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 120px); display: flex; flex-direction: column; gap: 28px;">
@@ -50,7 +50,6 @@
             <div style="padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; flex: 1;">
               <span style="font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1;">{{ p.name }}</span>
               <span style="font-size: 13.5px; line-height: 1.55; color: var(--text-muted);">{{ p.desc }}</span>
-              <a href="/contactos" style="margin-top: auto; padding-top: 10px; text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Consultar disponibilidade →</a>
             </div>
           </article>
         </sc-for>

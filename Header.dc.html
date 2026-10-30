@@ -27,10 +27,10 @@
 </helmet>
 <div style="font-family: var(--font-text);">
   <div data-bg-header style="position: fixed; top: 0; left: 0; right: 0; z-index: 900;">
-    <a data-bg-announcement href="/em-breve" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
+    <a data-bg-announcement href="/unidade-sao-joao-da-madeira" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
       <span data-bg-striplong>Nova unidade · São João da Madeira abre em breve</span>
       <span data-bg-stripshort style="display: none;">São João da Madeira · em breve</span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;">Ver campanha <span aria-hidden="true">→</span></span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;">Saber mais <span aria-hidden="true">→</span></span>
     </a>
     <div data-bg-headerbar style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: {{ barBorder }}; box-shadow: {{ barShadow }}; height: {{ barHeight }}; transition: height 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s;">
       <a href="/" style="display: flex; align-items: center; flex: 0 0 auto;">
@@ -85,8 +85,8 @@
         <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" hint-size="100%,48px">Inscreve-te agora</x-import>
       </a>
       <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
-        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Campanha do mês</div>
-        <div style="margin-top: 8px; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">50% de desconto por mês até 2027 + inscrição grátis</div>
+        <div data-campaign-field="label" style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Campanha atual</div>
+        <div data-campaign-field="offer" style="margin-top: 8px; font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">50% de desconto por mês até 2027 + inscrição grátis</div>
         <a href="/campanha" style="display: inline-block; margin-top: 10px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; border-bottom: 1.5px solid var(--best-red);">Aderir agora →</a>
       </div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
@@ -109,8 +109,8 @@
   </aside>
 
   <div data-bg-mobilecta style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 940; display: flex; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--surface-1-a); backdrop-filter: blur(10px); border-top: 1px solid var(--line); transition: opacity .24s ease, transform .28s cubic-bezier(.22,.61,.36,1), visibility .24s;">
-    <a href="/inscricao" style="flex: 1; text-decoration: none; display: flex;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" size="sm" hint-size="100%,44px">Inscreve-te agora</x-import>
+    <a href="{{ mobileCtaHref }}" style="flex: 1; text-decoration: none; display: flex;">
+      <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" size="sm" hint-size="100%,44px">{{ mobileCtaLabel }}</x-import>
     </a>
     <a href="/contactos" style="flex: 0 0 auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1.5px solid var(--text-1); border-radius: 8px; color: var(--ink); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">Contactos</a>
   </div>
@@ -182,8 +182,12 @@ class Component extends DCLogic {
       rule: id === active ? 'var(--best-red)' : 'transparent',
     }));
     const dark = this.state.theme !== 'light';
+    const pagePath = window.BGPageLocale && window.BGPageLocale.ptPath;
+    const upcoming = ['/unidade-sao-joao-da-madeira', '/lista-vip-sao-joao-da-madeira', '/em-breve'].includes(pagePath);
     return {
       items,
+      mobileCtaHref: upcoming ? (english ? '/en/gyms/sao-joao-da-madeira/vip' : '/lista-vip-sao-joao-da-madeira') : (english ? '/en/join' : '/inscricao'),
+      mobileCtaLabel: upcoming ? (english ? 'Join the VIP list' : 'Entrar na lista VIP') : (english ? 'Join now' : 'Inscreve-te agora'),
       menuExpanded: this.state.open ? 'true' : 'false',
       menuHidden: this.state.open ? 'false' : 'true',
       themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',

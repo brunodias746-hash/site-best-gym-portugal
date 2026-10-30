@@ -34,6 +34,7 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
     transform: none;
     transition: none;
   }
+  .best-chroma::after { display: none; }
   .best-fx-card { transform-style: flat; will-change: auto; }
   .best-fx-card.best-transform-safe,
   .best-fx-card:hover { transform: none; }
@@ -199,9 +200,9 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
   pointer-events: none;
   border-radius: inherit;
   background: rgba(5,6,8,0.012);
-  -webkit-backdrop-filter: grayscale(0.72) brightness(0.84) saturate(0.72);
-  backdrop-filter: grayscale(0.72) brightness(0.84) saturate(0.72);
-  opacity: 0.94;
+  -webkit-backdrop-filter: brightness(0.97) saturate(0.98);
+  backdrop-filter: brightness(0.97) saturate(0.98);
+  opacity: 0.38;
   transition: opacity 360ms ease;
 }
 .best-chroma.best-chroma-active::after {

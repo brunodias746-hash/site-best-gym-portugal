@@ -77,33 +77,7 @@
           <p style="margin:0;color:var(--text-muted);line-height:1.7;">Preenche os dados para a equipa avaliar o teu interesse. O contacto é dirigido para <a href="mailto:franchising@bestgym.pt" style="font-weight:700;text-decoration:none;">franchising@bestgym.pt</a>.</p>
         </div>
 
-        <form onSubmit="{{ submitForm }}" noValidate style="background:var(--surface-1);border:1px solid var(--line);border-radius:18px;padding:clamp(26px,4vw,44px);display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow-sm);">
-          <div style="display:{{ successDisplay }};background:var(--success-wash);border:1px solid var(--success-line);border-radius:10px;padding:16px 18px;color:var(--success-fg);font-size:14px;line-height:1.5;">O teu programa de email foi aberto com a candidatura preenchida. Confirma o envio para concluir.</div>
-          <div data-two-col style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Nome *<input name="nome" type="text" autocomplete="name" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Email *<input name="email" type="email" autocomplete="email" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Telemóvel *<input name="telefone" type="tel" autocomplete="tel" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">NIF *<input name="nif" type="text" inputmode="numeric" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Capital disponível *<input name="capital" type="text" placeholder="Ex.: 150.000€" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-            <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Local pretendido *<input name="local" type="text" placeholder="Cidade / concelho" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);"></label>
-          </div>
-          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Tipo de projeto *
-            <select name="tipo" style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);">
-              <option value="">Seleciona uma opção</option>
-              <option value="novo">Novo ginásio</option>
-              <option value="remodelacao">Remodelação de ginásio existente</option>
-            </select>
-          </label>
-          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--ink);">Mensagem
-            <textarea name="mensagem" rows="5" placeholder="Conta-nos um pouco mais sobre o projeto." style="font:inherit;font-size:16px;padding:13px 14px;border:1.5px solid var(--line-strong);border-radius:8px;background:var(--paper);color:var(--ink);resize:vertical;"></textarea>
-          </label>
-          <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:var(--text-muted);font-weight:400;">
-            <input name="privacidade" type="checkbox" style="margin-top:3px;width:16px;height:16px;accent-color:var(--best-red);">
-            <span>Li e aceito a <a href="/privacidade">Política de Privacidade</a>. *</span>
-          </label>
-          <div style="display:{{ errorDisplay }};background:var(--red-wash);border:1px solid var(--red-line);border-radius:10px;padding:14px 16px;color:var(--red-strong);font-size:13.5px;line-height:1.5;">{{ errorMsg }}</div>
-          <x-import component-from-global-scope="DesignSystem_6952b0.Button" type="submit" size="lg" block="{{ true }}" hint-size="100%,56px">Enviar candidatura</x-import>
-        </form>
+        <best-lead-form form-type="franchising"></best-lead-form>
       </div>
     </section>
   </main>
@@ -112,54 +86,5 @@
 </div>
 </x-dc>
 
-<script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { status:'idle', errorMsg:'' };
-  renderVals() {
-    return {
-      successDisplay: this.state.status === 'success' ? 'block' : 'none',
-      errorDisplay: this.state.status === 'error' ? 'block' : 'none',
-      errorMsg: this.state.errorMsg,
-      submitForm: (e) => {
-        e.preventDefault();
-        const f = e.target;
-        const en = !!(window.BGLocale && window.BGLocale.isEnglish);
-        const missing = [];
-        if (!f.nome.value.trim()) missing.push(en ? 'name' : 'nome');
-        if (!f.email.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) missing.push(en ? 'valid email' : 'email válido');
-        if (!f.telefone.value.trim()) missing.push(en ? 'phone' : 'telemóvel');
-        if (!f.nif.value.trim()) missing.push('NIF');
-        if (!f.capital.value.trim()) missing.push(en ? 'available capital' : 'capital disponível');
-        if (!f.local.value.trim()) missing.push(en ? 'preferred location' : 'local pretendido');
-        if (!f.tipo.value) missing.push(en ? 'project type' : 'tipo de projeto');
-        if (!f.privacidade.checked) missing.push(en ? 'privacy policy acceptance' : 'aceitação da política de privacidade');
-        if (missing.length) {
-          this.setState({status:'error', errorMsg:(en ? 'Check the following fields: ' : 'Verifica os seguintes campos: ') + missing.join(', ') + '.'});
-          return;
-        }
-        const body = [
-          'Nova candidatura de Franchising — BEST GYM',
-          '',
-          'Nome: ' + f.nome.value.trim(),
-          'Email: ' + f.email.value.trim(),
-          'Telemóvel: ' + f.telefone.value.trim(),
-          'NIF: ' + f.nif.value.trim(),
-          'Capital disponível: ' + f.capital.value.trim(),
-          'Local pretendido: ' + f.local.value.trim(),
-          'Tipo de projeto: ' + f.tipo.options[f.tipo.selectedIndex].text,
-          '',
-          'Mensagem:',
-          f.mensagem.value.trim() || 'Não indicada'
-        ].join('\n');
-        const mailto = 'mailto:franchising@bestgym.pt' +
-          '?subject=' + encodeURIComponent('[FRANCHISING BEST GYM] ' + f.nome.value.trim() + ' — ' + f.local.value.trim()) +
-          '&body=' + encodeURIComponent(body);
-        this.setState({status:'success', errorMsg:''});
-        window.location.href = mailto;
-      }
-    };
-  }
-}
-</script>
 </body>
 </html>
