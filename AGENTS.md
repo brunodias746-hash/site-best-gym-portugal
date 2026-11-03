@@ -152,10 +152,11 @@ Do not remove it without a tested replacement.
 
 - Network: 3 gyms in the network.
 - Open now:
-  - Valongo
-  - Vila Nova de Famalicão
+  - 01 · Vila Nova de Famalicão
+  - 02 · Valongo
 - Coming soon:
-  - São João da Madeira
+  - 03 · São João da Madeira
+- Unit order follows creation, not alphabetical order: Famalicão first, Valongo second.
 - Correct public idea:
   - `2 ginásios abertos + São João da Madeira a caminho`
   - or `3 ginásios na rede`
@@ -242,6 +243,10 @@ Current intended contact destinations:
 - Valongo: `valongo@bestgym.pt`
 - Famalicão: `famalicao@bestgym.pt`
 - Franchising: `franchising@bestgym.pt`
+- São João da Madeira VIP list: `Saojoaodamadeira@bestgym.pt`
+- Personal Trainer applications: `partners@bestgym.pt`
+
+The São João VIP recipient is not a confirmed general unit contact. Its VIP mobile field must say `Telemóvel`.
 
 The site is currently static and forms may use `mailto:`.
 

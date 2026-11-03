@@ -33,10 +33,11 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero unidade" style="position: relative; height: min(72vh, 680px); min-height: 460px; background: var(--invert-1); overflow: hidden;">
       <div style="position: absolute; inset: 0;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-hero" src="valongo-drone-v3.jpg" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%"></x-import>
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-hero" src="assets/img/units/valongo-exterior-2026.webp" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: var(--overlay-read); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none;">
+        <span class="bg-eyebrow" data-en="Gym 02 · Open 24H">Unidade 02 · Aberto 24H</span>
         <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" as="h1" hint-size="100%,140px">Best Gym <span style="color: var(--best-red)">Valongo</span></x-import>
         <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">Treina 24 horas, com estrutura, liberdade e uma equipa próxima.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; pointer-events: auto;">
@@ -82,7 +83,7 @@
     <section data-screen-label="Acesso 24h" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px);">
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center;">
         <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-acesso" src="assets/img/acesso-24h.jpg" shape="rect" placeholder="Foto acesso / entrada da unidade" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-acesso" src="assets/img/units/valongo-strength-floor-2026.webp" shape="rect" placeholder="Área de treino do BEST GYM Valongo" hint-size="100%,100%"></x-import>
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px;">
           <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px">Entra e treina <span style="color: var(--best-red)">quando quiseres.</span></x-import>
@@ -105,12 +106,12 @@
       </div>
     </section>
 
-    <section data-screen-label="Galeria" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="40%,60px">Galeria</x-import>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
-        <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-gal-1" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Galeria Valongo — 1" hint-size="100%,100%"></x-import></div>
-        <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-gal-2" src="assets/img/area-cardio.jpg" shape="rect" placeholder="Galeria Valongo — 2" hint-size="100%,100%"></x-import></div>
-        <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 12px; overflow: hidden;"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-gal-3" src="assets/img/balnearios.jpg" shape="rect" placeholder="Galeria Valongo — 3" hint-size="100%,100%"></x-import></div>
+    <section data-screen-label="Galeria" class="bg-page">
+      <h2 class="bg-unit-gallery-title" data-en="Inside the gym">Por dentro do ginásio</h2>
+      <div class="bg-unit-gallery">
+        <figure><img src="assets/img/units/valongo-strength-2026.webp" width="809" height="1440" alt="Zona de força — BEST GYM Valongo" data-en-alt="Strength area — BEST GYM Valongo" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"><figcaption data-en="Strength area">Zona de força</figcaption></figure>
+        <figure><img src="assets/img/units/valongo-free-weights-2026.webp" width="809" height="1440" alt="Halteres e pesos livres — BEST GYM Valongo" data-en-alt="Dumbbells and free weights — BEST GYM Valongo" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"><figcaption data-en="Dumbbells and free weights">Halteres e pesos livres</figcaption></figure>
+        <figure><img src="assets/img/units/valongo-functional-2026.webp" width="809" height="1440" alt="Treino Funcional — BEST GYM Valongo" data-en-alt="Functional training — BEST GYM Valongo" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"><figcaption data-en="Functional training">Treino Funcional</figcaption></figure>
       </div>
     </section>
 

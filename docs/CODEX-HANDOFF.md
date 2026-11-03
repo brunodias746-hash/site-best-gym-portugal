@@ -179,11 +179,13 @@ Treat the current JS marquee as deliberate.
 ## 11. Current network facts
 
 Open:
-- Valongo
-- Vila Nova de Famalicão
+- 01 · Vila Nova de Famalicão
+- 02 · Valongo
 
 Coming soon:
-- São João da Madeira
+- 03 · São João da Madeira
+
+Unit order is creation order, not alphabetical order. Client-confirmed on 3 November 2026: Famalicão first, Valongo second. VIP mobile label: `Telemóvel`. VIP recipient: `Saojoaodamadeira@bestgym.pt`; PT applications: `partners@bestgym.pt`. General official São João contacts remain pending. See `FORMS.md` and `UNIT-MEDIA.md` for the current transport and photo provenance.
 
 Correct communication:
 - 2 open;

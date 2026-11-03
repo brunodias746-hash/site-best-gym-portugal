@@ -150,8 +150,8 @@
       }
 
       a.replaceWith(wrapper);
-      wrapper.appendChild(v);
       wrapper.appendChild(f);
+      wrapper.appendChild(v);
     }
   }
 

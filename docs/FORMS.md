@@ -9,12 +9,12 @@ The frontend remains static/DC. `best-forms.js` renders a native custom element 
 | Type | Destination |
 | --- | --- |
 | `builtByBest` | `builtByBestRecipient`: `rhvalongo@bestgym.pt` |
-| `personalTrainer` | `personalTrainerRecipient`: pending client confirmation |
-| `saoJoaoVip` | `saoJoaoRecipient`: pending client confirmation |
+| `personalTrainer` | `personalTrainerRecipient`: `partners@bestgym.pt` |
+| `saoJoaoVip` | `saoJoaoRecipient`: `Saojoaodamadeira@bestgym.pt` |
 | `franchising` | `franchisingRecipient`: `franchising@bestgym.pt` |
-| `contact` | Valongo / Famalicão from the allowlisted `contactRecipients` map |
+| `contact` | Famalicão / Valongo from the allowlisted `contactRecipients` map |
 
-Supplying the VIP or PT recipient later is a one-location edit to this configuration. The caller cannot choose an arbitrary recipient.
+VIP and PT destinations were confirmed by the client on 3 November 2026. The VIP field is labelled “Telemóvel” / “Mobile phone”. The VIP email is not an approved general unit contact. The caller cannot choose an arbitrary recipient.
 
 ## Portable server adapter
 
@@ -24,7 +24,7 @@ The implemented email adapter uses the Resend HTTPS API. It needs **existing, ap
 
 Only a successful provider response containing a real message ID produces a success screen. This means the provider accepted the email; it is not a claim of inbox delivery. Failures preserve all input. A stable request ID and payload digest prevent duplicate sends on retries. The payload contains the allowlisted form fields, consent, policy path, language and request reference. No personal data or secrets are logged. The provider owns email retention and delivery events.
 
-For known recipients, an explicit email-app fallback is offered after a failed online attempt. The user must send that message themselves. Opening a mailto link never displays “candidatura recebida”. No fallback recipient is fabricated for VIP or PT.
+For known recipients, including VIP and PT, an explicit email-app fallback is offered after a failed online attempt. The user must send that message themselves. Opening a mailto link never displays “candidatura recebida”.
 
 The HTTP adapter limits body size, accepts JSON POSTs, rejects foreign browser origins, checks a honeypot and uses a bounded per-instance rate limiter. This is not a distributed rate-limit service.
 

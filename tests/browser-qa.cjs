@@ -11,7 +11,7 @@ fs.mkdirSync(output, { recursive: true });
 (async () => {
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
   const results = [], failures = [];
-  const changed = ['/', '/inscricao', '/unidades', '/unidade-sao-joao-da-madeira', '/lista-vip-sao-joao-da-madeira', '/built-by-best/candidatura', '/personal-trainers/candidatura', '/built-by-best', '/franchising', '/contactos', '/produtos', '/campanha', '/em-breve'];
+  const changed = ['/', '/inscricao', '/unidades', '/unidade-famalicao', '/unidade-valongo', '/unidade-sao-joao-da-madeira', '/lista-vip-sao-joao-da-madeira', '/built-by-best/candidatura', '/personal-trainers/candidatura', '/built-by-best', '/franchising', '/contactos', '/produtos', '/campanha', '/em-breve'];
   for (const width of [390, 430, 768, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: width === 1440 ? 1000 : 844 }, hasTouch: width < 1000, isMobile: width < 1000 });
     const routes = width === 390 ? Object.keys(config.pages) : changed;

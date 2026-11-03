@@ -21,11 +21,26 @@ test('invalid emails, telephones, options, dates and forged types are rejected',
   p.data.competed = 'Sim'; p.data.goalDate = '2026-02-30'; assert.equal(validate(p).field, 'goalDate');
   p.type = '__proto__'; assert.equal(validate(p).error, 'invalid_request');
 });
-test('missing transport or recipient never becomes a success', async () => {
+test('missing transport never becomes a success for any configured recipient', async () => {
   const send = () => { throw Error('must not send'); };
-  assert.equal((await processLead(application(), { env: {}, fetcher: send })).status, 503);
-  assert.equal((await processLead(application('personalTrainer'), { env: { RESEND_API_KEY: 'test', FORM_EMAIL_FROM: 'test@example.com' }, fetcher: send })).body.code, 'recipient_pending');
-  assert.equal((await processLead(application('saoJoaoVip'), { env: {}, fetcher: send })).body.code, 'recipient_pending');
+  for (const type of Object.keys(config.forms)) {
+    const result = await processLead(application(type), { env: {}, fetcher: send });
+    assert.equal(result.status, 503);
+    assert.equal(result.body.code, 'transport_pending');
+  }
+});
+test('PT and VIP applications go only to the confirmed client recipients', async () => {
+  for (const [type, recipient] of [['personalTrainer', 'partners@bestgym.pt'], ['saoJoaoVip', 'Saojoaodamadeira@bestgym.pt']]) {
+    const p = application(type); p.data.recipient = 'forged@example.com';
+    let message;
+    const result = await processLead(p, {
+      env: { RESEND_API_KEY: 'test-only', FORM_EMAIL_FROM: 'qa@example.com' },
+      fetcher: async (_, request) => { message = JSON.parse(request.body); return { ok: true, json: async () => ({ id: 'test-confirmed-id' }) }; }
+    });
+    assert.equal(result.status, 200);
+    assert.deepEqual(message.to, [recipient]);
+    assert.ok(!message.text.includes('forged@example.com'));
+  }
 });
 test('success requires a confirmed provider ID and preserves idempotency on retries', async () => {
   const p = application(); const requests = [];

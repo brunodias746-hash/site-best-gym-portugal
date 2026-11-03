@@ -29,10 +29,16 @@ The marquee and stacked gallery scripts are unchanged. Product cards remain a ca
 
 ## Remaining configuration/content
 
-- São João VIP/contact recipient.
-- Personal Trainer recipient.
+- General official São João contacts (address, telephone and social accounts). The VIP recipient has been confirmed separately.
 - Approved email transport/server-side sender settings; see `FORMS.md`. No external configuration was changed.
 - November campaign artwork/copy.
-- New Drive photos.
+
+## Client follow-up — 3 November 2026
+
+Based on `main` at `e5c844a0785101a1b50dc867c43ff625c9db1240`. Unit order follows creation: **01 Famalicão, 02 Valongo, 03 São João da Madeira (coming soon)**. Home, gym cards, registration, contacts, navigation contact blocks and footer follow this order. The official signup URL is `https://subscribe.mvf.pt/signup/bestgym`.
+
+VIP mobile label and VIP/PT recipients are now confirmed; see `FORMS.md`. Automatic email transport still requires approved existing server settings. No infrastructure settings were changed.
+
+Eleven client-supplied photos from the shared Drive folder are optimized to WebP and used on the Home/unit pages. Galleries preserve each photo's proportions. São João uses only its own exterior media and remains coming soon. See `UNIT-MEDIA.md` for source references. The approved Home Hero media and motion behavior remain intact.
 
 The Privacy Policy retains its pre-existing draft/approval notice. This update documents the new form fields and purposes without inventing a legal entity, retention period or policy approval.

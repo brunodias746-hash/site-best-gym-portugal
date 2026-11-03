@@ -17,8 +17,8 @@
     endpoint: '/api/leads',
     privacyPath: '/privacidade',
     builtByBestRecipient: 'rhvalongo@bestgym.pt',
-    personalTrainerRecipient: null,
-    saoJoaoRecipient: null,
+    personalTrainerRecipient: 'partners@bestgym.pt',
+    saoJoaoRecipient: 'Saojoaodamadeira@bestgym.pt',
     franchisingRecipient: 'franchising@bestgym.pt',
     contactRecipients: { valongo: 'valongo@bestgym.pt', famalicao: 'famalicao@bestgym.pt' },
     forms: {
@@ -58,7 +58,7 @@
         recipientKey: 'saoJoaoRecipient', title: 'Lista VIP São João da Madeira',
         submit: ['Entrar na lista VIP', 'Join the VIP list'], success: ['Já estás na lista VIP', 'You are on the VIP list'],
         support: ['Receberás as novidades de São João da Madeira em primeira mão.', 'You will receive São João da Madeira news first.'],
-        fields: [name, phone, email]
+        fields: [name, Object.assign({}, phone, { label: ['Telemóvel', 'Mobile phone'] }), email]
       },
       franchising: {
         recipientKey: 'franchisingRecipient', title: 'Franchising',
@@ -76,7 +76,7 @@
         title: 'Contacto BEST GYM', submit: ['Enviar mensagem', 'Send message'], success: ['Mensagem recebida', 'Message received'],
         support: ['A equipa da unidade irá responder ao teu contacto.', 'The gym team will reply to your enquiry.'],
         fields: [name, email, Object.assign({}, phone, { required: false }),
-          field('unit', 'Unidade', 'Gym', 'select', true, { options: [['valongo', 'Valongo', 'Valongo'], ['famalicao', 'Vila Nova de Famalicão', 'Vila Nova de Famalicão']] }),
+          field('unit', 'Unidade', 'Gym', 'select', true, { options: [['famalicao', 'Vila Nova de Famalicão', 'Vila Nova de Famalicão'], ['valongo', 'Valongo', 'Valongo']] }),
           field('subject', 'Assunto', 'Subject', 'select', true, { options: [['Inscrição', 'Membership'], ['Built By Best', 'Built By Best'], ['Produtos', 'Products'], ['Outro', 'Other']] }),
           field('message', 'Mensagem', 'Message', 'textarea', true, { max: 3000 })
         ]
