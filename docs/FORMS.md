@@ -20,7 +20,7 @@ VIP and PT destinations were confirmed by the client on 3 November 2026. The VIP
 
 `lib/lead-handler.cjs` validates the schema and consent server-side. `api/leads.js` is the small Vercel HTTP adapter. A future Firebase Function can invoke the same processor; the form UI only needs the configured endpoint. No Firebase or DNS configuration was changed.
 
-The implemented email adapter uses the Resend HTTPS API. It needs **existing, approved server-side** `RESEND_API_KEY` and `FORM_EMAIL_FROM` settings. This update does not create accounts, authenticate a sender/domain, add credentials or alter external settings. Until configured, the endpoint returns `503` and the interface states that no details were sent. Missing recipients behave the same way.
+The implemented email adapter uses the Resend HTTPS API. It needs **existing, approved server-side** `RESEND_API_KEY` and `FORM_EMAIL_FROM` settings. If either setting is missing, the endpoint returns `503` and the interface states that no details were sent. Missing recipients behave the same way.
 
 Only a successful provider response containing a real message ID produces a success screen. This means the provider accepted the email; it is not a claim of inbox delivery. Failures preserve all input. A stable request ID and payload digest prevent duplicate sends on retries. The payload contains the allowlisted form fields, consent, policy path, language and request reference. No personal data or secrets are logged. The provider owns email retention and delivery events.
 
@@ -41,3 +41,13 @@ node scripts/serve-local.cjs
 ```
 
 With Playwright and Chrome available, run `tests/browser-qa.cjs`, `tests/forms-browser.cjs` and `tests/interactions-browser.cjs`. Browser form success/failure tests intercept the transport locally and send no live emails. A live delivery test still requires an approved, configured transport.
+
+## Production activation — 6 November 2026
+
+- Confirmed `forms.bestgym.pt` is verified, with sending enabled; DKIM, SPF MX, SPF TXT and CNAME records all reported verified. No DNS records were changed.
+- Created the dedicated `BEST GYM website production` sending-only key, restricted to that domain. Its value is stored only in Vercel Production as sensitive `RESEND_API_KEY`; no key value belongs in this repository.
+- Configured Production `FORM_EMAIL_FROM` as `BEST GYM <formularios@forms.bestgym.pt>` and redeployed the existing approved `main`.
+- Production `/api/leads?type=saoJoaoVip` returned `{"ready":true}`.
+- Made one controlled submission through the production VIP page, clearly marked `TESTE TÉCNICO BLESS — ignorar inscrição`, with synthetic contact details. The backend returned HTTP 200, `ok:true` and Resend ID `01a1b124-dd7d-7cf4-863f-7ea8fd88f323`; the UI then displayed its success state. Resend reported `sent` to the approved VIP recipient. Provider acceptance is verified; inbox delivery requires a delivery event.
+- November campaign copy, athlete-project positioning, São João address, photography and coming-soon status remain unchanged.
+- Campaign artwork integration remains pending: the chat image preview was visible, but no original Feed or Stories image file was mounted in the execution environment. The supplied `/Volumes/...` path is on the originating computer. Keep `artwork` and `mobileArtwork` null until the originals are accessible; do not substitute generated or obsolete artwork.
