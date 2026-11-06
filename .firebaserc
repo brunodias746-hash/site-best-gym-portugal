@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "bestgym-pt"
+  },
+  "targets": {
+    "bestgym-pt": {
+      "hosting": {
+        "bestgym": ["bestgym"]
+      }
+    },
+    "demo-bestgym": {
+      "hosting": {
+        "bestgym": ["bestgym"]
+      }
+    }
+  }
+}

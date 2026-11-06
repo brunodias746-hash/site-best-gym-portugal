@@ -5,3 +5,6 @@ public/
 .env.*
 .vercel/
 node_modules/
+functions/shared/
+functions/.secret.local
+*-debug.log

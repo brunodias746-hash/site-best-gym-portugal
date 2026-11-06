@@ -18,7 +18,7 @@ VIP and PT destinations were confirmed by the client on 3 November 2026. The VIP
 
 ## Portable server adapter
 
-`lib/lead-handler.cjs` validates the schema and consent server-side. `api/leads.js` is the small Vercel HTTP adapter. A future Firebase Function can invoke the same processor; the form UI only needs the configured endpoint. No Firebase or DNS configuration was changed.
+`lib/lead-handler.cjs` validates the schema and consent server-side. `api/leads.js` handles the HTTP contract for Vercel and is also packaged with the Firebase HTTPS adapter. The browser calls `/api/leads` on either host. See [Firebase migration](FIREBASE-MIGRATION.md) for the target, local testing and deployment prerequisites.
 
 The implemented email adapter uses the Resend HTTPS API. It needs **existing, approved server-side** `RESEND_API_KEY` and `FORM_EMAIL_FROM` settings. If either setting is missing, the endpoint returns `503` and the interface states that no details were sent. Missing recipients behave the same way.
 

@@ -1,0 +1,291 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "bestgym-web",
+      "runtime": "nodejs22",
+      "ignore": [
+        "node_modules",
+        ".git",
+        ".secret.local",
+        ".env*",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "node scripts/prepare-firebase.mjs functions"
+      ]
+    }
+  ],
+  "hosting": [
+    {
+      "target": "bestgym",
+      "public": "public",
+      "ignore": ["**/node_modules/**", "**/.git/**", "**/.env*", "**/.secret*"],
+      "cleanUrls": false,
+      "trailingSlash": false,
+      "predeploy": [
+        "node scripts/prepare-firebase.mjs hosting"
+      ],
+      "redirects": [
+        {
+          "regex": "^/en/registration$",
+          "destination": "/en/franchising",
+          "type": 301
+        },
+        {
+          "regex": "^/registration$",
+          "destination": "/franchising",
+          "type": 301
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/api/leads",
+          "function": {
+            "functionId": "bestgymLeads",
+            "region": "europe-west1"
+          }
+        },
+        {
+          "source": "/personal-trainers/candidatura",
+          "destination": "/localized-pages/pt/personal-trainers-candidatura.html"
+        },
+        {
+          "source": "/en/personal-trainers/apply",
+          "destination": "/localized-pages/en/personal-trainers-candidatura.html"
+        },
+        {
+          "source": "/built-by-best/candidatura",
+          "destination": "/localized-pages/pt/built-by-best-candidatura.html"
+        },
+        {
+          "source": "/en/built-by-best/apply",
+          "destination": "/localized-pages/en/built-by-best-candidatura.html"
+        },
+        {
+          "source": "/lista-vip-sao-joao-da-madeira",
+          "destination": "/localized-pages/pt/lista-vip-sao-joao-da-madeira.html"
+        },
+        {
+          "source": "/en/gyms/sao-joao-da-madeira/vip",
+          "destination": "/localized-pages/en/lista-vip-sao-joao-da-madeira.html"
+        },
+        {
+          "source": "/unidade-sao-joao-da-madeira",
+          "destination": "/localized-pages/pt/unidade-sao-joao-da-madeira.html"
+        },
+        {
+          "source": "/en/gyms/sao-joao-da-madeira",
+          "destination": "/localized-pages/en/unidade-sao-joao-da-madeira.html"
+        },
+        {
+          "source": "/en",
+          "destination": "/localized-pages/en/index.html"
+        },
+        {
+          "source": "/en/",
+          "destination": "/localized-pages/en/index.html"
+        },
+        {
+          "source": "/en/campaign",
+          "destination": "/localized-pages/en/campanha.html"
+        },
+        {
+          "source": "/en/gyms",
+          "destination": "/localized-pages/en/unidades.html"
+        },
+        {
+          "source": "/en/gyms/valongo",
+          "destination": "/localized-pages/en/unidade-valongo.html"
+        },
+        {
+          "source": "/en/gyms/famalicao",
+          "destination": "/localized-pages/en/unidade-famalicao.html"
+        },
+        {
+          "source": "/en/built-by-best",
+          "destination": "/localized-pages/en/built-by-best.html"
+        },
+        {
+          "source": "/en/franchising",
+          "destination": "/localized-pages/en/franchising.html"
+        },
+        {
+          "source": "/en/products",
+          "destination": "/localized-pages/en/produtos.html"
+        },
+        {
+          "source": "/en/content",
+          "destination": "/localized-pages/en/conteudos.html"
+        },
+        {
+          "source": "/en/content/article",
+          "destination": "/localized-pages/en/conteudo-detalhe.html"
+        },
+        {
+          "source": "/en/about",
+          "destination": "/localized-pages/en/sobre.html"
+        },
+        {
+          "source": "/en/contacts",
+          "destination": "/localized-pages/en/contactos.html"
+        },
+        {
+          "source": "/en/join",
+          "destination": "/localized-pages/en/inscricao.html"
+        },
+        {
+          "source": "/en/faq",
+          "destination": "/localized-pages/en/faq.html"
+        },
+        {
+          "source": "/en/coming-soon",
+          "destination": "/localized-pages/en/em-breve.html"
+        },
+        {
+          "source": "/en/privacy",
+          "destination": "/localized-pages/en/privacidade.html"
+        },
+        {
+          "source": "/en/terms",
+          "destination": "/localized-pages/en/termos.html"
+        },
+        {
+          "source": "/en/cookies",
+          "destination": "/localized-pages/en/cookies.html"
+        },
+        {
+          "source": "/",
+          "destination": "/localized-pages/pt/index.html"
+        },
+        {
+          "source": "/unidades",
+          "destination": "/localized-pages/pt/unidades.html"
+        },
+        {
+          "source": "/unidade-valongo",
+          "destination": "/localized-pages/pt/unidade-valongo.html"
+        },
+        {
+          "source": "/unidade-famalicao",
+          "destination": "/localized-pages/pt/unidade-famalicao.html"
+        },
+        {
+          "source": "/built-by-best",
+          "destination": "/localized-pages/pt/built-by-best.html"
+        },
+        {
+          "source": "/franchising",
+          "destination": "/localized-pages/pt/franchising.html"
+        },
+        {
+          "source": "/produtos",
+          "destination": "/localized-pages/pt/produtos.html"
+        },
+        {
+          "source": "/conteudos",
+          "destination": "/localized-pages/pt/conteudos.html"
+        },
+        {
+          "source": "/conteudo-detalhe",
+          "destination": "/localized-pages/pt/conteudo-detalhe.html"
+        },
+        {
+          "source": "/sobre",
+          "destination": "/localized-pages/pt/sobre.html"
+        },
+        {
+          "source": "/contactos",
+          "destination": "/localized-pages/pt/contactos.html"
+        },
+        {
+          "source": "/inscricao",
+          "destination": "/localized-pages/pt/inscricao.html"
+        },
+        {
+          "source": "/campanha",
+          "destination": "/localized-pages/pt/campanha.html"
+        },
+        {
+          "source": "/faq",
+          "destination": "/localized-pages/pt/faq.html"
+        },
+        {
+          "source": "/em-breve",
+          "destination": "/localized-pages/pt/em-breve.html"
+        },
+        {
+          "source": "/privacidade",
+          "destination": "/localized-pages/pt/privacidade.html"
+        },
+        {
+          "source": "/termos",
+          "destination": "/localized-pages/pt/termos.html"
+        },
+        {
+          "source": "/cookies",
+          "destination": "/localized-pages/pt/cookies.html"
+        }
+      ],
+      "headers": [
+        {
+          "regex": ".*",
+          "headers": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://unpkg.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.unsplash.com; media-src 'self' blob:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://subscribe.mvf.pt; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Permissions-Policy",
+              "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+            }
+          ]
+        },
+        {
+          "regex": "^[/\\\\]assets[/\\\\]",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=0, must-revalidate"
+            }
+          ]
+        },
+        {
+          "regex": "^[/\\\\]_ds[/\\\\]",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=31536000, immutable"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "emulators": {
+    "hosting": {
+      "host": "127.0.0.1",
+      "port": 5000
+    },
+    "functions": {
+      "host": "127.0.0.1",
+      "port": 5001
+    },
+    "ui": {
+      "enabled": false
+    }
+  }
+}

@@ -2,11 +2,12 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const schema = require('../lead-config.js');
+const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 const routes = { builtByBest: '/built-by-best/candidatura', personalTrainer: '/personal-trainers/candidatura', saoJoaoVip: '/lista-vip-sao-joao-da-madeira', franchising: '/franchising', contact: '/contactos' };
 const englishRoutes = { builtByBest: '/en/built-by-best/apply', personalTrainer: '/en/personal-trainers/apply', saoJoaoVip: '/en/gyms/sao-joao-da-madeira/vip', franchising: '/en/franchising', contact: '/en/contacts' };
 (async () => {
   const browser = await chromium.launch({ headless: true, channel: 'chrome' }); const results = [];
-  for (const width of [390, 430, 768, 1440]) {
+  for (const width of [390, 430, 768, 1024, 1440]) {
     for (const english of [false, true]) {
       const page = await browser.newPage({ viewport: { width, height: 900 }, hasTouch: width < 1000, isMobile: width < 1000 });
       const errors = []; page.on('pageerror', error => errors.push(error.message));
@@ -17,7 +18,7 @@ const englishRoutes = { builtByBest: '/en/built-by-best/apply', personalTrainer:
           submitted = route.request().postDataJSON();
           return route.fulfill({ status: state === 'failure' ? 503 : 200, json: state === 'failure' ? { ok: false } : { ok: true, id: 'qa-confirmed-provider-id' } });
         });
-        await page.goto('http://127.0.0.1:4173' + (english ? englishRoutes[type] : routes[type]));
+        await page.goto(base + (english ? englishRoutes[type] : routes[type]));
         const host = page.locator('best-lead-form'); const form = host.locator('form');
         await form.waitFor();
         const def = schema.forms[type];
