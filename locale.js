@@ -308,6 +308,18 @@
   "Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.": "Identity, performance and community inside and outside the gym. Products available at BEST GYM gym receptions."
 });
 
+  Object.assign(T, {
+  "A quem se destina o Built By Best?": "Who is Built By Best for?",
+  "Um projeto para atletas que querem evoluir e representar o BEST GYM.": "A project for athletes who want to develop and represent BEST GYM.",
+  "Como me posso candidatar?": "How can I apply?",
+  "Abre a página Built By Best e seleciona “Apresentar candidatura”. A equipa analisa cada perfil.": "Open the Built By Best page and select “Apply as an athlete”. The team reviews each profile.",
+  "Built By Best: um projeto para atletas": "Built By Best: a project for athletes",
+  "Conhece o projeto e descobre como te candidatar.": "Explore the project and find out how to apply.",
+  "Conhecer o projeto →": "Explore the project →",
+  "Como aderir": "How to join",
+  "Oferta ativa": "Current offer"
+});
+
   function translateText(value) {
     var lead = value.match(/^\s*/)[0], tail = value.match(/\s*$/)[0], core = value.trim();
     if (!core) return value;

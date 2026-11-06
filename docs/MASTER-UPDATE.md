@@ -29,9 +29,15 @@ The marquee and stacked gallery scripts are unchanged. Product cards remain a ca
 
 ## Remaining configuration/content
 
-- General official São João contacts (address, telephone and social accounts). The VIP recipient has been confirmed separately.
+- General official São João telephone and social accounts. Its address and VIP recipient are confirmed separately.
 - Approved email transport/server-side sender settings; see `FORMS.md`. No external configuration was changed.
-- November campaign artwork/copy.
+- November feed and Stories artwork. The approved November copy is in the central campaign configuration.
+
+## Client follow-up — 6 November 2026
+
+November campaign copy, offer, conditions and localized CTAs replace the previous active promotion. Set `campaign.artwork` to the feed WebP and `campaign.mobileArtwork` to the Stories WebP when both client originals can be copied. Suggested paths are `/assets/img/campaign/november-2026-feed.webp` and `/assets/img/campaign/november-2026-stories.webp`. Until then, the image panels are hidden and the offer remains available as HTML text.
+
+Built By Best is an athlete project with separate information and application links. São João remains coming soon. Its confirmed address is Rua Oliveira Júnior, n.º 630, 3700-008 São João da Madeira, Portugal.
 
 ## Client follow-up — 3 November 2026
 

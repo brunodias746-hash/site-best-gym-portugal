@@ -156,6 +156,7 @@ Do not remove it without a tested replacement.
   - 02 · Valongo
 - Coming soon:
   - 03 · São João da Madeira
+- Confirmed São João address: Rua Oliveira Júnior, n.º 630, 3700-008 São João da Madeira, Portugal.
 - Unit order follows creation, not alphabetical order: Famalicão first, Valongo second.
 - Correct public idea:
   - `2 ginásios abertos + São João da Madeira a caminho`
@@ -192,6 +193,8 @@ The owl must NOT become the identifying visual of Built By Best.
 
 Built By Best should use performance/strength imagery.
 
+Built By Best is a project for athletes who want to develop and represent BEST GYM. Link project information to `/built-by-best` and applications to `/built-by-best/candidatura`. An application is subject to review.
+
 ### Logos
 
 Use official BEST GYM and Built By Best logos only.
@@ -207,25 +210,28 @@ Never:
 ## Current campaign
 
 Campaign:
-`FÉRIAS OFF. GYM ON.`
+`NOVEMBRO É O MÊS DE COMEÇAR.`
 
 Current approved site offer:
 
-- `50% de desconto por mês até 2027`
+- `14,90€ por mês durante 4 meses`
 - `inscrição grátis`
-- `vagas limitadas`
+- `Começa agora. Treina 24H.`
+- `Garante já o teu lugar`
+- `Consulta todas as condições na receção do BEST GYM.`
 
 Relevant files:
 
 - `campanha.dc.html`
 - `campaign-popup-v2.js`
-- `campanha-ferias-off-gym-on-2026.png`
+- `site-config.js` and `campaign-content.js`
 - campaign section inside `index.dc.html`
 
 Do not restore older campaign copy such as:
 
 - `3 meses de oferta + inscrição grátis`
 - `Olá verão, olá descontos`
+- `FÉRIAS OFF. GYM ON.`
 
 unless the client explicitly asks.
 

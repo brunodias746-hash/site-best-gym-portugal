@@ -57,12 +57,13 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
+    const campaign = window.BGSiteConfig.campaign[window.BGPageLocale?.english ? 'en' : 'pt'];
     return {
       groups: [
         { name: 'Inscrição', items: [
           { q: 'Como posso inscrever-me?', a: 'A inscrição é feita online, na plataforma oficial. Escolhe a unidade, consulta as condições e conclui o processo em poucos minutos.' },
           { q: 'Posso escolher a unidade?', a: 'Sim. Durante a inscrição escolhes Vila Nova de Famalicão ou Valongo.' },
-          { q: 'Existe campanha ativa?', a: window.BGSiteConfig.campaign[window.BGPageLocale && window.BGPageLocale.english ? 'en' : 'pt'].summary },
+          { q: 'Existe campanha ativa?', a: campaign.offer + '. ' + campaign.terms },
         ]},
         { name: 'Horários', items: [
           { q: 'O ginásio está aberto 24 horas?', a: 'Sim. Os ginásios ativos do BEST GYM funcionam 24 horas por dia, 7 dias por semana, 365 dias por ano.' },
@@ -74,8 +75,8 @@ class Component extends DCLogic {
           { q: 'Como posso visitar a unidade?', a: 'Contacta a unidade por telefone ou email e agenda uma visita com a equipa.' },
         ]},
         { name: 'Built By Best', items: [
-          { q: 'O que inclui o programa?', a: 'Avaliação, planeamento adaptado, vídeos de execução, monitorização de progresso e ajustes regulares com contacto próximo.' },
-          { q: 'Como posso pedir informações?', a: 'Usa o formulário de contacto e escolhe o assunto "Built By Best" — a equipa responde-te com os próximos passos.' },
+          { q: 'A quem se destina o Built By Best?', a: 'Um projeto para atletas que querem evoluir e representar o BEST GYM.' },
+          { q: 'Como me posso candidatar?', a: 'Abre a página Built By Best e seleciona “Apresentar candidatura”. A equipa analisa cada perfil.' },
         ]},
         { name: 'Produtos', items: [
           { q: 'Onde posso comprar?', a: 'Os produtos do BEST GYM estão disponíveis diretamente nas unidades de Famalicão e Valongo.' },

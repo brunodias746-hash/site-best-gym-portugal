@@ -185,7 +185,7 @@ Open:
 Coming soon:
 - 03 · São João da Madeira
 
-Unit order is creation order, not alphabetical order. Client-confirmed on 3 November 2026: Famalicão first, Valongo second. VIP mobile label: `Telemóvel`. VIP recipient: `Saojoaodamadeira@bestgym.pt`; PT applications: `partners@bestgym.pt`. General official São João contacts remain pending. See `FORMS.md` and `UNIT-MEDIA.md` for the current transport and photo provenance.
+Unit order is creation order, not alphabetical order. Client-confirmed on 3 November 2026: Famalicão first, Valongo second. VIP mobile label: `Telemóvel`. VIP recipient: `Saojoaodamadeira@bestgym.pt`; PT applications: `partners@bestgym.pt`. São João's confirmed address is Rua Oliveira Júnior, n.º 630, 3700-008 São João da Madeira, Portugal. Its official telephone and social profiles remain pending. See `FORMS.md` and `UNIT-MEDIA.md` for the current transport and photo provenance.
 
 Correct communication:
 - 2 open;
@@ -224,23 +224,22 @@ BEST GYM institutional mascot.
 Not the core mascot/identity for Built By Best.
 
 ### Built By Best
-Serious performance/coaching program.
+Project for athletes who want to develop and represent BEST GYM. The project page explains the concept and links to the native application route. Applications are reviewed by the team.
 
 Use strength/performance visuals.
 
 ## 13. Current campaign
 
 Name:
-`FÉRIAS OFF. GYM ON.`
+`NOVEMBRO É O MÊS DE COMEÇAR.`
 
 Offer:
-`50% de desconto por mês até 2027 + inscrição grátis`
+`14,90€ por mês durante 4 meses + inscrição grátis`
 
-Urgency:
-`vagas limitadas`
+Terms:
+`Consulta todas as condições na receção do BEST GYM.`
 
-Campaign asset:
-`campanha-ferias-off-gym-on-2026.png`
+Campaign configuration is in `site-config.js`. `artwork` and `mobileArtwork` accept the feed and Stories WebP paths. When artwork is unavailable, the campaign uses its HTML copy and hides the image panels.
 
 Current placements:
 - campaign popup;
@@ -250,6 +249,7 @@ Current placements:
 Historic/obsolete copy that should not return:
 - `3 meses de oferta + inscrição grátis`
 - `Olá verão, olá descontos`
+- `FÉRIAS OFF. GYM ON.`
 
 ## 14. Franchising
 

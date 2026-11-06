@@ -47,7 +47,7 @@
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
         <sc-for list="{{ articles }}" as="art" hint-placeholder-count="6">
-          <a href="conteudo-detalhe.dc.html" style="display: {{ art.display }}; flex-direction: column; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
+          <a href="{{ art.href }}" style="display: {{ art.display }}; flex-direction: column; text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform 0.3s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
             <div onClick="{{ slotClick }}" style="position: relative; aspect-ratio: 16 / 9;">
               <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ art.slotId }}" src="{{ art.slotSrc }}" shape="rect" placeholder="{{ art.slotLabel }}" hint-size="100%,100%"></x-import>
             </div>
@@ -58,7 +58,7 @@
               </div>
               <span style="font-family: var(--font-display); font-size: 24px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">{{ art.title }}</span>
               <span style="font-size: 14px; line-height: 1.6; color: var(--text-muted);">{{ art.excerpt }}</span>
-              <span style="margin-top: auto; padding-top: 8px; color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">Ler artigo →</span>
+              <span style="margin-top: auto; padding-top: 8px; color: var(--best-red); font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.06em;">{{ art.action }}</span>
             </div>
           </a>
         </sc-for>
@@ -83,14 +83,16 @@ class Component extends DCLogic {
       ['Recuperação', 'Dormir bem também é treinar', 'O papel do sono na recuperação e na performance diária.', '24 Jun 2026', 'hub-sono', 'assets/img/artigo-recuperacao.jpg'],
       ['Comunidade', 'Treinar acompanhado muda tudo', 'O papel da comunidade na motivação e na evolução a longo prazo.', '15 Jun 2026', 'hub-comunidade', 'assets/img/hero-performance.jpg'],
       ['Eventos', 'O que aconteceu no último evento Best Gym', 'Resumo da atividade que juntou membros dos ginásios do BEST GYM.', '05 Jun 2026', 'hub-evento', 'assets/img/hero-performance.jpg'],
-      ['Built By Best', 'Dentro do programa: como funciona um check-in', 'O acompanhamento mensal explicado passo a passo.', '28 Mai 2026', 'hub-checkin', 'assets/img/area-personal-training.jpg'],
+      ['Built By Best', 'Built By Best: um projeto para atletas', 'Conhece o projeto e descobre como te candidatar.', '', 'hub-checkin', 'pillar-performance-final.jpg'],
     ];
     const active = filters[this.state.filter];
     const q = this.state.query.toLowerCase();
     const articles = data.map(([cat, title, excerpt, date, slotId, slotSrc]) => {
       const catOk = active === 'Todos' || cat === active;
       const qOk = !q || (title + ' ' + excerpt + ' ' + cat).toLowerCase().includes(q);
-      return { cat, title, excerpt, date, slotId, slotSrc, slotLabel: 'Capa artigo — ' + title, display: catOk && qOk ? 'flex' : 'none' };
+      const athleteProject = cat === 'Built By Best';
+      return { cat, title, excerpt, date, slotId, slotSrc, slotLabel: 'Capa artigo — ' + title, display: catOk && qOk ? 'flex' : 'none',
+        href: athleteProject ? '/built-by-best' : '/conteudo-detalhe', action: athleteProject ? 'Conhecer o projeto →' : 'Ler artigo →' };
     });
     return {
       filters: filters.map((name, i) => ({

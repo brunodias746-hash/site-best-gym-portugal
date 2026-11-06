@@ -12,7 +12,7 @@ fs.mkdirSync(output, { recursive: true });
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
   const results = [], failures = [];
   const changed = ['/', '/inscricao', '/unidades', '/unidade-famalicao', '/unidade-valongo', '/unidade-sao-joao-da-madeira', '/lista-vip-sao-joao-da-madeira', '/built-by-best/candidatura', '/personal-trainers/candidatura', '/built-by-best', '/franchising', '/contactos', '/produtos', '/campanha', '/em-breve'];
-  for (const width of [390, 430, 768, 1440]) {
+  for (const width of [390, 430, 768, 1024, 1440]) {
     const context = await browser.newContext({ viewport: { width, height: width === 1440 ? 1000 : 844 }, hasTouch: width < 1000, isMobile: width < 1000 });
     const routes = width === 390 ? Object.keys(config.pages) : changed;
     for (let offset = 0; offset < routes.length; offset += 3) {
@@ -40,12 +40,13 @@ fs.mkdirSync(output, { recursive: true });
           assert.equal(response.status(), 200); assert.ok(info.heading, 'missing main heading');
           assert.ok(info.scrollWidth <= width + 1, 'horizontal overflow: ' + info.scrollWidth);
           assert.equal(info.lang, english ? 'en' : 'pt-PT'); assert.equal(info.canonical, config.origin + route);
-          assert.equal(info.alternates, 3); assert.equal(info.canvas, width === 1440); assert.equal(info.motion, true);
+          assert.equal(info.alternates, 3); assert.equal(info.canvas, width >= 1000); assert.equal(info.motion, true);
           assert.deepEqual(info.images, [], 'broken images');
           info.logos.forEach(logo => assert.ok(Math.abs(logo.ratio - logo.natural) < .1, 'distorted logo'));
           assert.ok(!info.text.includes('Burn Zone')); assert.notEqual(info.overflow, 'hidden');
           assert.deepEqual(errors, [], 'console exception');
           if (english) assert.ok(!/Cerca de 2\.000|Entrar na lista VIP|Produtos disponíveis|Enviar candidatura|O teu treino|Treino com direção/.test(info.text), 'untranslated new content');
+          assert.ok(!/férias off|gym on\.|50% de desconto|50% off each month|até 2027|until 2027/i.test(info.text), 'obsolete campaign');
           const key = width + '-' + route.replace(/\W/g, '-');
           if (changed.includes(route) && [390, 1440].includes(width)) await page.screenshot({ path: output + '/' + key + '.png', fullPage: true });
           results.push({ width, route, status: 'pass' });

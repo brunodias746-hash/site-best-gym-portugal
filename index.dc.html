@@ -106,11 +106,11 @@
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.82) 0%, rgba(14,15,17,0.35) 55%, rgba(14,15,17,0) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
-          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);">Programa de performance</span>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);"><span data-en="Athlete project">Projeto para atletas</span></span>
           <h1 data-hero-h1-lg aria-label="Built By Best" style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(56px, 8vw, 118px); line-height: 0.92; text-transform: uppercase; color: var(--white);"><span aria-hidden="true">Built By<br>{{ typo2 }}</span></h1>
-          <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">Treino com direção. Acompanhamento com método. Evolução com resultados.</p>
+          <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);"><span data-en="A project for athletes who want to develop and represent BEST GYM.">Um projeto para atletas que querem evoluir e representar o BEST GYM.</span></p>
           <div style="display: flex; flex-wrap: wrap; gap: 14px; pointer-events: auto;">
-            <a href="/built-by-best" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="230px,56px">Conhecer o programa</x-import></a>
+            <a href="/built-by-best" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="230px,56px"><span data-en="Explore the project">Conhecer o projeto</span></x-import></a>
           </div>
         </div>
       </div>
@@ -193,7 +193,7 @@
           <div data-mobile-why>
             <div><strong>Treina quando quiseres</strong><span>24H, todos os dias.</span></div>
             <div><strong>Estrutura para evoluir</strong><span>Peso livre, cardio, cross training e treino funcional.</span></div>
-            <div><strong>Treino com direção</strong><span>Built By Best para acompanhamento com método.</span></div>
+            <div><strong data-en="Athlete project">Projeto para atletas</strong><span data-en="Built By Best for BEST GYM athletes.">Built By Best para atletas do BEST GYM.</span></div>
           </div>
           <div data-stat-row style="display: flex; align-items: stretch; gap: 0; border-top: 2px solid var(--text-1); border-bottom: 2px solid var(--text-1); margin-top: 8px;">
             <div style="flex: 1; padding: 22px 8px; display: flex; flex-direction: column; gap: 4px;">
@@ -229,30 +229,31 @@
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
         <div data-campaign-grid style="display:grid; grid-template-columns: 0.92fr 1.08fr; gap: clamp(24px, 4vw, 56px); align-items: center;">
           <div data-campaign-copy style="display:flex; flex-direction:column; gap: 18px;">
-            <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha do mês</span>
-            <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);"><span data-campaign-field="line1">Férias Off.</span><br><span data-campaign-field="line2" style="color:var(--best-red);">Gym On.</span></h2>
-            <p data-campaign-field="summary" style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--best-red);">Campanha de novembro</span>
+            <h2 style="margin:0; font-family:var(--font-display); font-weight:400; font-size:clamp(42px, 5.4vw, 76px); line-height:0.92; text-transform:uppercase; color:var(--ink);"><span data-campaign-field="line1">Novembro é o mês</span><br><span data-campaign-field="line2" style="color:var(--best-red);">de começar.</span></h2>
+            <p data-campaign-field="summary" style="margin:0; max-width:46ch; font-size:18px; line-height:1.7; color:var(--text-muted);">Começa agora. Treina 24H.</p>
             <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px;">
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
-                <span data-campaign-field="discount" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">50%</span>
-                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Desconto mensal</span>
+                <span data-campaign-field="price" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--best-red);">14,90€</span>
+                <span data-campaign-field="priceLabel" style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Por mês</span>
               </div>
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
-                <span data-campaign-field="year" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--ink);">2027</span>
-                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Condição válida</span>
+                <span data-campaign-field="duration" style="display:block; font-family:var(--font-display); font-size:42px; line-height:0.9; color:var(--ink);">4 meses</span>
+                <span data-campaign-field="durationLabel" style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Duração</span>
               </div>
               <div style="padding:18px 18px 16px; border:1px solid var(--line); border-radius:14px; background:var(--paper);">
                 <span data-campaign-field="registration" style="display:block; font-family:var(--font-display); font-size:34px; line-height:0.9; color:var(--ink);">Grátis</span>
-                <span style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Inscrição</span>
+                <span data-campaign-field="registrationLabel" style="display:block; margin-top:8px; font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Inscrição</span>
               </div>
             </div>
             <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:6px;">
-              <a data-campaign-cta="primary" data-campaign-field="primaryLabel" href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--best-red); border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase;">Inscreve-te</a>
+              <a data-campaign-cta="primary" data-campaign-field="primaryLabel" href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--best-red); border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:14px; letter-spacing:0.06em; text-transform:uppercase;">Garante já o teu lugar</a>
             </div>
+            <p data-campaign-field="terms" style="margin:0;font-size:13px;color:var(--text-muted);">Consulta todas as condições na receção do BEST GYM.</p>
           </div>
-          <div data-campaign-poster style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(135deg, rgba(225,21,7,0.1), rgba(255,255,255,0.65)); border:1px solid rgba(225,21,7,0.18); box-shadow:0 32px 90px rgba(0,0,0,0.12); padding:clamp(14px, 2vw, 22px);">
+          <div data-campaign-poster data-campaign-media hidden style="position:relative; border-radius:24px; overflow:hidden; background:linear-gradient(135deg, rgba(225,21,7,0.1), rgba(255,255,255,0.65)); border:1px solid rgba(225,21,7,0.18); box-shadow:0 32px 90px rgba(0,0,0,0.12); padding:clamp(14px, 2vw, 22px);">
             <div style="border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 18px 48px rgba(0,0,0,0.12);">
-              <img data-campaign-artwork src="campanha-ferias-off-gym-on-2026.png" alt="Campanha do mês BEST GYM — Férias Off. Gym On.">
+              <picture><source media="(max-width: 640px)" data-campaign-mobile-artwork><img data-campaign-artwork alt="Campanha BEST GYM — Novembro é o mês de começar."></picture>
             </div>
           </div>
         </div>
@@ -331,7 +332,7 @@
               </div>
             </article>
           </sc-for>
-<article class="bg-unit-announcement bg-unit-announcement--photo"><img src="assets/img/units/sao-joao-exterior-2026.webp" width="1600" height="900" alt="Futura unidade do BEST GYM em São João da Madeira" data-en-alt="Upcoming BEST GYM in São João da Madeira" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"><div><span data-en="São João da Madeira · Coming soon" class="bg-eyebrow">São João da Madeira · Em breve</span><p data-en="Around 2,000 m² of training space. Over 100 machines. Strength and cardio, 24 hours a day, 7 days a week." >Cerca de 2.000 m² de área de treino. Mais de 100 máquinas. Musculação e cardio, 24 horas por dia, 7 dias por semana.</p><div style="display:flex;flex-wrap:wrap;gap:12px;"><a data-en="Explore the new gym" href="/unidade-sao-joao-da-madeira" class="bg-button bg-button--outline">Conhecer a nova unidade</a><a data-en="Join the VIP list" href="/lista-vip-sao-joao-da-madeira" class="bg-button">Entrar na lista VIP</a></div></div></article>
+<article class="bg-unit-announcement bg-unit-announcement--photo"><img src="assets/img/units/sao-joao-exterior-2026.webp" width="1600" height="900" alt="Futura unidade do BEST GYM em São João da Madeira" data-en-alt="Upcoming BEST GYM in São João da Madeira" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:12px;"><div><span data-en="São João da Madeira · Coming soon" class="bg-eyebrow">São João da Madeira · Em breve</span><p data-en="Around 2,000 m² of training space. Over 100 machines. Strength and cardio, 24 hours a day, 7 days a week." >Cerca de 2.000 m² de área de treino. Mais de 100 máquinas. Musculação e cardio, 24 horas por dia, 7 dias por semana.</p><address data-sao-joao-address style="font-style:normal;line-height:1.55;margin:0 0 16px;">Rua Oliveira Júnior, n.º 630<br>3700-008 São João da Madeira<br>Portugal</address><div style="display:flex;flex-wrap:wrap;gap:12px;"><a data-en="Explore the new gym" href="/unidade-sao-joao-da-madeira" class="bg-button bg-button--outline">Conhecer a nova unidade</a><a data-en="Join the VIP list" href="/lista-vip-sao-joao-da-madeira" class="bg-button">Entrar na lista VIP</a></div></div></article>
         </div>
       </div>
     </section>
@@ -370,18 +371,12 @@
       </div>
       <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,28,31,0.95) 0%, rgba(26,28,31,0.6) 55%, rgba(142,9,0,0.35) 100%); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: clamp(72px, 10vw, 150px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 26px;">
-        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red-tint);">Programa de performance</span>
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red-tint);"><span data-en="Athlete project">Projeto para atletas</span></span>
         <h2 data-bbb-h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 7vw, 110px); line-height: 0.9; text-transform: uppercase; color: var(--white);">Built By<br><span style="color: var(--best-red);">Best</span></h2>
-        <p style="margin: 0; max-width: 42ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);">Um programa de acompanhamento para quem quer transformar objetivos em evolução mensurável. Planeamento, execução, acompanhamento e ajustes consistentes.</p>
-        <div data-bbb-steps style="display: flex; flex-direction: column; max-width: 640px;">
-          <div><span>01</span><span>Avaliação</span></div>
-          <div><span>02</span><span>Planeamento</span></div>
-          <div><span>03</span><span>Execução</span></div>
-          <div><span>04</span><span>Acompanhamento</span></div>
-          <div><span>05</span><span>Evolução</span></div>
-        </div>
-        <div style="margin-top: 8px;">
-          <a href="/built-by-best" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="230px,56px">Conhecer o programa</x-import></a>
+        <p style="margin: 0; max-width: 42ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);"><span data-en="A project for athletes who want to develop and represent BEST GYM.">Um projeto para atletas que querem evoluir e representar o BEST GYM.</span></p>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;">
+          <a data-en="Explore the project" data-bbb-cta="project" href="/built-by-best" class="bg-button bg-button--outline" style="color:var(--white);border-color:rgba(255,255,255,.55);">Conhecer o projeto</a>
+          <a data-en="Apply as an athlete" data-bbb-cta="apply" href="/built-by-best/candidatura" class="bg-button">Apresentar candidatura</a>
         </div>
       </div>
     </section>

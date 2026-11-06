@@ -4,11 +4,14 @@ const fs = require('node:fs');
 const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
 (async () => {
   const browser = await chromium.launch({ headless: true, channel: 'chrome' }); const results = [];
-  for (const width of [390, 430, 768, 1440]) {
+  for (const width of [390, 430, 768, 1024, 1440]) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, hasTouch: width < 1000, isMobile: width < 1000 });
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     await page.goto(base + '/?popup=1');
     const popup = page.locator('#bestgym-campaign-popup-v2'); await popup.waitFor({ state: 'visible' });
+    assert.match(await popup.innerText(), /14,90€/);
+    assert.match(await popup.innerText(), /4 meses/i);
+    assert.equal(await popup.locator('[data-campaign-cta="primary"]').getAttribute('href'), '/inscricao');
     const box = await popup.locator(':scope > div').boundingBox();
     assert.ok(box.x >= 0 && box.x + box.width <= width + 1 && box.y >= 0 && box.y + box.height <= 901, 'popup clipping');
     assert.ok(Math.abs(box.y + box.height / 2 - 450) < 25, 'popup not centered');

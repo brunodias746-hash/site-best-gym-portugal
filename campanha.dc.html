@@ -42,17 +42,18 @@
       <div style="position:relative; z-index:2; max-width:1280px; margin:0 auto; padding:clamp(64px, 9vw, 108px) clamp(20px, 4vw, 48px);">
         <div data-campaign-hero-grid style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:clamp(24px, 4vw, 56px); align-items:center;">
           <div style="display:flex; flex-direction:column; gap:18px;">
-            <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--red-tint);">Campanha do mês · BEST GYM</span>
-            <h1 style="margin:0; font-family:var(--font-display); font-size:clamp(52px, 7vw, 110px); font-weight:400; line-height:.9; text-transform:uppercase; color:#fff;"><span data-campaign-field="line1">Férias Off.</span><br><span data-campaign-field="line2" style="color:var(--best-red);">Gym On.</span></h1>
-            <p data-campaign-field="summary" style="margin:0; max-width:54ch; font-size:18px; line-height:1.75; color:rgba(255,255,255,.84);">ativa o modo treino no BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.</p>
+            <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; color:var(--red-tint);">Campanha de novembro</span>
+            <h1 style="margin:0; font-family:var(--font-display); font-size:clamp(52px, 7vw, 110px); font-weight:400; line-height:.9; text-transform:uppercase; color:#fff;"><span data-campaign-field="line1">Novembro é o mês</span><br><span data-campaign-field="line2" style="color:var(--best-red);">de começar.</span></h1>
+            <p data-campaign-field="summary" style="margin:0; max-width:54ch; font-size:18px; line-height:1.75; color:rgba(255,255,255,.84);">Começa agora. Treina 24H.</p>
+            <p data-campaign-field="offer" style="margin:0;font-size:clamp(19px,2.5vw,26px);font-weight:700;color:#fff;">14,90€ por mês durante 4 meses + inscrição grátis</p>
             <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; padding-top:8px;">
-              <a data-campaign-cta="primary" href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px">Aderir à campanha</x-import></a>
+              <a data-campaign-cta="primary" href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px"><span data-campaign-field="primaryLabel">Garante já o teu lugar</span></x-import></a>
               <a href="/contactos" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid rgba(255,255,255,.35); border-radius:10px; color:#fff; font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase;">Falar com a equipa</a>
             </div>
           </div>
-          <div style="display:flex; justify-content:center;">
+          <div data-campaign-media hidden style="display:flex; justify-content:center;">
             <div style="width:min(100%, 540px); background:#fff; border-radius:24px; padding:18px; box-shadow:0 34px 110px rgba(0,0,0,.4);">
-              <img data-campaign-artwork src="campanha-ferias-off-gym-on-2026.png" alt="Férias Off. Gym On. — 50% de desconto" style="display:block; width:100%; height:auto; border-radius:16px;">
+              <picture><source media="(max-width: 640px)" data-campaign-mobile-artwork><img data-campaign-artwork alt="Campanha BEST GYM — Novembro é o mês de começar." style="display:block; width:100%; height:auto; border-radius:16px;"></picture>
             </div>
           </div>
         </div>
@@ -62,26 +63,22 @@
     <section style="max-width:1280px; margin:0 auto; padding:clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
       <div data-campaign-page-grid style="display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(24px, 4vw, 56px); align-items:start;">
         <div style="display:flex; flex-direction:column; gap:20px;">
-          <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Campanha atual</span>
-          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(40px, 5vw, 70px); font-weight:400; line-height:.92; text-transform:uppercase; color:var(--ink);"><span data-campaign-field="line1">Férias Off.</span> <span data-campaign-field="line2" style="color:var(--best-red);">Gym On.</span></h2>
-          <p data-campaign-field="supporting" style="margin:0; max-width:56ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Volta das férias com uma condição especial para começar. Escolhe o teu ginásio, faz a inscrição e aproveita a campanha enquanto houver vagas disponíveis.</p>
+          <span data-campaign-field="label" style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Campanha de novembro</span>
+          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(40px, 5vw, 70px); font-weight:400; line-height:.92; text-transform:uppercase; color:var(--ink);"><span data-campaign-field="line1">Novembro é o mês</span> <span data-campaign-field="line2" style="color:var(--best-red);">de começar.</span></h2>
+          <p data-campaign-field="summary" style="margin:0; max-width:56ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Começa agora. Treina 24H.</p>
           <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px;">
-            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="discount" style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--best-red);">50%</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Desconto por mês</span></article>
-            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="year" style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--ink);">2027</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Condição válida</span></article>
-            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="freeRegistration" style="display:block; font-family:var(--font-display); font-size:30px; font-weight:400; line-height:.95; color:var(--ink);">Inscrição grátis</strong><span style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Oferta de entrada</span></article>
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="price" style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--best-red);">14,90€</strong><span data-campaign-field="priceLabel" style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Por mês</span></article>
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="duration" style="display:block; font-family:var(--font-display); font-size:46px; font-weight:400; line-height:.9; color:var(--ink);">4 meses</strong><span data-campaign-field="durationLabel" style="display:block; margin-top:10px; font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--text-muted);">Duração</span></article>
+            <article style="padding:22px; border:1px solid var(--line); border-radius:16px; background:var(--surface-1);"><strong data-campaign-field="freeRegistration" style="display:block; font-family:var(--font-display); font-size:30px; font-weight:400; line-height:.95; color:var(--ink);">Inscrição grátis</strong></article>
           </div>
         </div>
         <aside style="padding:26px; border:1px solid var(--line); border-radius:18px; background:var(--paper); box-shadow:var(--shadow-sm); display:flex; flex-direction:column; gap:18px;">
           <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">A tua oferta</span>
-          <ul style="margin:0; padding-left:18px; display:flex; flex-direction:column; gap:14px; color:var(--text-muted); line-height:1.7; font-size:15.5px;">
-            <li data-campaign-field="conditionOffer">50% de desconto por mês até 2027.</li>
-            <li><strong data-campaign-field="freeRegistration">Inscrição grátis</strong> durante a campanha.</li>
-            <li data-campaign-field="conditionAvailability">Vagas limitadas nos ginásios aderentes.</li>
-            <li>Condições finais confirmadas no momento da adesão.</li>
-          </ul>
+          <p data-campaign-field="offer" style="margin:0;font-weight:700;">14,90€ por mês durante 4 meses + inscrição grátis</p>
+          <p data-campaign-field="terms" style="margin:0;line-height:1.7;">Consulta todas as condições na receção do BEST GYM.</p>
           <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:12px; padding-top:6px;">
             <a href="/unidades" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:10px; border:1.5px solid var(--line-strong); color:var(--ink); font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Ver unidades</a>
-            <a data-campaign-cta="primary" href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Quero aderir</a>
+            <a data-campaign-cta="primary" data-campaign-field="primaryLabel" href="/inscricao" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:16px 22px; border-radius:10px; background:var(--best-red); color:#fff; font-weight:700; font-size:13px; letter-spacing:.06em; text-transform:uppercase;">Garante já o teu lugar</a>
           </div>
         </aside>
       </div>
@@ -91,11 +88,11 @@
       <div style="max-width:1280px; margin:0 auto; padding:clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display:flex; flex-direction:column; gap:28px;">
         <div style="display:flex; flex-direction:column; gap:12px; max-width:760px;">
           <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Como aderir</span>
-          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(38px, 4.5vw, 64px); font-weight:400; line-height:.94; text-transform:uppercase; color:var(--ink);">Do primeiro passo ao <span style="color:var(--best-red);">Gym On.</span></h2>
+          <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(38px, 4.5vw, 64px); font-weight:400; line-height:.94; text-transform:uppercase; color:var(--ink);"><span data-en="How to join">Como aderir</span></h2>
         </div>
         <div data-steps-grid style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
           <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">01</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Escolhe o ginásio</h3><p style="margin:0; color:var(--text-muted); line-height:1.7;">Escolhe Vila Nova de Famalicão ou Valongo e segue para a inscrição.</p></article>
-          <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">02</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Ativa a campanha</h3><p data-campaign-field="activate" style="margin:0; color:var(--text-muted); line-height:1.7;">Confirma a campanha Férias Off. Gym On. e os teus dados de adesão.</p></article>
+          <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">02</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Ativa a campanha</h3><p data-campaign-field="activate" style="margin:0; color:var(--text-muted); line-height:1.7;">Confirma a campanha e os teus dados de adesão.</p></article>
           <article style="padding:28px; border:1px solid var(--line); border-radius:16px; background:var(--paper);"><span style="font-family:var(--font-display); font-size:46px; line-height:.9; color:var(--best-red);">03</span><h3 style="margin:12px 0 10px; font-family:var(--font-display); font-size:28px; font-weight:400; text-transform:uppercase; color:var(--ink);">Começa a treinar</h3><p style="margin:0; color:var(--text-muted); line-height:1.7;">Finaliza a adesão e começa a treinar no teu horário — o BEST GYM está aberto 24H.</p></article>
         </div>
       </div>
@@ -104,12 +101,12 @@
     <section style="max-width:1280px; margin:0 auto; padding:clamp(64px, 9vw, 116px) clamp(20px, 4vw, 48px); display:flex; flex-direction:column; gap:22px; align-items:center; text-align:center;">
       <span style="font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--best-red);">Oferta ativa</span>
       <h2 style="margin:0; font-family:var(--font-display); font-size:clamp(48px, 6vw, 86px); font-weight:400; line-height:.9; text-transform:uppercase; color:var(--ink);">Pronto para <span style="color:var(--best-red);">aproveitar?</span></h2>
-      <p data-campaign-field="summary" style="margin:0; max-width:50ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Inscreve-te no BEST GYM e aproveita a campanha Férias Off. Gym On.: 50% de desconto por mês até 2027 e inscrição grátis.</p>
+      <p data-campaign-field="summary" style="margin:0; max-width:50ch; font-size:17px; line-height:1.75; color:var(--text-muted);">Começa agora. Treina 24H.</p>
       <div data-campaign-cta-row style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center; padding-top:8px;">
-        <a data-campaign-cta="primary" href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px">Quero aproveitar</x-import></a>
+        <a data-campaign-cta="primary" href="/inscricao" style="text-decoration:none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px"><span data-campaign-field="primaryLabel">Garante já o teu lugar</span></x-import></a>
         <a href="/contactos" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:18px 28px; border:1.5px solid var(--line-strong); border-radius:10px; color:var(--ink); font-weight:700; font-size:14px; letter-spacing:.06em; text-transform:uppercase;">Falar com a equipa</a>
       </div>
-      <p data-campaign-field="terms" style="margin:6px 0 0; font-size:12.5px; line-height:1.7; color:var(--text-faint);">Campanha sujeita à disponibilidade de vagas e às condições aplicáveis pelo BEST GYM.</p>
+      <p data-campaign-field="terms" style="margin:6px 0 0; font-size:12.5px; line-height:1.7; color:var(--text-faint);">Consulta todas as condições na receção do BEST GYM.</p>
     </section>
   </main>
   <dc-import name="Footer" hint-size="100%,620px"></dc-import>

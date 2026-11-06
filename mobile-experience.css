@@ -160,7 +160,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
     max-height: calc(100dvh - max(20px, env(safe-area-inset-top) + env(safe-area-inset-bottom))) !important;
     overflow-y: auto !important; overscroll-behavior: contain;
   }
-  #bestgym-campaign-popup-v2 [data-popup-grid] > div:first-child { display: none !important; }
 
   [data-home-products-inner] { gap: 28px !important; }
   [data-home-products-heading] { gap: 14px !important; }

@@ -24,5 +24,10 @@ test('official signup and current campaign configuration remain explicit', () =>
   assert.equal((signup.match(/https:\/\/subscribe\.mvf\.pt\/signup\/bestgym/g) || []).length, 2);
   assert.ok(!signup.includes('subscribe.myf.pt'));
   assert.ok(signup.includes('/lista-vip-sao-joao-da-madeira'));
-  assert.equal(globalThis.BGSiteConfig.campaign.pt.offer, '50% de desconto por mês até 2027 + inscrição grátis');
+  const campaign = globalThis.BGSiteConfig.campaign;
+  assert.equal(campaign.pt.offer, '14,90€ por mês durante 4 meses + inscrição grátis');
+  assert.equal(campaign.en.offer, '€14.90 a month for 4 months + no joining fee');
+  for (const artwork of [campaign.artwork, campaign.mobileArtwork].filter(Boolean)) {
+    assert.ok(fs.existsSync(path.join(__dirname, '../public', artwork)), artwork);
+  }
 });
