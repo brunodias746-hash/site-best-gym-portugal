@@ -517,3 +517,5 @@ aside[aria-label="Menu"] {
     padding-bottom: clamp(54px, 9vw, 76px) !important;
   }
 }
+html[lang="en"] [data-bg-content-hub] { width: 100%; }
+html[lang="en"] [data-bg-content-filters] { max-width: 100%; }
