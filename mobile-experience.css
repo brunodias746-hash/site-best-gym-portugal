@@ -60,6 +60,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
     max-height: 100dvh;
   }
   [data-bg-mobilecta] { min-height: var(--bg-mobile-cta-height); }
+  html[lang="en"] .back-top { bottom: calc(var(--bg-mobile-cta-height) + 16px); }
 }
 
 @media (max-width: 768px) {
