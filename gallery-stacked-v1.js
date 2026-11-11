@@ -35,7 +35,7 @@
     var section = document.querySelector(SECTION);
     if (!section || section.getAttribute('data-best-stack-v2') === '1') return false;
 
-    var rail = section.querySelector('[aria-label="Áreas de treino — carrossel"]');
+    var rail = section.querySelector('[data-bg-training-rail]');
     if (!rail) return false;
 
     var track = rail.firstElementChild;
@@ -67,20 +67,21 @@
 
     var header = rail.previousElementSibling;
     if (header) {
-      var oldPrev = header.querySelector('button[aria-label="Anterior"]');
+      var oldPrev = header.querySelector('[data-bg-training-prev]');
       if (oldPrev && oldPrev.parentElement) oldPrev.parentElement.classList.add('best-stack-original-controls');
     }
 
     /* Disable the legacy transform directly in case DC logic updates it. */
     track.style.transform = 'none';
 
+    var english = !!(window.BGPageLocale && window.BGPageLocale.english);
     var nav = document.createElement('div');
     nav.className = 'best-stack-v2-nav';
 
     var prev = document.createElement('button');
     prev.type = 'button';
     prev.className = 'best-stack-v2-btn';
-    prev.setAttribute('aria-label', 'Área anterior');
+    prev.setAttribute('aria-label', english ? 'Previous training area' : 'Área anterior');
     prev.textContent = '←';
 
     var dots = document.createElement('div');
@@ -89,7 +90,7 @@
     var next = document.createElement('button');
     next.type = 'button';
     next.className = 'best-stack-v2-btn';
-    next.setAttribute('aria-label', 'Área seguinte');
+    next.setAttribute('aria-label', english ? 'Next training area' : 'Área seguinte');
     next.textContent = '→';
 
     nav.appendChild(prev);
@@ -101,7 +102,7 @@
       var dot = document.createElement('button');
       dot.type = 'button';
       dot.className = 'best-stack-v2-dot';
-      dot.setAttribute('aria-label', 'Ir para área ' + (i + 1));
+      dot.setAttribute('aria-label', (english ? 'Go to training area ' : 'Ir para área ') + (i + 1));
       dot.addEventListener('click', function () {
         animateTo(nearestRaw(i, current));
       });

@@ -151,8 +151,7 @@ aside[aria-label="Menu"] {
   section[data-screen-label="Hero"] > div:last-child {
     bottom: 14px !important;
   }
-  section[data-screen-label="Hero"] button[aria-label="Slide anterior"],
-  section[data-screen-label="Hero"] button[aria-label="Slide seguinte"] {
+  section[data-screen-label="Hero"] button[data-hero-arrow] {
     width: 40px !important;
     height: 40px !important;
   }

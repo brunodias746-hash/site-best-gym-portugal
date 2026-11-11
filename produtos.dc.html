@@ -31,12 +31,12 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero produtos" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) clamp(32px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px">Produtos <span style="color: var(--best-red)">Best Gym</span></x-import>
-      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.</p>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px" data-en-text="[&quot;Products&quot;]">Produtos <span style="color: var(--best-red)">Best Gym</span></x-import>
+      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="Identity, performance and community inside and outside the gym. Products available at BEST GYM gym receptions.">Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.</p>
     </section>
 
     <section data-screen-label="Catálogo" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 120px); display: flex; flex-direction: column; gap: 28px;">
-      <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;">
+      <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px;" data-en-aria-label="Categories">
         <sc-for list="{{ filters }}" as="f" hint-placeholder-count="6">
           <button role="tab" onClick="{{ f.select }}" style="flex: 0 0 auto; cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; padding: 12px 20px; border-radius: 999px; border: 1.5px solid {{ f.border }}; background: {{ f.bg }}; color: {{ f.color }}; transition: all 0.25s;">{{ f.name }}</button>
         </sc-for>
@@ -55,8 +55,8 @@
         </sc-for>
       </div>
       <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 14px; padding: clamp(22px, 3vw, 32px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-        <span style="font-size: 15px; color: var(--text-body); max-width: 62ch;"><strong style="color: var(--ink);">Disponível na unidade.</strong> Os produtos do BEST GYM são vendidos diretamente nas unidades de Famalicão e Valongo — fala com a equipa para conheceres cores, tamanhos e disponibilidade.</span>
-        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" hint-size="190px,48px">Pedir informações</x-import></a>
+        <span style="font-size: 15px; color: var(--text-body); max-width: 62ch;" data-en-text="[&quot;BEST GYM products are sold directly at the Famalicão and Valongo gyms — ask the team about colours, sizes and availability.&quot;]"><strong style="color: var(--ink);" data-en="Available at the gym.">Disponível na unidade.</strong> Os produtos do BEST GYM são vendidos diretamente nas unidades de Famalicão e Valongo — fala com a equipa para conheceres cores, tamanhos e disponibilidade.</span>
+        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" hint-size="190px,48px" data-en="Ask about this product">Pedir informações</x-import></a>
       </div>
     </section>
   </main>
@@ -67,28 +67,31 @@
 class Component extends DCLogic {
   state = { filter: 0 };
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     const filters = ['Todos', 'Hidratação', 'Acessórios', 'Lifestyle'];
     const data = [
-      ['Garrafa Training', 'Hidratação', 'Garrafa térmica em inox para o dia inteiro.', 'cat-garrafa', 'assets/prod/garrafa.jpg'],
-      ['Shaker Best', 'Hidratação', 'Shaker resistente com identidade BEST GYM.', 'cat-shaker', 'assets/prod/shaker.jpg'],
-      ['Toalha Gym', 'Acessórios', 'Toalha de treino compacta e absorvente, em preto ou cinza.', 'cat-toalha', 'assets/prod/toalha.jpg'],
-      ['Saco Best', 'Acessórios', 'Saco de treino com espaço para tudo.', 'cat-saco', 'assets/prod/saco.jpg'],
-      ['Mochila Tactical', 'Acessórios', 'Mochila 45L com painel MOLLE e porta-chaves incluído.', 'cat-mochila', 'assets/prod/mochila.jpg'],
-      ['Cadeado Best', 'Acessórios', 'Cadeado de combinação para o cacifo.', 'cat-cadeado', 'assets/prod/cadeado.jpg'],
-      ['Porta-chaves 25 KG', 'Lifestyle', 'Porta-chaves em forma de disco 25 kg.', 'cat-chaveiro', 'assets/prod/porta-chaves.jpg'],
+      [copy('Garrafa Training', "Training bottle"), 'Hidratação', copy('Garrafa térmica em inox para o dia inteiro.', "Insulated stainless steel bottle for all-day use."), 'cat-garrafa', 'assets/prod/garrafa.jpg'],
+      [copy('Shaker Best', "BEST GYM shaker"), 'Hidratação', copy('Shaker resistente com identidade BEST GYM.', "Durable BEST GYM shaker."), 'cat-shaker', 'assets/prod/shaker.jpg'],
+      [copy('Toalha Gym', "Gym towel"), 'Acessórios', copy('Toalha de treino compacta e absorvente, em preto ou cinza.', "Compact, absorbent training towel in black or grey."), 'cat-toalha', 'assets/prod/toalha.jpg'],
+      [copy('Saco Best', "BEST GYM gym bag"), 'Acessórios', copy('Saco de treino com espaço para tudo.', "Training bag with room for all your essentials."), 'cat-saco', 'assets/prod/saco.jpg'],
+      [copy('Mochila Tactical', "Tactical backpack"), 'Acessórios', copy('Mochila 45L com painel MOLLE e porta-chaves incluído.', "45 L backpack with a MOLLE panel and an included keyring."), 'cat-mochila', 'assets/prod/mochila.jpg'],
+      [copy('Cadeado Best', "BEST GYM padlock"), 'Acessórios', copy('Cadeado de combinação para o cacifo.', "Combination padlock for your locker."), 'cat-cadeado', 'assets/prod/cadeado.jpg'],
+      [copy('Porta-chaves 25 KG', "25 kg plate keyring"), 'Lifestyle', copy('Porta-chaves em forma de disco 25 kg.', "Keyring shaped like a 25 kg weight plate."), 'cat-chaveiro', 'assets/prod/porta-chaves.jpg'],
     ];
     const active = filters[this.state.filter];
+    const category = { Todos: copy('Todos', 'All'), Hidratação: copy('Hidratação', 'Hydration'), Acessórios: copy('Acessórios', 'Accessories'), Lifestyle: 'Lifestyle' };
     return {
       filters: filters.map((name, i) => ({
-        name,
+        name: category[name],
         select: () => this.setState({ filter: i }),
         bg: i === this.state.filter ? 'var(--best-red)' : 'transparent',
         color: i === this.state.filter ? 'var(--white)' : 'var(--ink)',
         border: i === this.state.filter ? 'var(--best-red)' : 'var(--line-strong)',
       })),
       products: data.map(([name, cat, desc, slotId, slotSrc]) => ({
-        name, cat, desc, slotId, slotSrc,
-        slotLabel: 'Foto oficial — ' + name,
+        name, cat: category[cat], desc, slotId, slotSrc,
+        slotLabel: copy('Foto oficial — ', "BEST GYM product photo — ") + name,
         display: active === 'Todos' || active === cat ? 'flex' : 'none',
       })),
     };

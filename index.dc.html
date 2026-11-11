@@ -99,10 +99,10 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience-v3.js" hint-size="1px,1px"></x-import>
 
-    <section data-screen-label="Hero" aria-label="Destaques" onMouseEnter="{{ pauseHero }}" onMouseLeave="{{ resumeHero }}" style="position: relative; height: min(calc(100svh - 116px), 900px); min-height: 620px; background: var(--invert-1); overflow: hidden;">
+    <section data-screen-label="Hero" aria-label="Destaques" onMouseEnter="{{ pauseHero }}" onMouseLeave="{{ resumeHero }}" style="position: relative; height: min(calc(100svh - 116px), 900px); min-height: 620px; background: var(--invert-1); overflow: hidden;" data-en-aria-label="Highlights">
       <div data-hero-slide style="position: absolute; inset: 0; opacity: {{ s3o }}; visibility: {{ s3v }}; z-index: {{ s3z }}; pointer-events: {{ s3pe }}; transform: {{ s3t }}; transition: opacity 0.42s ease-out, transform 0.52s cubic-bezier(0.22,0.61,0.36,1);">
         <div style="position: absolute; inset: 0;">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-built-performance" src="pillar-performance-final.jpg" shape="rect" placeholder="Built By Best — treino de força e performance" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-built-performance" src="pillar-performance-final.jpg" shape="rect" placeholder="Built By Best — treino de força e performance" hint-size="100%,100%" data-en-placeholder="Built By Best — strength and performance training"></x-import>
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.82) 0%, rgba(14,15,17,0.35) 55%, rgba(14,15,17,0) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
@@ -123,11 +123,11 @@
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
-          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);">Aberto 24 horas</span>
-          <h1 data-hero-h1 aria-label="A tua evolução não tem horário." style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 96px); line-height: 0.94; text-transform: uppercase; color: var(--white);"><span aria-hidden="true">A tua evolução<br>{{ typo1 }}</span></h1>
-          <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">Aberto 24 horas por dia, 7 dias por semana, 365 dias por ano.</p>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);" data-en="Open 24 hours">Aberto 24 horas</span>
+          <h1 data-hero-h1 aria-label="A tua evolução não tem horário." style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 96px); line-height: 0.94; text-transform: uppercase; color: var(--white);" data-en-aria-label="Your progress has no schedule."><span aria-hidden="true" data-en-text="[&quot;Your progress&quot;,null]">A tua evolução<br>{{ typo1 }}</span></h1>
+          <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);" data-en="Open 24 hours a day, 7 days a week, 365 days a year.">Aberto 24 horas por dia, 7 dias por semana, 365 dias por ano.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 14px; pointer-events: auto;">
-            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px">Descobrir as unidades</x-import></a>
+            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="240px,56px" data-en="Explore our gyms">Descobrir as unidades</x-import></a>
           </div>
         </div>
       </div>
@@ -137,23 +137,23 @@
         </div>
         <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14,15,17,0.78) 0%, rgba(14,15,17,0.3) 60%, rgba(14,15,17,0.05) 100%); pointer-events: none;"></div>
         <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: center; gap: 22px; pointer-events: none;">
-          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);">Ginásios 24H · Portugal</span>
-          <h1 data-hero-h1 aria-label="Não vendemos musculação. Vendemos performance." style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 96px); line-height: 0.94; text-transform: uppercase; color: var(--white);"><span aria-hidden="true">Não vendemos musculação.<br>{{ typo0 }}</span></h1>
-          <p data-mobile-hero-proof>Ginásios 24H em Vila Nova de Famalicão e Valongo. São João da Madeira em breve.</p>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--white);" data-en="24-hour gyms · Portugal">Ginásios 24H · Portugal</span>
+          <h1 data-hero-h1 aria-label="Não vendemos musculação. Vendemos performance." style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(48px, 6.4vw, 96px); line-height: 0.94; text-transform: uppercase; color: var(--white);" data-en-aria-label="More than lifting. We build performance."><span aria-hidden="true" data-en-text="[&quot;More than lifting.&quot;,null]">Não vendemos musculação.<br>{{ typo0 }}</span></h1>
+          <p data-mobile-hero-proof data-en="24-hour gyms in Vila Nova de Famalicão and Valongo. São João da Madeira is coming soon.">Ginásios 24H em Vila Nova de Famalicão e Valongo. São João da Madeira em breve.</p>
           <div data-hero-kinetic aria-hidden="true" style="display: flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.75);">
             <span style="width: 26px; height: 2px; background: var(--best-red);"></span>
             <span style="height: 20px; overflow: hidden; display: inline-flex; flex-direction: column;">
               <span style="display: inline-flex; flex-direction: column; transform: {{ kineticY }}; transition: transform 0.55s cubic-bezier(0.65,0,0.35,1);">
                 <span style="height: 20px; line-height: 20px;">Performance</span>
-                <span style="height: 20px; line-height: 20px;">Comunidade</span>
-                <span style="height: 20px; line-height: 20px;">Evolução</span>
-                <span style="height: 20px; line-height: 20px;">24 horas</span>
+                <span style="height: 20px; line-height: 20px;" data-en="Community">Comunidade</span>
+                <span style="height: 20px; line-height: 20px;" data-en="Progress">Evolução</span>
+                <span style="height: 20px; line-height: 20px;" data-en="24 hours">24 horas</span>
               </span>
             </span>
           </div>
           <div style="display: flex; flex-wrap: wrap; gap: 14px; pointer-events: auto;">
-            <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
-            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="250px,56px">Encontrar uma unidade</x-import></a>
+            <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Join now">Inscreve-te agora</x-import></a>
+            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="250px,56px" data-en="Find a gym">Encontrar uma unidade</x-import></a>
           </div>
         </div>
       </div>
@@ -164,62 +164,62 @@
           </sc-for>
         </div>
         <div style="display: flex; gap: 10px;">
-          <button onClick="{{ prevSlide }}" aria-label="Slide anterior" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(14,15,17,0.3); color: var(--white); font-size: 18px; cursor: pointer; transition: border-color 0.25s, background 0.25s;" style-hover="border-color: var(--white); background: rgba(14,15,17,0.6);">←</button>
-          <button onClick="{{ nextSlide }}" aria-label="Slide seguinte" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(14,15,17,0.3); color: var(--white); font-size: 18px; cursor: pointer; transition: border-color 0.25s, background 0.25s;" style-hover="border-color: var(--white); background: rgba(14,15,17,0.6);">→</button>
+          <button onClick="{{ prevSlide }}" data-hero-arrow aria-label="Slide anterior" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(14,15,17,0.3); color: var(--white); font-size: 18px; cursor: pointer; transition: border-color 0.25s, background 0.25s;" style-hover="border-color: var(--white); background: rgba(14,15,17,0.6);" data-en-aria-label="Previous slide">←</button>
+          <button onClick="{{ nextSlide }}" data-hero-arrow aria-label="Slide seguinte" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(14,15,17,0.3); color: var(--white); font-size: 18px; cursor: pointer; transition: border-color 0.25s, background 0.25s;" style-hover="border-color: var(--white); background: rgba(14,15,17,0.6);" data-en-aria-label="Next slide">→</button>
         </div>
       </div>
     </section>
 
     <section data-screen-label="Marquee" data-no-reveal aria-hidden="true" style="background: var(--best-red); overflow: hidden; padding: 16px 0;">
       <div style="display: flex; width: max-content; animation: bgMarquee 26s linear infinite;">
-        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; color: var(--white); letter-spacing: 0.04em;">Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·&nbsp;</span>
-        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; color: var(--white); letter-spacing: 0.04em;">Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·&nbsp;</span>
+        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; color: var(--white); letter-spacing: 0.04em;" data-en="Performance · 24 hours · Community · Progress · BEST GYM · Performance · 24 hours · Community · Progress · BEST GYM ·">Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·&nbsp;</span>
+        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(24px, 3vw, 38px); text-transform: uppercase; color: var(--white); letter-spacing: 0.04em;" data-en="Performance · 24 hours · Community · Progress · BEST GYM · Performance · 24 hours · Community · Progress · BEST GYM ·">Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·&nbsp;</span>
       </div>
     </section>
 
-    <section data-screen-label="Prova rápida" data-mobile-proof data-no-reveal aria-label="BEST GYM em números">
-      <div><strong>24H</strong><span>Todos os dias</span></div>
-      <div><strong>2</strong><span>Unidades abertas</span></div>
-      <div><strong>3.ª</strong><span>Unidade a chegar</span></div>
-      <p>FORÇA · CARDIO · FUNCIONAL</p>
+    <section data-screen-label="Prova rápida" data-mobile-proof data-no-reveal aria-label="BEST GYM em números" data-en-aria-label="BEST GYM in numbers">
+      <div><strong>24H</strong><span data-en="Every day">Todos os dias</span></div>
+      <div><strong>2</strong><span data-en="Open gyms">Unidades abertas</span></div>
+      <div><strong data-en="3rd">3.ª</strong><span data-en="Gym coming soon">Unidade a chegar</span></div>
+      <p data-en="STRENGTH · CARDIO · FUNCTIONAL TRAINING">FORÇA · CARDIO · FUNCIONAL</p>
     </section>
 
     <section data-screen-label="Manifesto" data-no-reveal style="position: relative;">
       <span aria-hidden="true" style="position: absolute; top: 40px; right: clamp(8px, 3vw, 60px); font-family: var(--font-display); font-size: clamp(160px, 24vw, 380px); line-height: 0.8; color: transparent; -webkit-text-stroke: 1.5px rgba(225,21,7,0.14); pointer-events: none; user-select: none;">24</span>
       <div data-two-col style="max-width: 1280px; margin: 0 auto; padding: clamp(72px, 10vw, 150px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 5vw, 72px); align-items: start; position: relative;">
         <div data-sticky-col style="position: sticky; top: 140px; display: flex; flex-direction: column; gap: 24px;">
-          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5.6vw, 84px); line-height: 0.94; text-transform: uppercase; color: var(--ink);">Performance<br><span style="color: var(--best-red);">todos os dias.</span></h2>
-          <p style="margin: 0; max-width: 54ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">O BEST GYM foi criado para quem leva a evolução a sério. Liberdade para treinar 24 horas, equipamento preparado para diferentes objetivos e uma comunidade que transforma consistência em resultados.</p>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5.6vw, 84px); line-height: 0.94; text-transform: uppercase; color: var(--ink);">Performance<br><span style="color: var(--best-red);" data-en="every day.">todos os dias.</span></h2>
+          <p style="margin: 0; max-width: 54ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="BEST GYM was created for people who take progress seriously: 24-hour training, equipment for different goals and a community that turns consistency into results.">O BEST GYM foi criado para quem leva a evolução a sério. Liberdade para treinar 24 horas, equipamento preparado para diferentes objetivos e uma comunidade que transforma consistência em resultados.</p>
           <div data-mobile-why>
-            <div><strong>Treina quando quiseres</strong><span>24H, todos os dias.</span></div>
-            <div><strong>Estrutura para evoluir</strong><span>Peso livre, cardio, cross training e treino funcional.</span></div>
+            <div><strong data-en="Train whenever you want">Treina quando quiseres</strong><span data-en="24/7, every day.">24H, todos os dias.</span></div>
+            <div><strong data-en="Facilities built for progress">Estrutura para evoluir</strong><span data-en="Free weights, cardio, cross training and functional training.">Peso livre, cardio, cross training e treino funcional.</span></div>
             <div><strong data-en="Athlete project">Projeto para atletas</strong><span data-en="Built By Best for BEST GYM athletes.">Built By Best para atletas do BEST GYM.</span></div>
           </div>
           <div data-stat-row style="display: flex; align-items: stretch; gap: 0; border-top: 2px solid var(--text-1); border-bottom: 2px solid var(--text-1); margin-top: 8px;">
             <div style="flex: 1; padding: 22px 8px; display: flex; flex-direction: column; gap: 4px;">
               <span style="font-family: var(--font-display); font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--best-red);"><span data-countup="24">0</span></span>
-              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);">Horas por dia</span>
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);" data-en="Hours a day">Horas por dia</span>
             </div>
             <div style="width: 1.5px; background: var(--line-strong);"></div>
             <div style="flex: 1; padding: 22px 8px 22px 20px; display: flex; flex-direction: column; gap: 4px;">
               <span style="font-family: var(--font-display); font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--ink);"><span data-countup="365">0</span></span>
-              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);">Dias por ano</span>
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);" data-en="Days a year">Dias por ano</span>
             </div>
             <div style="width: 1.5px; background: var(--line-strong);"></div>
             <div style="flex: 1; padding: 22px 8px 22px 20px; display: flex; flex-direction: column; gap: 4px;">
               <span style="font-family: var(--font-display); font-size: clamp(44px, 5vw, 72px); line-height: 0.9; color: var(--ink);"><span data-countup="3">0</span></span>
-              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);">Ginásios na rede</span>
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);" data-en="Gyms in the network">Ginásios na rede</span>
             </div>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 16px;">
           <div style="position: relative; aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,0.34), 0 0 0 1px rgba(225,21,7,0.12); border: 1px solid rgba(225,21,7,0.32); background: var(--invert-3);">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-promotores-performance" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — homem e mulher, treino de performance" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-promotores-performance" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — homem e mulher, treino de performance" hint-size="100%,100%" data-en-placeholder="BEST GYM ambassadors training"></x-import>
             <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,0,0,0.08) 48%,rgba(7,7,8,0.34));pointer-events:none;"></div>
           </div>
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 34px; height: 3px; background: var(--best-red);"></span>
-            <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);">Força · Performance · BEST GYM</span>
+            <span style="font-family: var(--font-display); font-size: 20px; text-transform: uppercase; color: var(--ink);" data-en="Strength · Performance · BEST GYM">Força · Performance · BEST GYM</span>
           </div>
         </div>
       </div>
@@ -263,8 +263,8 @@
     <section data-screen-label="Pilares" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px;">
         <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
-          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">O essencial para <span style="color: var(--best-red);">evoluíres</span></h2>
-          <a href="/sobre" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em;">Conhecer o BEST GYM →</a>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Everything you need to&quot;]">O essencial para <span style="color: var(--best-red);" data-en="make progress">evoluíres</span></h2>
+          <a href="/sobre" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em;" data-en="Discover BEST GYM →">Conhecer o BEST GYM →</a>
         </div>
         <div data-two-col style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 56px); align-items: start;">
           <div style="display: flex; flex-direction: column;">
@@ -298,17 +298,17 @@
     <section data-screen-label="Unidades" data-no-reveal style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(20px, 4vw, 48px);">
       <div data-two-col style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(28px, 4vw, 64px); align-items: start;">
         <div data-sticky-col style="position: sticky; top: 140px; display: flex; flex-direction: column; gap: 24px;">
-          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5vw, 72px); line-height: 0.94; text-transform: uppercase; color: var(--ink);">Dois ginásios abertos.<br><span style="color: var(--best-red);">Um terceiro a caminho.</span></h2>
-          <p style="margin: 0; max-width: 44ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Escolhe o ginásio mais próximo e conhece a estrutura preparada para a tua evolução.</p>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(44px, 5vw, 72px); line-height: 0.94; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Two gyms open.&quot;]">Dois ginásios abertos.<br><span style="color: var(--best-red);" data-en="A third on the way.">Um terceiro a caminho.</span></h2>
+          <p style="margin: 0; max-width: 44ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="Choose your nearest gym and discover facilities designed for your progress.">Escolhe o ginásio mais próximo e conhece a estrutura preparada para a tua evolução.</p>
           <div data-unit-tabs style="display: flex; flex-direction: column; gap: 2px;">
             <sc-for list="{{ unitTabs }}" as="u" hint-placeholder-count="2">
-              <button onClick="{{ u.select }}" data-cursor="Explorar" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; background: transparent; border: none; border-left: 3px solid {{ u.rule }}; cursor: pointer; padding: 16px 18px; text-align: left; transition: border-color 0.3s;">
+              <button onClick="{{ u.select }}" data-cursor="Explorar" data-en-cursor="Explore" style="display: flex; align-items: center; justify-content: space-between; gap: 14px; background: transparent; border: none; border-left: 3px solid {{ u.rule }}; cursor: pointer; padding: 16px 18px; text-align: left; transition: border-color 0.3s;">
                 <span style="font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 34px); text-transform: uppercase; line-height: 1; color: {{ u.color }}; transition: color 0.3s;">{{ u.city }}</span>
                 <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: {{ u.metaColor }};">24H</span>
               </button>
             </sc-for>
           </div>
-          <span data-unit-coming style="font-size: 13px; color: var(--text-faint); max-width: 40ch;">O BEST GYM continua a crescer — <a href="/unidade-sao-joao-da-madeira">EM BREVE · São João da Madeira</a>.</span>
+          <span data-unit-coming style="font-size: 13px; color: var(--text-faint); max-width: 40ch;" data-en-text="[&quot;BEST GYM continues to grow —&quot;,null]">O BEST GYM continua a crescer — <a href="/unidade-sao-joao-da-madeira" data-en="COMING SOON · São João da Madeira">EM BREVE · São João da Madeira</a>.</span>
         </div>
         <div data-unit-list style="display: flex; flex-direction: column; gap: 20px;">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="1">
@@ -323,11 +323,11 @@
                 <p style="margin: 0; font-size: 15px; line-height: 1.6;">{{ u.blurb }}</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px 20px; font-size: 13.5px; color: var(--text-muted);">
                   <span>{{ u.address }}</span>
-                  <span>Aberto 24H · 7 dias · 365 dias</span>
+                  <span data-en="Open 24/7 · 365 days a year">Aberto 24H · 7 dias · 365 dias</span>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
-                  <a href="{{ u.href }}" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" size="sm" hint-size="180px,40px">Conhecer esta unidade</x-import></a>
-                  <a href="{{ u.map }}" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Ver localização →</a>
+                  <a href="{{ u.href }}" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="dark" data-ds-btn="dark" size="sm" hint-size="180px,40px" data-en="Explore this gym">Conhecer esta unidade</x-import></a>
+                  <a href="{{ u.map }}" target="_blank" rel="noopener" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;" data-en="View location →">Ver localização →</a>
                 </div>
               </div>
             </article>
@@ -339,13 +339,13 @@
 
     <section data-screen-label="Áreas de treino" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden;">
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) 0; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
-        <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4.4vw, 64px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">Tudo o que precisas<br>para <span style="color: var(--best-red);">evoluir.</span></h2>
+        <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4.4vw, 64px); line-height: 0.96; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Everything you need&quot;,&quot;to&quot;]">Tudo o que precisas<br>para <span style="color: var(--best-red);" data-en="make progress.">evoluir.</span></h2>
         <div style="display: flex; gap: 10px;">
-          <button onClick="{{ railPrev }}" aria-label="Anterior" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: var(--surface-1); color: var(--ink); font-size: 18px; cursor: pointer; transition: all 0.25s;" style-hover="border-color: var(--best-red); color: var(--best-red);">←</button>
-          <button onClick="{{ railNext }}" aria-label="Seguinte" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: var(--surface-1); color: var(--ink); font-size: 18px; cursor: pointer; transition: all 0.25s;" style-hover="border-color: var(--best-red); color: var(--best-red);">→</button>
+          <button onClick="{{ railPrev }}" data-bg-training-prev aria-label="Anterior" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: var(--surface-1); color: var(--ink); font-size: 18px; cursor: pointer; transition: all 0.25s;" style-hover="border-color: var(--best-red); color: var(--best-red);" data-en-aria-label="Previous">←</button>
+          <button onClick="{{ railNext }}" aria-label="Seguinte" style="width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--line-strong); background: var(--surface-1); color: var(--ink); font-size: 18px; cursor: pointer; transition: all 0.25s;" style-hover="border-color: var(--best-red); color: var(--best-red);" data-en-aria-label="Next">→</button>
         </div>
       </div>
-      <div ref="{{ railRef }}" tabIndex="0" role="group" aria-label="Áreas de treino — carrossel" data-cursor="Arrasta" style="position: relative; overflow: hidden; cursor: grab; outline: none; padding: clamp(28px, 4vw, 44px) 0 clamp(56px, 8vw, 104px);">
+      <div ref="{{ railRef }}" tabIndex="0" role="group" data-bg-training-rail aria-label="Áreas de treino — carrossel" data-cursor="Arrasta" data-en-cursor="Drag" style="position: relative; overflow: hidden; cursor: grab; outline: none; padding: clamp(28px, 4vw, 44px) 0 clamp(56px, 8vw, 104px);" data-en-aria-label="Training areas carousel">
         <div style="display: flex; gap: 18px; width: max-content; padding: 0 9px; will-change: transform;">
         <sc-for list="{{ areasLoop }}" as="a" hint-placeholder-count="7">
           <article aria-hidden="{{ a.dup }}" style="flex: 0 0 auto; width: {{ a.w }}; display: flex; flex-direction: column; gap: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; transition: box-shadow 0.35s;" style-hover="box-shadow: var(--shadow-lg);">
@@ -367,7 +367,7 @@
 
     <section data-screen-label="Built By Best" data-no-reveal style="position: relative; background: var(--invert-3); overflow: hidden; min-height: min(880px, 92vh);">
       <div style="position: absolute; inset: 0; opacity: 0.3; filter: contrast(1.04);">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-bbb-bg" src="pillar-performance-final.jpg" shape="rect" placeholder="Built By Best — força, musculação e performance" hint-size="100%,100%"></x-import>
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="home-bbb-bg" src="pillar-performance-final.jpg" shape="rect" placeholder="Built By Best — força, musculação e performance" hint-size="100%,100%" data-en-placeholder="Built By Best — strength and performance training"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,28,31,0.95) 0%, rgba(26,28,31,0.6) 55%, rgba(142,9,0,0.35) 100%); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: clamp(72px, 10vw, 150px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 26px;">
@@ -382,25 +382,25 @@
     </section>
 
     <section data-screen-label="Comunidade" style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 40px;">
-      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 0.95; text-transform: uppercase; color: var(--ink);">Mais fortes <span style="color: var(--best-red);">juntos.</span></h2>
+      <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 4.6vw, 68px); line-height: 0.95; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Stronger&quot;]">Mais fortes <span style="color: var(--best-red);" data-en="together.">juntos.</span></h2>
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); align-items: stretch;">
         <div data-community-proof>
-          <span>Comunidade BEST GYM</span>
-          <h3>Uma comunidade que treina a sério.</h3>
-          <p>Do treino individual ao acompanhamento com método, o ambiente do BEST GYM foi pensado para manter foco, consistência e proximidade.</p>
+          <span data-en="BEST GYM community">Comunidade BEST GYM</span>
+          <h3 data-en="A community that trains with purpose.">Uma comunidade que treina a sério.</h3>
+          <p data-en="From independent training to structured coaching, BEST GYM is designed to sustain focus, consistency and connection.">Do treino individual ao acompanhamento com método, o ambiente do BEST GYM foi pensado para manter foco, consistência e proximidade.</p>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-1" src="assets/img/editorial-membro.jpg" shape="rect" placeholder="Foto comunidade — treino individual" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-1" src="assets/img/editorial-membro.jpg" shape="rect" placeholder="Foto comunidade — treino individual" hint-size="100%,100%" data-en-placeholder="BEST GYM community member training independently"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-2" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto comunidade — treino de força" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-2" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto comunidade — treino de força" hint-size="100%,100%" data-en-placeholder="BEST GYM community member strength training"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1;">
-            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-3" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — treino acompanhado" hint-size="100%,100%"></x-import>
+            <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="comunidade-3" src="assets/img/area-personal-training.jpg" shape="rect" placeholder="Promotores BEST GYM — treino acompanhado" hint-size="100%,100%" data-en-placeholder="BEST GYM ambassadors training together"></x-import>
           </div>
           <div style="position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1; background: var(--best-red); display: flex; align-items: center; justify-content: center;">
-            <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none; color: var(--white); font-family: var(--font-display); font-size: 22px; text-transform: uppercase; text-align: center; padding: 12px;">Segue-nos no Instagram →</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none; color: var(--white); font-family: var(--font-display); font-size: 22px; text-transform: uppercase; text-align: center; padding: 12px;" data-en="Follow us on Instagram →">Segue-nos no Instagram →</a>
           </div>
         </div>
       </div>
@@ -409,8 +409,8 @@
     <section data-screen-label="Produtos" data-home-products style="background: var(--mist); border-top: 1px solid var(--line);">
       <div data-home-products-inner style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px;">
         <div data-home-products-heading style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
-          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">Leva o BEST GYM <span style="color: var(--best-red);">contigo.</span></h2>
-          <a href="/produtos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px">Ver produtos</x-import></a>
+          <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(36px, 4vw, 60px); line-height: 0.96; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Take BEST GYM&quot;]">Leva o BEST GYM <span style="color: var(--best-red);" data-en="with you.">contigo.</span></h2>
+          <a href="/produtos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px" data-en="View products">Ver produtos</x-import></a>
         </div>
         <p data-en="Products available at BEST GYM gym receptions." style="margin:0;color:var(--text-muted);">Produtos disponíveis nas receções dos ginásios BEST GYM.</p>
         <div data-home-products-rail style="display: flex; gap: 16px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory; scrollbar-width: none;">
@@ -431,12 +431,12 @@
 
     <section data-screen-label="Conteúdos" style="max-width: 1280px; margin: 0 auto; padding: clamp(64px, 9vw, 128px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 36px;">
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px;">
-        <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(32px, 3.6vw, 52px); line-height: 0.96; text-transform: uppercase; color: var(--ink);">Treino, performance<br>e comunidade</h2>
-        <a href="/conteudos" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em;">Ver todos →</a>
+        <h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(32px, 3.6vw, 52px); line-height: 0.96; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Training, performance&quot;,&quot;and community&quot;]">Treino, performance<br>e comunidade</h2>
+        <a href="/conteudos" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em;" data-en="View all →">Ver todos →</a>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
         <sc-for list="{{ articles }}" as="art" hint-placeholder-count="3">
-          <a href="conteudo-detalhe.dc.html" data-cursor="Ler" style="text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
+          <a href="conteudo-detalhe.dc.html" data-cursor="Ler" data-en-cursor="Read" style="text-decoration: none; background: var(--surface-1); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;" style-hover="transform: translateY(-4px); box-shadow: var(--shadow-md);">
             <div onClick="{{ slotClick }}" style="aspect-ratio: 16 / 9; position: relative;">
               <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ art.slotId }}" src="{{ art.slotSrc }}" shape="rect" placeholder="{{ art.slotLabel }}" hint-size="100%,100%"></x-import>
             </div>
@@ -452,15 +452,15 @@
 
     <section data-screen-label="Conversão final" data-no-reveal style="position: relative; background: var(--invert-2); overflow: hidden;">
       <div aria-hidden="true" style="position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; width: max-content; animation: bgMarquee 40s linear infinite; opacity: 0.16; pointer-events: none;">
-        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(120px, 18vw, 280px); line-height: 1; text-transform: uppercase; color: transparent; -webkit-text-stroke: 2px var(--white); letter-spacing: 0.02em;">Pronto para começar? · Pronto para começar? ·&nbsp;</span>
-        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(120px, 18vw, 280px); line-height: 1; text-transform: uppercase; color: transparent; -webkit-text-stroke: 2px var(--white); letter-spacing: 0.02em;">Pronto para começar? · Pronto para começar? ·&nbsp;</span>
+        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(120px, 18vw, 280px); line-height: 1; text-transform: uppercase; color: transparent; -webkit-text-stroke: 2px var(--white); letter-spacing: 0.02em;" data-en="Ready to start? · Ready to start? ·">Pronto para começar? · Pronto para começar? ·&nbsp;</span>
+        <span style="white-space: nowrap; font-family: var(--font-display); font-size: clamp(120px, 18vw, 280px); line-height: 1; text-transform: uppercase; color: transparent; -webkit-text-stroke: 2px var(--white); letter-spacing: 0.02em;" data-en="Ready to start? · Ready to start? ·">Pronto para começar? · Pronto para começar? ·&nbsp;</span>
       </div>
       <div style="position: relative; z-index: 2; max-width: 1280px; margin: 0 auto; padding: clamp(88px, 13vw, 190px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 26px;">
-        <h2 data-cta-h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 8vw, 128px); line-height: 0.9; text-transform: uppercase; color: var(--white);">Pronto para<br><span style="color: var(--best-red);">começar?</span></h2>
-        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);">Escolhe a unidade mais próxima, treina 24H no teu horário e começa no BEST GYM.</p>
+        <h2 data-cta-h2 style="margin: 0; font-family: var(--font-display); font-weight: 400; font-size: clamp(52px, 8vw, 128px); line-height: 0.9; text-transform: uppercase; color: var(--white);" data-en-text="[&quot;Ready to&quot;]">Pronto para<br><span style="color: var(--best-red);" data-en="get started?">começar?</span></h2>
+        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.85);" data-en="Choose your nearest gym and get started at BEST GYM. Train on your schedule, 24/7.">Escolhe a unidade mais próxima, treina 24H no teu horário e começa no BEST GYM.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;">
-          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
-          <a href="/contactos" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 18px 36px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 8px; color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.25s;" style-hover="background: rgba(255,255,255,0.1);">Falar com a equipa</a>
+          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Join now">Inscreve-te agora</x-import></a>
+          <a href="/contactos" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 18px 36px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 8px; color: var(--white); font-weight: 600; font-size: 15px; letter-spacing: 0.06em; text-transform: uppercase; transition: background 0.25s;" style-hover="background: rgba(255,255,255,0.1);" data-en="Talk to the team">Falar com a equipa</a>
         </div>
       </div>
     </section>
@@ -511,7 +511,7 @@ class Component extends DCLogic {
   }
   _startTypo() {
     clearTimeout(this._tt);
-    const len = ['Vendemos performance.', 'não tem horário.', 'Best'][this.state.slide].length;
+    const len = this.heroLines()[this.state.slide].length;
     if (this._reduced || this._mobileHero) {
       this.setState({ typed: len });
       return;
@@ -538,7 +538,14 @@ class Component extends DCLogic {
     if (this._mRO) this._mRO.disconnect();
     window.removeEventListener('keydown', this._onKey);
   }
+  heroLines() {
+    return window.BGPageLocale?.english
+      ? ['We build performance.', 'has no schedule.', 'Best']
+      : ['Vendemos performance.', 'não tem horário.', 'Best'];
+  }
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     const s = this.state.slide;
     const slideStyles = {};
     [0, 1, 2].forEach((i) => {
@@ -550,10 +557,10 @@ class Component extends DCLogic {
       slideStyles['s' + (i + 1) + 't'] = on ? 'translate3d(0,0,0)' : 'translate3d(0,10px,0)';
     });
     const pillarData = [
-      ['24 horas', 'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.', 'pillar-24h', 'Foto — treino noturno / acesso', 'assets/img/pillar-24h-v2.jpg'],
-      ['Estrutura completa', 'Peso livre, cardio, cross training e treino funcional — zonas preparadas para treino de força, intensidade e evolução.', 'pillar-estrutura', 'Foto — zonas de treino', 'pillar-estrutura-final.jpg'],
-      ['Comunidade', 'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', 'pillar-comunidade', 'Foto — comunidade e performance', 'assets/img/editorial-membro.jpg'],
-      ['Performance', 'Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.', 'pillar-performance', 'Foto — performance / força', 'pillar-performance-final.jpg'],
+      [copy('24 horas', "24 hours"), copy('Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.', "Train on your schedule, every day of the year. Access is independent, personal and secure — your progress does not wait for anyone."), 'pillar-24h', copy('Foto — treino noturno / acesso', "24-hour training at BEST GYM"), 'assets/img/pillar-24h-v2.jpg'],
+      [copy('Estrutura completa', "Complete facilities"), copy('Peso livre, cardio, cross training e treino funcional — zonas preparadas para treino de força, intensidade e evolução.', "Free weights, cardio, cross training and functional training — areas designed for strength, intensity and progress."), 'pillar-estrutura', copy('Foto — zonas de treino', "BEST GYM training areas"), 'pillar-estrutura-final.jpg'],
+      [copy('Comunidade', "Community"), copy('Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.', "A welcoming, motivating and focused environment. Training together turns consistency into results."), 'pillar-comunidade', copy('Foto — comunidade e performance', "The BEST GYM training community"), 'assets/img/editorial-membro.jpg'],
+      ['Performance', copy('Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.', "Structure and consistency focused on measurable results — inside and outside the gym."), 'pillar-performance', copy('Foto — performance / força', "Strength training at BEST GYM"), 'pillar-performance-final.jpg'],
     ];
     const pillars = pillarData.map(([title, text, slotId, slotLabel, slotSrc], i) => {
       const on = i === this.state.pillar;
@@ -574,24 +581,25 @@ class Component extends DCLogic {
       };
     });
     const unitData = [
-      { city: 'Vila Nova de Famalicão', blurb: 'Um espaço completo para treinar com liberdade, intensidade e acompanhamento.', address: 'Av. Centenário da República, D68, Calendário · 4760-859 V. N. Famalicão', href: '/unidade-famalicao', map: 'https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao', slotId: 'home-unit-famalicao', slotLabel: 'Foto unidade Famalicão', slotSrc: 'assets/img/units/famalicao-overview-2026.webp' },
-      { city: 'Valongo', blurb: 'Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: 'Foto unidade Valongo', slotSrc: 'assets/img/units/valongo-exterior-2026.webp' },
+      { city: 'Vila Nova de Famalicão', blurb: copy('Um espaço completo para treinar com liberdade, intensidade e acompanhamento.', "Complete facilities for training with freedom, intensity and support."), address: 'Av. Centenário da República, D68, Calendário · 4760-859 V. N. Famalicão', href: '/unidade-famalicao', map: 'https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao', slotId: 'home-unit-famalicao', slotLabel: copy('Foto unidade Famalicão', "BEST GYM Famalicão"), slotSrc: 'assets/img/units/famalicao-overview-2026.webp' },
+      { city: 'Valongo', blurb: copy('Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', "24-hour training, modern facilities and an active community in central Valongo."), address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: copy('Foto unidade Valongo', "BEST GYM Valongo"), slotSrc: 'assets/img/units/valongo-exterior-2026.webp' },
     ];
     const areaData = [
-      ['Peso Livre', 'Racks, barras e halteres para treino de força com liberdade total.', 'peso-livre', 'Força · Carga livre', '340px'],
-      ['Cardio', 'Passadeiras, bicicletas, remos e elípticas para capacidade aeróbica.', 'cardio', 'Resistência', '300px'],
-      ['Cross Training', 'Espaço funcional para alta intensidade e trabalho de corpo inteiro.', 'cross-training', 'Funcional', '340px'],
-      ['Treino Funcional', 'Circuitos orientados para condicionamento, intensidade e trabalho de corpo inteiro.', 'burn-zone', 'Funcional', '300px'],
-      ['Posing Room', 'Sala dedicada a posing e preparação de palco.', 'posing-room', 'Preparação', '300px'],
-      ['Personal Training', 'Acompanhamento individual com planeamento contínuo.', 'personal-training', 'Individual', '300px'],
+      [copy('Peso Livre', "Free Weights"), copy('Racks, barras e halteres para treino de força com liberdade total.', "Racks, bars and dumbbells for strength training with complete freedom."), 'peso-livre', copy('Força · Carga livre', "Strength · Free weights"), '340px'],
+      ['Cardio', copy('Passadeiras, bicicletas, remos e elípticas para capacidade aeróbica.', "Treadmills, bikes, rowing machines and ellipticals for cardiovascular fitness."), 'cardio', copy('Resistência', "Endurance"), '300px'],
+      ['Cross Training', copy('Espaço funcional para alta intensidade e trabalho de corpo inteiro.', "A functional area for high-intensity and full-body training."), 'cross-training', copy('Funcional', "Functional"), '340px'],
+      [copy('Treino Funcional', "Functional Training"), copy('Circuitos orientados para condicionamento, intensidade e trabalho de corpo inteiro.', "Circuits focused on conditioning, intensity and full-body training."), 'burn-zone', copy('Funcional', "Functional"), '300px'],
+      ['Posing Room', copy('Sala dedicada a posing e preparação de palco.', "A dedicated posing and stage-preparation room."), 'posing-room', copy('Preparação', "Preparation"), '300px'],
+      ['Personal Training', copy('Acompanhamento individual com planeamento contínuo.', "Individual coaching with ongoing planning."), 'personal-training', 'Individual', '300px'],
     ];
+    const [performanceLine, schedule, best] = this.heroLines();
     const typoConf = [
-      { text: 'Vendemos performance.', ranges: [
+      { text: performanceLine, ranges: [
         { start: 0, end: 9, style: { color: 'var(--best-red)' } },
         { start: 9, end: 21, style: { color: 'transparent', WebkitTextStroke: '1.5px var(--best-red)' } },
       ]},
-      { text: 'não tem horário.', ranges: [{ start: 0, end: 16, style: { color: 'var(--best-red)' } }] },
-      { text: 'Best', ranges: [{ start: 0, end: 4, style: { color: 'var(--best-red)' } }] },
+      { text: schedule, ranges: [{ start: 0, end: schedule.length, style: { color: 'var(--best-red)' } }] },
+      { text: best, ranges: [{ start: 0, end: best.length, style: { color: 'var(--best-red)' } }] },
     ];
     const typoHoles = {};
     typoConf.forEach((conf, i) => {
@@ -774,24 +782,24 @@ class Component extends DCLogic {
           w: (wide ? base + 40 : base) + 'px',
           slotId: 'area-' + slug,
           slotSrc: slug === 'posing-room' ? 'assets/img/area-posing-room-v2.jpg' : 'assets/img/area-' + slug + '.jpg',
-          slotLabel: 'Foto área — ' + name,
+          slotLabel: copy('Foto área — ', "Training area — ") + name,
           zoomDir: i % 2 ? 'alternate-reverse' : 'alternate',
           dup: i >= areaData.length ? 'true' : 'false',
         };
       }),
       products: [
-        { name: 'Garrafa Training', cat: 'Hidratação', slotId: 'prod-garrafa', slotLabel: 'Garrafa Training', slotSrc: 'assets/prod/garrafa.jpg' },
-        { name: 'Shaker Best', cat: 'Hidratação', slotId: 'prod-shaker', slotLabel: 'Shaker Best', slotSrc: 'assets/prod/shaker.jpg' },
-        { name: 'Toalha Gym', cat: 'Acessórios', slotId: 'prod-toalha', slotLabel: 'Toalha Gym', slotSrc: 'assets/prod/toalha.jpg' },
-        { name: 'Saco Best', cat: 'Acessórios', slotId: 'prod-saco', slotLabel: 'Saco Best', slotSrc: 'assets/prod/saco.jpg' },
-        { name: 'Mochila Tactical', cat: 'Acessórios', slotId: 'prod-mochila', slotLabel: 'Mochila Tactical', slotSrc: 'assets/prod/mochila.jpg' },
-        { name: 'Cadeado Best', cat: 'Acessórios', slotId: 'prod-cadeado', slotLabel: 'Cadeado Best', slotSrc: 'assets/prod/cadeado.jpg' },
-        { name: 'Porta-chaves 25 KG', cat: 'Lifestyle', slotId: 'prod-chaveiro', slotLabel: 'Porta-chaves 25 KG', slotSrc: 'assets/prod/porta-chaves.jpg' },
+        { name: copy('Garrafa Training', "Training bottle"), cat: copy('Hidratação', "Hydration"), slotId: 'prod-garrafa', slotLabel: copy('Garrafa Training', "Training bottle"), slotSrc: 'assets/prod/garrafa.jpg' },
+        { name: copy('Shaker Best', "BEST GYM shaker"), cat: copy('Hidratação', "Hydration"), slotId: 'prod-shaker', slotLabel: copy('Shaker Best', "BEST GYM shaker"), slotSrc: 'assets/prod/shaker.jpg' },
+        { name: copy('Toalha Gym', "Gym towel"), cat: copy('Acessórios', "Accessories"), slotId: 'prod-toalha', slotLabel: copy('Toalha Gym', "Gym towel"), slotSrc: 'assets/prod/toalha.jpg' },
+        { name: copy('Saco Best', "BEST GYM gym bag"), cat: copy('Acessórios', "Accessories"), slotId: 'prod-saco', slotLabel: copy('Saco Best', "BEST GYM gym bag"), slotSrc: 'assets/prod/saco.jpg' },
+        { name: copy('Mochila Tactical', "Tactical backpack"), cat: copy('Acessórios', "Accessories"), slotId: 'prod-mochila', slotLabel: copy('Mochila Tactical', "Tactical backpack"), slotSrc: 'assets/prod/mochila.jpg' },
+        { name: copy('Cadeado Best', "BEST GYM padlock"), cat: copy('Acessórios', "Accessories"), slotId: 'prod-cadeado', slotLabel: copy('Cadeado Best', "BEST GYM padlock"), slotSrc: 'assets/prod/cadeado.jpg' },
+        { name: copy('Porta-chaves 25 KG', "25 kg plate keyring"), cat: 'Lifestyle', slotId: 'prod-chaveiro', slotLabel: copy('Porta-chaves 25 KG', "25 kg plate keyring"), slotSrc: 'assets/prod/porta-chaves.jpg' },
       ],
       articles: [
-        { cat: 'Treino', title: 'Como estruturar a tua semana de treino', excerpt: 'Princípios simples para organizar sessões, recuperação e progressão.', slotId: 'art-semana', slotLabel: 'Foto artigo — planeamento de treino', slotSrc: 'assets/img/artigo-planeamento.jpg' },
-        { cat: 'Performance', title: 'Consistência: o multiplicador de resultados', excerpt: 'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', slotId: 'art-consistencia', slotLabel: 'Foto artigo — consistência', slotSrc: 'assets/img/hero-performance.jpg' },
-        { cat: 'Comunidade', title: 'Treinar acompanhado muda tudo', excerpt: 'O papel da comunidade na motivação e na evolução a longo prazo.', slotId: 'art-comunidade', slotLabel: 'Foto artigo — comunidade', slotSrc: 'assets/img/hero-performance.jpg' },
+        { cat: copy('Treino', "Training"), title: copy('Como estruturar a tua semana de treino', "How to structure your training week"), excerpt: copy('Princípios simples para organizar sessões, recuperação e progressão.', "Simple principles for organising workouts, recovery and progress."), slotId: 'art-semana', slotLabel: copy('Foto artigo — planeamento de treino', "Training planning article"), slotSrc: 'assets/img/artigo-planeamento.jpg' },
+        { cat: 'Performance', title: copy('Consistência: o multiplicador de resultados', "Consistency: the key to better results"), excerpt: copy('Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', "Why showing up consistently matters more than a perfect plan."), slotId: 'art-consistencia', slotLabel: copy('Foto artigo — consistência', "Training consistency article"), slotSrc: 'assets/img/hero-performance.jpg' },
+        { cat: copy('Comunidade', "Community"), title: copy('Treinar acompanhado muda tudo', "Training together makes a difference"), excerpt: copy('O papel da comunidade na motivação e na evolução a longo prazo.', "How community supports motivation and long-term progress."), slotId: 'art-comunidade', slotLabel: copy('Foto artigo — comunidade', "Community training article"), slotSrc: 'assets/img/hero-performance.jpg' },
       ],
     };
   }

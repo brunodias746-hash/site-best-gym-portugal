@@ -35,43 +35,43 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Cabeçalho legal" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px) clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px">Política de <span style="color: var(--best-red)">Privacidade</span></x-import>
-      <span style="font-size: 14px; color: var(--text-faint);">Última atualização: modelo inicial · a confirmar antes da publicação</span>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px" data-en-text="[&quot;Privacy&quot;]">Política de <span style="color: var(--best-red)" data-en="Policy">Privacidade</span></x-import>
+      <span style="font-size: 14px; color: var(--text-faint);" data-en="Last updated: initial draft · to be confirmed before publication">Última atualização: modelo inicial · a confirmar antes da publicação</span>
     </section>
 
     <section data-legal-grid style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start;">
-      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;">
-        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;">Nesta página</span>
-        <a href="#responsavel" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Responsável</a>
-        <a href="#dados" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Dados recolhidos</a>
-        <a href="#finalidades" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Finalidades</a>
-        <a href="#direitos" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Os teus direitos</a>
-        <a href="#contacto" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Contacto</a>
+      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;" data-en-aria-label="Contents">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;" data-en="On this page">Nesta página</span>
+        <a href="#responsavel" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Data controller">Responsável</a>
+        <a href="#dados" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Data collected">Dados recolhidos</a>
+        <a href="#finalidades" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Purposes">Finalidades</a>
+        <a href="#direitos" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Your rights">Os teus direitos</a>
+        <a href="#contacto" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Contact">Contacto</a>
       </nav>
       <div data-legal style="display: flex; flex-direction: column; gap: 12px;">
         <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
-          <p style="font-size: 14px; color: var(--text-body);"><strong style="color: var(--ink);">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.</p>
+          <p style="font-size: 14px; color: var(--text-body);" data-en-text="[&quot;this is a working draft for design and structure purposes. It must be reviewed and approved by legal counsel before publication.&quot;]"><strong style="color: var(--ink);" data-en="Notice:">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.</p>
         </div>
-        <h2 id="responsavel">1. Responsável pelo tratamento</h2>
-        <p>O BEST GYM é responsável pelo tratamento dos dados pessoais recolhidos através deste site e dos processos de inscrição e contacto.</p>
-        <h2 id="dados">2. Dados que recolhemos</h2>
-        <p>Podemos recolher os dados que nos forneces diretamente, nomeadamente:</p>
+        <h2 id="responsavel" data-en="1. Data controller">1. Responsável pelo tratamento</h2>
+        <p data-en="BEST GYM is responsible for processing personal data collected through this website and its registration and contact processes.">O BEST GYM é responsável pelo tratamento dos dados pessoais recolhidos através deste site e dos processos de inscrição e contacto.</p>
+        <h2 id="dados" data-en="2. Data we collect">2. Dados que recolhemos</h2>
+        <p data-en="We may collect data you provide directly, including:">Podemos recolher os dados que nos forneces diretamente, nomeadamente:</p>
         <ul>
-          <li>Nome, email e telefone através dos formulários de contacto e de interesse.</li>
-          <li>Unidade e assunto selecionados nos pedidos.</li>
+          <li data-en="Name, email and phone number through contact and interest forms.">Nome, email e telefone através dos formulários de contacto e de interesse.</li>
+          <li data-en="The gym and subject selected in requests.">Unidade e assunto selecionados nos pedidos.</li>
           <li data-en="Professional background, age, goals and social profiles supplied in applications; tax identification number, available capital and preferred location supplied in franchising enquiries.">Perfil profissional, idade, objetivos e perfis sociais indicados nas candidaturas; NIF, capital disponível e localização indicados nos pedidos de franchising.</li>
-          <li>Dados técnicos de navegação, quando aplicável, através de cookies.</li>
+          <li data-en="Technical browsing data, where applicable, through cookies.">Dados técnicos de navegação, quando aplicável, através de cookies.</li>
         </ul>
-        <h2 id="finalidades">3. Finalidades do tratamento</h2>
-        <p>Os dados são utilizados para responder aos teus pedidos, gerir inscrições, comunicar novidades e campanhas quando autorizado, e melhorar a experiência do site.</p>
+        <h2 id="finalidades" data-en="3. Purposes of processing">3. Finalidades do tratamento</h2>
+        <p data-en="Data is used to answer requests, manage registrations, communicate news and campaigns where authorised, and improve the website experience.">Os dados são utilizados para responder aos teus pedidos, gerir inscrições, comunicar novidades e campanhas quando autorizado, e melhorar a experiência do site.</p>
         <p data-en="Application details are used to review the application and make contact. VIP list details are used to send news and pre-sale information about São João da Madeira, with your consent. An unavailable form does not register or send your details. When using the email option, you must send the message in your email app to complete the request.">Os dados das candidaturas são utilizados para análise e contacto. Os dados da lista VIP são utilizados para comunicar novidades e informações de pré-venda de São João da Madeira, mediante consentimento. Um formulário indisponível não regista nem envia os teus dados. Na opção por e-mail, é necessário enviar a mensagem no teu programa de e-mail para concluir o pedido.</p>
-        <h2 id="direitos">4. Os teus direitos</h2>
-        <p>Tens direito a aceder, retificar, apagar e limitar o tratamento dos teus dados, bem como a opor-te ao seu tratamento e a solicitar a portabilidade, nos termos da legislação aplicável (RGPD).</p>
-        <h2 id="contacto">5. Como nos contactar</h2>
-        <p>Para exercer os teus direitos ou esclarecer dúvidas sobre privacidade, contacta-nos através de <a href="mailto:geral@bestgym.pt">geral@bestgym.pt</a> ou da página de <a href="/contactos">contactos</a>.</p>
+        <h2 id="direitos" data-en="4. Your rights">4. Os teus direitos</h2>
+        <p data-en="You have the right to access, rectify, erase and restrict the processing of your data, object to processing and request portability under applicable law (GDPR).">Tens direito a aceder, retificar, apagar e limitar o tratamento dos teus dados, bem como a opor-te ao seu tratamento e a solicitar a portabilidade, nos termos da legislação aplicável (RGPD).</p>
+        <h2 id="contacto" data-en="5. How to contact us">5. Como nos contactar</h2>
+        <p data-en-text="[&quot;To exercise your rights or ask privacy questions, contact us via&quot;,&quot;or the&quot;,null]">Para exercer os teus direitos ou esclarecer dúvidas sobre privacidade, contacta-nos através de <a href="mailto:geral@bestgym.pt">geral@bestgym.pt</a> ou da página de <a href="/contactos" data-en="contact page">contactos</a>.</p>
         <div style="border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; display: flex; flex-wrap: wrap; gap: 16px;">
-          <a href="/termos" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Termos e Condições →</a>
-          <a href="/cookies" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Cookies →</a>
+          <a href="/termos" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);" data-en="Terms and Conditions →">Termos e Condições →</a>
+          <a href="/cookies" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);" data-en="Cookie Policy →">Política de Cookies →</a>
         </div>
       </div>
     </section>

@@ -1,8 +1,10 @@
 import '../site-config.js';
 import { copyFile, cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { escape, localizeEnglish } from './localize-html.mjs';
 
-const { origin, pages } = globalThis.BGSiteConfig;
+const config = globalThis.BGSiteConfig;
+const { origin, pages } = config;
 const publicRoot = path.resolve('public');
 const outputRoot = path.join(publicRoot, 'localized-pages');
 await rm(publicRoot, { recursive: true, force: true });
@@ -19,7 +21,6 @@ for (const entry of rootEntries) {
   }
 }
 
-const escape = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const head = (ptPath, page, english) => {
   const route = english ? page.en : ptPath;
   const seo = english ? page.english : page.pt;
@@ -46,11 +47,7 @@ for (const [ptPath, page] of Object.entries(pages)) {
     let localized = source
       .replace('<html>', `<html lang="${english ? 'en' : 'pt-PT'}" data-locale="${locale}">`)
       .replace('<meta charset="utf-8">', `<meta charset="utf-8">\n${head(ptPath, page, english)}`);
-    if (english) {
-      localized = localized.replace(/(<([a-z][\w-]*)\b[^>]*\bdata-en="([^"]*)"[^>]*>)([\s\S]*?)(<\/\2>)/gi,
-        (_, open, tag, translation, original, close) => open + translation.replaceAll('&quot;', '"') + close);
-      localized = localized.replace(/alt="[^"]*" data-en-alt="([^"]*)"/g, 'alt="$1" data-en-alt="$1"');
-    }
+    if (english) localized = localizeEnglish(localized, page.en, config);
     const folder = path.join(outputRoot, locale);
     await mkdir(folder, { recursive: true });
     await writeFile(path.join(folder, `${basename}.html`), localized, 'utf8');

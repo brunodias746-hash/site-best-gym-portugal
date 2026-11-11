@@ -35,40 +35,40 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Cabeçalho legal" style="max-width: 1000px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px) clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px">Termos e <span style="color: var(--best-red)">Condições</span></x-import>
-      <span style="font-size: 14px; color: var(--text-faint);">Última atualização: modelo inicial · a confirmar antes da publicação</span>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,120px" data-en-text="[&quot;Terms and&quot;]">Termos e <span style="color: var(--best-red)" data-en="Conditions">Condições</span></x-import>
+      <span style="font-size: 14px; color: var(--text-faint);" data-en="Last updated: initial draft · to be confirmed before publication">Última atualização: modelo inicial · a confirmar antes da publicação</span>
     </section>
 
     <section data-legal-grid style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: grid; grid-template-columns: 220px 1fr; gap: clamp(24px, 4vw, 56px); align-items: start;">
-      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;">
-        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;">Nesta página</span>
-        <a href="#objeto" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Objeto</a>
-        <a href="#inscricoes" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Inscrições</a>
-        <a href="#acesso" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Acesso 24h</a>
-        <a href="#campanhas" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Campanhas</a>
-        <a href="#responsabilidade" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);">Responsabilidade</a>
+      <nav data-legal-nav aria-label="Índice" style="position: sticky; top: 130px; display: flex; flex-direction: column; gap: 6px;" data-en-aria-label="Contents">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px;" data-en="On this page">Nesta página</span>
+        <a href="#objeto" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Scope">Objeto</a>
+        <a href="#inscricoes" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Membership">Inscrições</a>
+        <a href="#acesso" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="24-hour access">Acesso 24h</a>
+        <a href="#campanhas" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Campaigns">Campanhas</a>
+        <a href="#responsabilidade" style="text-decoration: none; color: var(--text-muted); font-size: 14px; padding: 4px 0;" style-hover="color: var(--best-red);" data-en="Liability">Responsabilidade</a>
       </nav>
       <div data-legal style="display: flex; flex-direction: column; gap: 12px;">
         <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
-          <p style="font-size: 14px; color: var(--text-body);"><strong style="color: var(--ink);">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.</p>
+          <p style="font-size: 14px; color: var(--text-body);" data-en-text="[&quot;this is a working draft for design and structure purposes. It must be reviewed and approved by legal counsel before publication.&quot;]"><strong style="color: var(--ink);" data-en="Notice:">Aviso:</strong> este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.</p>
         </div>
-        <h2 id="objeto">1. Objeto</h2>
-        <p>Os presentes termos regulam a utilização do site do BEST GYM e o acesso aos serviços de inscrição, contacto e informação sobre as unidades e programas.</p>
-        <h2 id="inscricoes">2. Inscrições</h2>
-        <p>As inscrições são concluídas na plataforma oficial. As condições comerciais aplicáveis, incluindo mensalidades e campanhas, são apresentadas nesse processo e podem estar sujeitas a alterações.</p>
-        <h2 id="acesso">3. Acesso 24 horas</h2>
-        <p>O acesso às unidades é pessoal e intransmissível, disponível 24 horas por dia, 365 dias por ano. O utilizador compromete-se a respeitar as regras de utilização e segurança das instalações.</p>
+        <h2 id="objeto" data-en="1. Scope">1. Objeto</h2>
+        <p data-en="These terms govern use of the BEST GYM website and access to registration, contact and information about gyms and programmes.">Os presentes termos regulam a utilização do site do BEST GYM e o acesso aos serviços de inscrição, contacto e informação sobre as unidades e programas.</p>
+        <h2 id="inscricoes" data-en="2. Membership">2. Inscrições</h2>
+        <p data-en="Registrations are completed on the official platform. Applicable commercial conditions, including fees and campaigns, are presented there and may change.">As inscrições são concluídas na plataforma oficial. As condições comerciais aplicáveis, incluindo mensalidades e campanhas, são apresentadas nesse processo e podem estar sujeitas a alterações.</p>
+        <h2 id="acesso" data-en="3. 24-hour access">3. Acesso 24 horas</h2>
+        <p data-en="Gym access is personal and non-transferable, available 24 hours a day, 365 days a year. Users must follow facility use and safety rules.">O acesso às unidades é pessoal e intransmissível, disponível 24 horas por dia, 365 dias por ano. O utilizador compromete-se a respeitar as regras de utilização e segurança das instalações.</p>
         <ul>
-          <li>O meio de acesso é individual e não deve ser partilhado.</li>
-          <li>O incumprimento das regras pode originar a suspensão do acesso.</li>
+          <li data-en="Access credentials are individual and must not be shared.">O meio de acesso é individual e não deve ser partilhado.</li>
+          <li data-en="Failure to follow the rules may result in access being suspended.">O incumprimento das regras pode originar a suspensão do acesso.</li>
         </ul>
-        <h2 id="campanhas">4. Campanhas e promoções</h2>
-        <p>As campanhas têm caráter temporário e regem-se por termos específicos apresentados na plataforma de inscrição. Nenhuma informação neste site constitui uma proposta contratual vinculativa de preço.</p>
-        <h2 id="responsabilidade">5. Limitação de responsabilidade</h2>
-        <p>O BEST GYM procura manter a informação atualizada, mas não garante a ausência de erros ou interrupções. Para dúvidas contacta-nos através da página de <a href="/contactos">contactos</a>.</p>
+        <h2 id="campanhas" data-en="4. Campaigns and promotions">4. Campanhas e promoções</h2>
+        <p data-en="Campaigns are temporary and governed by specific terms shown on the registration platform. No information on this website constitutes a binding contractual price offer.">As campanhas têm caráter temporário e regem-se por termos específicos apresentados na plataforma de inscrição. Nenhuma informação neste site constitui uma proposta contratual vinculativa de preço.</p>
+        <h2 id="responsabilidade" data-en="5. Limitation of liability">5. Limitação de responsabilidade</h2>
+        <p data-en-text="[&quot;BEST GYM aims to keep information current but cannot guarantee the absence of errors or interruptions. For questions, contact us through the&quot;,null]">O BEST GYM procura manter a informação atualizada, mas não garante a ausência de erros ou interrupções. Para dúvidas contacta-nos através da página de <a href="/contactos" data-en="contact page">contactos</a>.</p>
         <div style="border-top: 1px solid var(--line); padding-top: 20px; margin-top: 8px; display: flex; flex-wrap: wrap; gap: 16px;">
-          <a href="/privacidade" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Privacidade →</a>
-          <a href="/cookies" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);">Política de Cookies →</a>
+          <a href="/privacidade" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);" data-en="Privacy Policy →">Política de Privacidade →</a>
+          <a href="/cookies" style="text-decoration: none; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--best-red);" data-en="Cookie Policy →">Política de Cookies →</a>
         </div>
       </div>
     </section>

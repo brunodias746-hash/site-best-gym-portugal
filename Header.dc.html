@@ -28,15 +28,15 @@
 <div style="font-family: var(--font-text);">
   <div data-bg-header style="position: fixed; top: 0; left: 0; right: 0; z-index: 900;">
     <a data-bg-announcement href="/unidade-sao-joao-da-madeira" style="max-height: {{ stripMax }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); display: flex; align-items: center; justify-content: center; gap: 14px; background: var(--best-red); color: var(--white); text-decoration: none; padding: {{ stripPad }}; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; text-align: center;" style-hover="background: var(--red-strong);">
-      <span data-bg-striplong>Nova unidade · São João da Madeira abre em breve</span>
-      <span data-bg-stripshort style="display: none;">São João da Madeira · em breve</span>
-      <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;">Saber mais <span aria-hidden="true">→</span></span>
+      <span data-bg-striplong data-en="New gym · São João da Madeira coming soon">Nova unidade · São João da Madeira abre em breve</span>
+      <span data-bg-stripshort style="display: none;" data-en="São João da Madeira · coming soon">São João da Madeira · em breve</span>
+      <span style="display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid rgba(255,255,255,0.7); padding-bottom: 1px;" data-en-text="[&quot;Learn more&quot;]">Saber mais <span aria-hidden="true">→</span></span>
     </a>
     <div data-bg-headerbar style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 clamp(16px, 4vw, 48px); background: var(--surface-1); border-bottom: {{ barBorder }}; box-shadow: {{ barShadow }}; height: {{ barHeight }}; transition: height 0.28s cubic-bezier(0.22,0.61,0.36,1), box-shadow 0.28s;">
       <a href="/" style="display: flex; align-items: center; flex: 0 0 auto;">
         <img data-bg-headerlogo src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 34px; display: block;">
       </a>
-      <nav data-bg-desknav aria-label="Navegação principal" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 30px);">
+      <nav data-bg-desknav aria-label="Navegação principal" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 30px);" data-en-aria-label="Main navigation">
         <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
           <a href="{{ item.href }}" style="text-decoration: none; font-size: var(--fs-nav); letter-spacing: var(--ls-nav); font-weight: {{ item.weight }}; color: {{ item.color }}; padding: 6px 0; border-bottom: 2px solid {{ item.rule }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
         </sc-for>
@@ -47,9 +47,9 @@
           <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
         </button>
         <a data-bg-hdrcta href="/inscricao" style="text-decoration: none;">
-          <x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px">Inscreve-te</x-import>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Button" size="sm" hint-size="150px,40px"><span data-en="Join now">Inscreve-te</span></x-import>
         </a>
-        <button data-bg-menu-trigger onClick="{{ openMenu }}" aria-label="Abrir menu" aria-controls="bestgym-main-menu" aria-expanded="{{ menuExpanded }}" style="display: flex; align-items: center; gap: 10px; min-width: 44px; min-height: 44px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; cursor: pointer; color: var(--ink); font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="border-color: var(--text-1);">
+        <button data-bg-menu-trigger onClick="{{ openMenu }}" aria-label="Abrir menu" aria-controls="bestgym-main-menu" aria-expanded="{{ menuExpanded }}" style="display: flex; align-items: center; gap: 10px; min-width: 44px; min-height: 44px; background: transparent; border: 1.5px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; cursor: pointer; color: var(--ink); font-family: var(--font-text); font-weight: 600; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;" style-hover="border-color: var(--text-1);" data-en-aria-label="Open menu">
           <span data-bg-menulabel style="display: none;">Menu</span>
           <span style="display: flex; flex-direction: column; gap: 4px;">
             <span style="width: 18px; height: 2px; background: currentColor; display: block;"></span>
@@ -65,16 +65,16 @@
   <aside id="bestgym-main-menu" aria-label="Menu" aria-hidden="{{ menuHidden }}" inert style="position: fixed; top: 0; right: 0; bottom: 0; z-index: 960; width: min(420px, 92vw); background: var(--surface-1); transform: {{ drawerX }}; transition: transform 0.45s cubic-bezier(0.22,0.61,0.36,1); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; padding-bottom: env(safe-area-inset-bottom);">
     <div style="display: flex; align-items: center; justify-content: space-between; padding: 22px 28px; border-bottom: 1px solid var(--line);">
       <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 28px;">
-      <button onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background: transparent; border: none; cursor: pointer; font-size: 26px; line-height: 1; color: var(--ink); width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;" style-hover="color: var(--best-red);">×</button>
+      <button data-bg-menu-close onClick="{{ closeMenu }}" aria-label="Fechar menu" style="background: transparent; border: none; cursor: pointer; font-size: 26px; line-height: 1; color: var(--ink); width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center;" style-hover="color: var(--best-red);" data-en-aria-label="Close menu">×</button>
     </div>
     <div style="padding: 28px; display: flex; flex-direction: column; gap: 28px;">
-      <nav aria-label="Menu completo" style="display: flex; flex-direction: column; gap: 4px;">
+      <nav data-bg-drawernav aria-label="Menu completo" style="display: flex; flex-direction: column; gap: 4px;" data-en-aria-label="Full menu">
         <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
           <a href="{{ item.href }}" onClick="{{ closeMenu }}" style="text-decoration: none; font-family: var(--font-display); font-size: clamp(28px, 8vw, 34px); text-transform: uppercase; line-height: 1.2; padding: 2px 0; color: {{ item.color }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
         </sc-for>
       </nav>
       <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 10px 16px;">
-        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Aspeto</span>
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);" data-en="Appearance">Aspeto</span>
         <button type="button" data-theme-toggle data-wide onClick="{{ toggleTheme }}" aria-label="{{ themeLabel }}" title="{{ themeLabel }}">
           <span data-theme-icon="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.4 5.4l1.6 1.6M17 17l1.6 1.6M18.6 5.4L17 7M7 17l-1.6 1.6"></path></svg></span>
           <span data-theme-icon="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"></path></svg></span>
@@ -82,7 +82,7 @@
         </button>
       </div>
       <a href="/inscricao" style="text-decoration: none;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" hint-size="100%,48px">Inscreve-te agora</x-import>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" hint-size="100%,48px"><span data-en="Join now">Inscreve-te agora</span></x-import>
       </a>
       <div style="background: var(--red-wash); border: 1px solid var(--red-line); border-radius: 12px; padding: 18px 20px;">
         <div data-campaign-field="label" style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Campanha de novembro</div>
@@ -102,7 +102,7 @@
         </div>
       </div>
       <div style="border-top: 1px solid var(--line); padding-top: 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-        <span style="font-family: var(--font-display); font-size: 18px; text-transform: uppercase; color: var(--ink);">Aberto <span style="color: var(--best-red);">24H</span> · 365 dias</span>
+        <span style="font-family: var(--font-display); font-size: 18px; text-transform: uppercase; color: var(--ink);" data-en-text="[&quot;Open&quot;,&quot;· 365 days&quot;]">Aberto <span style="color: var(--best-red);">24H</span> · 365 dias</span>
         <a href="https://instagram.com" target="_blank" rel="noopener" style="color: var(--text-muted); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;" style-hover="color: var(--best-red);">Instagram</a>
       </div>
     </div>
@@ -112,7 +112,7 @@
     <a href="{{ mobileCtaHref }}" style="flex: 1; text-decoration: none; display: flex;">
       <x-import component-from-global-scope="DesignSystem_6952b0.Button" block="{{ true }}" size="sm" hint-size="100%,44px">{{ mobileCtaLabel }}</x-import>
     </a>
-    <a href="/contactos" style="flex: 0 0 auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1.5px solid var(--text-1); border-radius: 8px; color: var(--ink); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;">Contactos</a>
+    <a href="/contactos" style="flex: 0 0 auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1.5px solid var(--text-1); border-radius: 8px; color: var(--ink); font-weight: 600; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;" data-en="Contact">Contactos</a>
   </div>
 </div>
 </x-dc>
@@ -149,7 +149,7 @@ class Component extends DCLogic {
     this.setState({ open });
     requestAnimationFrame(() => {
       if (open && drawer) {
-        const close = drawer.querySelector('button[aria-label="Fechar menu"]');
+        const close = drawer.querySelector('[data-bg-menu-close]');
         if (close) close.focus({ preventScroll: true });
       } else if (!open && this._menuReturnFocus && this._menuReturnFocus.focus) {
         this._menuReturnFocus.focus({ preventScroll: true });
@@ -165,18 +165,18 @@ class Component extends DCLogic {
   renderVals() {
     const active = this.props.active || '';
     const english = location.pathname === '/en' || location.pathname.indexOf('/en/') === 0;
-    const englishRoutes = { '/': '/en/', '/unidades': '/en/gyms', '/built-by-best': '/en/built-by-best', '/produtos': '/en/products', '/conteudos': '/en/content', '/franchising': '/en/franchising', '/sobre': '/en/about', '/contactos': '/en/contacts' };
+    const pages = window.BGSiteConfig?.pages;
     const items = [
-      ['inicio', 'Início', '/'],
-      ['unidades', 'Unidades', '/unidades'],
-      ['bbb', 'Built By Best', '/built-by-best'],
-      ['produtos', 'Produtos', '/produtos'],
-      ['conteudos', 'Conteúdos', '/conteudos'],
-      ['franchising', 'Franchising', '/franchising'],
-      ['sobre', 'Sobre', '/sobre'],
-      ['contactos', 'Contactos', '/contactos'],
-    ].map(([id, label, href]) => ({
-      label, href: english ? (englishRoutes[href] || href) : href,
+      ['inicio', 'Início', 'Home', '/'],
+      ['unidades', 'Unidades', 'Gyms', '/unidades'],
+      ['bbb', 'Built By Best', 'Built By Best', '/built-by-best'],
+      ['produtos', 'Produtos', 'Products', '/produtos'],
+      ['conteudos', 'Conteúdos', 'Content', '/conteudos'],
+      ['franchising', 'Franchising', 'Franchising', '/franchising'],
+      ['sobre', 'Sobre', 'About', '/sobre'],
+      ['contactos', 'Contactos', 'Contact', '/contactos'],
+    ].map(([id, pt, en, href]) => ({
+      label: english ? en : pt, href: english ? (pages?.[href]?.en || href) : href,
       color: id === active ? 'var(--best-red)' : 'var(--ink)',
       weight: id === active ? 600 : 500,
       rule: id === active ? 'var(--best-red)' : 'transparent',
@@ -190,8 +190,8 @@ class Component extends DCLogic {
       mobileCtaLabel: upcoming ? (english ? 'Join the VIP list' : 'Entrar na lista VIP') : (english ? 'Join now' : 'Inscreve-te agora'),
       menuExpanded: this.state.open ? 'true' : 'false',
       menuHidden: this.state.open ? 'false' : 'true',
-      themeLabel: dark ? 'Mudar para modo claro' : 'Mudar para modo escuro',
-      themeAction: dark ? 'Claro' : 'Escuro',
+      themeLabel: dark ? (english ? 'Switch to light mode' : 'Mudar para modo claro') : (english ? 'Switch to dark mode' : 'Mudar para modo escuro'),
+      themeAction: dark ? (english ? 'Light' : 'Claro') : (english ? 'Dark' : 'Escuro'),
       toggleTheme: () => { if (window.BGTheme) this.setState({ theme: window.BGTheme.toggle() }); },
       openMenu: () => this._setOpen(true),
       closeMenu: () => this._setOpen(false),

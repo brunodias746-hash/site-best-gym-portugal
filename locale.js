@@ -18,354 +18,41 @@
   document.documentElement.lang = english ? 'en' : 'pt-PT';
   document.documentElement.setAttribute('data-locale', english ? 'en' : 'pt');
 
-  var T = {
-    'Início': 'Home', 'Unidades': 'Gyms', 'Produtos': 'Products', 'Conteúdos': 'Content',
-    'Sobre': 'About', 'Contactos': 'Contacts', 'Inscrição': 'Join', 'Apoio': 'Support',
-    'Navegação': 'Navigation', 'Perguntas frequentes': 'Frequently asked questions',
-    'Campanha ativa': 'Current campaign', 'Privacidade': 'Privacy',
-    'Termos e Condições': 'Terms and Conditions', 'Todos os direitos reservados.': 'All rights reserved.',
-    'Nova unidade': 'New gym', 'Abertura a anunciar': 'Opening date to be announced',
-    'Quero ser avisado →': 'Keep me updated →', 'Saber mais': 'Learn more',
-    'São João da Madeira · em breve': 'São João da Madeira · coming soon',
-    'Nova unidade · São João da Madeira abre em breve': 'New gym · São João da Madeira coming soon',
-    'Abrir menu': 'Open menu', 'Fechar menu': 'Close menu', 'Menu completo': 'Full menu',
-    'Navegação principal': 'Main navigation', 'Aspeto': 'Appearance', 'Claro': 'Light', 'Escuro': 'Dark',
-    'Mudar para modo claro': 'Switch to light mode', 'Mudar para modo escuro': 'Switch to dark mode',
-    'Inscreve-te': 'Join now', 'Inscreve-te agora': 'Join now', 'ADERIR AGORA →': 'JOIN NOW →',
-    'Aderir agora →': 'Join now →', 'Escolhe a tua unidade': 'Choose your gym',
-    'Fala connosco': 'Contact us', 'Falar connosco →': 'Contact us →',
-    'Ver localização →': 'View location →', 'Abrir no mapa →': 'Open map →',
-    'Ver todas as perguntas →': 'View all questions →', 'Ver FAQ →': 'View FAQ →',
-    'Campanha do mês': 'Current campaign', 'Campanha atual': 'Current campaign',
-    '50% de desconto por mês até 2027 + inscrição grátis': '50% off each month until 2027 + free registration',
-    '50% de desconto por mês até 2027': '50% off each month until 2027',
-    'inscrição grátis': 'free registration', 'vagas limitadas': 'limited availability',
-    'Desconto': 'Discount', 'Condição válida': 'Valid until', 'Grátis': 'Free',
-    'Performance todos os dias. Uma rede 24 horas preparada para a tua evolução.': 'Performance every day. A 24-hour network built around your progress.',
-    'Aberto': 'Open', 'dias': 'days', 'Em breve': 'Coming soon',
-    'PERFORMANCE TODOS OS DIAS.': 'PERFORMANCE EVERY DAY.',
-    'A TUA EVOLUÇÃO NÃO TEM HORÁRIO.': 'YOUR PROGRESS HAS NO SCHEDULE.',
-    'NÃO VENDEMOS MUSCULAÇÃO.': 'WE DO NOT SELL WORKOUTS.',
-    'VENDEMOS PERFORMANCE.': 'WE BUILD PERFORMANCE.',
-    'Treina quando quiseres. Evolui todos os dias.': 'Train when it works for you. Progress every day.',
-    'DOIS GINÁSIOS ABERTOS.': 'TWO GYMS OPEN.', 'UM TERCEIRO A CAMINHO.': 'A THIRD ON THE WAY.',
-    'Dois ginásios. Um terceiro a caminho.': 'Two gyms. A third on the way.',
-    'DOIS GINÁSIOS. UM TERCEIRO A CAMINHO.': 'TWO GYMS. A THIRD ON THE WAY.',
-    'Acesso 24 horas, estrutura completa e uma comunidade focada em evolução.': '24-hour access, complete facilities and a community focused on progress.',
-    'O ESSENCIAL PARA EVOLUÍRES': 'EVERYTHING YOU NEED TO PROGRESS',
-    'TUDO O QUE PRECISAS PARA EVOLUIR.': 'EVERYTHING YOU NEED TO PROGRESS.',
-    'MAIS FORTES JUNTOS.': 'STRONGER TOGETHER.',
-    'LEVA O BEST GYM CONTIGO.': 'TAKE BEST GYM WITH YOU.',
-    'TREINO, PERFORMANCE E COMUNIDADE': 'TRAINING, PERFORMANCE AND COMMUNITY',
-    'PRONTO PARA COMEÇAR?': 'READY TO START?',
-    'Escolhe a unidade, consulta a campanha ativa e começa a treinar com liberdade.': 'Choose your gym, check the current campaign and start training on your terms.',
-    'Conhecer o BEST GYM →': 'Discover BEST GYM →',
-    'São João da Madeira está a caminho': 'São João da Madeira is on the way',
-    'Treino Funcional': 'Functional Training', 'Peso Livre': 'Free Weights',
-    'Aulas': 'Classes', 'Acompanhamento': 'Coaching', 'Comunidade': 'Community',
-    'Consistência': 'Consistency', 'Liberdade': 'Freedom', 'Método': 'Method',
-    'FÉRIAS OFF. GYM ON.': 'HOLIDAY MODE OFF. GYM MODE ON.',
-    'ativa o modo treino no BEST GYM.': 'switch training mode on at BEST GYM.',
-    'aproveita 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'get 50% off each month until 2027, free registration and limited availability.',
-    'DO PRIMEIRO PASSO AO GYM ON.': 'FROM THE FIRST STEP TO GYM MODE ON.',
-    'ESCOLHE O GINÁSIO': 'CHOOSE YOUR GYM', 'ATIVA A CAMPANHA': 'ACTIVATE THE CAMPAIGN',
-    'COMEÇA A TREINAR': 'START TRAINING', 'PRONTO PARA APROVEITAR?': 'READY TO GET STARTED?',
-    'BEST GYM VALONGO': 'BEST GYM VALONGO', 'BEST GYM FAMALICÃO': 'BEST GYM FAMALICÃO',
-    'Treina 24 horas, com estrutura, liberdade e uma equipa próxima.': 'Train 24 hours a day with quality facilities, freedom and a team close by.',
-    'Uma estrutura completa para transformar consistência em performance.': 'Complete facilities that turn consistency into performance.',
-    'PERFORMANCE NO CENTRO DE VALONGO.': 'PERFORMANCE IN THE HEART OF VALONGO.',
-    'PERFORMANCE EM VILA NOVA DE FAMALICÃO.': 'PERFORMANCE IN VILA NOVA DE FAMALICÃO.',
-    'ÁREAS DE TREINO': 'TRAINING AREAS', 'ENTRA E TREINA QUANDO QUISERES.': 'COME IN AND TRAIN ON YOUR SCHEDULE.',
-    'GALERIA': 'GALLERY', 'COMEÇA A TREINAR EM VALONGO HOJE.': 'START TRAINING IN VALONGO TODAY.',
-    'COMEÇA A TREINAR EM FAMALICÃO HOJE.': 'START TRAINING IN FAMALICÃO TODAY.',
-    'NÃO É APENAS UM PLANO DE TREINO.': 'MORE THAN A TRAINING PLAN.',
-    'QUATRO FASES, UM OBJETIVO': 'FOUR STAGES. ONE GOAL.',
-    'TUDO O QUE GANHAS COM MÉTODO.': 'WHAT STRUCTURE ADDS TO YOUR TRAINING.',
-    'EXECUÇÃO COM DIREÇÃO': 'TRAIN WITH DIRECTION',
-    'HISTÓRIAS REAIS, APROVADAS PRIMEIRO': 'REAL STORIES, APPROVED FIRST',
-    'COMEÇA A CONSTRUIR A TUA MELHOR VERSÃO.': 'BUILD CONSISTENT PROGRESS.',
-    'Treino com direção. Acompanhamento com método.': 'Train with direction. Progress with structure.',
-    'Avaliação': 'Assessment', 'Planeamento': 'Planning', 'Execução': 'Training', 'Monitorização': 'Monitoring',
-    'MAIS DO QUE UM GINÁSIO.': 'MORE THAN A GYM.', 'FEITA PARA CRESCER.': 'BUILT TO GROW.',
-    'O QUE NOS MOVE': 'WHAT DRIVES US', 'UMA AMBIÇÃO NACIONAL.': 'A NATIONAL AMBITION.',
-    'FAZ PARTE DESTA CULTURA.': 'BE PART OF THE CULTURE.',
-    'O BEST GYM é uma rede 24 horas criada para tornar a performance acessível todos os dias.': 'BEST GYM is a 24-hour network built to make performance accessible every day.',
-    'FALA COM O BEST GYM.': 'CONTACT BEST GYM.',
-    'A nossa equipa está disponível para esclarecer dúvidas sobre unidades, inscrição e serviços.': 'Our team can help with questions about our gyms, registration and services.',
-    'Nome': 'Name', 'Telefone': 'Phone', 'Unidade': 'Gym', 'Assunto': 'Subject', 'Mensagem': 'Message',
-    'Escolhe a unidade': 'Choose a gym', 'Escolhe o assunto': 'Choose a subject', 'Outro': 'Other',
-    'Enviar mensagem': 'Send message', 'Li e aceito a Política de Privacidade.': 'I have read and accept the Privacy Policy.',
-    'COMEÇA HOJE.': 'START TODAY.', 'Escolhe a tua unidade e consulta as condições disponíveis.': 'Choose your gym and view the available options.',
-    'A inscrição continua na plataforma oficial.': 'Registration continues on the official platform.',
-    'TENS DÚVIDAS?': 'HAVE QUESTIONS?',
-    'Respostas rápidas sobre inscrição, horários, unidades, Built By Best e funcionamento do BEST GYM.': 'Clear answers about registration, access, gyms, Built By Best and how BEST GYM works.',
-    'POLÍTICA DE PRIVACIDADE': 'PRIVACY POLICY', 'TERMOS E CONDIÇÕES': 'TERMS AND CONDITIONS',
-    'POLÍTICA DE COOKIES': 'COOKIE POLICY', 'Última atualização:': 'Last updated:',
-    'RESPONSÁVEL PELO TRATAMENTO': 'DATA CONTROLLER', 'DADOS QUE RECOLHEMOS': 'DATA WE COLLECT',
-    'FINALIDADES DO TRATAMENTO': 'PURPOSES OF PROCESSING', 'OS TEUS DIREITOS': 'YOUR RIGHTS',
-    'COMO NOS CONTACTAR': 'HOW TO CONTACT US', 'OBJETO': 'SCOPE', 'INSCRIÇÕES': 'REGISTRATION',
-    'ACESSO 24 HORAS': '24-HOUR ACCESS', 'CAMPANHAS E PROMOÇÕES': 'CAMPAIGNS AND PROMOTIONS',
-    'LIMITAÇÃO DE RESPONSABILIDADE': 'LIMITATION OF LIABILITY', 'O QUE SÃO COOKIES': 'WHAT COOKIES ARE',
-    'TIPOS DE COOKIES UTILIZADOS': 'TYPES OF COOKIES USED', 'GERIR AS TUAS PREFERÊNCIAS': 'MANAGE YOUR PREFERENCES',
-    'Essenciais': 'Essential', 'Sempre ativos': 'Always active', 'Análise': 'Analytics',
-    'Estatísticas de utilização': 'Usage statistics', 'Marketing': 'Marketing',
-    'Comunicação e campanhas': 'Communications and campaigns', 'Guardar preferências': 'Save preferences'
-  };
-
-  Object.assign(T, {
-    '© 2026 Best Gym. Todos os direitos reservados.': '© 2026 BEST GYM. All rights reserved.',
-    'Programa de performance': 'Performance programme', 'Conhecer o programa': 'Discover the programme',
-    'Treino com direção. Acompanhamento com método. Evolução com resultados.': 'Train with direction. Structured coaching. Measurable progress.',
-    'A tua evolução': 'Your progress', 'não tem horário.': 'has no schedule.',
-    'Aberto 24 horas por dia, 7 dias por semana, 365 dias por ano.': 'Open 24 hours a day, 7 days a week, 365 days a year.',
-    'Descobrir as unidades': 'Explore our gyms', 'Não vendemos musculação.': 'We do not sell workouts.',
-    'Evolução': 'Progress', 'Encontrar uma unidade': 'Find a gym', 'todos os dias.': 'every day.',
-    'O BEST GYM foi criado para quem leva a evolução a sério. Liberdade para treinar 24 horas, equipamento preparado para diferentes objetivos e uma comunidade que transforma consistência em resultados.': 'BEST GYM was created for people who take progress seriously: 24-hour training, equipment for different goals and a community that turns consistency into results.',
-    'Horas por dia': 'Hours a day', 'Dias por ano': 'Days a year',
-    'ativa o modo treino: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'switch training mode on: 50% off each month until 2027, free registration and limited availability.',
-    'O essencial para': 'Everything you need to',
-    'Treina no teu horário, todos os dias do ano. O acesso é autónomo, pessoal e seguro — a tua evolução não espera pelo horário de ninguém.': 'Train on your schedule, every day of the year. Access is independent, personal and secure — your progress does not wait for anyone.',
-    'Peso livre, cardio, cross training e treino funcional — zonas preparadas para treino de força, intensidade e evolução.': 'Free weights, cardio, cross training and functional training — areas designed for strength, intensity and progress.',
-    'Um ambiente próximo, motivador e focado. Treinar acompanhado transforma consistência em resultados.': 'A welcoming, motivating and focused environment. Training together turns consistency into results.',
-    'Método e consistência orientados para resultados mensuráveis — dentro e fora do ginásio.': 'Structure and consistency focused on measurable results — inside and outside the gym.',
-    'Um terceiro a caminho.': 'A third on the way.',
-    'Escolhe o ginásio mais próximo e conhece a estrutura preparada para a tua evolução.': 'Choose your nearest gym and discover facilities designed for your progress.',
-    'O BEST GYM continua a crescer —': 'BEST GYM continues to grow —',
-    'Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.': '24-hour training, modern facilities and an active community in central Valongo.',
-    'Conhecer unidade': 'Explore this gym', 'Conhecer esta unidade': 'Explore this gym',
-    'Ginásios 24H em Vila Nova de Famalicão e Valongo. São João da Madeira em breve.': '24H gyms in Vila Nova de Famalicão and Valongo. São João da Madeira coming soon.',
-    'Todos os dias': 'Every day', 'Unidades abertas': 'Open gyms', '3.ª': '3rd', 'Unidade a chegar': 'Gym coming soon',
-    'Treina quando quiseres': 'Train whenever you want', '24H, todos os dias.': '24H, every day.',
-    'Estrutura para evoluir': 'Facilities built for progress', 'Peso livre, cardio, cross training e treino funcional.': 'Free weights, cardio, cross training and functional training.',
-    'Treino com direção': 'Training with direction', 'Built By Best para acompanhamento com método.': 'Built By Best for structured coaching.',
-    'EM BREVE · São João da Madeira': 'COMING SOON · São João da Madeira',
-    'Avaliação': 'Assessment', 'Planeamento': 'Planning', 'Execução': 'Execution', 'Evolução': 'Progress',
-    'Comunidade BEST GYM': 'BEST GYM community', 'Uma comunidade que treina a sério.': 'A community that trains with purpose.',
-    'Do treino individual ao acompanhamento com método, o ambiente do BEST GYM foi pensado para manter foco, consistência e proximidade.': 'From independent training to structured coaching, BEST GYM is designed to sustain focus, consistency and connection.',
-    'Escolhe a unidade mais próxima, treina 24H no teu horário e começa no BEST GYM.': 'Choose your nearest gym, train 24H on your schedule and get started at BEST GYM.',
-    'Um espaço completo para treinar com liberdade, intensidade e acompanhamento.': 'Complete facilities for training with freedom, intensity and support.',
-    'Tudo o que precisas': 'Everything you need', 'para': 'to', 'Preparação': 'Preparation',
-    'Racks, barras e halteres para treino de força com liberdade total.': 'Racks, bars and dumbbells for strength training with complete freedom.',
-    'Passadeiras, bicicletas, remos e elípticas para capacidade aeróbica.': 'Treadmills, bikes, rowing machines and ellipticals for cardiovascular fitness.',
-    'Espaço funcional para alta intensidade e trabalho de corpo inteiro.': 'A functional area for high-intensity and full-body training.',
-    'Circuitos orientados para condicionamento, intensidade e trabalho de corpo inteiro.': 'Circuits focused on conditioning, intensity and full-body training.',
-    'Sala dedicada a posing e preparação de palco.': 'A dedicated posing and stage-preparation room.',
-    'Acompanhamento individual com planeamento contínuo.': 'Individual coaching with ongoing planning.',
-    'Um programa de acompanhamento para quem quer transformar objetivos em evolução mensurável. Planeamento, execução, acompanhamento e ajustes consistentes.': 'A coaching programme for turning goals into measurable progress, with planning, execution, monitoring and consistent adjustments.',
-    'Avaliação e planeamento adaptado': 'Assessment and tailored planning', 'Execução com vídeos de apoio': 'Technique supported by video',
-    'Monitorização e ajustes regulares': 'Regular monitoring and adjustments', 'Mais fortes': 'Stronger',
-    'Leva o BEST GYM': 'Take BEST GYM with you', 'Treino, performance': 'Training, performance', 'e comunidade': 'and community',
-    'Ver todos →': 'View all →', 'Treino': 'Training', 'Pronto para começar? · Pronto para começar? ·': 'Ready to start? · Ready to start? ·',
-    'Falar com a equipa': 'Talk to the team', 'Conteúdos relacionados': 'Related content',
-    '← Voltar aos conteúdos': '← Back to content', '10 Julho 2026 · 6 min de leitura': '10 July 2026 · 6 min read',
-    'Como estruturar a tua': 'How to structure your', 'semana de treino': 'training week',
-    'Princípios simples para organizar sessões, recuperação e progressão — sem planos impossíveis de cumprir.': 'Simple principles for organising sessions, recovery and progress — without impossible plans.',
-    'A pergunta mais comum de quem começa — ou recomeça — é sempre a mesma: quantas vezes devo treinar por semana? A resposta certa é a que consegues cumprir de forma consistente durante meses, não a mais ambiciosa.': 'The most common question when starting — or starting again — is how often to train. The right answer is the schedule you can sustain for months, not the most ambitious one.',
-    'Começa pela frequência realista': 'Start with a realistic frequency',
-    'Três sessões bem executadas valem mais do que seis planeadas e duas cumpridas. Define primeiro os dias em que o treino cabe de facto na tua vida — com o acesso 24 horas, o horário deixa de ser desculpa.': 'Three well-executed sessions are worth more than six planned and only two completed. Choose the days that genuinely fit your life — with 24-hour access, scheduling is no longer a barrier.',
-    'A consistência ganha sempre ao plano perfeito.': 'Consistency always beats the perfect plan.', 'Distribui o estímulo': 'Distribute the training stimulus',
-    'Alterna grupos musculares e intensidades ao longo da semana. Junta uma sessão mais leve de cardio ou mobilidade entre os treinos de força — a recuperação faz parte do progresso, não é tempo perdido.': 'Alternate muscle groups and intensity throughout the week. Add a lighter cardio or mobility session between strength workouts — recovery is part of progress, not wasted time.',
-    'Equipa do BEST GYM': 'BEST GYM team', 'Conteúdo de treino · revisto pela equipa técnica': 'Training content · reviewed by the technical team',
-    'Mais do que': 'More than', 'um ginásio.': 'a gym.', 'Feita para': 'Built to', 'O que nos move': 'What drives us', 'Uma ambição': 'One ambition',
-    'O BEST GYM é uma rede 24 horas criada para tornar a performance mais acessível, consistente e próxima.': 'BEST GYM is a 24-hour gym network created to make performance more accessible, consistent and personal.',
-    'O BEST GYM nasceu com uma convicção simples: a evolução não tem horário. Começámos em Vila Nova de Famalicão e Valongo com um modelo de acesso 24 horas, estrutura completa e uma comunidade próxima — e estamos preparados para levar esta cultura a mais cidades em Portugal.': 'BEST GYM began with a simple belief: progress has no schedule. We started in Vila Nova de Famalicão and Valongo with 24-hour access, complete facilities and a close community — and we are ready to bring this culture to more Portuguese cities.',
-    'Criar condições para que mais pessoas treinem com liberdade, consistência e propósito.': 'Create the conditions for more people to train with freedom, consistency and purpose.',
-    'Tornar o BEST GYM uma referência nacional de performance, comunidade e experiência 24 horas.': 'Make BEST GYM a national benchmark for performance, community and the 24-hour experience.',
-    'Dois ginásios ativos, um terceiro a caminho e uma cultura comum preparada para expansão, patrocínios e novas localizações. A comunidade do BEST GYM cresce todos os dias — dentro e fora do ginásio.': 'Two active gyms, a third on the way and a shared culture ready for expansion, partnerships and new locations. The BEST GYM community grows every day — inside and outside the gym.',
-    'Ver as unidades': 'View our gyms', 'Fala com o': 'Talk to',
-    'A nossa equipa está disponível para esclarecer dúvidas sobre unidades, inscrições, Built By Best e produtos.': 'Our team is available to answer questions about our gyms, registration, Built By Best and products.',
-    'O acesso às unidades é autónomo. Para visitas guiadas, contacta a equipa da unidade.': 'Gym access is independent. For guided visits, contact the team at your chosen gym.',
-    'Envia-nos uma mensagem': 'Send us a message', 'Unidade *': 'Gym *', 'Li e aceito a': 'I have read and accept the',
-    'Política de Privacidade': 'Privacy Policy', 'Destino do formulário: Valongo → valongo@bestgym.pt · Famalicão → famalicao@bestgym.pt.': 'Form destination: Valongo → valongo@bestgym.pt · Famalicão → famalicao@bestgym.pt.',
-    'Começa': 'Start', 'Escolhe a tua unidade e consulta as condições disponíveis. A inscrição é concluída na plataforma oficial.': 'Choose your gym and view the available options. Registration is completed on the official platform.',
-    'Não fiques de fora. Condições e termos apresentados na plataforma oficial de inscrição.': 'Do not miss out. Conditions and terms are shown on the official registration platform.',
-    'Estrutura completa de treino': 'Complete training facilities', 'Comunidade e acompanhamento': 'Community and support', 'Sem burocracia — inscrição online': 'No paperwork — register online',
-    'Escolhe primeiro a tua unidade': 'Choose your gym first', 'Dúvidas antes de te inscreveres?': 'Questions before joining?'
-  });
-  Object.assign(T, {
-    'Respostas rápidas sobre inscrição, horários, unidades, Built By Best e produtos. Não encontras o que procuras?': 'Clear answers about registration, access, gyms, Built By Best and products. Cannot find what you need?',
-    'Como posso inscrever-me?': 'How can I join?', 'Posso escolher a unidade?': 'Can I choose my gym?',
-    'A inscrição é feita online, na plataforma oficial. Escolhe a unidade, consulta as condições e conclui o processo em poucos minutos.': 'Registration is completed online on the official platform. Choose your gym, view the conditions and finish in a few minutes.',
-    'Sim. Durante a inscrição escolhes Vila Nova de Famalicão ou Valongo.': 'Yes. During registration, choose Vila Nova de Famalicão or Valongo.',
-    'Sim — a campanha atual oferece 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas. Consulta as condições na página da campanha.': 'Yes — the current campaign offers 50% off each month until 2027, free registration and limited availability. View the conditions on the campaign page.',
-    'O ginásio está aberto 24 horas?': 'Is the gym open 24 hours?', 'Como funciona o acesso?': 'How does access work?',
-    'Sim. Os ginásios ativos do BEST GYM funcionam 24 horas por dia, 7 dias por semana, 365 dias por ano.': 'Yes. Active BEST GYM locations are open 24 hours a day, 7 days a week, 365 days a year.',
-    'O acesso é autónomo e pessoal. Depois da inscrição recebes o teu meio de acesso e entras a qualquer hora.': 'Access is independent and personal. After registration, you receive your access credential and can enter at any time.',
-    'Que áreas de treino existem?': 'What training areas are available?', 'Existem duches?': 'Are showers available?', 'Como posso visitar a unidade?': 'How can I visit a gym?',
-    'Sim, ambas as unidades dispõem de balneários com duches.': 'Yes, both gyms have changing rooms with showers.',
-    'Contacta a unidade por telefone ou email e agenda uma visita com a equipa.': 'Contact the gym by phone or email to arrange a visit with the team.',
-    'O que inclui o programa?': 'What does the programme include?', 'Como posso pedir informações?': 'How can I request information?',
-    'Avaliação, planeamento adaptado, vídeos de execução, monitorização de progresso e ajustes regulares com contacto próximo.': 'Assessment, tailored planning, technique videos, progress monitoring and regular adjustments with close contact.',
-    'Os produtos do BEST GYM estão disponíveis diretamente nas unidades de Famalicão e Valongo.': 'BEST GYM products are available directly at the Famalicão and Valongo gyms.',
-    'De momento não. O catálogo online serve para consulta — a compra é feita na unidade.': 'Not at present. The online catalogue is for reference — purchases are made at the gym.',
-    'Ainda com dúvidas? A equipa responde-te rapidamente.': 'Still have questions? Our team will respond quickly.',
-    'Política de': 'Policy', 'Termos e': 'Terms and', 'Última atualização: modelo inicial · a confirmar antes da publicação': 'Last updated: initial draft · to be confirmed before publication',
-    'este texto é um modelo de trabalho para efeitos de design e estrutura. Deve ser revisto e aprovado por assessoria jurídica antes de qualquer publicação.': 'this is a working draft for design and structure purposes. It must be reviewed and approved by legal counsel before publication.',
-    'este texto é um modelo de trabalho para efeitos de design e estrutura. A lista de cookies deve ser confirmada tecnicamente e revista juridicamente antes da publicação.': 'this is a working draft for design and structure purposes. The cookie list must be technically confirmed and legally reviewed before publication.',
-    'Os teus direitos': 'Your rights', '2. Dados que recolhemos': '2. Data we collect', '3. Finalidades do tratamento': '3. Purposes of processing', '4. Os teus direitos': '4. Your rights', '5. Como nos contactar': '5. How to contact us',
-    'O BEST GYM é responsável pelo tratamento dos dados pessoais recolhidos através deste site e dos processos de inscrição e contacto.': 'BEST GYM is responsible for processing personal data collected through this website and its registration and contact processes.',
-    'Podemos recolher os dados que nos forneces diretamente, nomeadamente:': 'We may collect data you provide directly, including:',
-    'Nome, email e telefone através dos formulários de contacto e de interesse.': 'Name, email and phone number through contact and interest forms.',
-    'Unidade e assunto selecionados nos pedidos.': 'The gym and subject selected in requests.', 'Dados técnicos de navegação, quando aplicável, através de cookies.': 'Technical browsing data, where applicable, through cookies.',
-    'Os dados são utilizados para responder aos teus pedidos, gerir inscrições, comunicar novidades e campanhas quando autorizado, e melhorar a experiência do site.': 'Data is used to answer requests, manage registrations, communicate news and campaigns where authorised, and improve the website experience.',
-    'Tens direito a aceder, retificar, apagar e limitar o tratamento dos teus dados, bem como a opor-te ao seu tratamento e a solicitar a portabilidade, nos termos da legislação aplicável (RGPD).': 'You have the right to access, rectify, erase and restrict the processing of your data, object to processing and request portability under applicable law (GDPR).',
-    'Para exercer os teus direitos ou esclarecer dúvidas sobre privacidade, contacta-nos através de': 'To exercise your rights or ask privacy questions, contact us via', 'ou da página de': 'or the',
-    'Os presentes termos regulam a utilização do site do BEST GYM e o acesso aos serviços de inscrição, contacto e informação sobre as unidades e programas.': 'These terms govern use of the BEST GYM website and access to registration, contact and information about gyms and programmes.',
-    'As inscrições são concluídas na plataforma oficial. As condições comerciais aplicáveis, incluindo mensalidades e campanhas, são apresentadas nesse processo e podem estar sujeitas a alterações.': 'Registrations are completed on the official platform. Applicable commercial conditions, including fees and campaigns, are presented there and may change.',
-    'O acesso às unidades é pessoal e intransmissível, disponível 24 horas por dia, 365 dias por ano. O utilizador compromete-se a respeitar as regras de utilização e segurança das instalações.': 'Gym access is personal and non-transferable, available 24 hours a day, 365 days a year. Users must follow facility use and safety rules.',
-    'O meio de acesso é individual e não deve ser partilhado.': 'Access credentials are individual and must not be shared.', 'O incumprimento das regras pode originar a suspensão do acesso.': 'Failure to follow the rules may result in access being suspended.',
-    '4. Campanhas e promoções': '4. Campaigns and promotions', '5. Limitação de responsabilidade': '5. Limitation of liability',
-    'As campanhas têm caráter temporário e regem-se por termos específicos apresentados na plataforma de inscrição. Nenhuma informação neste site constitui uma proposta contratual vinculativa de preço.': 'Campaigns are temporary and governed by specific terms shown on the registration platform. No information on this website constitutes a binding contractual price offer.',
-    'O BEST GYM procura manter a informação atualizada, mas não garante a ausência de erros ou interrupções. Para dúvidas contacta-nos através da página de': 'BEST GYM aims to keep information current but cannot guarantee the absence of errors or interruptions. For questions, contact us through the',
-    'O que são': 'What are', '1. O que são cookies': '1. What cookies are', '2. Tipos de cookies utilizados': '2. Types of cookies used', '3. Gerir as tuas preferências': '3. Manage your preferences',
-    'Cookies são pequenos ficheiros guardados no teu dispositivo que permitem o funcionamento do site e ajudam a melhorar a experiência de navegação.': 'Cookies are small files stored on your device that enable the website to work and help improve the browsing experience.',
-    'Necessários ao funcionamento do site. Estão sempre ativos.': 'Required for the website to function. They are always active.', 'Ajudam a perceber como o site é utilizado, de forma agregada.': 'Help us understand how the website is used in aggregate.', 'Utilizados para comunicação e campanhas, apenas com consentimento.': 'Used for communications and campaigns only with consent.',
-    'Podes ativar ou desativar as categorias não essenciais em baixo. Este painel é uma demonstração de interface — a ligação a um gestor de consentimento real será feita antes da publicação.': 'You can enable or disable non-essential categories below. This panel demonstrates the interface — it must be connected to a real consent manager before publication.',
-    'Termos e Condições →': 'Terms and Conditions →', 'Política de Cookies →': 'Cookie Policy →', 'Política de Privacidade →': 'Privacy Policy →'
-  });
-  Object.assign(T, {
-    'Volta das férias com uma condição especial para começar. Escolhe o teu ginásio, faz a inscrição e aproveita a campanha enquanto houver vagas disponíveis.': 'Return from the holidays with a special offer to get started. Choose your gym, register and enjoy the campaign while places remain.',
-    'Escolhe o ginásio': 'Choose your gym', 'Escolhe Vila Nova de Famalicão ou Valongo e segue para a inscrição.': 'Choose Vila Nova de Famalicão or Valongo and continue to registration.',
-    'Entra e treina': 'Come in and train', 'Faz a tua inscrição e escolhe a unidade de Valongo.': 'Register and choose the Valongo gym.', 'Faz a tua inscrição e escolhe a unidade de Famalicão.': 'Register and choose the Famalicão gym.',
-    'Treina a qualquer hora, todos os dias do ano — sem exceções.': 'Train at any time, every day of the year — without exceptions.',
-    'A inscrição é feita online na plataforma oficial — escolhe a unidade de Valongo durante o processo.': 'Registration is completed online on the official platform — choose the Valongo gym during the process.',
-    'A inscrição é feita online na plataforma oficial — escolhe a unidade de Famalicão durante o processo.': 'Registration is completed online on the official platform — choose the Famalicão gym during the process.'
-  });
-  Object.assign(T, {
-    'Aberto 24 horas': 'Open 24 hours', '24 horas': '24 hours', 'Horas': 'Hours',
-    'Performance · 24 horas · Comunidade · Evolução · Best Gym · Performance · 24 horas · Comunidade · Evolução · Best Gym ·': 'Performance · 24 hours · Community · Progress · BEST GYM · Performance · 24 hours · Community · Progress · BEST GYM ·',
-    'Como estruturar a tua semana de treino': 'How to structure your training week',
-    'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.': 'Why showing up consistently matters more than a perfect plan.',
-    'O papel da comunidade na motivação e na evolução a longo prazo.': 'How community supports motivation and long-term progress.',
-    'e vagas limitadas.': 'and limited availability.', 'Ver campanha': 'View campaign',
-    'Campanha do mês · BEST GYM': 'Current campaign · BEST GYM',
-    'ativa o modo treino no BEST GYM: 50% de desconto por mês até 2027, inscrição grátis e vagas limitadas.': 'switch training mode on at BEST GYM: 50% off each month until 2027, free registration and limited availability.',
-    'Aderir à campanha': 'Claim the offer', 'Inscrição grátis': 'Free registration', 'A tua oferta': 'Your offer',
-    'durante a campanha.': 'during the campaign.', 'Vagas limitadas': 'Limited availability', 'Ativa a campanha': 'Activate the offer',
-    'Confirma a campanha Férias Off. Gym On. e os teus dados de adesão.': 'Confirm the FÉRIAS OFF. GYM ON. offer and your registration details.',
-    'Começa a treinar': 'Start training',
-    'Finaliza a adesão e começa a treinar no teu horário — o BEST GYM está aberto 24H.': 'Complete your registration and train on your schedule — BEST GYM is open 24 hours a day.',
-    'Inscreve-te no BEST GYM e aproveita a campanha Férias Off. Gym On.: 50% de desconto por mês até 2027 e inscrição grátis.': 'Join BEST GYM with the FÉRIAS OFF. GYM ON. offer: 50% off each month until 2027 and free registration.',
-    'Campanha sujeita à disponibilidade de vagas e às condições aplicáveis pelo BEST GYM.': 'Offer subject to availability and the applicable BEST GYM terms.',
-    'Acesso 24 horas, estrutura completa e uma comunidade preparada para evoluir contigo. O BEST GYM está preparado para crescer — São João da Madeira é o próximo passo.': '24-hour access, complete facilities and a community built around progress. BEST GYM continues to grow — São João da Madeira is the next step.',
-    'Ginásio 01': 'Gym 01', 'Ginásio 02': 'Gym 02', 'Conhecer ginásio': 'Explore gym', 'Unidade 03 · Em breve': 'Gym 03 · Coming soon',
-    'O terceiro ginásio do BEST GYM está a nascer. O mesmo acesso 24 horas, a mesma estrutura, a mesma comunidade — agora mais perto de quem treina em São João da Madeira.': 'The third BEST GYM location is taking shape. The same 24-hour access, facilities and community — now closer to people training in São João da Madeira.',
-    'O acesso é feito de forma autónoma e segura, 24 horas por dia, 7 dias por semana, 365 dias por ano. Depois da inscrição, entras e treinas quando fizer sentido para ti.': 'Access is independent and secure, 24 hours a day, 7 days a week, 365 days a year. Once registered, train whenever it suits you.',
-    'Escolhe a tua unidade e começa': 'Choose your gym and start', 'Ver campanha ativa': 'View current campaign',
-    'Um ginásio moderno, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.': 'A modern gym with dedicated training areas, equipment for different goals and an active community. Independent 24-hour access lets you train whenever it suits you.',
-    'Uma unidade moderna, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.': 'A modern gym with dedicated training areas, equipment for different goals and an active community. Independent 24-hour access lets you train whenever it suits you.',
-    '24 horas · 7 dias por semana · 365 dias por ano': '24 hours · 7 days a week · 365 days a year', 'Áreas de treino': 'Training areas',
-    'Racks, barras e halteres para treino de força.': 'Racks, barbells and dumbbells for strength training.', 'Recebe o teu acesso pessoal de entrada autónoma.': 'Receive your personal access credential.',
-    'O ginásio está mesmo aberto 24 horas?': 'Is the gym really open 24 hours a day?', 'Sim. O acesso é autónomo e funciona 24 horas por dia, 7 dias por semana, 365 dias por ano.': 'Yes. Independent access is available 24 hours a day, 7 days a week, 365 days a year.',
-    'Fala connosco por telefone ou email e agenda uma visita com a equipa da unidade.': 'Contact us by phone or email to arrange a visit with the gym team.', 'Sim, a unidade dispõe de balneários com duches.': 'Yes. The gym has changing rooms with showers.',
-    'Como me inscrevo nesta unidade?': 'How do I join this gym?', 'Começa a treinar em Valongo': 'Start training in Valongo', 'Começa a treinar em Famalicão': 'Start training in Famalicão',
-    'Quero saber mais': 'Find out more', 'Conhecer o franchising': 'Explore franchising', 'Não é apenas um': 'More than a', 'plano de treino.': 'training plan.',
-    'Built By Best é um programa de acompanhamento criado para quem pretende treinar com mais clareza, consistência e controlo sobre a evolução.': 'Built By Best is a coaching programme for people who want greater clarity, consistency and control over their progress.',
-    'Um plano adaptado a ti, não um modelo genérico.': 'A plan built around you, not a generic template.', 'Treino com direção e vídeos de apoio à execução.': 'Structured training with technique videos.',
-    'Treino adaptado': 'Tailored training', 'Ajustes de plano de treino': 'Training plan adjustments', 'Conteúdos demonstrativos do programa Built By Best.': 'Sample content from the Built By Best programme.',
-    'Os resultados do programa serão apresentados com histórias reais de membros, apenas depois de aprovadas. Não publicamos transformações inventadas nem promessas sem contexto.': 'Programme results will be shared through real member stories only after approval. We do not publish fabricated transformations or unsupported promises.',
-    'Falar com a equipa Built By Best': 'Talk to the Built By Best team',
-    'à tua cidade.': 'to your city.', 'Faz parte da expansão de uma marca de ginásios 24H focada em performance, proximidade e experiência de treino.': 'Join the expansion of a 24-hour gym brand focused on performance, local connection and a consistent training experience.',
-    'O BEST GYM está em expansão. Procuramos parceiros interessados em desenvolver novos ginásios com a identidade da marca, mantendo o foco em acesso 24 horas, estrutura de treino e uma experiência consistente para os membros.': 'BEST GYM is expanding. We are looking for partners to develop new gyms under the brand, with 24-hour access, strong training facilities and a consistent member experience.',
-    'Uma proposta de ginásio desenhada para liberdade de horário e utilização autónoma.': 'A gym model designed around flexible hours and independent access.',
-    'Preenche os dados para a equipa avaliar o teu interesse. O contacto é dirigido para': 'Complete the form so our team can review your enquiry. Your message will be sent to', 'Novo ginásio': 'New gym', 'Remodelação de ginásio existente': 'Refurbishment of an existing gym',
-    'Identidade, performance e comunidade dentro e fora do ginásio. Catálogo disponível nas unidades — pede informações à equipa.': 'Identity, performance and community inside and outside the gym. The collection is available at our locations — ask the team for details.',
-    'Toalha de treino compacta e absorvente, em preto ou cinza.': 'Compact, absorbent training towel in black or grey.', 'Saco de treino com espaço para tudo.': 'Training bag with room for all your essentials.',
-    'Disponível na unidade.': 'Available at the gym.', 'Os produtos do BEST GYM são vendidos diretamente nas unidades de Famalicão e Valongo — fala com a equipa para conheceres cores, tamanhos e disponibilidade.': 'BEST GYM products are sold directly at the Famalicão and Valongo gyms — ask the team about colours, sizes and availability.',
-    'Treino, performance, recuperação e comunidade — conteúdo prático da equipa do BEST GYM.': 'Practical training, performance, recovery and community guidance from the BEST GYM team.',
-    'Campanha atual · Férias Off. Gym On.': 'Current campaign · FÉRIAS OFF. GYM ON.', 'Acesso 24 horas, 365 dias': '24-hour access, 365 days a year',
-    'Vais continuar para a plataforma oficial de inscrição (subscribe.mvf.pt), num separador externo e seguro.': 'You will continue to the official registration platform (subscribe.mvf.pt) in a secure new tab.',
-    'Existe campanha ativa?': 'Is there a current campaign?',
-    'Peso livre, cardio, cross training, treino funcional, posing room e personal training. Existem também aulas de grupo em horários definidos, mas o foco principal é o treino de musculação e performance. As áreas podem variar por ginásio.': 'Free weights, cardio, cross training, functional training, a posing room and personal training. Scheduled group classes are also available, while the main focus remains strength and performance training. Facilities may vary by location.',
-    'Usa o formulário de contacto e escolhe o assunto "Built By Best" — a equipa responde-te com os próximos passos.': 'Use the contact form and select “Built By Best” — our team will reply with the next steps.',
-    'O terceiro ginásio do BEST GYM está a nascer em São João da Madeira. Regista o teu interesse e sê dos primeiros a saber a data de abertura e as condições de inauguração.': 'The third BEST GYM location is taking shape in São João da Madeira. Register your interest to be among the first to hear the opening date and launch details.',
-    'Regista o teu interesse': 'Register your interest', 'Deixa o teu contacto e avisamos-te em primeira mão sobre a nova unidade.': 'Leave your details and we will keep you updated on the new gym.',
-    'Dados recolhidos': 'Data collected', '3. Acesso 24 horas': '3. 24-hour access'
-  });
-  Object.assign(T, {
-    'O teu programa de email foi aberto com a mensagem preenchida. Confirma o envio para concluir o contacto.': 'Your email app has opened with the message filled in. Send it to complete your enquiry.',
-    'O teu programa de email foi aberto com a candidatura preenchida. Confirma o envio para concluir.': 'Your email app has opened with the application filled in. Send it to complete your enquiry.',
-    'Interesse registado. Vamos manter-te a par das novidades desta unidade.': 'Interest registered. We will keep you updated on this gym.',
-    'Fechar campanha': 'Close campaign', 'Campanha Férias Off. Gym On.': 'FÉRIAS OFF. GYM ON. campaign'
-  });
-  Object.assign(T, {
-    'Nome *': 'Name *', 'Assunto *': 'Subject *', 'Mensagem *': 'Message *',
-    'Telemóvel *': 'Phone *', 'Capital disponível *': 'Available capital *', 'Local pretendido *': 'Preferred location *',
-    'Tipo de projeto *': 'Project type *', 'Seleciona uma opção': 'Choose an option', 'Cidade de interesse': 'City of interest',
-    'Aceito a Política de Privacidade. *': 'I accept the Privacy Policy. *', 'Aceito a': 'I accept the',
-    'QUERO SER AVISADO': 'KEEP ME UPDATED', 'Quero ser avisado': 'Keep me updated',
-    'Ou segue as novidades no Instagram →': 'Or follow the latest news on Instagram →'
-  });
-
-  Object.assign(T, {
-  "Campanha atual": "Current campaign",
-  "A lista VIP já está aberta.": "The VIP list is open.",
-  "Recebe as novidades de São João da Madeira em primeira mão e acede a condições exclusivas de pré-venda.": "Get São João da Madeira news first and access exclusive pre-sale offers.",
-  "Conhecer a nova unidade": "Explore the new gym",
-  "Entrar na lista VIP": "Join the VIP list",
-  "Cerca de 2.000 m² de área de treino, mais de 100 máquinas e zonas de musculação e cardio. O teu novo espaço de treino está a chegar.": "Around 2,000 m² of training space, over 100 machines and strength and cardio areas. Your new training space is coming.",
-  "Produtos disponíveis nas receções dos ginásios BEST GYM.": "Products available at BEST GYM gym receptions.",
-  "Identidade, performance e comunidade dentro e fora do ginásio. Produtos disponíveis nas receções dos ginásios BEST GYM.": "Identity, performance and community inside and outside the gym. Products available at BEST GYM gym receptions."
-});
-
-  Object.assign(T, {
-  "A quem se destina o Built By Best?": "Who is Built By Best for?",
-  "Um projeto para atletas que querem evoluir e representar o BEST GYM.": "A project for athletes who want to develop and represent BEST GYM.",
-  "Como me posso candidatar?": "How can I apply?",
-  "Abre a página Built By Best e seleciona “Apresentar candidatura”. A equipa analisa cada perfil.": "Open the Built By Best page and select “Apply as an athlete”. The team reviews each profile.",
-  "Built By Best: um projeto para atletas": "Built By Best: a project for athletes",
-  "Conhece o projeto e descobre como te candidatar.": "Explore the project and find out how to apply.",
-  "Conhecer o projeto →": "Explore the project →",
-  "Como aderir": "How to join",
-  "Oferta ativa": "Current offer"
-});
-
-  function translateText(value) {
-    var lead = value.match(/^\s*/)[0], tail = value.match(/\s*$/)[0], core = value.trim();
-    if (!core) return value;
-    var direct = T[core];
-    if (direct) return lead + direct + tail;
-    var numbered = core.match(/^(\d+\.\s*)(.+)$/);
-    if (numbered && T[numbered[2]]) return lead + numbered[1] + T[numbered[2]] + tail;
-    return value;
-  }
-
-  function localizeLinks(root) {
-    var anchors = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('a[href^="/"]:not([data-bg-language-link])') : []);
-    if (root.matches && root.matches('a[href^="/"]:not([data-bg-language-link])')) anchors.unshift(root);
-    anchors.forEach(function (a) {
-      var raw = a.getAttribute('href') || '';
-      var url = new URL(raw, location.origin);
-      var href = url.pathname.replace(/\/+$/, '') || '/';
-      if (english && ROUTES[href]) {
-        var localized = ROUTES[href] + url.search + url.hash;
-        if (raw !== localized) a.setAttribute('href', localized);
-      }
-    });
-  }
+  var attributes = ['aria-label', 'aria-description', 'title', 'placeholder', 'alt', 'cursor'];
+  var selector = ['[data-en]', '[data-en-text]', 'a[href]:not([data-bg-language-link])']
+    .concat(attributes.map(function (attr) { return '[data-en-' + attr + ']'; })).join(',');
 
   function translate(root) {
     if (!english || !root) return;
-    var explicit = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('[data-en]') : []);
-    if (root.matches && root.matches('[data-en]')) explicit.unshift(root);
-    explicit.forEach(function (el) { var value = el.getAttribute('data-en'); if (el.textContent !== value) el.textContent = value; });
-    var images = root.querySelectorAll ? root.querySelectorAll('[data-en-alt]') : [];
-    Array.prototype.forEach.call(images, function (el) { el.setAttribute('alt', el.getAttribute('data-en-alt')); });
-    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    var nodes = [], node;
-    while ((node = walker.nextNode())) {
-      if (!node.parentElement || /^(SCRIPT|STYLE|TEXTAREA)$/.test(node.parentElement.tagName)) continue;
-      nodes.push(node);
-    }
-    nodes.forEach(function (n) { var next = translateText(n.nodeValue); if (next !== n.nodeValue) n.nodeValue = next; });
-    var attributed = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll('[aria-label],[title],[placeholder],img[alt]') : []);
-    if (root.matches && root.matches('[aria-label],[title],[placeholder],img[alt]')) attributed.unshift(root);
-    attributed.forEach(function (el) {
-      ['aria-label', 'title', 'placeholder', 'alt'].forEach(function (attr) {
-        if (el.hasAttribute(attr)) el.setAttribute(attr, translateText(el.getAttribute(attr)));
+    var elements = Array.prototype.slice.call(root.querySelectorAll ? root.querySelectorAll(selector) : []);
+    if (root.matches && root.matches(selector)) elements.unshift(root);
+    elements.forEach(function (el) {
+      var direct = el.getAttribute('data-en');
+      var parts = el.getAttribute('data-en-text');
+      var translations = parts ? JSON.parse(parts) : [direct];
+      var index = 0;
+      if (parts || direct !== null) {
+        el.childNodes.forEach(function (node) {
+          if (node.nodeType !== 3 || !node.nodeValue.trim()) return;
+          var copy = translations[index++];
+          if (copy == null) return;
+          var raw = node.nodeValue;
+          if (raw.trim() === copy.trim()) return;
+          var text = raw.match(/^\s*/)[0] + copy + raw.match(/\s*$/)[0];
+          if (raw !== text) node.nodeValue = text;
+        });
+      }
+      attributes.forEach(function (attr) {
+        var value = el.getAttribute('data-en-' + attr);
+        var target = attr === 'cursor' ? 'data-cursor' : attr;
+        if (value !== null && value !== el.getAttribute(target)) el.setAttribute(target, value);
       });
+      if (el.matches('a[href]:not([data-bg-language-link])')) {
+        var href = el.getAttribute('href');
+        var localized = config.englishHref(href, enPath);
+        if (href !== localized) el.setAttribute('href', localized);
+      }
     });
-    localizeLinks(root);
   }
 
   function addSwitchers() {
@@ -376,7 +63,7 @@
       wrap.innerHTML = '<a data-bg-language-link href="' + ptPath + '" lang="pt-PT"' + (!english ? ' aria-current="page"' : '') + '>PT</a><span aria-hidden="true">/</span><a data-bg-language-link href="' + enPath + '" lang="en"' + (english ? ' aria-current="page"' : '') + '>EN</a>';
       headerButton.parentElement.insertBefore(wrap, headerButton);
     }
-    var drawer = document.querySelector('aside[aria-label="Menu"], aside[aria-label="Menu completo"], aside[aria-label="Full menu"]');
+    var drawer = document.getElementById('bestgym-main-menu');
     if (drawer && !drawer.querySelector('[data-bg-language-switcher]')) {
       var inner = drawer.children[1];
       if (inner) {
@@ -393,22 +80,20 @@
     if (link) localStorage.setItem('bestgym-language', link.getAttribute('lang') === 'en' ? 'en' : 'pt-PT');
   });
   if (document.body) run(document.body); else document.addEventListener('DOMContentLoaded', function () { run(document.body); }, { once: true });
-  var queued = false;
-  var pending = [];
   new MutationObserver(function (records) {
+    var pending = new Set();
     records.forEach(function (record) {
-      if (record.type === 'childList') record.addedNodes.forEach(function (node) { if (node.nodeType === 1) pending.push(node); else if (node.nodeType === 3 && node.parentElement) pending.push(node.parentElement); });
-      else if (record.type === 'characterData' && record.target.parentElement) pending.push(record.target.parentElement);
-      else if (record.target && record.target.nodeType === 1) pending.push(record.target);
+      if (record.type === 'childList') record.addedNodes.forEach(function (node) { if (node.nodeType === 1) pending.add(node); else if (node.nodeType === 3 && node.parentElement) pending.add(node.parentElement); });
+      else if (record.type === 'characterData' && record.target.parentElement) pending.add(record.target.parentElement);
+      else if (record.target && record.target.nodeType === 1) pending.add(record.target);
     });
-    if (queued) return; queued = true;
-    requestAnimationFrame(function () {
-      queued = false;
-      var roots = pending.splice(0, pending.length);
-      roots.forEach(function (root, index) { if (roots.indexOf(root) === index) translate(root); });
-      addSwitchers();
+    pending.forEach(function (root) {
+      if (!root.isConnected) return;
+      for (var parent = root.parentElement; parent; parent = parent.parentElement) if (pending.has(parent)) return;
+      translate(root);
     });
+    addSwitchers();
   }).observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['href'] });
 
-  window.BGLocale = Object.freeze({ language: english ? 'en' : 'pt-PT', isEnglish: english, ptPath: ptPath, enPath: enPath, routes: ROUTES, translate: translateText });
+  window.BGLocale = Object.freeze({ language: english ? 'en' : 'pt-PT', isEnglish: english, ptPath: ptPath, enPath: enPath, routes: ROUTES });
 })();

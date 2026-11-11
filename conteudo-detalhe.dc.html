@@ -32,37 +32,37 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <article>
       <header data-screen-label="Cabeçalho do artigo" style="max-width: 800px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px) clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 16px;">
-        <a href="/conteudos" style="text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">← Voltar aos conteúdos</a>
+        <a href="/conteudos" style="text-decoration: none; color: var(--text-muted); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;" data-en="← Back to content">← Voltar aos conteúdos</a>
         <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">Treino</span>
-          <span style="font-size: 13px; color: var(--text-faint);">10 Julho 2026 · 6 min de leitura</span>
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);" data-en="Training">Treino</span>
+          <span style="font-size: 13px; color: var(--text-faint);" data-en="10 July 2026 · 6 min read">10 Julho 2026 · 6 min de leitura</span>
         </div>
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,180px">Como estruturar a tua <span style="color: var(--best-red)">semana de treino</span></x-import>
-        <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: var(--text-muted);">Princípios simples para organizar sessões, recuperação e progressão — sem planos impossíveis de cumprir.</p>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" as="h1" hint-size="100%,180px" data-en-text="[&quot;How to structure your&quot;]">Como estruturar a tua <span style="color: var(--best-red)" data-en="training week">semana de treino</span></x-import>
+        <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: var(--text-muted);" data-en="Simple principles for organising sessions, recovery and progress — without impossible plans.">Princípios simples para organizar sessões, recuperação e progressão — sem planos impossíveis de cumprir.</p>
       </header>
       <div style="max-width: 1000px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px);">
         <div style="position: relative; aspect-ratio: 16 / 8; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="detalhe-capa" src="assets/img/artigo-planeamento.jpg" shape="rect" placeholder="Imagem de capa do artigo" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="detalhe-capa" src="assets/img/artigo-planeamento.jpg" shape="rect" placeholder="Imagem de capa do artigo" hint-size="100%,100%" data-en-placeholder="Article cover image"></x-import>
         </div>
       </div>
       <div data-screen-label="Corpo do artigo" style="max-width: 720px; margin: 0 auto; padding: clamp(36px, 5vw, 56px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 22px; font-size: 17px; line-height: 1.75;">
-        <p style="margin: 0;">A pergunta mais comum de quem começa — ou recomeça — é sempre a mesma: quantas vezes devo treinar por semana? A resposta certa é a que consegues cumprir de forma consistente durante meses, não a mais ambiciosa.</p>
-        <h2 style="margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">Começa pela frequência realista</h2>
-        <p style="margin: 0;">Três sessões bem executadas valem mais do que seis planeadas e duas cumpridas. Define primeiro os dias em que o treino cabe de facto na tua vida — com o acesso 24 horas, o horário deixa de ser desculpa.</p>
-        <blockquote style="margin: 8px 0; padding: 20px 26px; border-left: 4px solid var(--best-red); background: var(--surface-1); border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.5;">A consistência ganha sempre ao plano perfeito.</blockquote>
-        <h2 style="margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">Distribui o estímulo</h2>
-        <p style="margin: 0;">Alterna grupos musculares e intensidades ao longo da semana. Junta uma sessão mais leve de cardio ou mobilidade entre os treinos de força — a recuperação faz parte do progresso, não é tempo perdido.</p>
+        <p style="margin: 0;" data-en="The most common question when starting — or starting again — is how often to train. The right answer is the schedule you can sustain for months, not the most ambitious one.">A pergunta mais comum de quem começa — ou recomeça — é sempre a mesma: quantas vezes devo treinar por semana? A resposta certa é a que consegues cumprir de forma consistente durante meses, não a mais ambiciosa.</p>
+        <h2 style="margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; text-transform: uppercase; color: var(--ink); line-height: 1.05;" data-en="Start with a realistic frequency">Começa pela frequência realista</h2>
+        <p style="margin: 0;" data-en="Three well-executed sessions are worth more than six planned and only two completed. Choose the days that genuinely fit your life — with 24-hour access, scheduling is no longer a barrier.">Três sessões bem executadas valem mais do que seis planeadas e duas cumpridas. Define primeiro os dias em que o treino cabe de facto na tua vida — com o acesso 24 horas, o horário deixa de ser desculpa.</p>
+        <blockquote style="margin: 8px 0; padding: 20px 26px; border-left: 4px solid var(--best-red); background: var(--surface-1); border-radius: 0 12px 12px 0; font-size: 19px; font-weight: 500; color: var(--ink); line-height: 1.5;" data-en="Consistency always beats the perfect plan.">A consistência ganha sempre ao plano perfeito.</blockquote>
+        <h2 style="margin: 12px 0 0; font-family: var(--font-display); font-weight: 400; font-size: 32px; text-transform: uppercase; color: var(--ink); line-height: 1.05;" data-en="Distribute the training stimulus">Distribui o estímulo</h2>
+        <p style="margin: 0;" data-en="Alternate muscle groups and intensity throughout the week. Add a lighter cardio or mobility session between strength workouts — recovery is part of progress, not wasted time.">Alterna grupos musculares e intensidades ao longo da semana. Junta uma sessão mais leve de cardio ou mobilidade entre os treinos de força — a recuperação faz parte do progresso, não é tempo perdido.</p>
         <p style="margin: 0;"><span data-en="Explore the BEST GYM athlete project on the">Para conheceres o projeto do BEST GYM para atletas, visita a página</span> <a href="/built-by-best">Built By Best</a><span data-en=" page.">.</span></p>
         <div style="border-top: 1px solid var(--line); padding-top: 22px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
           <div style="display: flex; align-items: center; gap: 14px;">
             <span style="width: 46px; height: 46px; border-radius: 50%; background: var(--red-wash); color: var(--best-red); display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px;">BG</span>
             <div style="display: flex; flex-direction: column;">
-              <span style="font-weight: 600; font-size: 14px; color: var(--ink);">Equipa do BEST GYM</span>
-              <span style="font-size: 12.5px; color: var(--text-faint);">Conteúdo de treino · revisto pela equipa técnica</span>
+              <span style="font-weight: 600; font-size: 14px; color: var(--ink);" data-en="BEST GYM team">Equipa do BEST GYM</span>
+              <span style="font-size: 12.5px; color: var(--text-faint);" data-en="Training content · reviewed by the technical team">Conteúdo de treino · revisto pela equipa técnica</span>
             </div>
           </div>
           <div style="display: flex; gap: 12px;">
-            <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none; font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border: 1.5px solid var(--line-strong); border-radius: 999px; padding: 9px 16px;" style-hover="color: var(--best-red); border-color: var(--best-red);">Partilhar</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" style="text-decoration: none; font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border: 1.5px solid var(--line-strong); border-radius: 999px; padding: 9px 16px;" style-hover="color: var(--best-red); border-color: var(--best-red);" data-en="Share">Partilhar</a>
           </div>
         </div>
       </div>
@@ -70,19 +70,19 @@
 
     <section data-screen-label="Relacionados" style="background: var(--surface-1); border-top: 1px solid var(--line);">
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Conteúdos relacionados</x-import>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px" data-en="Related content">Conteúdos relacionados</x-import>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px;">
           <a href="/conteudos" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 8px;" style-hover="box-shadow: var(--shadow-md);">
             <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">Performance</span>
-            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">Consistência: o multiplicador de resultados</span>
+            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;" data-en="Consistency: the key to better results">Consistência: o multiplicador de resultados</span>
           </a>
           <a href="/conteudos" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 8px;" style-hover="box-shadow: var(--shadow-md);">
-            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">Recuperação</span>
-            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">Dormir bem também é treinar</span>
+            <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);" data-en="Recovery">Recuperação</span>
+            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;" data-en="Sleep is part of training">Dormir bem também é treinar</span>
           </a>
           <a href="/conteudos" style="text-decoration: none; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 8px;" style-hover="box-shadow: var(--shadow-md);">
             <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--best-red);">Built By Best</span>
-            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;">Dentro do programa: como funciona um check-in</span>
+            <span style="font-family: var(--font-display); font-size: 22px; text-transform: uppercase; color: var(--ink); line-height: 1.05;" data-en="Built By Best: a project for athletes">Dentro do programa: como funciona um check-in</span>
           </a>
         </div>
       </div>

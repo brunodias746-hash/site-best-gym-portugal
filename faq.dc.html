@@ -31,8 +31,8 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero FAQ" style="max-width: 900px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px) clamp(24px, 3vw, 40px); display: flex; flex-direction: column; gap: 18px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px">Tens <span style="color: var(--best-red)">dúvidas?</span></x-import>
-      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Respostas rápidas sobre inscrição, horários, unidades, Built By Best e produtos. Não encontras o que procuras? <a href="/contactos">Fala connosco</a>.</p>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,140px" data-en-text="[&quot;Have&quot;]">Tens <span style="color: var(--best-red)" data-en="questions?">dúvidas?</span></x-import>
+      <p style="margin: 0; max-width: 56ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en-text="[&quot;Clear answers about registration, access, gyms, Built By Best and products. Cannot find what you need?&quot;,null]">Respostas rápidas sobre inscrição, horários, unidades, Built By Best e produtos. Não encontras o que procuras? <a href="/contactos" data-en="Contact us">Fala connosco</a>.</p>
     </section>
 
     <section data-screen-label="Categorias FAQ" style="max-width: 900px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: flex; flex-direction: column; gap: 40px;">
@@ -43,10 +43,10 @@
         </div>
       </sc-for>
       <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
-        <span style="font-size: 15px; color: var(--text-body);">Ainda com dúvidas? A equipa responde-te rapidamente.</span>
+        <span style="font-size: 15px; color: var(--text-body);" data-en="Still have questions? Our team will respond quickly.">Ainda com dúvidas? A equipa responde-te rapidamente.</span>
         <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-          <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="180px,48px">Fala connosco</x-import></a>
-          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px">Inscreve-te</x-import></a>
+          <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="180px,48px" data-en="Contact us">Fala connosco</x-import></a>
+          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" hint-size="170px,48px" data-en="Join now">Inscreve-te</x-import></a>
         </div>
       </div>
     </section>
@@ -57,30 +57,32 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     const campaign = window.BGSiteConfig.campaign[window.BGPageLocale?.english ? 'en' : 'pt'];
     return {
       groups: [
-        { name: 'Inscrição', items: [
-          { q: 'Como posso inscrever-me?', a: 'A inscrição é feita online, na plataforma oficial. Escolhe a unidade, consulta as condições e conclui o processo em poucos minutos.' },
-          { q: 'Posso escolher a unidade?', a: 'Sim. Durante a inscrição escolhes Vila Nova de Famalicão ou Valongo.' },
-          { q: 'Existe campanha ativa?', a: campaign.offer + '. ' + campaign.terms },
+        { name: copy('Inscrição', "Membership"), items: [
+          { q: copy('Como posso inscrever-me?', "How can I join?"), a: copy('A inscrição é feita online, na plataforma oficial. Escolhe a unidade, consulta as condições e conclui o processo em poucos minutos.', "Registration is completed online on the official platform. Choose your gym, view the conditions and finish in a few minutes.") },
+          { q: copy('Posso escolher a unidade?', "Can I choose my gym?"), a: copy('Sim. Durante a inscrição escolhes Vila Nova de Famalicão ou Valongo.', "Yes. During registration, choose Vila Nova de Famalicão or Valongo.") },
+          { q: copy('Existe campanha ativa?', "Is there a current campaign?"), a: campaign.offer + '. ' + campaign.terms },
         ]},
-        { name: 'Horários', items: [
-          { q: 'O ginásio está aberto 24 horas?', a: 'Sim. Os ginásios ativos do BEST GYM funcionam 24 horas por dia, 7 dias por semana, 365 dias por ano.' },
-          { q: 'Como funciona o acesso?', a: 'O acesso é autónomo e pessoal. Depois da inscrição recebes o teu meio de acesso e entras a qualquer hora.' },
+        { name: copy('Horários', "Opening hours"), items: [
+          { q: copy('O ginásio está aberto 24 horas?', "Is the gym open 24 hours?"), a: copy('Sim. Os ginásios ativos do BEST GYM funcionam 24 horas por dia, 7 dias por semana, 365 dias por ano.', "Yes. Active BEST GYM locations are open 24 hours a day, 7 days a week, 365 days a year.") },
+          { q: copy('Como funciona o acesso?', "How does access work?"), a: copy('O acesso é autónomo e pessoal. Depois da inscrição recebes o teu meio de acesso e entras a qualquer hora.', "Access is independent and personal. After registration, you receive your access credential and can enter at any time.") },
         ]},
-        { name: 'Unidades', items: [
-          { q: 'Que áreas de treino existem?', a: 'Peso livre, cardio, cross training, treino funcional, posing room e personal training. Existem também aulas de grupo em horários definidos, mas o foco principal é o treino de musculação e performance. As áreas podem variar por ginásio.' },
-          { q: 'Existem duches?', a: 'Sim, ambas as unidades dispõem de balneários com duches.' },
-          { q: 'Como posso visitar a unidade?', a: 'Contacta a unidade por telefone ou email e agenda uma visita com a equipa.' },
+        { name: copy('Unidades', "Gyms"), items: [
+          { q: copy('Que áreas de treino existem?', "What training areas are available?"), a: copy('Peso livre, cardio, cross training, treino funcional, posing room e personal training. Existem também aulas de grupo em horários definidos, mas o foco principal é o treino de musculação e performance. As áreas podem variar por ginásio.', "Free weights, cardio, cross training, functional training, a posing room and personal training. Scheduled group classes are also available, while the main focus remains strength and performance training. Facilities may vary by location.") },
+          { q: copy('Existem duches?', "Are showers available?"), a: copy('Sim, ambas as unidades dispõem de balneários com duches.', "Yes, both gyms have changing rooms with showers.") },
+          { q: copy('Como posso visitar a unidade?', "How can I visit the gym?"), a: copy('Contacta a unidade por telefone ou email e agenda uma visita com a equipa.', "Contact the gym by phone or email to arrange a visit with the team.") },
         ]},
         { name: 'Built By Best', items: [
-          { q: 'A quem se destina o Built By Best?', a: 'Um projeto para atletas que querem evoluir e representar o BEST GYM.' },
-          { q: 'Como me posso candidatar?', a: 'Abre a página Built By Best e seleciona “Apresentar candidatura”. A equipa analisa cada perfil.' },
+          { q: copy('A quem se destina o Built By Best?', "Who is Built By Best for?"), a: copy('Um projeto para atletas que querem evoluir e representar o BEST GYM.', "A project for athletes who want to develop and represent BEST GYM.") },
+          { q: copy('Como me posso candidatar?', "How can I apply?"), a: copy('Abre a página Built By Best e seleciona “Apresentar candidatura”. A equipa analisa cada perfil.', "Open the Built By Best page and select “Apply as an athlete”. The team reviews each profile.") },
         ]},
-        { name: 'Produtos', items: [
-          { q: 'Onde posso comprar?', a: 'Os produtos do BEST GYM estão disponíveis diretamente nas unidades de Famalicão e Valongo.' },
-          { q: 'Existe venda online?', a: 'De momento não. O catálogo online serve para consulta — a compra é feita na unidade.' },
+        { name: copy('Produtos', "Products"), items: [
+          { q: copy('Onde posso comprar?', "Where can I buy the products?"), a: copy('Os produtos do BEST GYM estão disponíveis diretamente nas unidades de Famalicão e Valongo.', "BEST GYM products are available directly at the Famalicão and Valongo gyms.") },
+          { q: copy('Existe venda online?', "Can I buy online?"), a: copy('De momento não. O catálogo online serve para consulta — a compra é feita na unidade.', "Not at present. The online catalogue is for reference — purchases are made at the gym.") },
         ]},
       ],
     };

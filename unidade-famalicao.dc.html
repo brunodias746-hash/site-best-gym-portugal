@@ -33,16 +33,16 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero unidade" style="position: relative; height: min(72vh, 680px); min-height: 460px; background: var(--invert-1); overflow: hidden;">
       <div style="position: absolute; inset: 0;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="famalicao-hero" src="assets/img/units/famalicao-overview-2026.webp" shape="rect" placeholder="Foto principal — Best Gym Famalicão" hint-size="100%,100%"></x-import>
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="famalicao-hero" src="assets/img/units/famalicao-overview-2026.webp" shape="rect" placeholder="Foto principal — Best Gym Famalicão" hint-size="100%,100%" data-en-placeholder="BEST GYM Famalicão"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: var(--overlay-read); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none;">
         <span class="bg-eyebrow" data-en="Gym 01 · Open 24H">Unidade 01 · Aberto 24H</span>
         <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" as="h1" hint-size="100%,140px">Best Gym <span style="color: var(--best-red)">Famalicão</span></x-import>
-        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);">Uma estrutura completa para transformar consistência em performance.</p>
+        <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);" data-en="Complete facilities that turn consistency into performance.">Uma estrutura completa para transformar consistência em performance.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; pointer-events: auto;">
-          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
-          <a href="https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="200px,56px">Abrir no mapa</x-import></a>
+          <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Join now">Inscreve-te agora</x-import></a>
+          <a href="https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao" target="_blank" rel="noopener" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" size="lg" hint-size="200px,56px" data-en="Open in Maps">Abrir no mapa</x-import></a>
         </div>
       </div>
     </section>
@@ -50,15 +50,15 @@
     <section data-screen-label="Introdução" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px);">
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: start;">
         <div style="display: flex; flex-direction: column; gap: 18px;">
-          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,160px">Performance em <span style="color: var(--best-red)">Vila Nova de Famalicão.</span></x-import>
-          <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Uma unidade moderna, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.</p>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h1" hint-size="100%,160px" data-en-text="[&quot;Performance in&quot;]">Performance em <span style="color: var(--best-red)">Vila Nova de Famalicão.</span></x-import>
+          <p style="margin: 0; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="A modern gym with dedicated training areas, equipment for different goals and an active community. Independent 24-hour access lets you train whenever it suits you.">Uma unidade moderna, com diferentes zonas de treino, equipamento preparado para vários objetivos e uma comunidade ativa. Acesso autónomo 24 horas por dia — treinas quando fizer sentido para ti.</p>
         </div>
         <div style="background: var(--surface-1); border: 1px solid var(--line); border-radius: 16px; padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-sm);">
-          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);">Informação</span>
+          <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--best-red);" data-en="Information">Informação</span>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
-            <span><strong style="color: var(--ink);">Morada</strong><br>Avenida Centenário da República, D68, Calendário · 4760-859 Vila Nova de Famalicão</span>
-            <span><strong style="color: var(--ink);">Horário</strong><br>24 horas · 7 dias por semana · 365 dias por ano</span>
-            <a href="tel:+351925908404" style="text-decoration: none; color: var(--text-body);"><strong style="color: var(--ink);">Telefone</strong><br>+351 925 908 404</a>
+            <span><strong style="color: var(--ink);" data-en="Address">Morada</strong><br>Avenida Centenário da República, D68, Calendário · 4760-859 Vila Nova de Famalicão</span>
+            <span data-en-text="[&quot;24 hours · 7 days a week · 365 days a year&quot;]"><strong style="color: var(--ink);" data-en="Opening hours">Horário</strong><br>24 horas · 7 dias por semana · 365 dias por ano</span>
+            <a href="tel:+351925908404" style="text-decoration: none; color: var(--text-body);"><strong style="color: var(--ink);" data-en="Phone">Telefone</strong><br>+351 925 908 404</a>
             <a href="mailto:famalicao@bestgym.pt" style="text-decoration: none; color: var(--text-body);"><strong style="color: var(--ink);">Email</strong><br>famalicao@bestgym.pt</a>
           </div>
         </div>
@@ -67,7 +67,7 @@
 
     <section data-screen-label="Áreas de treino" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
       <div style="max-width: 1280px; margin: 0 auto; padding: clamp(48px, 7vw, 88px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 28px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Áreas de treino</x-import>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px" data-en="Training areas">Áreas de treino</x-import>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
           <sc-for list="{{ trainingAreas }}" as="t" hint-placeholder-count="7">
             <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;">
@@ -83,14 +83,14 @@
     <section data-screen-label="Acesso 24h" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px);">
       <div data-two-col style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center;">
         <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md);">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="famalicao-acesso" src="assets/img/units/famalicao-overview-2026.webp" shape="rect" placeholder="Área de treino do BEST GYM Famalicão" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="famalicao-acesso" src="assets/img/units/famalicao-overview-2026.webp" shape="rect" placeholder="Área de treino do BEST GYM Famalicão" hint-size="100%,100%" data-en-placeholder="Training area at BEST GYM Famalicão"></x-import>
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px;">
-          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px">Entra e treina <span style="color: var(--best-red)">quando quiseres.</span></x-import>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px" data-en-text="[&quot;Come in and train&quot;]">Entra e treina <span style="color: var(--best-red)" data-en="whenever it suits you.">quando quiseres.</span></x-import>
           <div style="display: flex; flex-direction: column; gap: 14px;">
-            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">01</span><span style="font-size: 15px; line-height: 1.6;">Faz a tua inscrição e escolhe a unidade de Famalicão.</span></div>
-            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">02</span><span style="font-size: 15px; line-height: 1.6;">Recebe o teu acesso pessoal de entrada autónoma.</span></div>
-            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">03</span><span style="font-size: 15px; line-height: 1.6;">Treina a qualquer hora, todos os dias do ano — sem exceções.</span></div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">01</span><span style="font-size: 15px; line-height: 1.6;" data-en="Register and choose the Famalicão gym.">Faz a tua inscrição e escolhe a unidade de Famalicão.</span></div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">02</span><span style="font-size: 15px; line-height: 1.6;" data-en="Receive your personal access credential.">Recebe o teu acesso pessoal de entrada autónoma.</span></div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;"><span style="font-family: var(--font-display); font-size: 22px; color: var(--best-red); line-height: 1;">03</span><span style="font-size: 15px; line-height: 1.6;" data-en="Train at any time, every day of the year — without exceptions.">Treina a qualquer hora, todos os dias do ano — sem exceções.</span></div>
           </div>
         </div>
       </div>
@@ -117,17 +117,17 @@
 
     <section data-screen-label="FAQ da unidade" style="background: var(--surface-1); border-top: 1px solid var(--line);">
       <div style="max-width: 900px; margin: 0 auto; padding: clamp(48px, 7vw, 88px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 24px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Perguntas frequentes</x-import>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px" data-en="Frequently asked questions">Perguntas frequentes</x-import>
         <x-import component-from-global-scope="DesignSystem_6952b0.Accordion" items="{{ faqItems }}" hint-size="100%,280px"></x-import>
-        <a href="/faq" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;">Ver todas as perguntas →</a>
+        <a href="/faq" style="text-decoration: none; color: var(--best-red); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;" data-en="View all questions →">Ver todas as perguntas →</a>
       </div>
     </section>
 
     <section data-screen-label="CTA final" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="55%,60px">Começa a treinar em Famalicão <span style="color: var(--best-red)">hoje.</span></x-import>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="55%,60px" data-en-text="[&quot;Start training in Famalicão&quot;]">Começa a treinar em Famalicão <span style="color: var(--best-red)" data-en="today.">hoje.</span></x-import>
       <div style="display: flex; flex-wrap: wrap; gap: 14px;">
-        <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
-        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" size="lg" hint-size="200px,56px">Fala connosco</x-import></a>
+        <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Join now">Inscreve-te agora</x-import></a>
+        <a href="/contactos" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="outline" data-ds-btn="outline" size="lg" hint-size="200px,56px" data-en="Contact us">Fala connosco</x-import></a>
       </div>
     </section>
   </main>
@@ -137,20 +137,22 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     return {
       trainingAreas: [
-        { name: 'Peso Livre', desc: 'Racks, barras e halteres para treino de força.' },
-        { name: 'Cardio', desc: 'Passadeiras, bicicletas, remos e elípticas.' },
-        { name: 'Cross Training', desc: 'Zona funcional para alta intensidade.' },
-        { name: 'Treino Funcional', desc: 'Circuitos de condicionamento metabólico.' },
-        { name: 'Posing Room', desc: 'Sala de posing com espelhos e iluminação.' },
-        { name: 'Personal Training', desc: 'Acompanhamento individual com planeamento.' },
+        { name: copy('Peso Livre', "Free Weights"), desc: copy('Racks, barras e halteres para treino de força.', "Racks, barbells and dumbbells for strength training.") },
+        { name: 'Cardio', desc: copy('Passadeiras, bicicletas, remos e elípticas.', "Treadmills, bikes, rowing machines and ellipticals.") },
+        { name: 'Cross Training', desc: copy('Zona funcional para alta intensidade.', "Functional area for high-intensity training.") },
+        { name: copy('Treino Funcional', "Functional Training"), desc: copy('Circuitos de condicionamento metabólico.', "Metabolic conditioning circuits.") },
+        { name: 'Posing Room', desc: copy('Sala de posing com espelhos e iluminação.', "Posing room with mirrors and lighting.") },
+        { name: 'Personal Training', desc: copy('Acompanhamento individual com planeamento.', "One-to-one coaching with a structured training plan.") },
       ],
       faqItems: [
-        { q: 'O ginásio está mesmo aberto 24 horas?', a: 'Sim. O acesso é autónomo e funciona 24 horas por dia, 7 dias por semana, 365 dias por ano.' },
-        { q: 'Como posso visitar a unidade?', a: 'Fala connosco por telefone ou email e agenda uma visita com a equipa da unidade.' },
-        { q: 'Existem duches e balneários?', a: 'Sim, a unidade dispõe de balneários com duches.' },
-        { q: 'Como me inscrevo nesta unidade?', a: 'A inscrição é feita online na plataforma oficial — escolhe a unidade de Famalicão durante o processo.' },
+        { q: copy('O ginásio está mesmo aberto 24 horas?', "Is the gym open 24 hours a day?"), a: copy('Sim. O acesso é autónomo e funciona 24 horas por dia, 7 dias por semana, 365 dias por ano.', "Yes. Independent access is available 24 hours a day, 7 days a week, 365 days a year.") },
+        { q: copy('Como posso visitar a unidade?', "How can I visit the gym?"), a: copy('Fala connosco por telefone ou email e agenda uma visita com a equipa da unidade.', "Call or email us to arrange a visit with the gym team.") },
+        { q: copy('Existem duches e balneários?', "Are there changing rooms and showers?"), a: copy('Sim, a unidade dispõe de balneários com duches.', "Yes. The gym has changing rooms with showers.") },
+        { q: copy('Como me inscrevo nesta unidade?', "How do I join this gym?"), a: copy('A inscrição é feita online na plataforma oficial — escolhe a unidade de Famalicão durante o processo.', "Registration is completed online on the official platform — choose the Famalicão gym during the process.") },
       ],
     };
   }

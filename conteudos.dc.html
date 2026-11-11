@@ -32,18 +32,18 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero conteúdos" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px) clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 18px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px">Conhecimento <span style="color: var(--best-red)">que rende.</span></x-import>
-      <p style="margin: 0; max-width: 58ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">Treino, performance, recuperação e comunidade — conteúdo prático da equipa do BEST GYM.</p>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px" data-en-text="[&quot;Knowledge&quot;]">Conhecimento <span style="color: var(--best-red)" data-en="that pays off.">que rende.</span></x-import>
+      <p style="margin: 0; max-width: 58ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="Practical training, performance, recovery and community guidance from the BEST GYM team.">Treino, performance, recuperação e comunidade — conteúdo prático da equipa do BEST GYM.</p>
     </section>
 
     <section data-screen-label="Hub de conteúdos" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(64px, 9vw, 112px); display: flex; flex-direction: column; gap: 28px;">
       <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;">
-        <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;">
+        <div role="tablist" aria-label="Categorias" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px;" data-en-aria-label="Categories">
           <sc-for list="{{ filters }}" as="f" hint-placeholder-count="7">
             <button role="tab" onClick="{{ f.select }}" style="flex: 0 0 auto; cursor: pointer; font-family: var(--font-text); font-weight: 600; font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase; padding: 11px 18px; border-radius: 999px; border: 1.5px solid {{ f.border }}; background: {{ f.bg }}; color: {{ f.color }}; transition: all 0.25s;">{{ f.name }}</button>
           </sc-for>
         </div>
-        <input type="search" placeholder="Pesquisar conteúdos" aria-label="Pesquisar" onInput="{{ onSearch }}" style="font-family: var(--font-text); font-size: 16px; padding: 12px 16px; border: 1.5px solid var(--line-strong); border-radius: 999px; background: var(--surface-1); color: var(--ink); outline: none; min-width: 220px;">
+        <input type="search" placeholder="Pesquisar conteúdos" aria-label="Pesquisar" onInput="{{ onSearch }}" style="font-family: var(--font-text); font-size: 16px; padding: 12px 16px; border: 1.5px solid var(--line-strong); border-radius: 999px; background: var(--surface-1); color: var(--ink); outline: none; min-width: 220px;" data-en-aria-label="Search" data-en-placeholder="Search articles">
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px;">
         <sc-for list="{{ articles }}" as="art" hint-placeholder-count="6">
@@ -64,8 +64,8 @@
         </sc-for>
       </div>
       <div style="display: {{ emptyDisplay }}; background: var(--surface-1); border: 1.5px dashed var(--line-strong); border-radius: 14px; padding: 40px; text-align: center; flex-direction: column; gap: 8px; align-items: center;">
-        <span style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; color: var(--ink);">Sem resultados</span>
-        <span style="font-size: 14px; color: var(--text-muted);">Experimenta outra pesquisa ou categoria.</span>
+        <span style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; color: var(--ink);" data-en="No results">Sem resultados</span>
+        <span style="font-size: 14px; color: var(--text-muted);" data-en="Try another search or category.">Experimenta outra pesquisa ou categoria.</span>
       </div>
     </section>
   </main>
@@ -76,27 +76,30 @@
 class Component extends DCLogic {
   state = { filter: 0, query: '' };
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     const filters = ['Todos', 'Treino', 'Performance', 'Recuperação', 'Comunidade', 'Eventos', 'Built By Best'];
     const data = [
-      ['Treino', 'Como estruturar a tua semana de treino', 'Princípios simples para organizar sessões, recuperação e progressão.', '10 Jul 2026', 'hub-semana', 'assets/img/artigo-planeamento.jpg'],
-      ['Performance', 'Consistência: o multiplicador de resultados', 'Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', '02 Jul 2026', 'hub-consistencia', 'assets/img/hero-performance.jpg'],
-      ['Recuperação', 'Dormir bem também é treinar', 'O papel do sono na recuperação e na performance diária.', '24 Jun 2026', 'hub-sono', 'assets/img/artigo-recuperacao.jpg'],
-      ['Comunidade', 'Treinar acompanhado muda tudo', 'O papel da comunidade na motivação e na evolução a longo prazo.', '15 Jun 2026', 'hub-comunidade', 'assets/img/hero-performance.jpg'],
-      ['Eventos', 'O que aconteceu no último evento Best Gym', 'Resumo da atividade que juntou membros dos ginásios do BEST GYM.', '05 Jun 2026', 'hub-evento', 'assets/img/hero-performance.jpg'],
-      ['Built By Best', 'Built By Best: um projeto para atletas', 'Conhece o projeto e descobre como te candidatar.', '', 'hub-checkin', 'pillar-performance-final.jpg'],
+      ['Treino', copy('Como estruturar a tua semana de treino', "How to structure your training week"), copy('Princípios simples para organizar sessões, recuperação e progressão.', "Simple principles for organising workouts, recovery and progress."), '10 Jul 2026', 'hub-semana', 'assets/img/artigo-planeamento.jpg'],
+      ['Performance', copy('Consistência: o multiplicador de resultados', "Consistency: the key to better results"), copy('Porque é que aparecer todos os dias vale mais do que qualquer plano perfeito.', "Why showing up consistently matters more than a perfect plan."), '02 Jul 2026', 'hub-consistencia', 'assets/img/hero-performance.jpg'],
+      ['Recuperação', copy('Dormir bem também é treinar', "Sleep is part of training"), copy('O papel do sono na recuperação e na performance diária.', "How sleep supports recovery and everyday performance."), '24 Jun 2026', 'hub-sono', 'assets/img/artigo-recuperacao.jpg'],
+      ['Comunidade', copy('Treinar acompanhado muda tudo', "Training together makes a difference"), copy('O papel da comunidade na motivação e na evolução a longo prazo.', "How community supports motivation and long-term progress."), '15 Jun 2026', 'hub-comunidade', 'assets/img/hero-performance.jpg'],
+      ['Eventos', copy('O que aconteceu no último evento Best Gym', "What happened at the last BEST GYM event"), copy('Resumo da atividade que juntou membros dos ginásios do BEST GYM.', "A recap of the event that brought BEST GYM members together."), '05 Jun 2026', 'hub-evento', 'assets/img/hero-performance.jpg'],
+      ['Built By Best', copy('Built By Best: um projeto para atletas', "Built By Best: a project for athletes"), copy('Conhece o projeto e descobre como te candidatar.', "Explore the project and find out how to apply."), '', 'hub-checkin', 'pillar-performance-final.jpg'],
     ];
     const active = filters[this.state.filter];
+    const category = { Todos: copy('Todos', 'All'), Treino: copy('Treino', 'Training'), Performance: 'Performance', Recuperação: copy('Recuperação', 'Recovery'), Comunidade: copy('Comunidade', 'Community'), Eventos: copy('Eventos', 'Events'), 'Built By Best': 'Built By Best' };
     const q = this.state.query.toLowerCase();
     const articles = data.map(([cat, title, excerpt, date, slotId, slotSrc]) => {
       const catOk = active === 'Todos' || cat === active;
-      const qOk = !q || (title + ' ' + excerpt + ' ' + cat).toLowerCase().includes(q);
+      const qOk = !q || (title + ' ' + excerpt + ' ' + category[cat]).toLowerCase().includes(q);
       const athleteProject = cat === 'Built By Best';
-      return { cat, title, excerpt, date, slotId, slotSrc, slotLabel: 'Capa artigo — ' + title, display: catOk && qOk ? 'flex' : 'none',
-        href: athleteProject ? '/built-by-best' : '/conteudo-detalhe', action: athleteProject ? 'Conhecer o projeto →' : 'Ler artigo →' };
+      return { cat: category[cat], title, excerpt, date, slotId, slotSrc, slotLabel: copy('Capa artigo — ', "Article cover — ") + title, display: catOk && qOk ? 'flex' : 'none',
+        href: athleteProject ? '/built-by-best' : '/conteudo-detalhe', action: athleteProject ? copy('Conhecer o projeto →', "Learn about the project →") : copy('Ler artigo →', "Read article →") };
     });
     return {
       filters: filters.map((name, i) => ({
-        name,
+        name: category[name],
         select: () => this.setState({ filter: i }),
         bg: i === this.state.filter ? 'var(--best-red)' : 'transparent',
         color: i === this.state.filter ? 'var(--white)' : 'var(--ink)',

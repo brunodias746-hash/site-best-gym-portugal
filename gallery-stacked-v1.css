@@ -13,7 +13,7 @@ section[data-screen-label="Áreas de treino"].best-stack-v2 .best-stack-original
 
 /* Original rail becomes the stage. */
 section[data-screen-label="Áreas de treino"].best-stack-v2
-[aria-label="Áreas de treino — carrossel"] {
+[data-bg-training-rail] {
   position: relative !important;
   overflow: hidden !important;
   cursor: grab !important;
@@ -24,14 +24,14 @@ section[data-screen-label="Áreas de treino"].best-stack-v2
 }
 
 section[data-screen-label="Áreas de treino"].best-stack-v2
-[aria-label="Áreas de treino — carrossel"].is-dragging {
+[data-bg-training-rail].is-dragging {
   cursor: grabbing !important;
 }
 
 /* The existing flex track is converted into a positioning stage.
    Cards stay inside it so x-import/image-slot remains managed by DC. */
 section[data-screen-label="Áreas de treino"].best-stack-v2
-[aria-label="Áreas de treino — carrossel"] > div:first-child {
+[data-bg-training-rail] > div:first-child {
   position: relative !important;
   display: block !important;
   width: 100% !important;
@@ -87,7 +87,7 @@ section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-c
 }
 
 section[data-screen-label="Áreas de treino"].best-stack-v2
-[aria-label="Áreas de treino — carrossel"].is-dragging article.best-stack-card {
+[data-bg-training-rail].is-dragging article.best-stack-card {
   transition: opacity .15s linear, filter .15s linear !important;
 }
 
@@ -273,7 +273,7 @@ section[data-screen-label="Áreas de treino"].best-stack-v2 article.best-stack-c
 
 /* Subtle ambient pool, centered behind the stack. */
 section[data-screen-label="Áreas de treino"].best-stack-v2
-[aria-label="Áreas de treino — carrossel"]::before {
+[data-bg-training-rail]::before {
   content: "";
   position: absolute;
   z-index: 0;
@@ -289,12 +289,12 @@ section[data-screen-label="Áreas de treino"].best-stack-v2
 
 @media (max-width: 1024px) {
   section[data-screen-label="Áreas de treino"].best-stack-v2
-  [aria-label="Áreas de treino — carrossel"] {
+  [data-bg-training-rail] {
     min-height: 535px;
   }
 
   section[data-screen-label="Áreas de treino"].best-stack-v2
-  [aria-label="Áreas de treino — carrossel"] > div:first-child {
+  [data-bg-training-rail] > div:first-child {
     height: 430px !important;
   }
 
@@ -306,14 +306,14 @@ section[data-screen-label="Áreas de treino"].best-stack-v2
 
 @media (max-width: 640px) {
   section[data-screen-label="Áreas de treino"].best-stack-v2
-  [aria-label="Áreas de treino — carrossel"] {
+  [data-bg-training-rail] {
     min-height: 470px;
     padding-top: 14px !important;
     padding-bottom: 64px !important;
   }
 
   section[data-screen-label="Áreas de treino"].best-stack-v2
-  [aria-label="Áreas de treino — carrossel"] > div:first-child {
+  [data-bg-training-rail] > div:first-child {
     height: 390px !important;
   }
 

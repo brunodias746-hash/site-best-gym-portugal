@@ -51,7 +51,7 @@
       }).join('');
       this.root.innerHTML = '<link rel="stylesheet" href="/best-forms.css"><form class="bg-form" novalidate>' +
         (def.steps ? '<nav class="bg-form-steps" aria-label="' + (en ? 'Application steps' : 'Etapas da candidatura') + '">' + def.steps.map(function (label, i) { return '<span data-step-label="' + i + '">' + (i + 1) + ' / ' + esc(label[ix]) + '</span>'; }).join('') + '</nav>' : '') +
-        '<fieldset><legend data-form-legend>' + esc(def.steps ? def.steps[0][ix] : def.title) + '</legend><div class="bg-form-grid">' + fields + '</div></fieldset>' +
+        '<fieldset><legend data-form-legend>' + esc(def.steps ? def.steps[0][ix] : this.title()) + '</legend><div class="bg-form-grid">' + fields + '</div></fieldset>' +
         '<section data-review hidden><h3>' + t('review') + '</h3><dl class="bg-form-review"></dl></section>' +
         '<div data-consent' + (count > 1 ? ' hidden' : '') + '><label class="bg-consent"><input type="checkbox" name="privacy" required aria-describedby="bg-' + this.kind + '-privacy-error"><span>' + t('privacy') + ' <a href="' + (en ? '/en/privacy' : '/privacidade') + '" target="_blank" rel="noopener noreferrer">' + t('policy') + '</a> *</span></label><span class="bg-field-error" id="bg-' + this.kind + '-privacy-error" aria-live="polite"></span></div>' +
         '<label class="bg-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
@@ -120,7 +120,7 @@
       this.root.querySelector('[type="submit"]').hidden = !finalStep;
       this.root.querySelector('[data-consent]').hidden = !finalStep;
       this.root.querySelector('[data-review]').hidden = !(def.steps && finalStep);
-      this.root.querySelector('[data-form-legend]').textContent = def.steps ? def.steps[this.step][ix] : (titles[this.kind] ? titles[this.kind][ix] : def.title);
+      this.root.querySelector('[data-form-legend]').textContent = def.steps ? def.steps[this.step][ix] : this.title();
       if (def.steps && finalStep) this.root.querySelector('.bg-form-review').innerHTML = def.fields.map((field) => {
         var input = this.form.elements.namedItem(field.name);
         var value = input.type === 'select-one' && input.value ? input.selectedOptions[0].textContent : input.value.trim();
@@ -136,12 +136,19 @@
         var note = document.createElement('p'); note.textContent = t('emailNote'); box.appendChild(note);
       }
     }
+    title() {
+      return titles[this.kind]?.[ix] || this.definition.title;
+    }
     fallback(data) {
       var recipient = this.kind === 'contact' ? config.contactRecipients[data.unit] : config[this.definition.recipientKey];
       if (!recipient) return null;
-      var body = this.definition.fields.map(function (field) { return field.label[0] + ': ' + (data[field.name] || '—'); });
-      body.push('', 'Consentimento: aceite', 'Origem: ' + location.href);
-      return 'mailto:' + recipient + '?subject=' + encodeURIComponent('[BEST GYM] ' + this.definition.title + ' — ' + data.name) + '&body=' + encodeURIComponent(body.join('\n'));
+      var body = this.definition.fields.map(function (field) {
+        var value = data[field.name];
+        var option = en && field.options?.find(function (item) { return item[0] === value; });
+        return field.label[ix] + ': ' + (option ? optionLabel(option) : value || '—');
+      });
+      body.push('', en ? 'Consent: accepted' : 'Consentimento: aceite', (en ? 'Source: ' : 'Origem: ') + location.href);
+      return 'mailto:' + recipient + '?subject=' + encodeURIComponent('[BEST GYM] ' + this.title() + ' — ' + data.name) + '&body=' + encodeURIComponent(body.join('\n'));
     }
     async submit() {
       if (this.sending || !this.validate(null)) return;

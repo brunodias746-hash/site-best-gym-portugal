@@ -55,8 +55,9 @@
       'transform:translateY(24px) scale(.965);opacity:0;' +
       'transition:transform .42s cubic-bezier(.16,1,.3,1),opacity .34s ease;';
 
+    var english = !!(window.BGPageLocale && window.BGPageLocale.english);
     card.innerHTML =
-      '<button type="button" data-campaign-close aria-label="Fechar campanha" ' +
+      '<button type="button" data-campaign-close aria-label="' + (english ? 'Close campaign' : 'Fechar campanha') + '" ' +
       'style="position:absolute;z-index:4;top:16px;right:16px;width:44px;height:44px;border-radius:50%;' +
       'border:1px solid var(--line,#ddd);background:var(--surface-1,#fff);color:var(--ink,#111);' +
       'font-size:24px;line-height:1;cursor:pointer;">×</button>' +

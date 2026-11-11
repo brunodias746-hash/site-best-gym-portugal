@@ -251,9 +251,11 @@ a, button, [role="button"], summary, input[type="button"], input[type="submit"] 
       st.textContent = CSS;
       document.head.appendChild(st);
       this.style.display = 'contents';
+      const english = !!window.BGPageLocale?.english;
       this.innerHTML = (FINE_POINTER ? '<canvas class="best-cursor-spotlight" aria-hidden="true"></canvas>' : '') +
         '<div class="scroll-progress" aria-hidden="true"></div>' +
-        '<button class="back-top" aria-label="Voltar ao topo"><span>\u2191</span><small>Topo</small></button>';
+        '<button class="back-top" aria-label="' + (english ? 'Back to top' : 'Voltar ao topo') +
+        '"><span>\u2191</span><small>' + (english ? 'Top' : 'Topo') + '</small></button>';
       const cursorSpotCanvas = this.querySelector('.best-cursor-spotlight');
       const bar = this.querySelector('.scroll-progress');
       const backTop = this.querySelector('.back-top');

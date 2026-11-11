@@ -33,7 +33,7 @@
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero em breve" style="position: relative; background: var(--invert-1); overflow: hidden;">
       <div style="position: absolute; inset: 0; opacity: 0.38;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="embreve-hero" src="assets/img/units/sao-joao-exterior-2026.webp" shape="rect" placeholder="Foto — nova unidade São João da Madeira" hint-size="100%,100%"></x-import>
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="embreve-hero" src="assets/img/units/sao-joao-exterior-2026.webp" shape="rect" placeholder="Foto — nova unidade São João da Madeira" hint-size="100%,100%" data-en-placeholder="Upcoming BEST GYM in São João da Madeira"></x-import>
       </div>
       <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(14,15,17,0.9) 0%, rgba(14,15,17,0.55) 60%, rgba(142,9,0,0.45) 100%); pointer-events: none;"></div>
       <div style="position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 20px; pointer-events: none;">
@@ -52,16 +52,16 @@
             </div>
             <div style="height: 1px; background: var(--line);"></div>
             <div style="display: flex; flex-direction: column; gap: 4px;">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">Abertura prevista</span>
-              <span style="font-family: var(--font-display); font-size: 40px; text-transform: uppercase; color: var(--best-red); line-height: 1;">Brevemente</span>
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);" data-en="Planned opening">Abertura prevista</span>
+              <span style="font-family: var(--font-display); font-size: 40px; text-transform: uppercase; color: var(--best-red); line-height: 1;" data-en="Coming soon">Brevemente</span>
             </div>
             <div style="height: 1px; background: var(--line);"></div>
             <div style="display: flex; flex-direction: column; gap: 6px;">
-              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);">O que será igual em todas as unidades</span>
+              <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-faint);" data-en="What to expect at every gym">O que será igual em todas as unidades</span>
               <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px;">
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Acesso 24 horas, 365 dias</li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Estrutura completa de treino</li>
-                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Comunidade e cultura do BEST GYM</li>
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;" data-en-text="[&quot;24-hour access, 365 days a year&quot;]"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Acesso 24 horas, 365 dias</li>
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;" data-en-text="[&quot;Complete training facilities&quot;]"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Estrutura completa de treino</li>
+                <li style="display: flex; align-items: center; gap: 10px; font-size: 14.5px;" data-en-text="[&quot;BEST GYM community and culture&quot;]"><span style="width: 16px; height: 2.5px; background: var(--best-red);"></span>Comunidade e cultura do BEST GYM</li>
               </ul>
             </div>
           </div>
@@ -73,8 +73,8 @@
 
     <section data-screen-label="Unidades atuais" style="background: var(--surface-1); border-top: 1px solid var(--line);">
       <div style="max-width: 1100px; margin: 0 auto; padding: clamp(48px, 7vw, 80px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">Já podes treinar connosco <span style="color: var(--best-red)">agora.</span></x-import>
-        <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Ver unidades ativas</x-import></a>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px" data-en-text="[&quot;You can train with us&quot;]">Já podes treinar connosco <span style="color: var(--best-red)" data-en="now.">agora.</span></x-import>
+        <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Explore open gyms">Ver unidades ativas</x-import></a>
       </div>
     </section>
   </main>

@@ -32,18 +32,18 @@
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
     <section data-screen-label="Hero sobre" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px) clamp(36px, 5vw, 64px); display: flex; flex-direction: column; gap: 20px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px">Mais do que <span style="color: var(--best-red)">um ginásio.</span></x-import>
-      <p style="margin: 0; max-width: 58ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);">O BEST GYM é uma rede 24 horas criada para tornar a performance mais acessível, consistente e próxima.</p>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" as="h1" hint-size="100%,220px" data-en-text="[&quot;More than&quot;]">Mais do que <span style="color: var(--best-red)" data-en="a gym.">um ginásio.</span></x-import>
+      <p style="margin: 0; max-width: 58ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal);" data-en="BEST GYM is a 24-hour gym network created to make performance more accessible, consistent and personal.">O BEST GYM é uma rede 24 horas criada para tornar a performance mais acessível, consistente e próxima.</p>
     </section>
 
     <section data-screen-label="História" style="max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px) clamp(56px, 8vw, 96px);">
       <div data-two-col style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 72px); align-items: center;">
         <div style="position: relative; aspect-ratio: 16 / 10; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg);">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="sobre-historia" src="valongo-drone-v3.jpg" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="sobre-historia" src="valongo-drone-v3.jpg" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%" data-en-placeholder="BEST GYM Valongo"></x-import>
         </div>
         <div style="display: flex; flex-direction: column; gap: 18px;">
-          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px">Feita para <span style="color: var(--best-red)">crescer.</span></x-import>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7;">O BEST GYM nasceu com uma convicção simples: a evolução não tem horário. Começámos em Vila Nova de Famalicão e Valongo com um modelo de acesso 24 horas, estrutura completa e uma comunidade próxima — e estamos preparados para levar esta cultura a mais cidades em Portugal.</p>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="100%,120px" data-en-text="[&quot;Built to&quot;]">Feita para <span style="color: var(--best-red)" data-en="grow.">crescer.</span></x-import>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7;" data-en="BEST GYM began with a simple belief: progress has no schedule. We started in Vila Nova de Famalicão and Valongo with 24-hour access, complete facilities and a close community — and we are ready to bring this culture to more Portuguese cities.">O BEST GYM nasceu com uma convicção simples: a evolução não tem horário. Começámos em Vila Nova de Famalicão e Valongo com um modelo de acesso 24 horas, estrutura completa e uma comunidade próxima — e estamos preparados para levar esta cultura a mais cidades em Portugal.</p>
         </div>
       </div>
     </section>
@@ -51,17 +51,17 @@
     <section data-screen-label="Missão e visão" style="background: var(--surface-1); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
       <div data-two-col style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
         <div style="background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px;">
-          <p style="margin: 0; font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; color: var(--ink); line-height: 1.1;">Criar condições para que mais pessoas treinem com liberdade, consistência e propósito.</p>
+          <p style="margin: 0; font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; color: var(--ink); line-height: 1.1;" data-en="Create the conditions for more people to train with freedom, consistency and purpose.">Criar condições para que mais pessoas treinem com liberdade, consistência e propósito.</p>
         </div>
         <div style="background: var(--invert-1); border-radius: 16px; padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; gap: 14px;">
-          <p style="margin: 0; font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; color: var(--white); line-height: 1.1;">Tornar o BEST GYM uma referência nacional de performance, comunidade e experiência 24 horas.</p>
+          <p style="margin: 0; font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); text-transform: uppercase; color: var(--white); line-height: 1.1;" data-en="Make BEST GYM a national benchmark for performance, community and the 24-hour experience.">Tornar o BEST GYM uma referência nacional de performance, comunidade e experiência 24 horas.</p>
         </div>
       </div>
     </section>
 
     <section data-screen-label="Valores" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-direction: column; gap: 32px;">
       <div style="display: flex; flex-direction: column; gap: 16px;">
-        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px">O que nos move</x-import>
+        <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="60%,60px" data-en="What drives us">O que nos move</x-import>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
         <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
@@ -76,22 +76,22 @@
     <section data-screen-label="Rede e futuro" style="background: var(--invert-1);">
       <div data-two-col style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 104px) clamp(20px, 4vw, 48px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center;">
         <div style="display: flex; flex-direction: column; gap: 18px;">
-          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" tone="light" hint-size="100%,120px">Uma ambição <span style="color: var(--best-red)">nacional.</span></x-import>
-          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: var(--text-on-dark-muted);">Dois ginásios ativos, um terceiro a caminho e uma cultura comum preparada para expansão, patrocínios e novas localizações. A comunidade do BEST GYM cresce todos os dias — dentro e fora do ginásio.</p>
+          <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" tone="light" hint-size="100%,120px" data-en-text="[&quot;One ambition&quot;]">Uma ambição <span style="color: var(--best-red)" data-en="for Portugal.">nacional.</span></x-import>
+          <p style="margin: 0; font-size: 16px; line-height: 1.7; color: var(--text-on-dark-muted);" data-en="Two active gyms, a third on the way and a shared culture ready for expansion, partnerships and new locations. The BEST GYM community grows every day — inside and outside the gym.">Dois ginásios ativos, um terceiro a caminho e uma cultura comum preparada para expansão, patrocínios e novas localizações. A comunidade do BEST GYM cresce todos os dias — dentro e fora do ginásio.</p>
           <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px;">
-            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="190px,48px">Ver as unidades</x-import></a>
-            <a href="/em-breve" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" hint-size="200px,48px">Próximas aberturas</x-import></a>
+            <a href="/unidades" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" hint-size="190px,48px" data-en="View our gyms">Ver as unidades</x-import></a>
+            <a href="/em-breve" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" variant="on-dark" data-ds-btn="on-dark" hint-size="200px,48px" data-en="Upcoming openings">Próximas aberturas</x-import></a>
           </div>
         </div>
         <div style="position: relative; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden;">
-          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="sobre-comunidade" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto — treino e performance no BEST GYM" hint-size="100%,100%"></x-import>
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="sobre-comunidade" src="assets/img/area-peso-livre.jpg" shape="rect" placeholder="Foto — treino e performance no BEST GYM" hint-size="100%,100%" data-en-placeholder="Training at BEST GYM"></x-import>
         </div>
       </div>
     </section>
 
     <section data-screen-label="CTA final" style="max-width: 1280px; margin: 0 auto; padding: clamp(56px, 8vw, 96px) clamp(20px, 4vw, 48px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
-      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="55%,60px">Faz parte desta <span style="color: var(--best-red)">cultura.</span></x-import>
-      <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px">Inscreve-te agora</x-import></a>
+      <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="h2" hint-size="55%,60px" data-en-text="[&quot;Be part of this&quot;]">Faz parte desta <span style="color: var(--best-red)" data-en="culture.">cultura.</span></x-import>
+      <a href="/inscricao" style="text-decoration: none;"><x-import component-from-global-scope="DesignSystem_6952b0.Button" size="lg" hint-size="220px,56px" data-en="Join now">Inscreve-te agora</x-import></a>
     </section>
   </main>
   <dc-import name="Footer" hint-size="100%,620px"></dc-import>
@@ -100,10 +100,12 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
+    const english = !!window.BGPageLocale?.english;
+    const copy = (pt, en) => english ? en : pt;
     return {
       values: [
-        { no: '01', name: 'Performance' }, { no: '02', name: 'Disciplina' }, { no: '03', name: 'Comunidade' },
-        { no: '04', name: 'Evolução' }, { no: '05', name: 'Credibilidade' }, { no: '06', name: 'Ambição' },
+        { no: '01', name: 'Performance' }, { no: '02', name: copy('Disciplina', "Discipline") }, { no: '03', name: copy('Comunidade', "Community") },
+        { no: '04', name: copy('Evolução', "Progress") }, { no: '05', name: copy('Credibilidade', "Credibility") }, { no: '06', name: copy('Ambição', "Ambition") },
       ],
     };
   }

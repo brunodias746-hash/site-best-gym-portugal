@@ -60,5 +60,19 @@
   }
   pages['/campanha'].pt = campaignSeo(campaign.pt);
   pages['/campanha'].english = campaignSeo(campaign.en);
-  root.BGSiteConfig = Object.freeze({ origin: origin, pages: pages, campaign: campaign, registrationUrl: 'https://subscribe.mvf.pt/signup/bestgym' });
+  var englishRoutes = Object.create(null);
+  Object.keys(pages).forEach(function (pt) {
+    var page = pages[pt];
+    englishRoutes[pt] = page.en;
+    englishRoutes['/' + (page.source || (pt === '/' ? 'index' : pt.slice(1))) + '.dc.html'] = page.en;
+  });
+  function englishHref(href, route) {
+    if (!href || href.indexOf('//') === 0) return href;
+    if (href[0] === '#') return route + href;
+    var match = href.match(/^(\/?[\w/-]*?(?:\.dc\.html)?)([?#].*|$)/);
+    if (!match) return href;
+    var pathname = ('/' + match[1].replace(/^\//, '')).replace(/\/+$/, '') || '/';
+    return englishRoutes[pathname] ? englishRoutes[pathname] + match[2] : href;
+  }
+  root.BGSiteConfig = Object.freeze({ origin: origin, pages: pages, campaign: campaign, englishHref: englishHref, registrationUrl: 'https://subscribe.mvf.pt/signup/bestgym' });
 })(typeof globalThis !== 'undefined' ? globalThis : window);

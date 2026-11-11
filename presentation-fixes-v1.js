@@ -36,9 +36,6 @@
         el.style.display = 'none';
       }
 
-      if (t.indexOf('Conteúdos de exemplo — os vídeos oficiais Built By Best') === 0) {
-        el.textContent = 'Conteúdos demonstrativos do programa Built By Best.';
-      }
     }
   }
 
@@ -95,6 +92,8 @@
 
     function cloneInstagram(source, href, label) {
       var a = source.cloneNode(true);
+      a.removeAttribute('data-en');
+      a.removeAttribute('data-en-text');
       a.setAttribute('href', href);
       a.setAttribute('target', '_blank');
       a.setAttribute('rel', 'noopener noreferrer');
@@ -324,7 +323,7 @@
     }
 
     addTo(root.querySelector('nav[data-bg-desknav]'), false);
-    addTo(root.querySelector('aside[aria-label="Menu"] nav[aria-label="Menu completo"]'), true);
+    addTo(root.querySelector('[data-bg-drawernav]'), true);
   }
 
 
@@ -383,27 +382,17 @@
     var footer = root.querySelector ? root.querySelector('footer') : null;
     if (!footer || footer.querySelector('.bless-credit')) return;
 
-    var rows = footer.querySelectorAll('div');
-    var legalRow = null;
-
-    for (var i = rows.length - 1; i >= 0; i--) {
-      var text = (rows[i].textContent || '');
-      if (text.indexOf('Todos os direitos reservados') !== -1 &&
-          text.indexOf('Privacidade') !== -1) {
-        legalRow = rows[i];
-        break;
-      }
-    }
-
+    var legalRow = footer.querySelector('[data-footer-legal]');
     if (!legalRow) return;
 
+    var english = !!(window.BGPageLocale && window.BGPageLocale.english);
     var credit = document.createElement('div');
     credit.className = 'bless-credit';
-    credit.setAttribute('aria-label', 'Design e desenvolvimento por Bless');
+    credit.setAttribute('aria-label', english ? 'Design and development by BLESS' : 'Design e desenvolvimento por Bless');
 
     var label = document.createElement('span');
     label.className = 'bless-credit__label';
-    label.textContent = 'Design & desenvolvimento';
+    label.textContent = english ? 'Design & development' : 'Design & desenvolvimento';
 
     var logo = document.createElement('img');
     logo.className = 'bless-credit__logo';
@@ -416,7 +405,7 @@
     link.href = 'https://www.instagram.com/bless.pt/';
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
-    link.setAttribute('aria-label', 'Bless no Instagram');
+    link.setAttribute('aria-label', english ? 'BLESS on Instagram' : 'Bless no Instagram');
     link.style.display = 'inline-flex';
     link.style.alignItems = 'center';
     link.style.textDecoration = 'none';
