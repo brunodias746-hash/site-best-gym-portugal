@@ -18,9 +18,9 @@ async function checkLogo(locator) {
     const r = img.getBoundingClientRect();
     return { width: r.width, height: r.height, ratio: r.width / r.height, natural: img.naturalWidth / img.naturalHeight, src: img.getAttribute('src') };
   });
-  assert.equal(size.src, 'assets/logo-square-approved.png');
-  assert.ok(size.height >= 32 && size.height <= 48, JSON.stringify(size));
-  assert.ok(Math.abs(size.ratio - size.natural) < .01, 'distorted compact logo');
+  assert.ok(['assets/logo-red.png', 'assets/logo-white.png'].includes(size.src), 'main logo must use the approved horizontal artwork');
+  assert.ok(size.height >= 16 && size.height <= 36, JSON.stringify(size));
+  assert.ok(size.ratio > 3 && Math.abs(size.ratio - size.natural) < .01, 'distorted website logo');
 }
 
 async function checkPhoto(locator, fullFrame) {

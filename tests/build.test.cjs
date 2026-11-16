@@ -11,10 +11,28 @@ test('all PT/EN routes have generated pages, portable indexes and correct SEO', 
     assert.ok(content.includes('<link rel="canonical" href="' + origin + route + '">'), route);
     assert.equal((content.match(/hreflang=/g) || []).length, 3, route);
     assert.ok(content.includes('lang="' + (locale === 'pt' ? 'pt-PT' : 'en') + '"'), route);
+    const icons = content.match(/<link\b[^>]*\brel="(?:shortcut )?icon"[^>]*>/g) || [];
+    assert.deepEqual(icons, ['<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-best-gym-square-v1.png">'], route);
     assert.ok(fs.existsSync(path.join(__dirname, '../public', route.replace(/^\/+|\/+$/g, ''), 'index.html')), route);
   }
   const sitemap = fs.readFileSync(path.join(__dirname, '../public/sitemap.xml'), 'utf8');
   assert.equal((sitemap.match(/<url>/g) || []).length, Object.keys(pages).length * 2);
+});
+test('favicon assets have genuine PNG/ICO formats and visible pages retain the horizontal logo', () => {
+  const output = path.join(__dirname, '../public');
+  const png = fs.readFileSync(path.join(output, 'assets/favicon-best-gym-square-v1.png'));
+  assert.equal(png.subarray(0, 8).toString('hex'), '89504e470d0a1a0a');
+  assert.equal(png.readUInt32BE(16), 48);
+  assert.equal(png.readUInt32BE(20), 48);
+  const ico = fs.readFileSync(path.join(output, 'favicon.ico'));
+  assert.equal(ico.subarray(0, 4).toString('hex'), '00000100');
+  assert.equal(ico.readUInt16LE(4), 4);
+  assert.deepEqual(ico, fs.readFileSync(path.join(output, 'assets/favicon-best-gym-square-v1.ico')));
+  for (const name of ['Header.dc.html', 'localized-pages/pt/index.html', 'localized-pages/en/index.html']) {
+    const html = fs.readFileSync(path.join(output, name), 'utf8');
+    assert.ok(!html.includes('logo-square-approved.png'), name);
+    assert.ok(html.includes('assets/logo-red.png') && html.includes('assets/logo-white.png'), name);
+  }
 });
 test('deployment includes no source-only backend, instructions or credential files in public output', () => {
   for (const name of ['AGENTS.md', 'vercel.json', '.env', 'api', 'lib', 'tests', 'lead-handler.cjs']) assert.equal(fs.existsSync(path.join(__dirname, '../public', name)), false, name);

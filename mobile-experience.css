@@ -94,7 +94,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   section[data-screen-label="Hero"] h1 { font-size: clamp(48px, 7vw, 72px) !important; }
   section[data-screen-label="Hero"] p { max-width: 48ch; }
   section[data-screen-label="Pilares"] [data-two-col] > div:last-child { aspect-ratio: 16 / 10 !important; }
-  .best-logo-header { height: 44px !important; max-height: 44px !important; }
 }
 
 @media (max-width: 768px) {
