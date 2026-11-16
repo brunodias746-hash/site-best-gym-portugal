@@ -60,14 +60,15 @@ async function checkPhoto(locator, fullFrame) {
         try {
           for (const pt of ['/', '/unidades', '/unidade-valongo']) {
             const route = english ? globalThis.BGSiteConfig.pages[pt].en : pt;
-            const response = await page.goto(base + route, { waitUntil: 'networkidle' });
+            const response = await page.goto(base + route + (pt === '/' ? '?popup=1' : ''), { waitUntil: 'networkidle' });
             assert.equal(response.status(), 200);
             await page.locator('footer .bless-credit').waitFor();
-            await page.evaluate(() => window.dispatchEvent(new CustomEvent('bestgym:close-popup')));
-            if (pt === '/') await page.waitForFunction(() => {
-              const loader = document.querySelector('div[style*="z-index: 2000"]');
-              return !loader || getComputedStyle(loader).visibility === 'hidden';
-            });
+            if (pt === '/') {
+              const popup = page.locator('#bestgym-campaign-popup-v2');
+              await popup.waitFor({ state: 'visible' });
+              await popup.locator('[data-campaign-close]').click();
+              await popup.waitFor({ state: 'detached' });
+            }
             await checkLogo(page.locator('[data-bg-headerlogo]'));
             assert.equal(await page.locator('[data-bg-desknav]').isVisible(), width > 1060);
             await page.locator('[data-bg-menu-trigger]').click();
