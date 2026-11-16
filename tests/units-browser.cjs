@@ -41,16 +41,17 @@ const signup = 'https://subscribe.mvf.pt/signup/bestgym';
       }
       const photos = await page.locator('main img[src*="assets/img/units/"]:visible').evaluateAll(images => images.map(img => {
         const box = img.getBoundingClientRect();
-        return { src: img.getAttribute('src'), loaded: img.complete && img.naturalWidth > 0, ratio: box.width / box.height, natural: img.naturalWidth / img.naturalHeight, alt: img.alt, native: img.hasAttribute('data-en-alt') };
+        return { src: img.getAttribute('src'), loaded: img.complete && img.naturalWidth > 0, ratio: box.width / box.height, natural: img.naturalWidth / img.naturalHeight, alt: img.alt, fit: getComputedStyle(img).objectFit, native: img.hasAttribute('data-en-alt') };
       }));
       assert.ok(photos.length >= (unit === 'sao-joao' ? 2 : 3));
       for (const photo of photos) {
         assert.ok(photo.loaded, photo.src);
         assert.ok(photo.src.includes('/' + unit + '-'), 'wrong unit photo');
-        // DC image slots intentionally crop cover images. Native gallery/prelaunch images retain their ratio.
+        // Both native and DC cover media preserve the artwork while cropping
+        // its frame. Gallery/prelaunch images retain their intrinsic ratio.
         if (photo.native) {
           assert.ok(photo.alt);
-          assert.ok(Math.abs(photo.ratio - photo.natural) < .01, 'distorted photo: ' + photo.src);
+          if (photo.fit !== 'cover') assert.ok(Math.abs(photo.ratio - photo.natural) < .01, 'distorted photo: ' + photo.src);
         }
       }
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));

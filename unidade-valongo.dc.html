@@ -31,12 +31,12 @@
   <dc-import name="Header" active="unidades" hint-size="100%,116px"></dc-import>
   <main style="padding-top: 115px;">
     <x-import component-from-global-scope="scroll-experience" from="./scroll-experience.js" hint-size="1px,1px"></x-import>
-    <section data-screen-label="Hero unidade" style="position: relative; height: min(72vh, 680px); min-height: 460px; background: var(--invert-1); overflow: hidden;">
-      <div style="position: absolute; inset: 0;">
-        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="valongo-hero" src="assets/img/units/valongo-exterior-2026.webp" shape="rect" placeholder="Foto oficial — BEST GYM Valongo" hint-size="100%,100%" data-en-placeholder="BEST GYM Valongo"></x-import>
+    <section data-valongo-hero data-screen-label="Hero unidade" style="position: relative; height: min(72vh, 680px); min-height: 460px; background: var(--invert-1); overflow: hidden;">
+      <div data-valongo-hero-media style="position: absolute; inset: 0;">
+        <img id="valongo-hero" src="assets/img/units/valongo-exterior-corrected-2026.webp" width="2560" height="1440" alt="Foto oficial — BEST GYM Valongo" data-en-alt="BEST GYM Valongo" fetchpriority="high" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center;">
       </div>
-      <div style="position: absolute; inset: 0; background: var(--overlay-read); pointer-events: none;"></div>
-      <div style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none;">
+      <div data-valongo-hero-overlay style="position: absolute; inset: 0; background: var(--overlay-read); pointer-events: none;"></div>
+      <div data-valongo-hero-copy style="position: relative; z-index: 2; height: 100%; max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); display: flex; flex-direction: column; justify-content: flex-end; gap: 18px; padding-bottom: clamp(36px, 5vw, 64px); pointer-events: none;">
         <span class="bg-eyebrow" data-en="Gym 02 · Open 24H">Unidade 02 · Aberto 24H</span>
         <x-import component-from-global-scope="DesignSystem_6952b0.Headline" size="display-lg" tone="light" as="h1" hint-size="100%,140px">Best Gym <span style="color: var(--best-red)">Valongo</span></x-import>
         <p style="margin: 0; max-width: 52ch; font-size: var(--fs-body-lg); line-height: var(--lh-normal); color: rgba(255,255,255,0.88);" data-en="Train 24 hours a day with quality facilities, freedom and a team close by.">Treina 24 horas, com estrutura, liberdade e uma equipa próxima.</p>

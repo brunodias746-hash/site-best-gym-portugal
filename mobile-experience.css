@@ -61,6 +61,40 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   }
   [data-bg-mobilecta] { min-height: var(--bg-mobile-cta-height); }
   html[lang="en"] .back-top { bottom: calc(var(--bg-mobile-cta-height) + 16px); }
+  /* Use the same list layout throughout the touch/tablet range. Cards made
+     visible by CSS must also reveal the image hidden by the desktop tabs. */
+  section[data-screen-label="Unidades"] [data-two-col] { display: flex !important; flex-direction: column; }
+  [data-unit-tabs] { display: none !important; }
+  [data-unit-list] { width: 100%; }
+  [data-unit-card] { display: flex !important; }
+  [data-unit-image-layer] { clip-path: inset(0) !important; }
+  [data-unit-card] > [data-unit-image="home-unit-valongo"]:first-child { aspect-ratio: 16 / 9 !important; }
+
+  /* Show the whole approved exterior instead of cropping the building into
+     a portrait background. Preserve the desktop Hero above this breakpoint. */
+  [data-valongo-hero] { height: auto !important; min-height: 0 !important; }
+  [data-valongo-hero] > [data-valongo-hero-media] {
+    position: relative !important; aspect-ratio: 16 / 9; padding: 0 !important;
+  }
+  [data-valongo-hero-media] > img { position: absolute; inset: 0; }
+  [data-valongo-hero-overlay] { display: none; }
+  [data-valongo-hero] > [data-valongo-hero-copy] {
+    height: auto !important; padding: 28px var(--bg-mobile-gutter) 36px !important; gap: 16px !important;
+  }
+  article[data-unit="valongo"] > div:first-child { min-height: 0 !important; aspect-ratio: 16 / 9; }
+}
+
+@media (min-width: 769px) and (max-width: 1060px) {
+  [data-bg-headerbar] { height: 72px !important; padding-inline: 24px !important; gap: 20px !important; }
+  [data-bg-headeractions] { gap: 12px !important; }
+  main { padding-top: 110px !important; }
+  main > section { width: 100%; }
+  section[data-screen-label="Hero"] { height: min(760px, calc(100svh - 110px)) !important; min-height: 560px !important; }
+  section[data-screen-label="Hero"] [data-hero-slide] > div:last-child { padding-block: 36px 100px !important; }
+  section[data-screen-label="Hero"] h1 { font-size: clamp(48px, 7vw, 72px) !important; }
+  section[data-screen-label="Hero"] p { max-width: 48ch; }
+  section[data-screen-label="Pilares"] [data-two-col] > div:last-child { aspect-ratio: 16 / 10 !important; }
+  .best-logo-header { height: 44px !important; max-height: 44px !important; }
 }
 
 @media (max-width: 768px) {

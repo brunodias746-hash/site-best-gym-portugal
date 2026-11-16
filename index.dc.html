@@ -85,7 +85,7 @@
 </helmet>
 <div style="font-family: var(--font-text); color: var(--text-body); background: var(--off-white);">
   <div aria-hidden="true" style="position: fixed; inset: 0; z-index: 2000; background: var(--surface-1); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; opacity: {{ plOpacity }}; visibility: {{ plVis }}; transition: opacity 0.5s cubic-bezier(0.22,0.61,0.36,1), visibility 0.5s;">
-    <img src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="" style="height: 44px;">
+    <img src="assets/logo-square-approved.png" alt="" width="672" height="515" style="width: auto; height: 44px; object-fit: contain;">
     <div style="display: flex; gap: 6px; height: 26px; align-items: flex-end;">
       <span style="width: 8px; height: 100%; background: var(--best-red); transform-origin: bottom; animation: bgBar 0.9s ease-in-out infinite;"></span>
       <span style="width: 8px; height: 100%; background: var(--best-red); transform-origin: bottom; animation: bgBar 0.9s ease-in-out 0.15s infinite;"></span>
@@ -313,9 +313,9 @@
         <div data-unit-list style="display: flex; flex-direction: column; gap: 20px;">
           <sc-for list="{{ units }}" as="u" hint-placeholder-count="1">
             <article data-unit-card style="display: {{ u.display }}; flex-direction: column; gap: 0; background: var(--surface-1); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-md);">
-              <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden;">
-                <div style="position: absolute; inset: 0; clip-path: {{ u.mediaClip }}; transition: clip-path 0.8s cubic-bezier(0.65,0,0.35,1);">
-                  <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="{{ u.slotId }}" src="{{ u.slotSrc }}" shape="rect" placeholder="{{ u.slotLabel }}" hint-size="100%,100%"></x-import>
+              <div data-unit-image="{{ u.slotId }}" style="position: relative; aspect-ratio: 16 / 9; overflow: hidden;">
+                <div data-unit-image-layer style="position: absolute; inset: 0; clip-path: {{ u.mediaClip }}; transition: clip-path 0.8s cubic-bezier(0.65,0,0.35,1);">
+                  <img id="{{ u.slotId }}" src="{{ u.slotSrc }}" alt="{{ u.slotLabel }}" loading="lazy" decoding="async" style="display: block; width: 100%; height: 100%; object-fit: cover;">
                 </div>
               </div>
               <div style="padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 14px;">
@@ -582,7 +582,7 @@ class Component extends DCLogic {
     });
     const unitData = [
       { city: 'Vila Nova de Famalicão', blurb: copy('Um espaço completo para treinar com liberdade, intensidade e acompanhamento.', "Complete facilities for training with freedom, intensity and support."), address: 'Av. Centenário da República, D68, Calendário · 4760-859 V. N. Famalicão', href: '/unidade-famalicao', map: 'https://maps.google.com/?q=Avenida+Centenario+da+Republica+D68+Calendario+Famalicao', slotId: 'home-unit-famalicao', slotLabel: copy('Foto unidade Famalicão', "BEST GYM Famalicão"), slotSrc: 'assets/img/units/famalicao-overview-2026.webp' },
-      { city: 'Valongo', blurb: copy('Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', "24-hour training, modern facilities and an active community in central Valongo."), address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: copy('Foto unidade Valongo', "BEST GYM Valongo"), slotSrc: 'assets/img/units/valongo-exterior-2026.webp' },
+      { city: 'Valongo', blurb: copy('Treino 24 horas, estrutura moderna e uma comunidade ativa no centro de Valongo.', "24-hour training, modern facilities and an active community in central Valongo."), address: 'Avenida 25 de Abril, 381 · 4440-502 Valongo', href: '/unidade-valongo', map: 'https://maps.google.com/?q=Avenida+25+de+Abril+381+Valongo', slotId: 'home-unit-valongo', slotLabel: copy('Foto unidade Valongo', "BEST GYM Valongo"), slotSrc: 'assets/img/units/valongo-exterior-corrected-2026.webp' },
     ];
     const areaData = [
       [copy('Peso Livre', "Free Weights"), copy('Racks, barras e halteres para treino de força com liberdade total.', "Racks, bars and dumbbells for strength training with complete freedom."), 'peso-livre', copy('Força · Carga livre', "Strength · Free weights"), '340px'],

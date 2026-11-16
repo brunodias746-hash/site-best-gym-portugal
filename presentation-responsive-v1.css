@@ -268,20 +268,21 @@ aside[aria-label="Menu"] {
    3) Built By Best mascot treatment on mobile
    ============================================================ */
 
-/* Theme logo PNGs have different aspect ratios.
-   Lock visual WIDTH rather than HEIGHT so the brand does not jump on theme toggle. */
+/* Approved compact artwork has one intrinsic ratio in both themes. */
 .best-logo-header {
-  width: 118px !important;
-  height: auto !important;
-  max-height: 30px !important;
+  width: auto !important;
+  height: 44px !important;
+  max-width: 64px !important;
+  max-height: 44px !important;
   object-fit: contain !important;
   object-position: left center !important;
   flex: 0 0 auto !important;
 }
 .best-logo-drawer {
-  width: 108px !important;
-  height: auto !important;
-  max-height: 27px !important;
+  width: auto !important;
+  height: 44px !important;
+  max-width: 64px !important;
+  max-height: 44px !important;
   object-fit: contain !important;
   object-position: left center !important;
 }
@@ -350,12 +351,12 @@ aside[aria-label="Menu"] {
 
 @media (max-width: 430px) {
   .best-logo-header {
-    width: 106px !important;
-    max-height: 27px !important;
+    height: 36px !important;
+    max-height: 36px !important;
   }
   .best-logo-drawer {
-    width: 100px !important;
-    max-height: 25px !important;
+    height: 40px !important;
+    max-height: 40px !important;
   }
 
   .best-bbb-content {

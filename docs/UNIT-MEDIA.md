@@ -17,3 +17,11 @@ Wide images use intentional cover framing on unit cards/Hero backgrounds. Native
 | assets/img/units/valongo-functional-2026.webp | [Original](https://drive.google.com/file/d/1LkmfY3kbkt7xyyDOce1WPtvO1u_l6S2H/view) |
 | assets/img/units/sao-joao-exterior-2026.webp | [Original](https://drive.google.com/file/d/1zKZ3cwx4kOBo0dBrfddi-hBRxv0F5-0s/view) |
 | assets/img/units/sao-joao-exterior-portrait-2026.webp | [Original](https://drive.google.com/file/d/1eYBqVPHa8NoaIcDvsKjbEww8aFam6P2h/view) |
+
+
+## Approved replacements — 16 November 2026
+
+- `assets/img/units/valongo-exterior-corrected-2026.webp` is a WebP export of Bruno's attached `magnific_remover-completamente-as-manchas-brancas-e-reconstruir_Bh4Q9eLoQR.png`. The full 2560 × 1440 frame is retained. Only WebP compression was applied; no new retouching, generation or visual changes were made. It replaces the previous exterior in the homepage unit card, gyms listing and Valongo Hero, including EN. Interior photography is unchanged.
+- `assets/logo-square-approved.png` is a transparent 672 × 515 render of the compact red/white version on page 1 of the attached `BEST_GYM_-_VersB5es_Simplificadas.pdf` (page coordinates 241.5, 348.3, 353.5, 433.9 pt, 6×). Vector artwork, colours and proportions are unchanged. “Square” refers to the approved stacked lockup; it is not stretched to a 1:1 box. The Header, menu drawer and initial loading screen use this asset. The approved horizontal footer logo is retained.
+- On touch/tablet widths up to 1060px, the homepage shows both open-unit cards. The image wrapper must also remove the inactive desktop tab's clip path; otherwise Valongo's loaded photo is completely masked even though its card is visible.
+- Valongo's touch/tablet Hero stacks the full exterior above its copy. Desktop retains its existing cover/overlay treatment. The gyms-listing Valongo image also retains the full exterior at touch/tablet widths.
