@@ -65,7 +65,7 @@ test('detects Portuguese copy without flagging addresses, scripts or localisatio
 });
 
 test('build generated every English page', async () => {
-  assert.equal(routes.size, 22);
+  assert.equal(routes.size, 23);
   assert.equal((await readdir(englishFolder)).filter(file => file.endsWith('.html')).length, routes.size);
 });
 

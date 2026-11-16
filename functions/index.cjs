@@ -34,7 +34,7 @@ exports.bestgymLeads = onRequest({
   region: 'europe-west1',
   secrets: [resendKey],
   cors: false,
-  timeoutSeconds: 20,
+  timeoutSeconds: 45,
   maxInstances: 5
 }, (req, res) => {
   const emulator = process.env.FUNCTIONS_EMULATOR === 'true';

@@ -9,7 +9,7 @@ const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; ch
 http.createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
   if (url.pathname === '/api/leads') {
-    let body = ''; for await (const chunk of req) { body += chunk; if (body.length > 16000) { res.writeHead(413); return res.end(); } }
+    let body = ''; for await (const chunk of req) { body += chunk; if (Buffer.byteLength(body) > 8 * 1024 * 1024) { res.writeHead(413); return res.end(); } }
     req.body = body; req.query = Object.fromEntries(url.searchParams);
     res.status = code => { res.statusCode = code; return res; }; res.json = value => { res.setHeader('Content-Type', 'application/json'); res.end(JSON.stringify(value)); };
     try { return await leads(req, res); } catch (_) { res.status(500).json({ ok: false }); return; }

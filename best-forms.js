@@ -19,7 +19,15 @@
     privacy: ['Li a Política de Privacidade e autorizo a utilização dos meus dados para este contacto.', 'I have read the Privacy Policy and consent to the use of my details for this enquiry.'],
     policy: ['Política de Privacidade', 'Privacy Policy'], choose: ['Seleciona uma opção', 'Choose an option'],
     note: ['* Campos obrigatórios. Os dados são utilizados para tratar este pedido.', '* Required fields. Your details are used to process this enquiry.'],
-    review: ['Confirma os teus dados', 'Review your details'], reference: ['Referência', 'Reference']
+    review: ['Confirma os teus dados', 'Review your details'], reference: ['Referência', 'Reference'],
+    upload: ['Anexe o seu currículo', 'Upload your CV'],
+    replaceFile: ['Substituir currículo', 'Replace CV'],
+    removeFile: ['Remover ficheiro', 'Remove file'],
+    fileRequired: ['Anexa o teu currículo em PDF ou DOCX.', 'Upload your CV as a PDF or DOCX file.'],
+    fileType: ['Seleciona um ficheiro PDF ou DOCX.', 'Choose a PDF or DOCX file.'],
+    fileLarge: ['O ficheiro excede o limite de 5 MB.', 'The file exceeds the 5 MB limit.'],
+    fileInvalid: ['O ficheiro não é um PDF ou DOCX válido. Seleciona outro currículo.', 'The file is not a valid PDF or DOCX document. Choose another CV.'],
+    confirmationFailure: ['A candidatura foi recebida, mas o e-mail de confirmação não foi confirmado. Podes voltar a tentar.', 'Your application was received, but the confirmation email could not be confirmed. You can try again.']
   };
   function t(key) { return copy[key][ix]; }
   function esc(value) { return String(value == null ? '' : value).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
@@ -38,22 +46,32 @@
       this.requestId = null;
       var def = this.definition;
       var count = def.steps ? def.steps.length : 1;
+      const privacyLink = '<a href="' + (en ? '/en/privacy' : '/privacidade') + '" target="_blank" rel="noopener noreferrer">' + t('policy') + '</a>';
+      const consentCopy = def.consent ? esc(def.consent[ix]).replace(t('policy'), privacyLink) : t('privacy') + ' ' + privacyLink;
       var fields = def.fields.map((field, index) => {
         var id = 'bg-' + this.kind + '-' + field.name;
         var attrs = ' id="' + id + '" name="' + field.name + '"' + (field.required ? ' required' : '') +
           ' aria-describedby="' + id + '-error"' + (field.autocomplete ? ' autocomplete="' + field.autocomplete + '"' : '') +
           (field.max ? ' maxlength="' + field.max + '"' : '') + (field.inputmode ? ' inputmode="' + field.inputmode + '"' : '');
         var control;
-        if (field.type === 'select') control = '<select' + attrs + '><option value="">' + t('choose') + '</option>' + field.options.map(function (option) { return '<option value="' + esc(option[0]) + '">' + esc(optionLabel(option)) + '</option>'; }).join('') + '</select>';
+        if (field.type === 'file') {
+          return '<div class="bg-field bg-field--wide" data-field-step="0"><label for="' + id + '"><span>' + esc(field.label[ix]) + ' *</span></label>' +
+            '<div class="bg-file-picker"><input' + attrs.replace('-error"', '-help ' + id + '-error"') + ' class="bg-file-input" type="file" accept="' + esc(field.accept) + '">' +
+            '<label for="' + id + '" class="bg-button bg-button--outline" data-file-label>' + t('upload') + '</label></div>' +
+            '<span class="bg-file-help" id="' + id + '-help">' + esc(field.help[ix]) + '</span>' +
+            '<div class="bg-file-selection" data-file-selection hidden><span data-file-name role="status"></span><button type="button" data-file-remove>' + t('removeFile') + '</button></div>' +
+            '<span class="bg-field-error" id="' + id + '-error" aria-live="polite"></span></div>';
+        }
+        if (field.type === 'select') control = '<select' + attrs + '><option value="">' + esc(field.placeholder ? field.placeholder[ix] : t('choose')) + '</option>' + field.options.map(function (option) { return '<option value="' + esc(option[0]) + '">' + esc(optionLabel(option)) + '</option>'; }).join('') + '</select>';
         else if (field.type === 'textarea') control = '<textarea' + attrs + ' rows="5"></textarea>';
         else control = '<input' + attrs + ' type="' + field.type + '"' + (field.min != null ? ' min="' + field.min + '" max="' + field.maxValue + '" step="1"' : '') + '>';
-        return '<label class="bg-field' + (field.type === 'textarea' ? ' bg-field--wide' : '') + '" data-field-step="' + (field.step || 0) + '" for="' + id + '"><span>' + esc(field.label[ix]) + (field.required ? ' *' : '') + '</span>' + control + '<span class="bg-field-error" id="' + id + '-error" aria-live="polite"></span></label>';
+        return '<label class="bg-field' + (field.type === 'textarea' || field.wide ? ' bg-field--wide' : '') + '" data-field-step="' + (field.step || 0) + '" for="' + id + '"><span>' + esc(field.label[ix]) + (field.required ? ' *' : '') + '</span>' + control + '<span class="bg-field-error" id="' + id + '-error" aria-live="polite"></span></label>';
       }).join('');
       this.root.innerHTML = '<link rel="stylesheet" href="/best-forms.css"><form class="bg-form" novalidate>' +
         (def.steps ? '<nav class="bg-form-steps" aria-label="' + (en ? 'Application steps' : 'Etapas da candidatura') + '">' + def.steps.map(function (label, i) { return '<span data-step-label="' + i + '">' + (i + 1) + ' / ' + esc(label[ix]) + '</span>'; }).join('') + '</nav>' : '') +
         '<fieldset><legend data-form-legend>' + esc(def.steps ? def.steps[0][ix] : this.title()) + '</legend><div class="bg-form-grid">' + fields + '</div></fieldset>' +
         '<section data-review hidden><h3>' + t('review') + '</h3><dl class="bg-form-review"></dl></section>' +
-        '<div data-consent' + (count > 1 ? ' hidden' : '') + '><label class="bg-consent"><input type="checkbox" name="privacy" required aria-describedby="bg-' + this.kind + '-privacy-error"><span>' + t('privacy') + ' <a href="' + (en ? '/en/privacy' : '/privacidade') + '" target="_blank" rel="noopener noreferrer">' + t('policy') + '</a> *</span></label><span class="bg-field-error" id="bg-' + this.kind + '-privacy-error" aria-live="polite"></span></div>' +
+        '<div data-consent' + (count > 1 ? ' hidden' : '') + '><label class="bg-consent"><input type="checkbox" name="privacy" required aria-describedby="bg-' + this.kind + '-privacy-error"><span>' + consentCopy + ' *</span></label><span class="bg-field-error" id="bg-' + this.kind + '-privacy-error" aria-live="polite"></span></div>' +
         '<label class="bg-honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>' +
         '<p class="bg-form-note">' + t('note') + '</p><div class="bg-form-status" data-form-status role="status" aria-live="polite" hidden></div>' +
         '<div class="bg-form-actions"><button class="bg-button bg-button--outline" data-back type="button" hidden>' + t('back') + '</button><button class="bg-button" data-next type="button"' + (count === 1 ? ' hidden' : '') + '>' + t('next') + ' →</button><button class="bg-button" type="submit"' + (count > 1 ? ' hidden' : '') + '>' + esc(def.submit[ix]) + '</button></div></form>' +
@@ -63,7 +81,15 @@
       this.root.querySelector('[data-next]').addEventListener('click', () => { if (this.validate(this.step)) this.setStep(this.step + 1); });
       this.root.querySelector('[data-back]').addEventListener('click', () => this.setStep(this.step - 1));
       this.form.addEventListener('input', (event) => { this.clearError(event.target); });
-      this.form.addEventListener('change', (event) => { this.clearError(event.target); });
+      this.form.addEventListener('change', (event) => {
+        this.clearError(event.target);
+        if (event.target.type === 'file') this.updateFile(event.target);
+      });
+      const remove = this.root.querySelector('[data-file-remove]');
+      if (remove) remove.addEventListener('click', () => {
+        const input = this.form.elements.cv;
+        input.value = ''; this.clearError(input); this.updateFile(input); input.focus();
+      });
       this.form.addEventListener('focusin', () => document.documentElement.classList.add('bg-form-focused'));
       this.form.addEventListener('focusout', () => setTimeout(() => {
         if (!document.activeElement || !document.activeElement.closest('best-lead-form')) document.documentElement.classList.remove('bg-form-focused');
@@ -80,6 +106,27 @@
       var error = this.root.querySelector('#bg-' + this.kind + '-' + input.name + '-error');
       if (error) error.textContent = '';
     }
+    fileError(input) {
+      const file = input.files[0];
+      if (!file) return t('fileRequired');
+      if (file.size > this.definition.fields.find(field => field.name === input.name).maxBytes) return t('fileLarge');
+      if (!file.size) return t('fileInvalid');
+      const ext = file.name.split('.').at(-1).toLowerCase();
+      const types = { pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
+      if (!Object.hasOwn(types, ext) || (file.type && file.type !== types[ext])) return t('fileType');
+      return '';
+    }
+    updateFile(input) {
+      const file = input.files[0];
+      this.root.querySelector('[data-file-selection]').hidden = !file;
+      this.root.querySelector('[data-file-name]').textContent = file ? file.name : '';
+      this.root.querySelector('[data-file-label]').textContent = file ? t('replaceFile') : t('upload');
+      const error = file ? this.fileError(input) : '';
+      if (error) {
+        input.setAttribute('aria-invalid', 'true');
+        this.root.querySelector('#bg-' + this.kind + '-cv-error').textContent = error;
+      }
+    }
     validate(step) {
       var first = null;
       var specs = this.definition.fields.filter(function (f) { return step == null || (f.step || 0) === step; });
@@ -88,7 +135,8 @@
         this.clearError(input);
         var value = input.value.trim();
         var message = '';
-        if (field.required && !value) message = t('required');
+        if (field.type === 'file') message = this.fileError(input);
+        else if (field.required && !value) message = t('required');
         else if (value && field.type === 'email' && !/^\S+@\S+\.\S+$/.test(value)) message = t('email');
         else if (value && field.type === 'tel' && (!/^[+\d\s().-]+$/.test(value) || value.replace(/\D/g, '').length < 7)) message = t('phone');
         else if (!input.validity.valid) message = t('check');
@@ -137,7 +185,7 @@
       }
     }
     title() {
-      return titles[this.kind]?.[ix] || this.definition.title;
+      return titles[this.kind]?.[ix] || (en && this.definition.titleEn) || this.definition.title;
     }
     fallback(data) {
       var recipient = this.kind === 'contact' ? config.contactRecipients[data.unit] : config[this.definition.recipientKey];
@@ -153,14 +201,30 @@
     async submit() {
       if (this.sending || !this.validate(null)) return;
       var data = Object.fromEntries(new FormData(this.form)); data.privacy = this.form.elements.privacy.checked;
-      var signature = JSON.stringify(data);
-      if (this.signature !== signature) { this.requestId = crypto.randomUUID(); this.signature = signature; }
       var button = this.root.querySelector('[type="submit"]');
       this.sending = true; this.form.setAttribute('aria-busy', 'true'); button.disabled = true; button.textContent = t('sending');
       try {
-        var response = await fetch(config.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: this.kind, language: en ? 'en' : 'pt-PT', data: data, requestId: this.requestId }), signal: AbortSignal.timeout(20000) });
+        if (this.kind === 'careers') {
+          const file = this.form.elements.cv.files[0];
+          const content = await new Promise((resolve, reject) => {
+            const reader = new FileReader(); reader.onload = () => resolve(reader.result.split(',')[1]); reader.onerror = reject; reader.readAsDataURL(file);
+          });
+          data.cv = { name: file.name, type: file.type, size: file.size, content };
+        }
+        var signature = JSON.stringify(data);
+        if (this.signature !== signature) { this.requestId = crypto.randomUUID(); this.signature = signature; this.submittedAt = new Date().toISOString(); }
+        const payload = { type: this.kind, language: en ? 'en' : 'pt-PT', data: data, requestId: this.requestId };
+        if (this.kind === 'careers') payload.submittedAt = this.submittedAt;
+        var response = await fetch(config.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), signal: AbortSignal.timeout(this.kind === 'careers' ? 40000 : 20000) });
         var result = await response.json();
-        if (!response.ok || result.ok !== true || !result.id) { this.status(response.status === 503 ? t('unavailable') : t('failure'), this.fallback(data)); return; }
+        if (!response.ok || result.ok !== true || !result.id) {
+          const fileMessage = { file_required: 'fileRequired', file_too_large: 'fileLarge', file_type: 'fileType', file_invalid: 'fileInvalid' }[result.code];
+          if (fileMessage && this.form.elements.cv) {
+            const input = this.form.elements.cv; input.setAttribute('aria-invalid', 'true');
+            this.root.querySelector('#bg-' + this.kind + '-cv-error').textContent = t(fileMessage); input.focus();
+          }
+          this.status(fileMessage ? t(fileMessage) : result.code === 'confirmation_not_confirmed' ? t('confirmationFailure') : response.status === 503 ? t('unavailable') : t('failure'), this.fallback(data)); return;
+        }
         this.form.hidden = true;
         var success = this.root.querySelector('.bg-form-success'); success.hidden = false;
         this.root.querySelector('[data-reference]').textContent = t('reference') + ': ' + result.id;

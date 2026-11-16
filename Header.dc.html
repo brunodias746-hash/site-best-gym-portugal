@@ -20,7 +20,8 @@
   <link rel="stylesheet" href="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/tokens/legacy.css">
   <script src="_ds/best-gym-6952b02b-78bb-4eae-84e8-9e416c3c4bb1/_ds_bundle.js"></script>
   <style>
-    @media (max-width: 1060px) { [data-bg-desknav] { display: none !important; } }
+    @media (max-width: 1679px) { [data-bg-desknav] { display: none !important; } }
+    [data-bg-desknav] a { white-space: nowrap; }
     @media (min-width: 1061px) { [data-bg-mobilecta] { display: none !important; } [data-bg-menulabel] { display: inline !important; } }
     @media (max-width: 640px) { [data-bg-striplong] { display: none !important; } [data-bg-stripshort] { display: inline !important; } [data-bg-hdrcta] { display: none !important; } }
   </style>
@@ -37,7 +38,7 @@
         <img data-bg-headerlogo src="assets/logo-red.png" data-theme-logo="assets/logo-white.png" alt="Best Gym" style="height: 34px; display: block;">
       </a>
       <nav data-bg-desknav aria-label="Navegação principal" style="display: flex; align-items: center; gap: clamp(16px, 2vw, 30px);" data-en-aria-label="Main navigation">
-        <sc-for list="{{ items }}" as="item" hint-placeholder-count="7">
+        <sc-for list="{{ items }}" as="item" hint-placeholder-count="9">
           <a href="{{ item.href }}" style="text-decoration: none; font-size: var(--fs-nav); letter-spacing: var(--ls-nav); font-weight: {{ item.weight }}; color: {{ item.color }}; padding: 6px 0; border-bottom: 2px solid {{ item.rule }};" style-hover="color: var(--best-red);">{{ item.label }}</a>
         </sc-for>
       </nav>
@@ -174,7 +175,8 @@ class Component extends DCLogic {
       ['conteudos', 'Conteúdos', 'Content', '/conteudos'],
       ['franchising', 'Franchising', 'Franchising', '/franchising'],
       ['sobre', 'Sobre', 'About', '/sobre'],
-      ['contactos', 'Contactos', 'Contact', '/contactos'],
+      ['careers', 'Trabalhe Connosco', 'Work With Us', '/trabalhe-connosco'],
+      ['contactos', 'Contactos', 'Contacts', '/contactos'],
     ].map(([id, pt, en, href]) => ({
       label: english ? en : pt, href: english ? (pages?.[href]?.en || href) : href,
       color: id === active ? 'var(--best-red)' : 'var(--ink)',

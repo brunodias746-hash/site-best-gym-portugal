@@ -4,6 +4,7 @@ const { randomUUID } = require('node:crypto');
 const { processLead, validate } = require('../lib/lead-handler.cjs');
 const config = require('../lead-config.js');
 function application(type = 'builtByBest') {
+  if (type === 'careers') return require('./helpers/cv-fixtures.cjs').careers();
   const data = Object.fromEntries(config.forms[type].fields.map(field => [field.name, field.options ? field.options[0][0] : field.type === 'email' ? 'qa@example.com' : field.type === 'tel' ? '+351 900 000 000' : field.type === 'number' ? '25' : field.type === 'date' ? '' : 'QA synthetic data']));
   return { type, requestId: randomUUID(), data: { ...data, privacy: true, website: '' } };
 }

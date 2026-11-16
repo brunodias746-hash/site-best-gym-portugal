@@ -13,6 +13,7 @@ The frontend remains static/DC. `best-forms.js` renders a native custom element 
 | `saoJoaoVip` | `saoJoaoRecipient`: `Saojoaodamadeira@bestgym.pt` |
 | `franchising` | `franchisingRecipient`: `franchising@bestgym.pt` |
 | `contact` | Famalicão / Valongo from the allowlisted `contactRecipients` map |
+| `careers` | Private server-side map: `famalicao` → `rhfamalicao@bestgym.pt`; `valongo` → `rhvalongo@bestgym.pt`; `sao-joao-da-madeira` → `rhsaojoaodamadeira@bestgym.pt` |
 
 VIP and PT destinations were confirmed by the client on 3 November 2026. The VIP field is labelled “Telemóvel” / “Mobile phone”. The VIP email is not an approved general unit contact. The caller cannot choose an arbitrary recipient.
 
@@ -27,6 +28,18 @@ Only a successful provider response containing a real message ID produces a succ
 For known recipients, including VIP and PT, an explicit email-app fallback is offered after a failed online attempt. The user must send that message themselves. Opening a mailto link never displays “candidatura recebida”.
 
 The HTTP adapter limits body size, accepts JSON POSTs, rejects foreign browser origins, checks a honeypot and uses a bounded per-instance rate limiter. This is not a distributed rate-limit service.
+
+## Careers extension — 16 November 2026
+
+The PT `/trabalhe-connosco` and EN `/en/work-with-us` pages extend the same `best-lead-form` component and `/api/leads` handler with type `careers`. `JOB_ROLES` in `lead-config.js` is the central configurable list. Only “Candidatura espontânea” / “Speculative application” is offered until the client approves specific roles. The public payload contains a unit slug, never a recipient address. Unknown units, roles and injected recipient fields are rejected server-side.
+
+CVs are PDF/DOCX only, up to 5 MiB (5 × 1024 × 1024 bytes), with extension and available MIME checks in the browser and server. The backend also verifies PDF signatures/trailer or DOCX ZIP structure, required XML content, bounded decompression and checksums for the inspected XML. This is format validation, not an antivirus service. Filenames are sanitized. The base64 file is processed only in memory and attached directly to the unit's internal Resend email; no Firebase Storage, public URLs or CV logs are created. The privacy page discloses the recruitment purpose and Resend processing.
+
+Careers requests alone allow an 8 MiB HTTP body for the base64 CV; existing forms retain their 16,000-byte limit. Careers has a separate per-instance limit of three requests per IP per 15 minutes. Each request retains a stable UUID and ISO timestamp across retries. Internal and applicant messages have distinct stable Resend idempotency keys. Success requires both provider message IDs. The applicant confirmation is localized, has no attachment and promises only receipt. No email-app fallback exposes the private recruitment mapping.
+
+Verification: `node --test tests/careers.test.cjs tests/careers-http.test.cjs tests/leads.test.cjs`; `tests/careers-browser.cjs` exercises upload and UI with the real handler and an intercepted email provider. These tests send no real email.
+
+**Deployment finding:** fresh live checks on 16 November found Vercel VIP/contact `ready:true`, but Firebase Hosting still rewrites `/api/leads` to `/api-leads-unavailable.json` (`ready:false`, `transport_pending`). No newer form fix was present in remote branch history. The authenticated Firebase account `brunodias746@gmail.com` received HTTP 403 for `cloudfunctions.functions.list` and `cloudfunctions.functions.get` in `bestgym-pt`. Therefore the exact existing deployed function could not be verified and no Function, API, secret or credential was changed. The careers backend extension is tested source code, not an activated Firebase email service. Static publication must preserve the latest live API rewrite, never replace a working function with an archived fallback. Vercel remains unchanged. A production attachment/confirmation test is pending backend deployment by an authorized account; automated provider acceptance is not proof of real email delivery.
 
 ## Recovery findings
 

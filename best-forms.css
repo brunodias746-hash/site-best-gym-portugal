@@ -9,6 +9,15 @@ best-lead-form { display: block; min-width: 0; font-family: var(--font-text); }
 .bg-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 18px; }
 .bg-field { display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.5; font-weight: 600; min-width: 0; }
 .bg-field--wide { grid-column: 1 / -1; }
+.bg-file-picker { position: relative; align-self: flex-start; }
+.bg-form .bg-file-input { position: absolute; width: 1px !important; min-height: 1px !important; height: 1px; padding: 0 !important; opacity: 0; clip-path: inset(50%); }
+.bg-file-picker:focus-within .bg-button { outline: 2px solid var(--best-red); outline-offset: 3px; }
+.bg-file-help { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+.bg-file-selection { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.bg-file-selection [data-file-name] { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.bg-file-selection button { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); border-radius: 6px; padding: 8px 12px; min-height: 44px; font: inherit; cursor: pointer; }
+.bg-page.bg-careers-intro, .bg-page.bg-careers-form { width: 100%; max-width: 920px; margin-inline: auto; }
+.bg-careers-intro p { max-width: 58ch; }
 .bg-form input:not([type="checkbox"]), .bg-form select, .bg-form textarea { display: block; width: 100%; min-height: 52px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--paper); color: var(--ink); padding: 13px 14px; font: 400 16px/1.5 var(--font-text); }
 .bg-form textarea { min-height: 136px; resize: vertical; }
 .bg-form [aria-invalid="true"] { border-color: var(--best-red) !important; }

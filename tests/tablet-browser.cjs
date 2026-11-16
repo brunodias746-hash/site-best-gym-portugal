@@ -62,7 +62,8 @@ async function checkPhoto(locator, fullFrame) {
             const route = english ? globalThis.BGSiteConfig.pages[pt].en : pt;
             const response = await page.goto(base + route + (pt === '/' ? '?popup=1' : ''), { waitUntil: 'networkidle' });
             assert.equal(response.status(), 200);
-            await page.locator('footer .bless-credit').waitFor();
+            await page.locator('footer').waitFor();
+            assert.equal(await page.locator('.bless-credit').count(), 0);
             if (pt === '/') {
               const popup = page.locator('#bestgym-campaign-popup-v2');
               await popup.waitFor({ state: 'visible' });
@@ -70,7 +71,7 @@ async function checkPhoto(locator, fullFrame) {
               await popup.waitFor({ state: 'detached' });
             }
             await checkLogo(page.locator('[data-bg-headerlogo]'));
-            assert.equal(await page.locator('[data-bg-desknav]').isVisible(), width > 1060);
+            assert.equal(await page.locator('[data-bg-desknav]').isVisible(), width >= 1680);
             await page.locator('[data-bg-menu-trigger]').click();
             await page.waitForFunction(() => document.activeElement?.hasAttribute('data-bg-menu-close'));
             await checkLogo(page.locator('#bestgym-main-menu .best-logo-drawer'));

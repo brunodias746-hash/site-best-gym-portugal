@@ -18,7 +18,7 @@ if (mode !== 'functions') await import('./generate-localized-pages.mjs');
 if (mode !== 'hosting') {
   // Functions deployments package only their source directory. Copy the exact
   // live handler and schema at build time, without a second maintained copy.
-  for (const file of ['api/leads.js', 'lib/lead-handler.cjs', 'lead-config.js']) {
+  for (const file of ['api/leads.js', 'lib/lead-handler.cjs', 'lib/cv-validation.cjs', 'lead-config.js']) {
     const destination = resolve('functions', 'shared', file);
     await mkdir(dirname(destination), { recursive: true });
     await copyFile(file, destination);

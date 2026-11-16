@@ -7,6 +7,14 @@
       "destination": "/localized-pages/pt/personal-trainers-candidatura.html"
     },
     {
+      "source": "/trabalhe-connosco",
+      "destination": "/localized-pages/pt/trabalhe-connosco.html"
+    },
+    {
+      "source": "/en/work-with-us",
+      "destination": "/localized-pages/en/trabalhe-connosco.html"
+    },
+    {
       "source": "/en/personal-trainers/apply",
       "destination": "/localized-pages/en/personal-trainers-candidatura.html"
     },

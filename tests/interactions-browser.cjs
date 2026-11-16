@@ -50,7 +50,7 @@ const base = process.env.BASE_URL || 'http://127.0.0.1:4173';
     if (width < 1000) assert.ok(product.scroll > product.width && product.after > product.before, 'product rail not scrollable');
     assert.equal(await page.locator('[data-campaign-copy] [data-campaign-cta-row] a').count(), 1, 'home campaign has secondary action');
     await page.locator('footer').scrollIntoViewIfNeeded(); assert.ok(await page.evaluate(() => scrollY > innerHeight));
-    assert.equal(await page.locator('.bless-credit').count(), 1);
+    assert.equal(await page.locator('.bless-credit').count(), 0);
     await page.evaluate(() => { window.scrollTo({ top: 0, behavior: 'instant' }); }); await page.waitForTimeout(300);
     const menu = page.locator('button[aria-label="Abrir menu"]'); await menu.click();
     await page.waitForTimeout(300); await page.locator('button[aria-label="Fechar menu"]').click();

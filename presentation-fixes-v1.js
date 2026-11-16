@@ -377,46 +377,6 @@
     }
   }
 
-  function injectBlessCredit(root) {
-    root = root || document;
-    var footer = root.querySelector ? root.querySelector('footer') : null;
-    if (!footer || footer.querySelector('.bless-credit')) return;
-
-    var legalRow = footer.querySelector('[data-footer-legal]');
-    if (!legalRow) return;
-
-    var english = !!(window.BGPageLocale && window.BGPageLocale.english);
-    var credit = document.createElement('div');
-    credit.className = 'bless-credit';
-    credit.setAttribute('aria-label', english ? 'Design and development by BLESS' : 'Design e desenvolvimento por Bless');
-
-    var label = document.createElement('span');
-    label.className = 'bless-credit__label';
-    label.textContent = english ? 'Design & development' : 'Design & desenvolvimento';
-
-    var logo = document.createElement('img');
-    logo.className = 'bless-credit__logo';
-    logo.src = '/bless-white.png';
-    logo.alt = 'Bless — Creative Content Motion';
-    logo.loading = 'lazy';
-    logo.decoding = 'async';
-
-    var link = document.createElement('a');
-    link.href = 'https://www.instagram.com/bless.pt/';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.setAttribute('aria-label', english ? 'BLESS on Instagram' : 'Bless no Instagram');
-    link.style.display = 'inline-flex';
-    link.style.alignItems = 'center';
-    link.style.textDecoration = 'none';
-
-    link.appendChild(logo);
-
-    credit.appendChild(label);
-    credit.appendChild(link);
-    legalRow.appendChild(credit);
-  }
-
   function hardenLinks(root) {
     root = root || document;
     var links = root.querySelectorAll ? root.querySelectorAll('a[href]') : [];
@@ -456,7 +416,6 @@
     animateInstitutionalMascot(root);
     normalizeBrandLogos(root);
     treatBuiltByBest(root);
-    injectBlessCredit(root);
     hardenLinks(root);
     tuneMedia();
   }

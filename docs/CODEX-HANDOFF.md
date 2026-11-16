@@ -1,6 +1,12 @@
 [CODEX-HANDOFF.md](https://github.com/user-attachments/files/31622588/CODEX-HANDOFF.md)
 # BEST GYM — CODEX TECHNICAL HANDOFF
 
+## Migration branch update — 16 November 2026
+
+The explicit latest user request overrides the historical BLESS footer instruction below: the footer credit is removed on `codex/firebase-bestgym-migration`. The approved horizontal header logo, square favicon, November campaign and tablet/Valongo corrections remain. Careers adds `/trabalhe-connosco` and `/en/work-with-us` (46 generated pages), between About and Contacts in navigation. Full labels use the drawer below 1680px rather than wrapping or reducing their font. The exact “FEITO PARA CRESCER” section was found on `/sobre`, not `/franchising`; its adjacent image now uses the existing approved Famalicão overview photograph.
+
+See `FORMS.md` for the careers CV attachment, private RH routing, applicant confirmation and production deployment limitation. Current live Vercel forms are ready; Firebase `/api/leads` still reports unavailable. The Firebase account currently cannot list/get Functions. Do not guess an existing deployed function or restore an archived unavailable route over a later working one. Publish only Hosting `bestgym`, preserving its latest live API rewrite, until authorized Function access is available. Never merge this task into `main` or deploy the kiosk.
+
 ## 1. Purpose
 
 This document gives Codex enough context to maintain the BEST GYM production website without depending on old chat history.

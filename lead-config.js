@@ -13,7 +13,10 @@
   var phone = field('phone', 'Telefone', 'Phone', 'tel', true, { autocomplete: 'tel', max: 40 });
   var email = field('email', 'E-mail', 'Email', 'email', true, { autocomplete: 'email', max: 160 });
   var locality = field('locality', 'Localidade', 'Town / city', 'text', true, { autocomplete: 'address-level2', max: 120 });
+  // No approved vacancy list is recorded. Extend this single list after confirmation.
+  var JOB_ROLES = Object.freeze([['spontaneous', 'Candidatura espontânea', 'Speculative application']]);
   return {
+    JOB_ROLES: JOB_ROLES,
     endpoint: '/api/leads',
     privacyPath: '/privacidade',
     builtByBestRecipient: 'rhvalongo@bestgym.pt',
@@ -22,6 +25,29 @@
     franchisingRecipient: 'franchising@bestgym.pt',
     contactRecipients: { valongo: 'valongo@bestgym.pt', famalicao: 'famalicao@bestgym.pt' },
     forms: {
+      careers: {
+        title: 'Formulário de candidatura', titleEn: 'Application form',
+        submit: ['Enviar candidatura', 'Send application'],
+        success: ['Candidatura enviada.', 'Application sent.'],
+        support: ['Recebemos os teus dados. Obrigado pelo teu interesse em fazer parte do BEST GYM.', 'We have received your details. Thank you for your interest in joining BEST GYM.'],
+        consent: ['Li a Política de Privacidade e autorizo o tratamento dos meus dados pessoais para efeitos de gestão da minha candidatura.', 'I have read the Privacy Policy and consent to the processing of my personal data to manage my application.'],
+        fields: [
+          name,
+          Object.assign({}, email, { label: ['Endereço de e-mail', 'Email address'] }),
+          Object.assign({}, phone, { label: ['Contacto telefónico', 'Phone number'] }),
+          field('unit', 'Unidade pretendida', 'Preferred gym', 'select', true, {
+            placeholder: ['Selecione uma unidade', 'Select a gym'],
+            options: [['famalicao', 'Vila Nova de Famalicão', 'Vila Nova de Famalicão'], ['valongo', 'Valongo', 'Valongo'], ['sao-joao-da-madeira', 'São João da Madeira', 'São João da Madeira']]
+          }),
+          field('role', 'Função pretendida', 'Position', 'select', true, { placeholder: ['Selecione a função', 'Select a position'], options: JOB_ROLES, wide: true }),
+          field('cv', 'Currículo (CV)', 'CV / Résumé', 'file', true, {
+            accept: '.pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            maxBytes: 5 * 1024 * 1024, wide: true,
+            help: ['PDF ou DOCX · Máximo de 5 MB', 'PDF or DOCX · Maximum 5 MB']
+          }),
+          field('message', 'Mensagem de apresentação (opcional)', 'Cover message (optional)', 'textarea', false, { max: 4000 })
+        ]
+      },
       builtByBest: {
         recipientKey: 'builtByBestRecipient', title: 'Built By Best',
         submit: ['Enviar candidatura', 'Submit application'],
